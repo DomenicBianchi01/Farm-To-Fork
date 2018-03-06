@@ -8,22 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		B03C07C82033BDE2001A54C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03C07C72033BDE2001A54C6 /* AppDelegate.swift */; };
-		B03C07CA2033BDE2001A54C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03C07C92033BDE2001A54C6 /* ViewController.swift */; };
+		B03C07CA2033BDE2001A54C6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03C07C92033BDE2001A54C6 /* LoginViewController.swift */; };
 		B03C07CD2033BDE2001A54C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B03C07CB2033BDE2001A54C6 /* Main.storyboard */; };
 		B03C07D02033BDE2001A54C6 /* Farm_To_Fork.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B03C07CE2033BDE2001A54C6 /* Farm_To_Fork.xcdatamodeld */; };
 		B03C07D22033BDE2001A54C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B03C07D12033BDE2001A54C6 /* Assets.xcassets */; };
 		B03C07D52033BDE2001A54C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B03C07D32033BDE2001A54C6 /* LaunchScreen.storyboard */; };
+		B0FEBC86204E3E3600982EAE /* TableViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FEBC85204E3E3600982EAE /* TableViewModelable.swift */; };
+		B0FEBC88204E3EBF00982EAE /* Interactable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FEBC87204E3EBF00982EAE /* Interactable.swift */; };
+		B0FEBC8B204E3F0B00982EAE /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FEBC8A204E3F0B00982EAE /* Result.swift */; };
+		B0FEBC8D204E3FF200982EAE /* JSONDataProvidable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FEBC8C204E3FF200982EAE /* JSONDataProvidable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B03C07C42033BDE2001A54C6 /* Farm To Fork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Farm To Fork.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B03C07C72033BDE2001A54C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B03C07C92033BDE2001A54C6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B03C07C92033BDE2001A54C6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B03C07CC2033BDE2001A54C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B03C07CF2033BDE2001A54C6 /* Farm_To_Fork.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Farm_To_Fork.xcdatamodel; sourceTree = "<group>"; };
 		B03C07D12033BDE2001A54C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B03C07D42033BDE2001A54C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B03C07D62033BDE2001A54C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0FEBC85204E3E3600982EAE /* TableViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModelable.swift; sourceTree = "<group>"; };
+		B0FEBC87204E3EBF00982EAE /* Interactable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactable.swift; sourceTree = "<group>"; };
+		B0FEBC8A204E3F0B00982EAE /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		B0FEBC8C204E3FF200982EAE /* JSONDataProvidable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDataProvidable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +64,12 @@
 		B03C07C62033BDE2001A54C6 /* Farm To Fork */ = {
 			isa = PBXGroup;
 			children = (
+				B0FEBC89204E3EED00982EAE /* Utilities */,
+				B0FEBC83204E3DF000982EAE /* Views */,
+				B0FEBC80204E3DDC00982EAE /* DataProvider */,
+				B0FEBC7E204E3DCC00982EAE /* Interactors */,
+				B0FEBC7D204E3DC300982EAE /* ViewModels */,
 				B03C07C72033BDE2001A54C6 /* AppDelegate.swift */,
-				B03C07C92033BDE2001A54C6 /* ViewController.swift */,
 				B03C07CB2033BDE2001A54C6 /* Main.storyboard */,
 				B03C07D12033BDE2001A54C6 /* Assets.xcassets */,
 				B03C07D32033BDE2001A54C6 /* LaunchScreen.storyboard */,
@@ -65,6 +77,78 @@
 				B03C07CE2033BDE2001A54C6 /* Farm_To_Fork.xcdatamodeld */,
 			);
 			path = "Farm To Fork";
+			sourceTree = "<group>";
+		};
+		B0FEBC7D204E3DC300982EAE /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B0FEBC85204E3E3600982EAE /* TableViewModelable.swift */,
+				B0FEBC82204E3DE900982EAE /* Implementations */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B0FEBC7E204E3DCC00982EAE /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				B0FEBC87204E3EBF00982EAE /* Interactable.swift */,
+				B0FEBC7F204E3DD100982EAE /* Implementations */,
+			);
+			path = Interactors;
+			sourceTree = "<group>";
+		};
+		B0FEBC7F204E3DD100982EAE /* Implementations */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Implementations;
+			sourceTree = "<group>";
+		};
+		B0FEBC80204E3DDC00982EAE /* DataProvider */ = {
+			isa = PBXGroup;
+			children = (
+				B0FEBC8C204E3FF200982EAE /* JSONDataProvidable.swift */,
+				B0FEBC81204E3DE200982EAE /* Implementations */,
+			);
+			path = DataProvider;
+			sourceTree = "<group>";
+		};
+		B0FEBC81204E3DE200982EAE /* Implementations */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Implementations;
+			sourceTree = "<group>";
+		};
+		B0FEBC82204E3DE900982EAE /* Implementations */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Implementations;
+			sourceTree = "<group>";
+		};
+		B0FEBC83204E3DF000982EAE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B0FEBC84204E3E0200982EAE /* Login */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B0FEBC84204E3E0200982EAE /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B03C07C92033BDE2001A54C6 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		B0FEBC89204E3EED00982EAE /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				B0FEBC8A204E3F0B00982EAE /* Result.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,9 +223,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B03C07CA2033BDE2001A54C6 /* ViewController.swift in Sources */,
+				B0FEBC8B204E3F0B00982EAE /* Result.swift in Sources */,
+				B0FEBC8D204E3FF200982EAE /* JSONDataProvidable.swift in Sources */,
+				B03C07CA2033BDE2001A54C6 /* LoginViewController.swift in Sources */,
 				B03C07D02033BDE2001A54C6 /* Farm_To_Fork.xcdatamodeld in Sources */,
 				B03C07C82033BDE2001A54C6 /* AppDelegate.swift in Sources */,
+				B0FEBC86204E3E3600982EAE /* TableViewModelable.swift in Sources */,
+				B0FEBC88204E3EBF00982EAE /* Interactable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +368,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Farm To Fork/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.domenic-and-marshall.Farm-To-Fork";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -294,6 +383,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Farm To Fork/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.domenic-and-marshall.Farm-To-Fork";
 				PRODUCT_NAME = "$(TARGET_NAME)";

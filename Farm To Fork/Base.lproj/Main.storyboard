@@ -1,24 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="Farm_To_Fork" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash" translatesAutoresizingMaskIntoConstraints="NO" id="X5h-bl-LFO">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FarmToForkLogo" translatesAutoresizingMaskIntoConstraints="NO" id="zh2-0c-E6A">
+                                <rect key="frame" x="127" y="20" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="GNW-CX-zmk"/>
+                                    <constraint firstAttribute="height" constant="120" id="LrQ-a5-ja6"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ezk-z7-ZfG">
+                                <rect key="frame" x="74.5" y="225" width="225" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="225" id="a6C-mR-O8k"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pmJ-Bh-BGm">
+                                <rect key="frame" x="142.5" y="281" width="90" height="30"/>
+                                <color key="backgroundColor" red="0.61266798200617134" green="0.68190126409581231" blue="0.35053777494421567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="zFU-dL-xBN"/>
+                                </constraints>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="cornerRadius" value="5"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="loginButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ctm-Qb-6ms"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g6H-Aq-7Wa">
+                                <rect key="frame" x="74.5" y="171" width="225" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="225" id="0NB-V9-2Tw"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="toi-1t-fjy">
+                                <rect key="frame" x="142.5" y="340" width="90" height="30"/>
+                                <color key="backgroundColor" red="0.61266798200000006" green="0.68190126409999996" blue="0.35053777489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="E3F-HV-8Xx"/>
+                                </constraints>
+                                <state key="normal" title="Register">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="cornerRadius" value="5"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="registerButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EID-Ho-zoH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="X5h-bl-LFO" firstAttribute="centerX" secondItem="pmJ-Bh-BGm" secondAttribute="centerX" id="2Xw-IO-BiH"/>
+                            <constraint firstItem="g6H-Aq-7Wa" firstAttribute="top" secondItem="zh2-0c-E6A" secondAttribute="bottom" constant="31" id="Iov-uc-ORz"/>
+                            <constraint firstItem="ezk-z7-ZfG" firstAttribute="top" secondItem="g6H-Aq-7Wa" secondAttribute="bottom" constant="24" id="L7n-2Z-qiL"/>
+                            <constraint firstItem="X5h-bl-LFO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Lyx-8i-iYx"/>
+                            <constraint firstAttribute="trailing" secondItem="X5h-bl-LFO" secondAttribute="trailing" id="Pmf-n7-XjX"/>
+                            <constraint firstItem="X5h-bl-LFO" firstAttribute="centerX" secondItem="g6H-Aq-7Wa" secondAttribute="centerX" id="Qz1-mU-ElL"/>
+                            <constraint firstItem="X5h-bl-LFO" firstAttribute="centerX" secondItem="ezk-z7-ZfG" secondAttribute="centerX" id="X3e-9p-3Qm"/>
+                            <constraint firstItem="pmJ-Bh-BGm" firstAttribute="top" secondItem="ezk-z7-ZfG" secondAttribute="bottom" constant="26" id="e02-ed-bWd"/>
+                            <constraint firstItem="zh2-0c-E6A" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="l1f-yb-t01"/>
+                            <constraint firstItem="toi-1t-fjy" firstAttribute="top" secondItem="pmJ-Bh-BGm" secondAttribute="bottom" constant="29" id="piK-Oe-YwN"/>
+                            <constraint firstItem="zh2-0c-E6A" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="r97-xl-c42"/>
+                            <constraint firstItem="X5h-bl-LFO" firstAttribute="centerX" secondItem="toi-1t-fjy" secondAttribute="centerX" id="tot-Vk-noc"/>
+                            <constraint firstItem="X5h-bl-LFO" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="wHN-Mi-0mV"/>
+                            <constraint firstItem="X5h-bl-LFO" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="znz-52-2ax"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="passwordTextField" destination="ezk-z7-ZfG" id="iyS-ke-IQL"/>
+                        <outlet property="usernameTextField" destination="g6H-Aq-7Wa" id="XWm-Pr-8yc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="37.600000000000001" y="33.733133433283363"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="FarmToForkLogo" width="216" height="216"/>
+        <image name="Splash" width="960" height="640"/>
+    </resources>
+    <color key="tintColor" red="0.011724925708520503" green="0.59811215185676392" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
