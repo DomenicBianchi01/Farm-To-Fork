@@ -10,7 +10,6 @@ import UIKit
 import TextFieldEffects
 
 final class RegisterLocationViewController: UIViewController {
-
     // MARK: - IBOutlets
     @IBOutlet var countryTextField: IsaoTextField!
     @IBOutlet var provinceTextField: IsaoTextField!
@@ -38,7 +37,7 @@ final class RegisterLocationViewController: UIViewController {
         let cityPickerView = UIPickerView()
         cityPickerView.tag = 3
         cityPickerView.delegate = self
-        provinceTextField.inputView = cityPickerView
+        cityTextField.inputView = cityPickerView
         
         backButton.layer.borderColor = UIColor.white.cgColor
         registerButton.layer.borderColor = UIColor.white.cgColor
@@ -47,7 +46,22 @@ final class RegisterLocationViewController: UIViewController {
 
 // MARK: - UIPickerViewDelegate
 extension RegisterLocationViewController: UIPickerViewDelegate {
-    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        guard let pickerType = RegisterLocationViewModel.PickerType(rawValue: pickerView.tag) else {
+            return
+        }
+        
+        let selectionName = viewModel.title(for: row, in: component, for: pickerType)
+        
+        switch pickerType {
+        case .country:
+            countryTextField.text = selectionName
+        case .province:
+            provinceTextField.text = selectionName
+        case .city:
+            cityTextField.text = selectionName
+        }
+    }
 }
 
 // MARK: - UIPickerViewDataSource

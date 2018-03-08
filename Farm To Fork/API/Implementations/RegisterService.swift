@@ -17,7 +17,7 @@ struct RegisterService {
         JSONDataService.fetchData(from: "https://farmtofork.marshallasch.ca/api.php/2.0/location/countries", using: [String : String].self) { result in
             switch result {
             case .success(let dictionary):
-                completion(.success(dictionary.values.map({ String($0) })))
+                completion(.success(dictionary.values.map({ String($0) }).sorted()))
             case .error(let error):
                 completion(.error(error))
                 break

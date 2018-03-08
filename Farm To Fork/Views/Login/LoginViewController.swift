@@ -9,8 +9,6 @@
 import UIKit
 import TextFieldEffects
 
-//***TODO: ARE WE SUPPORTING PRIOR VERSIONS OF IOS? (ASK DAN!)***
-
 final class LoginViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet private var usernameTextField: UITextField!
@@ -40,10 +38,6 @@ final class LoginViewController: UIViewController {
     // MARK: - IBActions
     @IBAction func loginButtonTapped(_ sender: Any) {
         attemptLogin()
-    }
-    
-    @IBAction func registerButtonTapped(_ sender: Any) {
-        
     }
     
     @IBAction func unwindToViewController(segue: UIStoryboardSegue) {}

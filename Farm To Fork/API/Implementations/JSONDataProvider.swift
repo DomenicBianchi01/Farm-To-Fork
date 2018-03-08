@@ -25,7 +25,7 @@ struct JSONDataService {
         do {
             let jsonString = try String(contentsOf: url, encoding: .ascii)
             if let jsonData = jsonString.data(using: .utf8) {
-                let json = try! JSONDecoder().decode(type, from: jsonData)
+                let json = try JSONDecoder().decode(type, from: jsonData)
                 completion(.success(json))
                 return
             }

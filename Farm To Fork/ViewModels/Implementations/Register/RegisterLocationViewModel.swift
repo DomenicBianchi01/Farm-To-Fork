@@ -22,6 +22,7 @@ final class RegisterLocationViewModel {
         case city
     }
     
+    // MARK: - Lifecycle Functions
     init() {
         registerService.fetchCountries { result in
             switch result {
@@ -33,6 +34,7 @@ final class RegisterLocationViewModel {
         }
     }
     
+    // MARK: - Helper Functions
     var numberOfComponents: Int {
         return 1
     }

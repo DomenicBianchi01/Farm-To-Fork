@@ -101,7 +101,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="registerButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EID-Ho-zoH"/>
                                     <segue destination="O7p-5E-6Wd" kind="custom" customClass="RegisterAccountSegue" customModule="Farm_To_Fork" customModuleProvider="target" id="vSV-8S-dbC"/>
                                 </connections>
                             </button>
@@ -421,7 +420,6 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.67140568089999997" green="1" blue="0.6546127544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Rjp-5d-DQ8" firstAttribute="top" secondItem="g71-wM-Gxa" secondAttribute="top" constant="21" id="6kV-Bw-spG"/>
                             <constraint firstItem="A45-ar-tlB" firstAttribute="top" secondItem="ecR-ri-u5B" secondAttribute="bottom" constant="16" id="70x-ZW-Iug"/>

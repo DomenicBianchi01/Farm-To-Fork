@@ -28,8 +28,6 @@
 		B0F133F520517D12000187BA /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F133F420517D12000187BA /* RegisterService.swift */; };
 		B0F133F7205182C8000187BA /* RegisterLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F133F6205182C8000187BA /* RegisterLocationViewController.swift */; };
 		B0F133FA2051B2B2000187BA /* RegisterLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F133F92051B2B2000187BA /* RegisterLocationViewModel.swift */; };
-		B0F133FC2051B2CF000187BA /* PickerViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F133FB2051B2CF000187BA /* PickerViewModelable.swift */; };
-		B0F134002051B5A3000187BA /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F133FF2051B5A3000187BA /* Countries.swift */; };
 		B0FEBC86204E3E3600982EAE /* TableViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FEBC85204E3E3600982EAE /* TableViewModelable.swift */; };
 		B0FEBC8B204E3F0B00982EAE /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FEBC8A204E3F0B00982EAE /* Result.swift */; };
 		B0FEBC8D204E3FF200982EAE /* JSONDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FEBC8C204E3FF200982EAE /* JSONDataProvider.swift */; };
@@ -60,8 +58,6 @@
 		B0F133F420517D12000187BA /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
 		B0F133F6205182C8000187BA /* RegisterLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterLocationViewController.swift; sourceTree = "<group>"; };
 		B0F133F92051B2B2000187BA /* RegisterLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterLocationViewModel.swift; sourceTree = "<group>"; };
-		B0F133FB2051B2CF000187BA /* PickerViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewModelable.swift; sourceTree = "<group>"; };
-		B0F133FF2051B5A3000187BA /* Countries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
 		B0FEBC85204E3E3600982EAE /* TableViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModelable.swift; sourceTree = "<group>"; };
 		B0FEBC8A204E3F0B00982EAE /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		B0FEBC8C204E3FF200982EAE /* JSONDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDataProvider.swift; sourceTree = "<group>"; };
@@ -182,7 +178,6 @@
 		B0F133FE2051B598000187BA /* JSON */ = {
 			isa = PBXGroup;
 			children = (
-				B0F133FF2051B5A3000187BA /* Countries.swift */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -191,7 +186,6 @@
 			isa = PBXGroup;
 			children = (
 				B0FEBC85204E3E3600982EAE /* TableViewModelable.swift */,
-				B0F133FB2051B2CF000187BA /* PickerViewModelable.swift */,
 				B0FEBC82204E3DE900982EAE /* Implementations */,
 			);
 			path = ViewModels;
@@ -381,7 +375,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0F134002051B5A3000187BA /* Countries.swift in Sources */,
 				B0F133FA2051B2B2000187BA /* RegisterLocationViewModel.swift in Sources */,
 				B0FEBC8B204E3F0B00982EAE /* Result.swift in Sources */,
 				B0FEBC8D204E3FF200982EAE /* JSONDataProvider.swift in Sources */,
@@ -393,7 +386,6 @@
 				B0CD0EAD20507D2500FBE902 /* UnwindRegisterAccountSegue.swift in Sources */,
 				B0CD0EAB205078AA00FBE902 /* RegisterViewController.swift in Sources */,
 				B0CD0EA620506F1B00FBE902 /* RegisterAccountSegue.swift in Sources */,
-				B0F133FC2051B2CF000187BA /* PickerViewModelable.swift in Sources */,
 				B00F9C16204F8D8100C5BC03 /* User.swift in Sources */,
 				B0F133F7205182C8000187BA /* RegisterLocationViewController.swift in Sources */,
 				B00F9C14204F8B2500C5BC03 /* LoginViewModel.swift in Sources */,
@@ -476,7 +468,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -527,7 +519,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
