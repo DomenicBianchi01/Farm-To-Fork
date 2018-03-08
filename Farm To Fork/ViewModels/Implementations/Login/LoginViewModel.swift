@@ -13,14 +13,14 @@ final class LoginViewModel {
     private var user = User()
     
     // MARK: - Helper Functions
-    func attemptLogin(with completion: @escaping (Result<Bool>) -> Void) {
+    func attemptLogin(with completion: @escaping (Result<Void>) -> Void) {
         LoginService().login(user: user) { result in
             completion(result)
         }
     }
     
-    func updateUsername(username: String) {
-        user.username = username
+    func updateEmail(email: String) {
+        user.email = email
     }
     
     func updatePassword(password: String) {

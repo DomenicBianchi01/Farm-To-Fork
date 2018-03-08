@@ -11,6 +11,6 @@ import UIKit
 
 protocol TableViewModelable {
     var numberOfSections: Int { get }
-    func numberOfRows(in section: Int)
+    func numberOfRows(in section: Int) -> Int
     func cellForRow(in tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell
 }

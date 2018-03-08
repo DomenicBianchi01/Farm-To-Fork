@@ -24,6 +24,12 @@
 		B0CD0EAB205078AA00FBE902 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD0EAA205078AA00FBE902 /* RegisterViewController.swift */; };
 		B0CD0EAD20507D2500FBE902 /* UnwindRegisterAccountSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD0EAC20507D2500FBE902 /* UnwindRegisterAccountSegue.swift */; };
 		B0DF8B5620500FF100AD2539 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DF8B5520500FF100AD2539 /* LoginService.swift */; };
+		B0F133F320517C12000187BA /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F133F220517C12000187BA /* StringExtensions.swift */; };
+		B0F133F520517D12000187BA /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F133F420517D12000187BA /* RegisterService.swift */; };
+		B0F133F7205182C8000187BA /* RegisterLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F133F6205182C8000187BA /* RegisterLocationViewController.swift */; };
+		B0F133FA2051B2B2000187BA /* RegisterLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F133F92051B2B2000187BA /* RegisterLocationViewModel.swift */; };
+		B0F133FC2051B2CF000187BA /* PickerViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F133FB2051B2CF000187BA /* PickerViewModelable.swift */; };
+		B0F134002051B5A3000187BA /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F133FF2051B5A3000187BA /* Countries.swift */; };
 		B0FEBC86204E3E3600982EAE /* TableViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FEBC85204E3E3600982EAE /* TableViewModelable.swift */; };
 		B0FEBC8B204E3F0B00982EAE /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FEBC8A204E3F0B00982EAE /* Result.swift */; };
 		B0FEBC8D204E3FF200982EAE /* JSONDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FEBC8C204E3FF200982EAE /* JSONDataProvider.swift */; };
@@ -50,6 +56,12 @@
 		B0CD0EAA205078AA00FBE902 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B0CD0EAC20507D2500FBE902 /* UnwindRegisterAccountSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnwindRegisterAccountSegue.swift; sourceTree = "<group>"; };
 		B0DF8B5520500FF100AD2539 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		B0F133F220517C12000187BA /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		B0F133F420517D12000187BA /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
+		B0F133F6205182C8000187BA /* RegisterLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterLocationViewController.swift; sourceTree = "<group>"; };
+		B0F133F92051B2B2000187BA /* RegisterLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterLocationViewModel.swift; sourceTree = "<group>"; };
+		B0F133FB2051B2CF000187BA /* PickerViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewModelable.swift; sourceTree = "<group>"; };
+		B0F133FF2051B5A3000187BA /* Countries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
 		B0FEBC85204E3E3600982EAE /* TableViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModelable.swift; sourceTree = "<group>"; };
 		B0FEBC8A204E3F0B00982EAE /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		B0FEBC8C204E3FF200982EAE /* JSONDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDataProvider.swift; sourceTree = "<group>"; };
@@ -115,6 +127,7 @@
 		B03C07C62033BDE2001A54C6 /* Farm To Fork */ = {
 			isa = PBXGroup;
 			children = (
+				B0F133FD2051B4EB000187BA /* Extensions */,
 				B0CD0EA420506ED700FBE902 /* Custom Segues */,
 				B0FEBC89204E3EED00982EAE /* Utilities */,
 				B0FEBC83204E3DF000982EAE /* Views */,
@@ -143,14 +156,42 @@
 			isa = PBXGroup;
 			children = (
 				B0CD0EAA205078AA00FBE902 /* RegisterViewController.swift */,
+				B0F133F6205182C8000187BA /* RegisterLocationViewController.swift */,
 			);
 			path = Register;
+			sourceTree = "<group>";
+		};
+		B0F133F82051B28D000187BA /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				B0F133F92051B2B2000187BA /* RegisterLocationViewModel.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		B0F133FD2051B4EB000187BA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B02A024320501BC100ABB4F9 /* ErrorExtensions.swift */,
+				B02A024520501DB900ABB4F9 /* UIViewExtensions.swift */,
+				B0F133F220517C12000187BA /* StringExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B0F133FE2051B598000187BA /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				B0F133FF2051B5A3000187BA /* Countries.swift */,
+			);
+			path = JSON;
 			sourceTree = "<group>";
 		};
 		B0FEBC7D204E3DC300982EAE /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
 				B0FEBC85204E3E3600982EAE /* TableViewModelable.swift */,
+				B0F133FB2051B2CF000187BA /* PickerViewModelable.swift */,
 				B0FEBC82204E3DE900982EAE /* Implementations */,
 			);
 			path = ViewModels;
@@ -159,6 +200,7 @@
 		B0FEBC80204E3DDC00982EAE /* API */ = {
 			isa = PBXGroup;
 			children = (
+				B0F133FE2051B598000187BA /* JSON */,
 				B0FEBC81204E3DE200982EAE /* Implementations */,
 			);
 			path = API;
@@ -169,6 +211,7 @@
 			children = (
 				B0FEBC8C204E3FF200982EAE /* JSONDataProvider.swift */,
 				B0DF8B5520500FF100AD2539 /* LoginService.swift */,
+				B0F133F420517D12000187BA /* RegisterService.swift */,
 			);
 			path = Implementations;
 			sourceTree = "<group>";
@@ -176,6 +219,7 @@
 		B0FEBC82204E3DE900982EAE /* Implementations */ = {
 			isa = PBXGroup;
 			children = (
+				B0F133F82051B28D000187BA /* Register */,
 				B02A024220501AF100ABB4F9 /* Login */,
 			);
 			path = Implementations;
@@ -204,8 +248,6 @@
 			children = (
 				B0FEBC8A204E3F0B00982EAE /* Result.swift */,
 				B02A024020501A7100ABB4F9 /* RequestType.swift */,
-				B02A024320501BC100ABB4F9 /* ErrorExtensions.swift */,
-				B02A024520501DB900ABB4F9 /* UIViewExtensions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -339,22 +381,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0F134002051B5A3000187BA /* Countries.swift in Sources */,
+				B0F133FA2051B2B2000187BA /* RegisterLocationViewModel.swift in Sources */,
 				B0FEBC8B204E3F0B00982EAE /* Result.swift in Sources */,
 				B0FEBC8D204E3FF200982EAE /* JSONDataProvider.swift in Sources */,
 				B03C07CA2033BDE2001A54C6 /* LoginViewController.swift in Sources */,
 				B03C07D02033BDE2001A54C6 /* Farm_To_Fork.xcdatamodeld in Sources */,
 				B02A024420501BC100ABB4F9 /* ErrorExtensions.swift in Sources */,
 				B0DF8B5620500FF100AD2539 /* LoginService.swift in Sources */,
+				B0F133F520517D12000187BA /* RegisterService.swift in Sources */,
 				B0CD0EAD20507D2500FBE902 /* UnwindRegisterAccountSegue.swift in Sources */,
 				B0CD0EAB205078AA00FBE902 /* RegisterViewController.swift in Sources */,
 				B0CD0EA620506F1B00FBE902 /* RegisterAccountSegue.swift in Sources */,
+				B0F133FC2051B2CF000187BA /* PickerViewModelable.swift in Sources */,
 				B00F9C16204F8D8100C5BC03 /* User.swift in Sources */,
+				B0F133F7205182C8000187BA /* RegisterLocationViewController.swift in Sources */,
 				B00F9C14204F8B2500C5BC03 /* LoginViewModel.swift in Sources */,
 				B02A024120501A7100ABB4F9 /* RequestType.swift in Sources */,
 				B03C07C82033BDE2001A54C6 /* AppDelegate.swift in Sources */,
 				B02A024620501DB900ABB4F9 /* UIViewExtensions.swift in Sources */,
 				B0FEBC86204E3E3600982EAE /* TableViewModelable.swift in Sources */,
 				B0CD0EA82050716F00FBE902 /* WallpaperWindow.swift in Sources */,
+				B0F133F320517C12000187BA /* StringExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

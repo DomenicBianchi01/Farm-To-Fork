@@ -10,7 +10,7 @@ import UIKit
 import TextFieldEffects
 
 final class RegisterViewController: UIViewController {
-    // MARK: - IBActions
+    // MARK: - IBOutlets
     @IBOutlet var continueButton: UIButton!
     @IBOutlet var backButton: UIButton!
     @IBOutlet var firstNameTextField: IsaoTextField!

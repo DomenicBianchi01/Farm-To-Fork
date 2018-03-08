@@ -9,16 +9,16 @@
 import Foundation
 
 struct LoginService {
-    func login(user: User, with completion: @escaping (Result<Bool>) -> Void) {
+    func login(user: User, with completion: @escaping (Result<Void>) -> Void) {
         guard let url = URL(string: "https://farmtofork.marshallasch.ca/api.php/2.0/user/login") else {
             return
         }
         
-        let body = ["Email" : user.username,
+        let body = ["Email" : user.email,
                     "pass" : user.password]
         
         var request = URLRequest(url: url)
-        request.httpMethod = "POST"
+        request.httpMethod = RequestType.post.rawValue
         
         let httpBody = try? JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
         request.httpBody = httpBody
@@ -36,6 +36,8 @@ struct LoginService {
                         responseStatusCode = response.statusCode
                     }
                     completion(.error(NSError(domain: error, code: responseStatusCode, userInfo: nil)))
+                } else if let success = json?["success"]?.asBool, success {
+                    completion(.success(()))
                 }
             } catch {
                 completion(.error(error))

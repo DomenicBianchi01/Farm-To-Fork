@@ -62,6 +62,7 @@ final class LoginViewController: UIViewController {
             UIView.animate(withDuration: 0.5) {
                 self.loginErrorLabel.alpha = 1.0
             }
+            
             self.usernameTextField.shake()
             self.passwordTextField.shake()
         }
@@ -91,7 +92,7 @@ extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         if textField == usernameTextField {
-            viewModel.updateUsername(username: textField.text ?? "")
+            viewModel.updateEmail(email: textField.text ?? "")
             passwordTextField.becomeFirstResponder()
         } else {
             viewModel.updatePassword(password: textField.text ?? "")

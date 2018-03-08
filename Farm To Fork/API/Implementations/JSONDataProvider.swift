@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct JSONDataProvider {
+struct JSONDataService {
     /**
      Fetch JSON data and parse it according to the `type` parameter in the function. In other words, the `url` must return JSON that maps to `type`.
      
@@ -25,13 +25,13 @@ struct JSONDataProvider {
         do {
             let jsonString = try String(contentsOf: url, encoding: .ascii)
             if let jsonData = jsonString.data(using: .utf8) {
-                let json = try JSONDecoder().decode(type, from: jsonData)
+                let json = try! JSONDecoder().decode(type, from: jsonData)
                 completion(.success(json))
                 return
             }
-        } catch {}
-        
-        completion(.error(DataError.invalidJSON))
+        } catch {
+            completion(.error(DataError.invalidJSON))
+        }
     }
 }
 
