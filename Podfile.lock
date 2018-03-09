@@ -1,12 +1,12 @@
 PODS:
-  - TextFieldEffects (1.4.0)
+  - MaterialTextField (0.2.1)
 
 DEPENDENCIES:
-  - TextFieldEffects
+  - MaterialTextField
 
 SPEC CHECKSUMS:
-  TextFieldEffects: 4ee41b5216e674d55fb6ac25107bf1af7629176f
+  MaterialTextField: f876a39d571eeece872af6a4da421e3bd065fe0b
 
-PODFILE CHECKSUM: 70f72085fdfc9a812c73a29d16ba69c9a0d01f79
+PODFILE CHECKSUM: 9c344a0c3879cce89383fb37abc3b457dbb38095
 
 COCOAPODS: 1.4.0

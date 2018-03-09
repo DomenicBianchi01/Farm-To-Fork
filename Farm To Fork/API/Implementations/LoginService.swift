@@ -6,42 +6,20 @@
 //  Copyright © 2018 Domenic Bianchi & Marshall Asch. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct LoginService {
     func login(user: User, with completion: @escaping (Result<Void>) -> Void) {
-        guard let url = URL(string: "https://farmtofork.marshallasch.ca/api.php/2.0/user/login") else {
-            return
-        }
-        
         let body = ["Email" : user.email,
                     "pass" : user.password]
         
-        var request = URLRequest(url: url)
-        request.httpMethod = RequestType.post.rawValue
-        
-        let httpBody = try? JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
-        request.httpBody = httpBody
-        
-        URLSession.shared.dataTask(with: request) { (data, response, error) in
-            guard let data = data else {
-                completion(.error(NSError(domain: "Error getting response", code: 0, userInfo: nil)))
-                return
-            }
-            do {
-                let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: String]
-                if let error = json?["error"] {
-                    var responseStatusCode = 0
-                    if let response = response as? HTTPURLResponse {
-                        responseStatusCode = response.statusCode
-                    }
-                    completion(.error(NSError(domain: error, code: responseStatusCode, userInfo: nil)))
-                } else if let success = json?["success"]?.asBool, success {
-                    completion(.success(()))
-                }
-            } catch {
+        JSONDataService().request(from: "https://farmtofork.marshallasch.ca/api.php/2.0/user/login", requestType: .post, body: body, expecting: [String : String].self) { result in
+            switch result {
+            case .success:
+                completion(.success(()))
+            case .error(let error):
                 completion(.error(error))
             }
-        }.resume()
+        }
     }
 }

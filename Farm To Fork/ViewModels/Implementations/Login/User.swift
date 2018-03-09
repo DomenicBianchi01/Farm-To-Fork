@@ -13,4 +13,7 @@ struct User {
     var lastName: String = ""
     var email: String = ""
     var password: String = ""
+    var country: (key: String, value: String) = (key: "", value: "")
+    var province: (key: String, value: String) = (key: "", value: "")
+    var city: (key: String, value: String) = (key: "", value: "")
 }

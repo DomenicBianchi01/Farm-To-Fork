@@ -9,15 +9,55 @@
 import Foundation
 
 struct RegisterService {
+    // MARK: - Properties
+    private let jsonDataService = JSONDataService()
+    private let locationUrlString = "https://farmtofork.marshallasch.ca/api.php/2.0/location/"
+    private let registerUrlString = "https://farmtofork.marshallasch.ca/api.php/2.0/user/register"
+    
+    // MARK: - Functions
+    
     func register(user: User, with completion: @escaping (Result<Void>) -> Void) {
+        let body: [String : Any] = ["Email" : user.email,
+                                    "pass" : user.password,
+                                    "FirstName" : user.firstName,
+                                    "LastName" : user.lastName,
+                                    "Address" : ["CityID" : user.city.key]]
         
+        jsonDataService.request(from: registerUrlString, requestType: .post, body: body, expecting: [String : String].self) { result in
+            switch result {
+            case .success:
+                completion(.success(()))
+            case .error(let error):
+                completion(.error(error))
+            }
+        }
     }
     
-    func fetchCountries(with completion: @escaping ((Result<[String]>) -> Void)) {
-        JSONDataService.fetchData(from: "https://farmtofork.marshallasch.ca/api.php/2.0/location/countries", using: [String : String].self) { result in
+    func fetchCountries(with completion: @escaping ((Result<[(key: String, value: String)]>) -> Void)) {
+        fetchData(from: "\(locationUrlString)countries") { result in
+            completion(result)
+        }
+    }
+    
+    func fetchProvinces(for countryCode: Int, with completion: @escaping ((Result<[(key: String, value: String)]>) -> Void)) {
+        fetchData(from: "\(locationUrlString)\(countryCode)/provinces") { result in
+            completion(result)
+        }
+    }
+    
+    func fetchCities(for provinceCode: Int, with completion: @escaping ((Result<[(key: String, value: String)]>) -> Void)) {
+        fetchData(from: "\(locationUrlString)\(provinceCode)/cities") { result in
+            completion(result)
+        }
+    }
+    
+    // MARK: - Private Helper Functions
+    private func fetchData(from urlString: String, with completion: @escaping ((Result<[(key: String, value: String)]>) -> Void)) {
+        jsonDataService.request(from: urlString, expecting: [String : String].self) { result in
             switch result {
             case .success(let dictionary):
-                completion(.success(dictionary.values.map({ String($0) }).sorted()))
+                let sortedCountries: [(key: String, value: String)] = dictionary.map({ ($0, $1) }).sorted(by: { $0.value < $1.value })
+               completion(.success(sortedCountries))
             case .error(let error):
                 completion(.error(error))
                 break

@@ -7,13 +7,13 @@
 //
 
 import UIKit
-import TextFieldEffects
+import MaterialTextField
 
 final class RegisterLocationViewController: UIViewController {
     // MARK: - IBOutlets
-    @IBOutlet var countryTextField: IsaoTextField!
-    @IBOutlet var provinceTextField: IsaoTextField!
-    @IBOutlet var cityTextField: IsaoTextField!
+    @IBOutlet var countryTextField: MFTextField!
+    @IBOutlet var provinceTextField: MFTextField!
+    @IBOutlet var cityTextField: MFTextField!
     @IBOutlet var backButton: UIButton!
     @IBOutlet var registerButton: UIButton!
     
@@ -41,6 +41,48 @@ final class RegisterLocationViewController: UIViewController {
         
         backButton.layer.borderColor = UIColor.white.cgColor
         registerButton.layer.borderColor = UIColor.white.cgColor
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissFirstResponder))
+        view.addGestureRecognizer(tapRecognizer)
+        
+        viewModel.fetchCountries()
+    }
+    
+    override func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
+        let segue = UnwindRegisterAccountSegue(identifier: unwindSegue.identifier, source: unwindSegue.source, destination: unwindSegue.destination)
+        segue.perform()
+    }
+    
+    // MARK: - IBActions
+    @IBAction func registerButtonTapped(_ sender: Any) {
+        viewModel.registerUser { result in
+            switch result {
+            case .success():
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "unwindBackToLogin", sender: self)
+                }
+            case .error(let error):
+                self.displayErrorAlert(with: error.customDescription)
+            }
+        }
+    }
+    
+    // MARK: - Helper Functions
+    
+    /**
+     Display an error alert on the screen.
+     
+     - parameter message: The error message to be displayed on the alert
+     */
+    private func displayErrorAlert(with message: String) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            
+            alert.addAction(alertAction)
+            
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 }
 
@@ -55,10 +97,18 @@ extension RegisterLocationViewController: UIPickerViewDelegate {
         
         switch pickerType {
         case .country:
+            viewModel.fetchProvinces(for: row)
+            viewModel.updateUserCountry(to: row)
             countryTextField.text = selectionName
+            provinceTextField.text = nil
+            cityTextField.text = nil
         case .province:
+            viewModel.fetchCities(for: row)
+            viewModel.updateUserProvince(to: row)
             provinceTextField.text = selectionName
+            cityTextField.text = nil
         case .city:
+            viewModel.updateUserCity(to: row)
             cityTextField.text = selectionName
         }
     }

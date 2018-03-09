@@ -7,12 +7,12 @@
 //
 
 import UIKit
-import TextFieldEffects
+import MaterialTextField
 
 final class LoginViewController: UIViewController {
     // MARK: - IBOutlets
-    @IBOutlet private var usernameTextField: UITextField!
-    @IBOutlet private var passwordTextField: UITextField!
+    @IBOutlet private var usernameTextField: MFTextField!
+    @IBOutlet private var passwordTextField: MFTextField!
     @IBOutlet var loginButton: UIButton!
     @IBOutlet var registerButton: UIButton!
     @IBOutlet var loginErrorLabel: UILabel!
@@ -25,7 +25,7 @@ final class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         // A gesture recognizer that will dismiss the keyboard if the screen is tapped
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissFirstResponder))
         view.addGestureRecognizer(tapRecognizer)
         
         usernameTextField.delegate = self
@@ -37,6 +37,7 @@ final class LoginViewController: UIViewController {
 
     // MARK: - IBActions
     @IBAction func loginButtonTapped(_ sender: Any) {
+        resignFirstResponder()
         attemptLogin()
     }
     
@@ -62,20 +63,13 @@ final class LoginViewController: UIViewController {
         }
     }
     
-    /**
-     Dismiss the keyboard from the screen.
-     */
-    @objc private func dismissKeyboard() {
-        view.endEditing(true)
-    }
-    
     private func attemptLogin() {
         viewModel.attemptLogin() { result in
             switch result {
             case .success:
-                break //Segue to map (login successful)
+                self.performSegue(withIdentifier: "goToMapFromLogin", sender: self)
             case .error(let error):
-                self.displayErrorAlert(with: error.customDescription)
+                self.displayErrorAlert(with: error.description)
             }
         }
     }
@@ -93,5 +87,14 @@ extension LoginViewController: UITextFieldDelegate {
             attemptLogin()
         }
         return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.resignFirstResponder()
+        if textField == usernameTextField {
+            viewModel.updateEmail(email: textField.text ?? "")
+        } else {
+            viewModel.updatePassword(password: textField.text ?? "")
+        }
     }
 }

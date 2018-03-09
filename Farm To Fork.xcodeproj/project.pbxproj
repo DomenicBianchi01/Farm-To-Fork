@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		42C53CB3E76A75DC0051F220 /* Pods_Farm_To_Fork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0A9CF5A462CEA72738E915 /* Pods_Farm_To_Fork.framework */; };
+		B0039E112052B77E004662EA /* DataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0039E102052B77E004662EA /* DataError.swift */; };
 		B00F9C14204F8B2500C5BC03 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F9C13204F8B2500C5BC03 /* LoginViewModel.swift */; };
 		B00F9C16204F8D8100C5BC03 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F9C15204F8D8100C5BC03 /* User.swift */; };
 		B02A024120501A7100ABB4F9 /* RequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A024020501A7100ABB4F9 /* RequestType.swift */; };
@@ -19,6 +20,8 @@
 		B03C07D02033BDE2001A54C6 /* Farm_To_Fork.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B03C07CE2033BDE2001A54C6 /* Farm_To_Fork.xcdatamodeld */; };
 		B03C07D22033BDE2001A54C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B03C07D12033BDE2001A54C6 /* Assets.xcassets */; };
 		B03C07D52033BDE2001A54C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B03C07D32033BDE2001A54C6 /* LaunchScreen.storyboard */; };
+		B0ADAA1520520A2B00A0CD30 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ADAA1420520A2B00A0CD30 /* UIViewControllerExtensions.swift */; };
+		B0ADAA17205223D900A0CD30 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ADAA16205223D900A0CD30 /* RegisterViewModel.swift */; };
 		B0CD0EA620506F1B00FBE902 /* RegisterAccountSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD0EA520506F1B00FBE902 /* RegisterAccountSegue.swift */; };
 		B0CD0EA82050716F00FBE902 /* WallpaperWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD0EA72050716F00FBE902 /* WallpaperWindow.swift */; };
 		B0CD0EAB205078AA00FBE902 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD0EAA205078AA00FBE902 /* RegisterViewController.swift */; };
@@ -30,12 +33,13 @@
 		B0F133FA2051B2B2000187BA /* RegisterLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F133F92051B2B2000187BA /* RegisterLocationViewModel.swift */; };
 		B0FEBC86204E3E3600982EAE /* TableViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FEBC85204E3E3600982EAE /* TableViewModelable.swift */; };
 		B0FEBC8B204E3F0B00982EAE /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FEBC8A204E3F0B00982EAE /* Result.swift */; };
-		B0FEBC8D204E3FF200982EAE /* JSONDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FEBC8C204E3FF200982EAE /* JSONDataProvider.swift */; };
+		B0FEBC8D204E3FF200982EAE /* JSONDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FEBC8C204E3FF200982EAE /* JSONDataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5D0A9CF5A462CEA72738E915 /* Pods_Farm_To_Fork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Farm_To_Fork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6680688F97D90421833C5D80 /* Pods-Farm To Fork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Farm To Fork.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Farm To Fork/Pods-Farm To Fork.debug.xcconfig"; sourceTree = "<group>"; };
+		B0039E102052B77E004662EA /* DataError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataError.swift; sourceTree = "<group>"; };
 		B00F9C13204F8B2500C5BC03 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		B00F9C15204F8D8100C5BC03 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B02A024020501A7100ABB4F9 /* RequestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestType.swift; sourceTree = "<group>"; };
@@ -49,6 +53,8 @@
 		B03C07D12033BDE2001A54C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B03C07D42033BDE2001A54C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B03C07D62033BDE2001A54C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0ADAA1420520A2B00A0CD30 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		B0ADAA16205223D900A0CD30 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		B0CD0EA520506F1B00FBE902 /* RegisterAccountSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAccountSegue.swift; sourceTree = "<group>"; };
 		B0CD0EA72050716F00FBE902 /* WallpaperWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperWindow.swift; sourceTree = "<group>"; };
 		B0CD0EAA205078AA00FBE902 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -60,7 +66,7 @@
 		B0F133F92051B2B2000187BA /* RegisterLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterLocationViewModel.swift; sourceTree = "<group>"; };
 		B0FEBC85204E3E3600982EAE /* TableViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModelable.swift; sourceTree = "<group>"; };
 		B0FEBC8A204E3F0B00982EAE /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
-		B0FEBC8C204E3FF200982EAE /* JSONDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDataProvider.swift; sourceTree = "<group>"; };
+		B0FEBC8C204E3FF200982EAE /* JSONDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDataService.swift; sourceTree = "<group>"; };
 		CE90940C0A635A11042E6E8F /* Pods-Farm To Fork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Farm To Fork.release.xcconfig"; path = "Pods/Target Support Files/Pods-Farm To Fork/Pods-Farm To Fork.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -160,6 +166,7 @@
 		B0F133F82051B28D000187BA /* Register */ = {
 			isa = PBXGroup;
 			children = (
+				B0ADAA16205223D900A0CD30 /* RegisterViewModel.swift */,
 				B0F133F92051B2B2000187BA /* RegisterLocationViewModel.swift */,
 			);
 			path = Register;
@@ -170,6 +177,7 @@
 			children = (
 				B02A024320501BC100ABB4F9 /* ErrorExtensions.swift */,
 				B02A024520501DB900ABB4F9 /* UIViewExtensions.swift */,
+				B0ADAA1420520A2B00A0CD30 /* UIViewControllerExtensions.swift */,
 				B0F133F220517C12000187BA /* StringExtensions.swift */,
 			);
 			path = Extensions;
@@ -203,7 +211,7 @@
 		B0FEBC81204E3DE200982EAE /* Implementations */ = {
 			isa = PBXGroup;
 			children = (
-				B0FEBC8C204E3FF200982EAE /* JSONDataProvider.swift */,
+				B0FEBC8C204E3FF200982EAE /* JSONDataService.swift */,
 				B0DF8B5520500FF100AD2539 /* LoginService.swift */,
 				B0F133F420517D12000187BA /* RegisterService.swift */,
 			);
@@ -242,6 +250,7 @@
 			children = (
 				B0FEBC8A204E3F0B00982EAE /* Result.swift */,
 				B02A024020501A7100ABB4F9 /* RequestType.swift */,
+				B0039E102052B77E004662EA /* DataError.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -339,11 +348,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Farm To Fork/Pods-Farm To Fork-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
+				"${BUILT_PRODUCTS_DIR}/MaterialTextField/MaterialTextField.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialTextField.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -377,7 +386,7 @@
 			files = (
 				B0F133FA2051B2B2000187BA /* RegisterLocationViewModel.swift in Sources */,
 				B0FEBC8B204E3F0B00982EAE /* Result.swift in Sources */,
-				B0FEBC8D204E3FF200982EAE /* JSONDataProvider.swift in Sources */,
+				B0FEBC8D204E3FF200982EAE /* JSONDataService.swift in Sources */,
 				B03C07CA2033BDE2001A54C6 /* LoginViewController.swift in Sources */,
 				B03C07D02033BDE2001A54C6 /* Farm_To_Fork.xcdatamodeld in Sources */,
 				B02A024420501BC100ABB4F9 /* ErrorExtensions.swift in Sources */,
@@ -388,11 +397,14 @@
 				B0CD0EA620506F1B00FBE902 /* RegisterAccountSegue.swift in Sources */,
 				B00F9C16204F8D8100C5BC03 /* User.swift in Sources */,
 				B0F133F7205182C8000187BA /* RegisterLocationViewController.swift in Sources */,
+				B0ADAA1520520A2B00A0CD30 /* UIViewControllerExtensions.swift in Sources */,
 				B00F9C14204F8B2500C5BC03 /* LoginViewModel.swift in Sources */,
+				B0ADAA17205223D900A0CD30 /* RegisterViewModel.swift in Sources */,
 				B02A024120501A7100ABB4F9 /* RequestType.swift in Sources */,
 				B03C07C82033BDE2001A54C6 /* AppDelegate.swift in Sources */,
 				B02A024620501DB900ABB4F9 /* UIViewExtensions.swift in Sources */,
 				B0FEBC86204E3E3600982EAE /* TableViewModelable.swift in Sources */,
+				B0039E112052B77E004662EA /* DataError.swift in Sources */,
 				B0CD0EA82050716F00FBE902 /* WallpaperWindow.swift in Sources */,
 				B0F133F320517C12000187BA /* StringExtensions.swift in Sources */,
 			);
