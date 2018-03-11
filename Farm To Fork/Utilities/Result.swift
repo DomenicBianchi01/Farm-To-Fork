@@ -8,8 +8,8 @@
 
 import Foundation
 
-/// A generic enum to include when using completion blocks in order to return values or errors.
 //https://www.sitepoint.com/improve-swift-closures-result/
+/// A generic enum to use in order to return values or errors from completion blocks.
 enum Result<T> {
     case success(T)
     case error(Error)

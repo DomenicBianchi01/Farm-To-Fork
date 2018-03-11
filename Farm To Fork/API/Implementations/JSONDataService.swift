@@ -32,7 +32,7 @@ class JSONDataService {
         var request = URLRequest(url: url)
         request.httpMethod = requestType.rawValue
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
-        request.timeoutInterval = 20
+        request.timeoutInterval = 15
         
         if let body = body {
             request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)

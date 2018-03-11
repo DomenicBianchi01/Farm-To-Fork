@@ -8,14 +8,15 @@
 
 import UIKit
 import MaterialTextField
+import Intents
 
 final class LoginViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet private var usernameTextField: MFTextField!
     @IBOutlet private var passwordTextField: MFTextField!
-    @IBOutlet var loginButton: UIButton!
-    @IBOutlet var registerButton: UIButton!
-    @IBOutlet var loginErrorLabel: UILabel!
+    @IBOutlet private var loginButton: UIButton!
+    @IBOutlet private var registerButton: UIButton!
+    @IBOutlet private var loginErrorLabel: UILabel!
     
     // MARK: - Properties
     private let viewModel = LoginViewModel()
@@ -67,9 +68,50 @@ final class LoginViewController: UIViewController {
         viewModel.attemptLogin() { result in
             switch result {
             case .success:
-                self.performSegue(withIdentifier: "goToMapFromLogin", sender: self)
+                self.viewModel.savePasswordToKeychain()
+                if self.viewModel.firstLogin {
+                    self.promptForLoginPreferences()
+                } else {
+                    self.performSegue(withIdentifier: "goToMapFromLogin", sender: self)
+                }
             case .error(let error):
                 self.displayErrorAlert(with: error.description)
+            }
+        }
+    }
+    
+    private func promptForLoginPreferences() {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "Login", message: "Would you like to be automatically logged in each time you open this app?", preferredStyle: .actionSheet)
+            let yesAction = UIAlertAction(title: "Yes!", style: .default) { _ in
+                self.viewModel.enableLoginPreference(.autoLogin)
+                self.promptForSiriKit()
+            }
+            let touchIdAction = UIAlertAction(title: "No, but enable Touch ID or Face ID", style: .default) { _ in
+                self.viewModel.enableLoginPreference(.touchIdOrFaceId)
+                self.promptForSiriKit()
+            }
+            let passwordAction = UIAlertAction(title: "No, I want to enter my password each time", style: .default) { _ in
+                self.viewModel.enableLoginPreference(.password)
+                self.promptForSiriKit()
+            }
+            
+            alert.addAction(yesAction)
+            alert.addAction(touchIdAction)
+            alert.addAction(passwordAction)
+            
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    private func promptForSiriKit() {
+        DispatchQueue.main.async {
+            if INPreferences.siriAuthorizationStatus() == .notDetermined {
+                INPreferences.requestSiriAuthorization() { _ in
+                    self.performSegue(withIdentifier: "goToMapFromLogin", sender: self)
+                }
+            } else {
+                self.performSegue(withIdentifier: "goToMapFromLogin", sender: self)
             }
         }
     }
@@ -80,10 +122,8 @@ extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         if textField == usernameTextField {
-            viewModel.updateEmail(email: textField.text ?? "")
             passwordTextField.becomeFirstResponder()
         } else {
-            viewModel.updatePassword(password: textField.text ?? "")
             attemptLogin()
         }
         return true

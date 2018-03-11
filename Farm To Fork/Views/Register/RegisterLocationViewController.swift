@@ -11,11 +11,11 @@ import MaterialTextField
 
 final class RegisterLocationViewController: UIViewController {
     // MARK: - IBOutlets
-    @IBOutlet var countryTextField: MFTextField!
-    @IBOutlet var provinceTextField: MFTextField!
-    @IBOutlet var cityTextField: MFTextField!
-    @IBOutlet var backButton: UIButton!
-    @IBOutlet var registerButton: UIButton!
+    @IBOutlet private var countryTextField: MFTextField!
+    @IBOutlet private var provinceTextField: MFTextField!
+    @IBOutlet private var cityTextField: MFTextField!
+    @IBOutlet private var backButton: UIButton!
+    @IBOutlet private var registerButton: UIButton!
     
     // MARK: - Properties
     let viewModel = RegisterLocationViewModel()
@@ -46,6 +46,8 @@ final class RegisterLocationViewController: UIViewController {
         view.addGestureRecognizer(tapRecognizer)
         
         viewModel.fetchCountries()
+        
+        //TODO: Reload picker views after all data has been fetched
     }
     
     override func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
@@ -94,6 +96,8 @@ extension RegisterLocationViewController: UIPickerViewDelegate {
         }
         
         let selectionName = viewModel.title(for: row, in: component, for: pickerType)
+        
+        //TODO: Reload picker views after all data has been fetched
         
         switch pickerType {
         case .country:

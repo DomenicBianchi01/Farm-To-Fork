@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gYn-Ei-7Vu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IOX-Hy-IRT">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -163,10 +163,10 @@
             </objects>
             <point key="canvasLocation" x="376.80000000000001" y="33.733133433283363"/>
         </scene>
-        <!--View Controller-->
+        <!--Farm To Fork-->
         <scene sceneID="lqM-gr-cld">
             <objects>
-                <viewController id="86S-uw-EdG" sceneMemberID="viewController">
+                <viewController id="86S-uw-EdG" customClass="MapViewController" customModule="Farm_To_Fork" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zuP-6n-aoz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -184,11 +184,45 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UEk-nC-M4c"/>
                     </view>
-                    <navigationItem key="navigationItem" id="us6-i7-B51"/>
+                    <navigationItem key="navigationItem" title="Farm To Fork" id="us6-i7-B51">
+                        <barButtonItem key="leftBarButtonItem" image="Checklist" id="nQe-HM-Bmd">
+                            <color key="tintColor" red="0.58097495640867347" green="0.64982592838196285" blue="0.33504829855732704" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="preferredLocationButtonTapped:" destination="86S-uw-EdG" id="1I9-IQ-PQV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G2l-lo-5Ot" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1132" y="768.66566716641682"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="TEv-cV-Sia">
+            <objects>
+                <viewController id="2Zr-tR-rE6" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vPm-cE-oHG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Pu9-2y-vhW">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Pu9-2y-vhW" secondAttribute="trailing" id="Cbb-wG-Fo0"/>
+                            <constraint firstItem="Pu9-2y-vhW" firstAttribute="leading" secondItem="vPm-cE-oHG" secondAttribute="leading" id="Dzj-U3-fFC"/>
+                            <constraint firstItem="Pu9-2y-vhW" firstAttribute="bottom" secondItem="vPm-cE-oHG" secondAttribute="bottom" id="LkH-9N-5Ks"/>
+                            <constraint firstItem="Pu9-2y-vhW" firstAttribute="top" secondItem="vPm-cE-oHG" secondAttribute="top" id="M4I-BN-nWy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="KGK-Bt-1zV"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rlE-r2-2Fj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1120.8" y="1448.7256371814094"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="yET-mG-rZ6">
@@ -585,6 +619,48 @@
             </objects>
             <point key="canvasLocation" x="1831.2" y="33.733133433283363"/>
         </scene>
+        <!--Startup View Controller-->
+        <scene sceneID="qTX-ay-RE8">
+            <objects>
+                <viewController id="IOX-Hy-IRT" customClass="StartupViewController" customModule="Farm_To_Fork" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PBe-cB-HwS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FarmToForkLogo" translatesAutoresizingMaskIntoConstraints="NO" id="bqQ-7I-aOc">
+                                <rect key="frame" x="101" y="247" width="172" height="172"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="172" id="htc-f5-jWn"/>
+                                    <constraint firstAttribute="width" constant="172" id="iKJ-z0-ZVu"/>
+                                </constraints>
+                            </imageView>
+                            <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MJn-CL-sZF">
+                                <rect key="frame" x="112" y="441" width="150" height="2"/>
+                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="Cvs-FG-epd"/>
+                                </constraints>
+                            </progressView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.73333333329999995" green="0.85098039219999999" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="MJn-CL-sZF" firstAttribute="centerX" secondItem="PBe-cB-HwS" secondAttribute="centerX" id="5f0-0w-i0r"/>
+                            <constraint firstItem="bqQ-7I-aOc" firstAttribute="centerX" secondItem="PBe-cB-HwS" secondAttribute="centerX" id="c0t-bC-k7r"/>
+                            <constraint firstItem="bqQ-7I-aOc" firstAttribute="centerY" secondItem="PBe-cB-HwS" secondAttribute="centerY" id="pFi-ba-G3N"/>
+                            <constraint firstItem="MJn-CL-sZF" firstAttribute="top" secondItem="bqQ-7I-aOc" secondAttribute="bottom" constant="22" id="tSB-ie-W9z"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zX6-VC-oTi"/>
+                    </view>
+                    <connections>
+                        <outlet property="progressView" destination="MJn-CL-sZF" id="MhR-ai-I0z"/>
+                        <segue destination="gYn-Ei-7Vu" kind="presentation" identifier="LoginStart" modalTransitionStyle="crossDissolve" id="mwq-0R-0Ax"/>
+                        <segue destination="WgC-qI-DoZ" kind="presentation" identifier="AutoLoginStart" id="ZbM-8H-XQK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OSf-Wn-cCA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1198" y="356"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="nFb-Gs-zZz">
             <objects>
@@ -624,7 +700,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Checklist" width="34" height="34"/>
         <image name="FarmToForkLogo" width="216" height="216"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ZbM-8H-XQK"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.73333333329999995" green="0.85098039219999999" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>

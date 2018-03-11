@@ -1,12 +1,15 @@
 PODS:
   - MaterialTextField (0.2.1)
+  - SwiftKeychainWrapper (3.0.1)
 
 DEPENDENCIES:
   - MaterialTextField
+  - SwiftKeychainWrapper
 
 SPEC CHECKSUMS:
   MaterialTextField: f876a39d571eeece872af6a4da421e3bd065fe0b
+  SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
 
-PODFILE CHECKSUM: 9c344a0c3879cce89383fb37abc3b457dbb38095
+PODFILE CHECKSUM: cb6dd1b192ae2aa166a4334c25ab5fd1a72a5798
 
 COCOAPODS: 1.4.0

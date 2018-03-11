@@ -11,13 +11,13 @@ import MaterialTextField
 
 final class RegisterViewController: UIViewController {
     // MARK: - IBOutlets
-    @IBOutlet var continueButton: UIButton!
-    @IBOutlet var backButton: UIButton!
-    @IBOutlet var firstNameTextField: MFTextField!
-    @IBOutlet var lastNameTextField: MFTextField!
-    @IBOutlet var emailTextField: MFTextField!
-    @IBOutlet var passwordTextField: MFTextField!
-    @IBOutlet var reenterTextField: MFTextField!
+    @IBOutlet private var continueButton: UIButton!
+    @IBOutlet private var backButton: UIButton!
+    @IBOutlet private var firstNameTextField: MFTextField!
+    @IBOutlet private var lastNameTextField: MFTextField!
+    @IBOutlet private var emailTextField: MFTextField!
+    @IBOutlet private var passwordTextField: MFTextField!
+    @IBOutlet private var reenterTextField: MFTextField!
     
     // MARK: - Properties
     private let viewModel = RegisterViewModel()

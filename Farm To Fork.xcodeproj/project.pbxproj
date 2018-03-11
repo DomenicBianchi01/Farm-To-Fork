@@ -8,20 +8,36 @@
 
 /* Begin PBXBuildFile section */
 		42C53CB3E76A75DC0051F220 /* Pods_Farm_To_Fork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0A9CF5A462CEA72738E915 /* Pods_Farm_To_Fork.framework */; };
-		B0039E112052B77E004662EA /* DataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0039E102052B77E004662EA /* DataError.swift */; };
 		B00F9C14204F8B2500C5BC03 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F9C13204F8B2500C5BC03 /* LoginViewModel.swift */; };
 		B00F9C16204F8D8100C5BC03 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F9C15204F8D8100C5BC03 /* User.swift */; };
+		B01E3D8920533D1F00106CA4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B01E3D8820533D1F00106CA4 /* MapKit.framework */; };
+		B01E3D8C2053405B00106CA4 /* StartupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01E3D8B2053405B00106CA4 /* StartupViewController.swift */; };
+		B01FA1E32054463600863E05 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01FA1E22054463600863E05 /* IntentHandler.swift */; };
+		B01FA1EB2054463600863E05 /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B01FA1EA2054463600863E05 /* IntentsUI.framework */; };
+		B01FA1EE2054463600863E05 /* IntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01FA1ED2054463600863E05 /* IntentViewController.swift */; };
+		B01FA1F12054463600863E05 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B01FA1EF2054463600863E05 /* MainInterface.storyboard */; };
+		B01FA1F52054463600863E05 /* NeedsSiriExtensionUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B01FA1E92054463600863E05 /* NeedsSiriExtensionUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B01FA1F82054463600863E05 /* NeedsSiriExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B01FA1E02054463600863E05 /* NeedsSiriExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B01FA205205460DF00863E05 /* AppIntentVocabulary.plist in Resources */ = {isa = PBXBuildFile; fileRef = B01FA203205460DF00863E05 /* AppIntentVocabulary.plist */; };
 		B02A024120501A7100ABB4F9 /* RequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A024020501A7100ABB4F9 /* RequestType.swift */; };
 		B02A024420501BC100ABB4F9 /* ErrorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A024320501BC100ABB4F9 /* ErrorExtensions.swift */; };
 		B02A024620501DB900ABB4F9 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A024520501DB900ABB4F9 /* UIViewExtensions.swift */; };
 		B03C07C82033BDE2001A54C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03C07C72033BDE2001A54C6 /* AppDelegate.swift */; };
 		B03C07CA2033BDE2001A54C6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03C07C92033BDE2001A54C6 /* LoginViewController.swift */; };
 		B03C07CD2033BDE2001A54C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B03C07CB2033BDE2001A54C6 /* Main.storyboard */; };
-		B03C07D02033BDE2001A54C6 /* Farm_To_Fork.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B03C07CE2033BDE2001A54C6 /* Farm_To_Fork.xcdatamodeld */; };
 		B03C07D22033BDE2001A54C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B03C07D12033BDE2001A54C6 /* Assets.xcassets */; };
 		B03C07D52033BDE2001A54C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B03C07D32033BDE2001A54C6 /* LaunchScreen.storyboard */; };
+		B077904520535BC60099AD1F /* StartupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B077904420535BC60099AD1F /* StartupViewModel.swift */; };
+		B077904720535D2A0099AD1F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B077904620535D2A0099AD1F /* Constants.swift */; };
+		B077904920535EF80099AD1F /* LoginPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = B077904820535EF80099AD1F /* LoginPreferences.swift */; };
 		B0ADAA1520520A2B00A0CD30 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ADAA1420520A2B00A0CD30 /* UIViewControllerExtensions.swift */; };
 		B0ADAA17205223D900A0CD30 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ADAA16205223D900A0CD30 /* RegisterViewModel.swift */; };
+		B0B3BFF32054BCD60074DF0D /* NeedsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B3BFF22054BCD60074DF0D /* NeedsService.swift */; };
+		B0B3BFF62054BD330074DF0D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B3BFF52054BD330074DF0D /* MapViewController.swift */; };
+		B0B3BFF92054BE450074DF0D /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B3BFF82054BE450074DF0D /* MapViewModel.swift */; };
+		B0B3BFFA2054C8AA0074DF0D /* NeedsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B3BFF22054BCD60074DF0D /* NeedsService.swift */; };
+		B0B3BFFB2054C90D0074DF0D /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FEBC8A204E3F0B00982EAE /* Result.swift */; };
+		B0B3BFFC2054C93B0074DF0D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B077904620535D2A0099AD1F /* Constants.swift */; };
 		B0CD0EA620506F1B00FBE902 /* RegisterAccountSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD0EA520506F1B00FBE902 /* RegisterAccountSegue.swift */; };
 		B0CD0EA82050716F00FBE902 /* WallpaperWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD0EA72050716F00FBE902 /* WallpaperWindow.swift */; };
 		B0CD0EAB205078AA00FBE902 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD0EAA205078AA00FBE902 /* RegisterViewController.swift */; };
@@ -36,12 +52,55 @@
 		B0FEBC8D204E3FF200982EAE /* JSONDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FEBC8C204E3FF200982EAE /* JSONDataService.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B01FA1F32054463600863E05 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B03C07BC2033BDE2001A54C6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B01FA1E82054463600863E05;
+			remoteInfo = NeedsSiriExtensionUI;
+		};
+		B01FA1F62054463600863E05 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B03C07BC2033BDE2001A54C6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B01FA1DF2054463600863E05;
+			remoteInfo = NeedsSiriExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B01FA1FF2054463600863E05 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B01FA1F52054463600863E05 /* NeedsSiriExtensionUI.appex in Embed App Extensions */,
+				B01FA1F82054463600863E05 /* NeedsSiriExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		5D0A9CF5A462CEA72738E915 /* Pods_Farm_To_Fork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Farm_To_Fork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6680688F97D90421833C5D80 /* Pods-Farm To Fork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Farm To Fork.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Farm To Fork/Pods-Farm To Fork.debug.xcconfig"; sourceTree = "<group>"; };
-		B0039E102052B77E004662EA /* DataError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataError.swift; sourceTree = "<group>"; };
 		B00F9C13204F8B2500C5BC03 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		B00F9C15204F8D8100C5BC03 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B01E3D8820533D1F00106CA4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		B01E3D8B2053405B00106CA4 /* StartupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupViewController.swift; sourceTree = "<group>"; };
+		B01FA1E02054463600863E05 /* NeedsSiriExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NeedsSiriExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		B01FA1E22054463600863E05 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		B01FA1E42054463600863E05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B01FA1E92054463600863E05 /* NeedsSiriExtensionUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NeedsSiriExtensionUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		B01FA1EA2054463600863E05 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
+		B01FA1ED2054463600863E05 /* IntentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentViewController.swift; sourceTree = "<group>"; };
+		B01FA1F02054463600863E05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		B01FA1F22054463600863E05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B01FA2002054468000863E05 /* Farm To Fork.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Farm To Fork.entitlements"; sourceTree = "<group>"; };
+		B01FA204205460DF00863E05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = "Farm To Fork/Base.lproj/AppIntentVocabulary.plist"; sourceTree = "<group>"; };
 		B02A024020501A7100ABB4F9 /* RequestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestType.swift; sourceTree = "<group>"; };
 		B02A024320501BC100ABB4F9 /* ErrorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorExtensions.swift; sourceTree = "<group>"; };
 		B02A024520501DB900ABB4F9 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
@@ -49,12 +108,17 @@
 		B03C07C72033BDE2001A54C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B03C07C92033BDE2001A54C6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B03C07CC2033BDE2001A54C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B03C07CF2033BDE2001A54C6 /* Farm_To_Fork.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Farm_To_Fork.xcdatamodel; sourceTree = "<group>"; };
 		B03C07D12033BDE2001A54C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B03C07D42033BDE2001A54C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B03C07D62033BDE2001A54C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B077904420535BC60099AD1F /* StartupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupViewModel.swift; sourceTree = "<group>"; };
+		B077904620535D2A0099AD1F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B077904820535EF80099AD1F /* LoginPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPreferences.swift; sourceTree = "<group>"; };
 		B0ADAA1420520A2B00A0CD30 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		B0ADAA16205223D900A0CD30 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		B0B3BFF22054BCD60074DF0D /* NeedsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsService.swift; sourceTree = "<group>"; };
+		B0B3BFF52054BD330074DF0D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		B0B3BFF82054BE450074DF0D /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		B0CD0EA520506F1B00FBE902 /* RegisterAccountSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAccountSegue.swift; sourceTree = "<group>"; };
 		B0CD0EA72050716F00FBE902 /* WallpaperWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperWindow.swift; sourceTree = "<group>"; };
 		B0CD0EAA205078AA00FBE902 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -71,10 +135,26 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B01FA1DD2054463600863E05 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B01FA1E62054463600863E05 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B01FA1EB2054463600863E05 /* IntentsUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B03C07C12033BDE2001A54C6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B01E3D8920533D1F00106CA4 /* MapKit.framework in Frameworks */,
 				42C53CB3E76A75DC0051F220 /* Pods_Farm_To_Fork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -85,7 +165,9 @@
 		4D91C78F0126573F42E8DEBF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B01E3D8820533D1F00106CA4 /* MapKit.framework */,
 				5D0A9CF5A462CEA72738E915 /* Pods_Farm_To_Fork.framework */,
+				B01FA1EA2054463600863E05 /* IntentsUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -97,6 +179,33 @@
 				CE90940C0A635A11042E6E8F /* Pods-Farm To Fork.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		B01E3D8A2053404F00106CA4 /* Startup */ = {
+			isa = PBXGroup;
+			children = (
+				B01E3D8B2053405B00106CA4 /* StartupViewController.swift */,
+			);
+			path = Startup;
+			sourceTree = "<group>";
+		};
+		B01FA1E12054463600863E05 /* NeedsSiriExtension */ = {
+			isa = PBXGroup;
+			children = (
+				B01FA1E22054463600863E05 /* IntentHandler.swift */,
+				B01FA1E42054463600863E05 /* Info.plist */,
+			);
+			path = NeedsSiriExtension;
+			sourceTree = "<group>";
+		};
+		B01FA1EC2054463600863E05 /* NeedsSiriExtensionUI */ = {
+			isa = PBXGroup;
+			children = (
+				B01FA1ED2054463600863E05 /* IntentViewController.swift */,
+				B01FA1EF2054463600863E05 /* MainInterface.storyboard */,
+				B01FA1F22054463600863E05 /* Info.plist */,
+			);
+			path = NeedsSiriExtensionUI;
 			sourceTree = "<group>";
 		};
 		B02A024220501AF100ABB4F9 /* Login */ = {
@@ -111,7 +220,10 @@
 		B03C07BB2033BDE2001A54C6 = {
 			isa = PBXGroup;
 			children = (
+				B01FA203205460DF00863E05 /* AppIntentVocabulary.plist */,
 				B03C07C62033BDE2001A54C6 /* Farm To Fork */,
+				B01FA1E12054463600863E05 /* NeedsSiriExtension */,
+				B01FA1EC2054463600863E05 /* NeedsSiriExtensionUI */,
 				B03C07C52033BDE2001A54C6 /* Products */,
 				927B6EFA33C14C93F6F1803B /* Pods */,
 				4D91C78F0126573F42E8DEBF /* Frameworks */,
@@ -122,6 +234,8 @@
 			isa = PBXGroup;
 			children = (
 				B03C07C42033BDE2001A54C6 /* Farm To Fork.app */,
+				B01FA1E02054463600863E05 /* NeedsSiriExtension.appex */,
+				B01FA1E92054463600863E05 /* NeedsSiriExtensionUI.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -129,6 +243,7 @@
 		B03C07C62033BDE2001A54C6 /* Farm To Fork */ = {
 			isa = PBXGroup;
 			children = (
+				B01FA2002054468000863E05 /* Farm To Fork.entitlements */,
 				B0F133FD2051B4EB000187BA /* Extensions */,
 				B0CD0EA420506ED700FBE902 /* Custom Segues */,
 				B0FEBC89204E3EED00982EAE /* Utilities */,
@@ -140,9 +255,32 @@
 				B03C07D12033BDE2001A54C6 /* Assets.xcassets */,
 				B03C07D32033BDE2001A54C6 /* LaunchScreen.storyboard */,
 				B03C07D62033BDE2001A54C6 /* Info.plist */,
-				B03C07CE2033BDE2001A54C6 /* Farm_To_Fork.xcdatamodeld */,
 			);
 			path = "Farm To Fork";
+			sourceTree = "<group>";
+		};
+		B077904320535BBA0099AD1F /* Startup */ = {
+			isa = PBXGroup;
+			children = (
+				B077904420535BC60099AD1F /* StartupViewModel.swift */,
+			);
+			path = Startup;
+			sourceTree = "<group>";
+		};
+		B0B3BFF42054BD220074DF0D /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				B0B3BFF52054BD330074DF0D /* MapViewController.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		B0B3BFF72054BE350074DF0D /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				B0B3BFF82054BE450074DF0D /* MapViewModel.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 		B0CD0EA420506ED700FBE902 /* Custom Segues */ = {
@@ -214,6 +352,7 @@
 				B0FEBC8C204E3FF200982EAE /* JSONDataService.swift */,
 				B0DF8B5520500FF100AD2539 /* LoginService.swift */,
 				B0F133F420517D12000187BA /* RegisterService.swift */,
+				B0B3BFF22054BCD60074DF0D /* NeedsService.swift */,
 			);
 			path = Implementations;
 			sourceTree = "<group>";
@@ -221,6 +360,8 @@
 		B0FEBC82204E3DE900982EAE /* Implementations */ = {
 			isa = PBXGroup;
 			children = (
+				B0B3BFF72054BE350074DF0D /* Map */,
+				B077904320535BBA0099AD1F /* Startup */,
 				B0F133F82051B28D000187BA /* Register */,
 				B02A024220501AF100ABB4F9 /* Login */,
 			);
@@ -231,8 +372,10 @@
 			isa = PBXGroup;
 			children = (
 				B0CD0EA72050716F00FBE902 /* WallpaperWindow.swift */,
+				B01E3D8A2053404F00106CA4 /* Startup */,
 				B0CD0EA92050789100FBE902 /* Register */,
 				B0FEBC84204E3E0200982EAE /* Login */,
+				B0B3BFF42054BD220074DF0D /* Map */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -250,7 +393,8 @@
 			children = (
 				B0FEBC8A204E3F0B00982EAE /* Result.swift */,
 				B02A024020501A7100ABB4F9 /* RequestType.swift */,
-				B0039E102052B77E004662EA /* DataError.swift */,
+				B077904620535D2A0099AD1F /* Constants.swift */,
+				B077904820535EF80099AD1F /* LoginPreferences.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -258,6 +402,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B01FA1DF2054463600863E05 /* NeedsSiriExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B01FA1FE2054463600863E05 /* Build configuration list for PBXNativeTarget "NeedsSiriExtension" */;
+			buildPhases = (
+				B01FA1DC2054463600863E05 /* Sources */,
+				B01FA1DD2054463600863E05 /* Frameworks */,
+				B01FA1DE2054463600863E05 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NeedsSiriExtension;
+			productName = NeedsSiriExtension;
+			productReference = B01FA1E02054463600863E05 /* NeedsSiriExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		B01FA1E82054463600863E05 /* NeedsSiriExtensionUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B01FA1FD2054463600863E05 /* Build configuration list for PBXNativeTarget "NeedsSiriExtensionUI" */;
+			buildPhases = (
+				B01FA1E52054463600863E05 /* Sources */,
+				B01FA1E62054463600863E05 /* Frameworks */,
+				B01FA1E72054463600863E05 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NeedsSiriExtensionUI;
+			productName = NeedsSiriExtensionUI;
+			productReference = B01FA1E92054463600863E05 /* NeedsSiriExtensionUI.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		B03C07C32033BDE2001A54C6 /* Farm To Fork */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B03C07D92033BDE2001A54C6 /* Build configuration list for PBXNativeTarget "Farm To Fork" */;
@@ -268,10 +446,13 @@
 				B03C07C22033BDE2001A54C6 /* Resources */,
 				927F691FA54CA189BC7C410C /* [CP] Embed Pods Frameworks */,
 				2ACB2D46424EDCD14B91784C /* [CP] Copy Pods Resources */,
+				B01FA1FF2054463600863E05 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				B01FA1F42054463600863E05 /* PBXTargetDependency */,
+				B01FA1F72054463600863E05 /* PBXTargetDependency */,
 			);
 			name = "Farm To Fork";
 			productName = "Farm To Fork";
@@ -288,9 +469,22 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Domenic Bianchi & Marshall Asch";
 				TargetAttributes = {
+					B01FA1DF2054463600863E05 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					B01FA1E82054463600863E05 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 					B03C07C32033BDE2001A54C6 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Siri = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -308,17 +502,35 @@
 			projectRoot = "";
 			targets = (
 				B03C07C32033BDE2001A54C6 /* Farm To Fork */,
+				B01FA1DF2054463600863E05 /* NeedsSiriExtension */,
+				B01FA1E82054463600863E05 /* NeedsSiriExtensionUI */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B01FA1DE2054463600863E05 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B01FA1E72054463600863E05 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B01FA1F12054463600863E05 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B03C07C22033BDE2001A54C6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B03C07D52033BDE2001A54C6 /* LaunchScreen.storyboard in Resources */,
 				B03C07D22033BDE2001A54C6 /* Assets.xcassets in Resources */,
+				B01FA205205460DF00863E05 /* AppIntentVocabulary.plist in Resources */,
 				B03C07CD2033BDE2001A54C6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,10 +561,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Farm To Fork/Pods-Farm To Fork-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/MaterialTextField/MaterialTextField.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialTextField.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -380,6 +594,25 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B01FA1DC2054463600863E05 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0B3BFFB2054C90D0074DF0D /* Result.swift in Sources */,
+				B01FA1E32054463600863E05 /* IntentHandler.swift in Sources */,
+				B0B3BFFA2054C8AA0074DF0D /* NeedsService.swift in Sources */,
+				B0B3BFFC2054C93B0074DF0D /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B01FA1E52054463600863E05 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B01FA1EE2054463600863E05 /* IntentViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B03C07C02033BDE2001A54C6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -388,23 +621,28 @@
 				B0FEBC8B204E3F0B00982EAE /* Result.swift in Sources */,
 				B0FEBC8D204E3FF200982EAE /* JSONDataService.swift in Sources */,
 				B03C07CA2033BDE2001A54C6 /* LoginViewController.swift in Sources */,
-				B03C07D02033BDE2001A54C6 /* Farm_To_Fork.xcdatamodeld in Sources */,
 				B02A024420501BC100ABB4F9 /* ErrorExtensions.swift in Sources */,
 				B0DF8B5620500FF100AD2539 /* LoginService.swift in Sources */,
+				B077904720535D2A0099AD1F /* Constants.swift in Sources */,
 				B0F133F520517D12000187BA /* RegisterService.swift in Sources */,
 				B0CD0EAD20507D2500FBE902 /* UnwindRegisterAccountSegue.swift in Sources */,
 				B0CD0EAB205078AA00FBE902 /* RegisterViewController.swift in Sources */,
 				B0CD0EA620506F1B00FBE902 /* RegisterAccountSegue.swift in Sources */,
+				B0B3BFF92054BE450074DF0D /* MapViewModel.swift in Sources */,
+				B077904920535EF80099AD1F /* LoginPreferences.swift in Sources */,
 				B00F9C16204F8D8100C5BC03 /* User.swift in Sources */,
+				B0B3BFF32054BCD60074DF0D /* NeedsService.swift in Sources */,
 				B0F133F7205182C8000187BA /* RegisterLocationViewController.swift in Sources */,
 				B0ADAA1520520A2B00A0CD30 /* UIViewControllerExtensions.swift in Sources */,
 				B00F9C14204F8B2500C5BC03 /* LoginViewModel.swift in Sources */,
 				B0ADAA17205223D900A0CD30 /* RegisterViewModel.swift in Sources */,
+				B01E3D8C2053405B00106CA4 /* StartupViewController.swift in Sources */,
 				B02A024120501A7100ABB4F9 /* RequestType.swift in Sources */,
+				B077904520535BC60099AD1F /* StartupViewModel.swift in Sources */,
 				B03C07C82033BDE2001A54C6 /* AppDelegate.swift in Sources */,
+				B0B3BFF62054BD330074DF0D /* MapViewController.swift in Sources */,
 				B02A024620501DB900ABB4F9 /* UIViewExtensions.swift in Sources */,
 				B0FEBC86204E3E3600982EAE /* TableViewModelable.swift in Sources */,
-				B0039E112052B77E004662EA /* DataError.swift in Sources */,
 				B0CD0EA82050716F00FBE902 /* WallpaperWindow.swift in Sources */,
 				B0F133F320517C12000187BA /* StringExtensions.swift in Sources */,
 			);
@@ -412,7 +650,36 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		B01FA1F42054463600863E05 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B01FA1E82054463600863E05 /* NeedsSiriExtensionUI */;
+			targetProxy = B01FA1F32054463600863E05 /* PBXContainerItemProxy */;
+		};
+		B01FA1F72054463600863E05 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B01FA1DF2054463600863E05 /* NeedsSiriExtension */;
+			targetProxy = B01FA1F62054463600863E05 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		B01FA1EF2054463600863E05 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B01FA1F02054463600863E05 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		B01FA203205460DF00863E05 /* AppIntentVocabulary.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B01FA204205460DF00863E05 /* Base */,
+			);
+			name = AppIntentVocabulary.plist;
+			sourceTree = "<group>";
+		};
 		B03C07CB2033BDE2001A54C6 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -432,6 +699,70 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B01FA1F92054463600863E05 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 667D8S5SPP;
+				INFOPLIST_FILE = NeedsSiriExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.domenic-and-marshall.FarmToFork.NeedsSiriExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B01FA1FA2054463600863E05 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 667D8S5SPP;
+				INFOPLIST_FILE = NeedsSiriExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.domenic-and-marshall.FarmToFork.NeedsSiriExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B01FA1FB2054463600863E05 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 667D8S5SPP;
+				INFOPLIST_FILE = NeedsSiriExtensionUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.domenic-and-marshall.FarmToFork.NeedsSiriExtensionUI";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B01FA1FC2054463600863E05 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 667D8S5SPP;
+				INFOPLIST_FILE = NeedsSiriExtensionUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.domenic-and-marshall.FarmToFork.NeedsSiriExtensionUI";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		B03C07D72033BDE2001A54C6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -543,13 +874,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6680688F97D90421833C5D80 /* Pods-Farm To Fork.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Farm To Fork/Farm To Fork.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5TJVY2MFEH;
+				DEVELOPMENT_TEAM = 667D8S5SPP;
 				INFOPLIST_FILE = "Farm To Fork/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.domenic-and-marshall.Farm-To-Fork";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.domenic-and-marshall.FarmToFork";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -560,13 +893,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CE90940C0A635A11042E6E8F /* Pods-Farm To Fork.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Farm To Fork/Farm To Fork.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5TJVY2MFEH;
+				DEVELOPMENT_TEAM = 667D8S5SPP;
 				INFOPLIST_FILE = "Farm To Fork/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.domenic-and-marshall.Farm-To-Fork";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.domenic-and-marshall.FarmToFork";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -576,6 +911,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B01FA1FD2054463600863E05 /* Build configuration list for PBXNativeTarget "NeedsSiriExtensionUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B01FA1FB2054463600863E05 /* Debug */,
+				B01FA1FC2054463600863E05 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B01FA1FE2054463600863E05 /* Build configuration list for PBXNativeTarget "NeedsSiriExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B01FA1F92054463600863E05 /* Debug */,
+				B01FA1FA2054463600863E05 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B03C07BF2033BDE2001A54C6 /* Build configuration list for PBXProject "Farm To Fork" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -595,19 +948,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		B03C07CE2033BDE2001A54C6 /* Farm_To_Fork.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				B03C07CF2033BDE2001A54C6 /* Farm_To_Fork.xcdatamodel */,
-			);
-			currentVersion = B03C07CF2033BDE2001A54C6 /* Farm_To_Fork.xcdatamodel */;
-			path = Farm_To_Fork.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = B03C07BC2033BDE2001A54C6 /* Project object */;
 }

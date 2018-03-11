@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ParameterVocabularies</key>
+	<array>
+		<dict>
+			<key>ParameterNames</key>
+			<array>
+				<string>INSearchForNotebookItemsIntent.title</string>
+			</array>
+			<key>ParameterVocabulary</key>
+			<array>
+				<dict>
+					<key>VocabularyItemIdentifier</key>
+					<string>urgent needs</string>
+					<key>VocabularyItemSynonyms</key>
+					<array>
+						<dict>
+							<key>VocabularyItemExamples</key>
+							<array>
+								<string>display urgent needs list</string>
+								<string>show me a list of urgent needs</string>
+							</array>
+							<key>VocabularyItemPhrase</key>
+							<string>urgent needs</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+	</array>
+	<key>IntentPhrases</key>
+	<array>
+		<dict>
+			<key>IntentName</key>
+			<string>INSearchForNotebookItemsIntent</string>
+			<key>IntentExamples</key>
+			<array>
+				<string>Show my list of urgent needs for Farm To Fork</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -13,4 +13,8 @@ extension Error {
         let error = self as NSError
         return "\(error.domain)\nError Code: \(error.code)"
     }
+    
+    var description: String {
+        return (self as NSError).domain
+    }
 }

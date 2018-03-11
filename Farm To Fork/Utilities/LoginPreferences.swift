@@ -1,5 +1,5 @@
 //
-//  DataError.swift
+//  LoginPreferences.swift
 //  Farm To Fork
 //
 //  Created by Domenic Bianchi on 2018-03-09.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-extension Error {
-    var description: String {
-        return (self as NSError).domain
-    }
+enum LoginPreference: Int {
+    case touchIdOrFaceId = 1
+    case password
+    case autoLogin
 }
