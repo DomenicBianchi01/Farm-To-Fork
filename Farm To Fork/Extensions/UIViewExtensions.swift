@@ -22,6 +22,7 @@ extension UIView {
         }
     }
     
+    /// Rapidly but shortly shakes the given view horizontally. In the context of this app, a good example would be providing an invalid password when logging in and shaking the password text field to indicate the password was invalid.
     func shake() {
         let animation = CABasicAnimation(keyPath: "position")
         animation.duration = 0.07

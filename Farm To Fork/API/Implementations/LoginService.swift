@@ -8,12 +8,12 @@
 
 import UIKit
 
-struct LoginService {
+final class LoginService: JSONService {
     func login(user: User, with completion: @escaping (Result<Void>) -> Void) {
         let body = ["Email" : user.email,
                     "pass" : user.password]
         
-        JSONDataService().request(from: "https://farmtofork.marshallasch.ca/api.php/2.0/user/login", requestType: .post, body: body, expecting: [String : String].self) { result in
+        request(from: "https://farmtofork.marshallasch.ca/api.php/2.0/user/login", requestType: .post, body: body, expecting: [String : String].self) { result in
             switch result {
             case .success:
                 completion(.success(()))

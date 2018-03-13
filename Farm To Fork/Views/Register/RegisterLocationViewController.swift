@@ -24,6 +24,10 @@ final class RegisterLocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // A gesture recognizer that will dismiss the keyboard if the screen is tapped
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissFirstResponder))
+        view.addGestureRecognizer(tapRecognizer)
+        
         let countryPickerView = UIPickerView()
         countryPickerView.tag = 1
         countryPickerView.delegate = self
@@ -41,9 +45,6 @@ final class RegisterLocationViewController: UIViewController {
         
         backButton.layer.borderColor = UIColor.white.cgColor
         registerButton.layer.borderColor = UIColor.white.cgColor
-        
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissFirstResponder))
-        view.addGestureRecognizer(tapRecognizer)
         
         viewModel.fetchCountries()
         

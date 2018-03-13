@@ -26,6 +26,10 @@ final class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // A gesture recognizer that will dismiss the keyboard if the screen is tapped
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissFirstResponder))
+        view.addGestureRecognizer(tapRecognizer)
+        
         continueButton.layer.borderColor = UIColor.white.cgColor
         backButton.layer.borderColor = UIColor.white.cgColor
         
@@ -34,12 +38,6 @@ final class RegisterViewController: UIViewController {
         emailTextField.delegate = self
         passwordTextField.delegate = self
         reenterTextField.delegate = self
-        
-        passwordTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
-        reenterTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
-        firstNameTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
-        lastNameTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
-        emailTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         
         passwordTextField.errorColor = .white
     }
@@ -59,9 +57,12 @@ final class RegisterViewController: UIViewController {
     // MARK: - IBActions
     @IBAction func unwindToRegisterViewController(segue: UIStoryboardSegue) {}
     
-    // MARK: - Helper Functions
+    @IBAction func textFieldDidChange(_ sender: UITextField) {
+        textFieldDidChange(textField: sender)
+    }
     
-    @objc private func textFieldDidChange(textField: UITextField) {
+    // MARK: - Helper Functions
+    private func textFieldDidChange(textField: UITextField) {
         if textField == passwordTextField {
             let password1 = textField.text ?? ""
             let password2 = reenterTextField.text ?? "2"

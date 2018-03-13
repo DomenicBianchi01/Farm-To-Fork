@@ -8,9 +8,8 @@
 
 import Foundation
 
-struct RegisterService {
+final class RegisterService: JSONService {
     // MARK: - Properties
-    private let jsonDataService = JSONDataService()
     private let locationUrlString = "https://farmtofork.marshallasch.ca/api.php/2.0/location/"
     private let registerUrlString = "https://farmtofork.marshallasch.ca/api.php/2.0/user/register"
     
@@ -23,7 +22,7 @@ struct RegisterService {
                                     "LastName" : user.lastName,
                                     "Address" : ["CityID" : user.city.key]]
         
-        jsonDataService.request(from: registerUrlString, requestType: .post, body: body, expecting: [String : String].self) { result in
+        request(from: registerUrlString, requestType: .post, body: body, expecting: [String : String].self) { result in
             switch result {
             case .success:
                 completion(.success(()))
@@ -53,7 +52,7 @@ struct RegisterService {
     
     // MARK: - Private Helper Functions
     private func fetchData(from urlString: String, with completion: @escaping ((Result<[(key: String, value: String)]>) -> Void)) {
-        jsonDataService.request(from: urlString, expecting: [String : String].self) { result in
+        request(from: urlString, expecting: [String : String].self) { result in
             switch result {
             case .success(let dictionary):
                 let sortedCountries: [(key: String, value: String)] = dictionary.map({ ($0, $1) }).sorted(by: { $0.value < $1.value })

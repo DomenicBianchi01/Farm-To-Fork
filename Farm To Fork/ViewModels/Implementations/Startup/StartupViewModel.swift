@@ -11,6 +11,7 @@ import SwiftKeychainWrapper
 
 final class StartupViewModel {
     // MARK: - Computed Properties
+    /// Returns the login preference that the user previously selected.
     var authenticationMethod: LoginPreference? {
         return LoginPreference(rawValue: UserDefaults.standard.integer(forKey: Constants.loginPreference))
     }

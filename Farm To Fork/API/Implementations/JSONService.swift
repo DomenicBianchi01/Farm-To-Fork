@@ -1,5 +1,5 @@
 //
-//  JSONDataService.swift
+//  JSONService.swift
 //  Farm To Fork
 //
 //  Created by Domenic Bianchi on 2018-03-05.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-/// This class should never be used directly from a view model. Only `Serivce` objects should use this class
-class JSONDataService {
+/// A class meant to be inherited by `Service` classes. This class helps format JSON request and decodes JSON responses. This class should never be used directly from a view model.
+class JSONService {
     // MARK: - Properties
     ///IMPORTANT NOTE: For the scope of this project, the `JSONDataService` can only handle one network call at a time
     private var urlDataTask: URLSessionDataTask? = nil
@@ -22,7 +22,7 @@ class JSONDataService {
      - parameter requestType: Specifies if the request is a `GET` or `POST`. Defaults to `GET`
      - parameter body: If this parameter is included, the dictionary is sent in the http body
      - parameter type: The structure that the fetched JSON data should be parsed according to. NOTE: The structure must conform to `Decodable`.
-     - parameter completion: If the function successfully fetched and parsed the JSON data, the completion block includes the parsed data as a structure that matches the type passed in the `type` parameter of this function. If the function could not parse the data, the completion block includes a nil object instead.
+     - parameter completion: If the function successfully fetched and parsed the JSON data, the completion block includes the parsed data as a structure that matches the type passed in the `type` parameter of this function. If the function could not parse the data, the completion block includes an error object instead.
      */
     func request<T: Decodable>(from urlString: String, requestType: RequestType = .get, body: [String : Any]? = nil, expecting type: T.Type, completion: @escaping (Result<T>) -> Void) {
         guard let url = URL(string: urlString) else {

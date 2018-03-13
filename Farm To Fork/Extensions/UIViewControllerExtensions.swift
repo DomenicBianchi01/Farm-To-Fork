@@ -9,9 +9,7 @@
 import UIKit
 
 extension UIViewController {
-    /**
-     Dismiss the first responder from the screen.
-     */
+    /// Dismiss the first responder from the screen.
     @objc func dismissFirstResponder() {
         view.endEditing(true)
     }

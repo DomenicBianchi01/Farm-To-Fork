@@ -8,10 +8,10 @@
 
 import Foundation
 
-final class NeedsService {
+final class NeedsService: JSONService {
     func fetchNeeds(forLocation locationId: String, with completion: @escaping ((Result<[String]>) -> Void)) {
         
-        JSONDataService().request(from: "https://farmtofork.marshallasch.ca/api.php/2.0/needs/\(locationId)", expecting: [String : String].self) { result in
+        request(from: "https://farmtofork.marshallasch.ca/api.php/2.0/needs/\(locationId)", expecting: [String : String].self) { result in
             switch result {
             case .success(let needs):
                 //completion(.success(needs))

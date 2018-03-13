@@ -15,14 +15,20 @@ final class RegisterViewModel {
     private var passwordElements: PasswordComponents = []
     
     // MARK: - Structs
+    /// The requirements of a valid password for Farm To Fork. All components of the `OptionSet` must be valid in order for the password to be valid.
     private struct PasswordComponents: OptionSet {
         let rawValue: Int
         
+        /// Length requirement
         static let characters = PasswordComponents(rawValue: 1 << 0)
+        /// Numbers requirement
         static let numbers = PasswordComponents(rawValue: 1 << 1)
+        /// Uppercase letter requirement
         static let uppercase = PasswordComponents(rawValue: 1 << 2)
+        /// Lowercase letter requirement
         static let lowercase = PasswordComponents(rawValue: 1 << 3)
         
+        /// Given which requirements the password meets and doesn't meet, this function generates a string that describes what is still missing from the password
         func asString() -> String {
             var string = ""
             

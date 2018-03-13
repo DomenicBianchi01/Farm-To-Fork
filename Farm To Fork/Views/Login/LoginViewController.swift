@@ -15,7 +15,7 @@ final class LoginViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet private var usernameTextField: MFTextField!
     @IBOutlet private var passwordTextField: MFTextField!
-    @IBOutlet private var loginButton: UIButton!
+    @IBOutlet private var loginButton: ProgressButton!
     @IBOutlet private var registerButton: UIButton!
     @IBOutlet private var loginErrorLabel: UILabel!
     
@@ -45,6 +45,10 @@ final class LoginViewController: UIViewController {
     
     @IBAction func unwindToViewController(segue: UIStoryboardSegue) {}
     
+    @IBAction func textFieldDidChange(_ sender: UITextField) {
+        textFieldDidChange(textField: sender)
+    }
+    
     // MARK: - Helper Functions
     
     /**
@@ -66,18 +70,22 @@ final class LoginViewController: UIViewController {
     }
     
     private func attemptLogin() {
+        loginButton.showActivityIndicator()
         viewModel.attemptLogin() { result in
-            switch result {
-            case .success:
-                self.viewModel.removePasswordFromKeychain()
-                self.viewModel.savePasswordToKeychain()
-                if self.viewModel.firstLogin {
-                    self.promptForLoginPreferences()
-                } else {
-                    self.performSegue(withIdentifier: "goToMapFromLogin", sender: self)
+            DispatchQueue.main.async {
+                self.loginButton.hideActivityIndicator()
+                switch result {
+                case .success:
+                    self.viewModel.removePasswordFromKeychain()
+                    self.viewModel.savePasswordToKeychain()
+                    if self.viewModel.firstLogin {
+                        self.promptForLoginPreferences()
+                    } else {
+                        self.performSegue(withIdentifier: "goToMapFromLogin", sender: self)
+                    }
+                case .error(let error):
+                    self.displayErrorAlert(with: error.description)
                 }
-            case .error(let error):
-                self.displayErrorAlert(with: error.description)
             }
         }
     }
@@ -94,6 +102,8 @@ final class LoginViewController: UIViewController {
             self.promptForSiriKit()
         }
         
+        alert.addAction(yesAction)
+        
         if LAContext().canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil) {
             let biometricsAction = UIAlertAction(title: "No, but enable Touch ID or Face ID", style: .default) { _ in
                 self.viewModel.enableLoginPreference(.biometric)
@@ -102,12 +112,9 @@ final class LoginViewController: UIViewController {
             alert.addAction(biometricsAction)
         }
         
-        alert.addAction(yesAction)
         alert.addAction(passwordAction)
         
-        DispatchQueue.main.async {
-            self.present(alert, animated: true, completion: nil)
-        }
+        present(alert, animated: true, completion: nil)
     }
     
     private func promptForSiriKit() {
@@ -119,6 +126,14 @@ final class LoginViewController: UIViewController {
             } else {
                 self.performSegue(withIdentifier: "goToMapFromLogin", sender: self)
             }
+        }
+    }
+
+    private func textFieldDidChange(textField: UITextField) {
+        if textField == usernameTextField, let email = usernameTextField.text {
+            viewModel.updateEmail(email: email)
+        } else if textField == passwordTextField, let password = passwordTextField.text {
+            viewModel.updatePassword(password: password)
         }
     }
 }
@@ -133,14 +148,5 @@ extension LoginViewController: UITextFieldDelegate {
             attemptLogin()
         }
         return true
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        textField.resignFirstResponder()
-        if textField == usernameTextField {
-            viewModel.updateEmail(email: textField.text ?? "")
-        } else {
-            viewModel.updatePassword(password: textField.text ?? "")
-        }
     }
 }

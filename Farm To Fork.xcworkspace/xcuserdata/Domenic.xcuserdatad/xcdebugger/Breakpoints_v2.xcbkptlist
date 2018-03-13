@@ -10,13 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Farm To Fork/ViewModels/Implementations/Register/RegisterViewModel.swift"
-            timestampString = "542298080.109202"
+            timestampString = "542637904.896909"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "30"
             endingLineNumber = "30"
-            landmarkName = "asString()"
-            landmarkType = "7">
+            landmarkName = "PasswordComponents"
+            landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -26,13 +26,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Farm To Fork/ViewModels/Implementations/Register/RegisterViewModel.swift"
-            timestampString = "542298080.109344"
+            timestampString = "542637904.8970391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "29"
             endingLineNumber = "29"
-            landmarkName = "asString()"
-            landmarkType = "7">
+            landmarkName = "PasswordComponents"
+            landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

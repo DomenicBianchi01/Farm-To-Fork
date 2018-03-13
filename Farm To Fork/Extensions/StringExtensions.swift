@@ -9,6 +9,7 @@
 import Foundation
 
 extension String {
+    /// Converts the strings "true" and "t" to the boolean value of `true`. Otherwise `false`.
     var asBool: Bool {
         let lowercasedString = self.lowercased()
         return lowercasedString == "true" || lowercasedString == "t"
