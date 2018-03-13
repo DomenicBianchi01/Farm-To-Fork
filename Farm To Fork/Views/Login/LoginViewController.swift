@@ -118,15 +118,15 @@ final class LoginViewController: UIViewController {
     }
     
     private func promptForSiriKit() {
-        DispatchQueue.main.async {
-            if INPreferences.siriAuthorizationStatus() == .notDetermined {
-                INPreferences.requestSiriAuthorization() { _ in
-                    self.performSegue(withIdentifier: "goToMapFromLogin", sender: self)
-                }
-            } else {
-                self.performSegue(withIdentifier: "goToMapFromLogin", sender: self)
-            }
-        }
+//        DispatchQueue.main.async {
+//            if INPreferences.siriAuthorizationStatus() == .notDetermined {
+//                INPreferences.requestSiriAuthorization() { _ in
+//                    self.performSegue(withIdentifier: "goToMapFromLogin", sender: self)
+//                }
+//            } else {
+//                self.performSegue(withIdentifier: "goToMapFromLogin", sender: self)
+//            }
+//        }
     }
 
     private func textFieldDidChange(textField: UITextField) {
