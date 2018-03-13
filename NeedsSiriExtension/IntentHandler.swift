@@ -24,9 +24,9 @@ extension IntentHandler: INSearchForNotebookItemsIntentHandling {
             return
         }
         
-        NeedsService().fetchNeeds(forLocation: locationId) { result in
+        /*NeedsService().fetchNeeds(forLocation: locationId) { result in
             
-        }
+        }*/
         
         let response = INSearchForNotebookItemsIntentResponse(code: .success, userActivity: nil)
         response.notes = [INNote(title: INSpeakableString(spokenPhrase: "Test"), contents: [], groupName: INSpeakableString(spokenPhrase: "Urgent Needs"), createdDateComponents: nil, modifiedDateComponents: nil, identifier: nil),

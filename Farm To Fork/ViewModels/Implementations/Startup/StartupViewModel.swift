@@ -10,10 +10,8 @@ import Foundation
 import SwiftKeychainWrapper
 
 final class StartupViewModel {
-    // MARK: - Functions
-    func removeSavedCredentials() {
-        if KeychainWrapper.standard.removeAllKeys() {
-            UserDefaults.standard.removeObject(forKey: Constants.passwordSaved)
-        }
+    // MARK: - Computed Properties
+    var authenticationMethod: LoginPreference? {
+        return LoginPreference(rawValue: UserDefaults.standard.integer(forKey: Constants.loginPreference))
     }
 }

@@ -197,33 +197,6 @@
             </objects>
             <point key="canvasLocation" x="1132" y="768.66566716641682"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="TEv-cV-Sia">
-            <objects>
-                <viewController id="2Zr-tR-rE6" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="vPm-cE-oHG">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Pu9-2y-vhW">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Pu9-2y-vhW" secondAttribute="trailing" id="Cbb-wG-Fo0"/>
-                            <constraint firstItem="Pu9-2y-vhW" firstAttribute="leading" secondItem="vPm-cE-oHG" secondAttribute="leading" id="Dzj-U3-fFC"/>
-                            <constraint firstItem="Pu9-2y-vhW" firstAttribute="bottom" secondItem="vPm-cE-oHG" secondAttribute="bottom" id="LkH-9N-5Ks"/>
-                            <constraint firstItem="Pu9-2y-vhW" firstAttribute="top" secondItem="vPm-cE-oHG" secondAttribute="top" id="M4I-BN-nWy"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="KGK-Bt-1zV"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rlE-r2-2Fj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1120.8" y="1448.7256371814094"/>
-        </scene>
         <!--Register View Controller-->
         <scene sceneID="yET-mG-rZ6">
             <objects>

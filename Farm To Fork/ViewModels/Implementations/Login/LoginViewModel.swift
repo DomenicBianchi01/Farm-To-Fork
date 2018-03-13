@@ -36,6 +36,13 @@ final class LoginViewModel {
         }
     }
     
+    // MARK: - Functions
+    func removePasswordFromKeychain() {
+        if KeychainWrapper.standard.removeAllKeys() {
+            UserDefaults.standard.removeObject(forKey: Constants.passwordSaved)
+        }
+    }
+    
     func enableLoginPreference(_ preference: LoginPreference) {
         UserDefaults.standard.set(preference.rawValue, forKey: Constants.loginPreference)
     }

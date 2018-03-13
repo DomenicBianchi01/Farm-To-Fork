@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// This class should never be used directly from a view model. Only `Serivce` objects should use this class
 class JSONDataService {
     // MARK: - Properties
     ///IMPORTANT NOTE: For the scope of this project, the `JSONDataService` can only handle one network call at a time
@@ -36,7 +37,6 @@ class JSONDataService {
         
         if let body = body {
             request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
-            print(String(data: request.httpBody!, encoding: .utf8)!)
         }
     
         UIApplication.shared.isNetworkActivityIndicatorVisible = true

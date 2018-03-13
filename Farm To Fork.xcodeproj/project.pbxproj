@@ -35,7 +35,6 @@
 		B0B3BFF32054BCD60074DF0D /* NeedsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B3BFF22054BCD60074DF0D /* NeedsService.swift */; };
 		B0B3BFF62054BD330074DF0D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B3BFF52054BD330074DF0D /* MapViewController.swift */; };
 		B0B3BFF92054BE450074DF0D /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B3BFF82054BE450074DF0D /* MapViewModel.swift */; };
-		B0B3BFFA2054C8AA0074DF0D /* NeedsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B3BFF22054BCD60074DF0D /* NeedsService.swift */; };
 		B0B3BFFB2054C90D0074DF0D /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FEBC8A204E3F0B00982EAE /* Result.swift */; };
 		B0B3BFFC2054C93B0074DF0D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B077904620535D2A0099AD1F /* Constants.swift */; };
 		B0CD0EA620506F1B00FBE902 /* RegisterAccountSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD0EA520506F1B00FBE902 /* RegisterAccountSegue.swift */; };
@@ -43,6 +42,7 @@
 		B0CD0EAB205078AA00FBE902 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD0EAA205078AA00FBE902 /* RegisterViewController.swift */; };
 		B0CD0EAD20507D2500FBE902 /* UnwindRegisterAccountSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD0EAC20507D2500FBE902 /* UnwindRegisterAccountSegue.swift */; };
 		B0DF8B5620500FF100AD2539 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DF8B5520500FF100AD2539 /* LoginService.swift */; };
+		B0EED74F20574AC6008CF4D5 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0EED74E20574AC6008CF4D5 /* LocalAuthentication.framework */; };
 		B0F133F320517C12000187BA /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F133F220517C12000187BA /* StringExtensions.swift */; };
 		B0F133F520517D12000187BA /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F133F420517D12000187BA /* RegisterService.swift */; };
 		B0F133F7205182C8000187BA /* RegisterLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F133F6205182C8000187BA /* RegisterLocationViewController.swift */; };
@@ -124,6 +124,7 @@
 		B0CD0EAA205078AA00FBE902 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B0CD0EAC20507D2500FBE902 /* UnwindRegisterAccountSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnwindRegisterAccountSegue.swift; sourceTree = "<group>"; };
 		B0DF8B5520500FF100AD2539 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		B0EED74E20574AC6008CF4D5 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		B0F133F220517C12000187BA /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		B0F133F420517D12000187BA /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
 		B0F133F6205182C8000187BA /* RegisterLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterLocationViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +155,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0EED74F20574AC6008CF4D5 /* LocalAuthentication.framework in Frameworks */,
 				B01E3D8920533D1F00106CA4 /* MapKit.framework in Frameworks */,
 				42C53CB3E76A75DC0051F220 /* Pods_Farm_To_Fork.framework in Frameworks */,
 			);
@@ -165,6 +167,7 @@
 		4D91C78F0126573F42E8DEBF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B0EED74E20574AC6008CF4D5 /* LocalAuthentication.framework */,
 				B01E3D8820533D1F00106CA4 /* MapKit.framework */,
 				5D0A9CF5A462CEA72738E915 /* Pods_Farm_To_Fork.framework */,
 				B01FA1EA2054463600863E05 /* IntentsUI.framework */,
@@ -600,7 +603,6 @@
 			files = (
 				B0B3BFFB2054C90D0074DF0D /* Result.swift in Sources */,
 				B01FA1E32054463600863E05 /* IntentHandler.swift in Sources */,
-				B0B3BFFA2054C8AA0074DF0D /* NeedsService.swift in Sources */,
 				B0B3BFFC2054C93B0074DF0D /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
