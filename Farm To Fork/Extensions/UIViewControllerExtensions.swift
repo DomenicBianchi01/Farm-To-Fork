@@ -13,4 +13,20 @@ extension UIViewController {
     @objc func dismissFirstResponder() {
         view.endEditing(true)
     }
+    
+    /**
+     Display an error alert on the screen.
+     
+     - parameter message: The error message to be displayed on the alert
+     */
+    func displayAlert(title: String, message: String) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            
+            alert.addAction(alertAction)
+            
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
 }

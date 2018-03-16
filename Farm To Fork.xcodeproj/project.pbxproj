@@ -22,6 +22,9 @@
 		B01FA1F52054463600863E05 /* NeedsSiriExtensionUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B01FA1E92054463600863E05 /* NeedsSiriExtensionUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B01FA1F82054463600863E05 /* NeedsSiriExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B01FA1E02054463600863E05 /* NeedsSiriExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B01FA205205460DF00863E05 /* AppIntentVocabulary.plist in Resources */ = {isa = PBXBuildFile; fileRef = B01FA203205460DF00863E05 /* AppIntentVocabulary.plist */; };
+		B0232DD620583B1700E22B40 /* LocationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0232DD520583B1700E22B40 /* LocationsService.swift */; };
+		B0232DDB205842BB00E22B40 /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0232DDA205842BB00E22B40 /* Locations.swift */; };
+		B0232DDD2058463E00E22B40 /* JSONAny.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0232DDC2058463E00E22B40 /* JSONAny.swift */; };
 		B02A024120501A7100ABB4F9 /* RequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A024020501A7100ABB4F9 /* RequestType.swift */; };
 		B02A024420501BC100ABB4F9 /* ErrorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A024320501BC100ABB4F9 /* ErrorExtensions.swift */; };
 		B02A024620501DB900ABB4F9 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A024520501DB900ABB4F9 /* UIViewExtensions.swift */; };
@@ -108,6 +111,9 @@
 		B01FA1F22054463600863E05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B01FA2002054468000863E05 /* Farm To Fork.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Farm To Fork.entitlements"; sourceTree = "<group>"; };
 		B01FA204205460DF00863E05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = "Farm To Fork/Base.lproj/AppIntentVocabulary.plist"; sourceTree = "<group>"; };
+		B0232DD520583B1700E22B40 /* LocationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsService.swift; sourceTree = "<group>"; };
+		B0232DDA205842BB00E22B40 /* Locations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
+		B0232DDC2058463E00E22B40 /* JSONAny.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONAny.swift; sourceTree = "<group>"; };
 		B02A024020501A7100ABB4F9 /* RequestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestType.swift; sourceTree = "<group>"; };
 		B02A024320501BC100ABB4F9 /* ErrorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorExtensions.swift; sourceTree = "<group>"; };
 		B02A024520501DB900ABB4F9 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
@@ -227,6 +233,14 @@
 				B01FA1F22054463600863E05 /* Info.plist */,
 			);
 			path = NeedsSiriExtensionUI;
+			sourceTree = "<group>";
+		};
+		B0232DD9205842AE00E22B40 /* JSON Structures */ = {
+			isa = PBXGroup;
+			children = (
+				B0232DDC2058463E00E22B40 /* JSONAny.swift */,
+			);
+			path = "JSON Structures";
 			sourceTree = "<group>";
 		};
 		B02A024220501AF100ABB4F9 /* Login */ = {
@@ -351,13 +365,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		B0F133FE2051B598000187BA /* JSON */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = JSON;
-			sourceTree = "<group>";
-		};
 		B0FEBC7D204E3DC300982EAE /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -370,21 +377,14 @@
 		B0FEBC80204E3DDC00982EAE /* API */ = {
 			isa = PBXGroup;
 			children = (
-				B0F133FE2051B598000187BA /* JSON */,
-				B0FEBC81204E3DE200982EAE /* Implementations */,
-			);
-			path = API;
-			sourceTree = "<group>";
-		};
-		B0FEBC81204E3DE200982EAE /* Implementations */ = {
-			isa = PBXGroup;
-			children = (
+				B0232DD9205842AE00E22B40 /* JSON Structures */,
 				B0FEBC8C204E3FF200982EAE /* JSONService.swift */,
 				B0DF8B5520500FF100AD2539 /* LoginService.swift */,
 				B0F133F420517D12000187BA /* RegisterService.swift */,
 				B0B3BFF22054BCD60074DF0D /* NeedsService.swift */,
+				B0232DD520583B1700E22B40 /* LocationsService.swift */,
 			);
-			path = Implementations;
+			path = API;
 			sourceTree = "<group>";
 		};
 		B0FEBC82204E3DE900982EAE /* Implementations */ = {
@@ -426,6 +426,7 @@
 				B02A024020501A7100ABB4F9 /* RequestType.swift */,
 				B077904820535EF80099AD1F /* LoginPreferences.swift */,
 				B077904620535D2A0099AD1F /* Constants.swift */,
+				B0232DDA205842BB00E22B40 /* Locations.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -650,6 +651,7 @@
 				B0F133FA2051B2B2000187BA /* RegisterLocationViewModel.swift in Sources */,
 				ABC95046205AB82C00DC8890 /* UserProfileViewController.swift in Sources */,
 				B0FEBC8B204E3F0B00982EAE /* Result.swift in Sources */,
+				B0232DDB205842BB00E22B40 /* Locations.swift in Sources */,
 				B0FEBC8D204E3FF200982EAE /* JSONService.swift in Sources */,
 				B03C07CA2033BDE2001A54C6 /* LoginViewController.swift in Sources */,
 				B02A024420501BC100ABB4F9 /* ErrorExtensions.swift in Sources */,
@@ -658,7 +660,9 @@
 				B0F133F520517D12000187BA /* RegisterService.swift in Sources */,
 				ABC9504A205AB8C300DC8890 /* ChangePasswordViewController.swift in Sources */,
 				B0CD0EAD20507D2500FBE902 /* UnwindRegisterAccountSegue.swift in Sources */,
+				B0232DDD2058463E00E22B40 /* JSONAny.swift in Sources */,
 				B0CD0EAB205078AA00FBE902 /* RegisterViewController.swift in Sources */,
+				B0232DD620583B1700E22B40 /* LocationsService.swift in Sources */,
 				B0CD0EA620506F1B00FBE902 /* RegisterAccountSegue.swift in Sources */,
 				B0B3BFF92054BE450074DF0D /* MapViewModel.swift in Sources */,
 				B077904920535EF80099AD1F /* LoginPreferences.swift in Sources */,

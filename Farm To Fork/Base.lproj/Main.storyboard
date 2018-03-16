@@ -278,7 +278,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="animatesPlaceholder" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="textFieldDidChange:" destination="O7p-5E-6Wd" eventType="editingDidEnd" id="Bv4-zN-jt4"/>
+                                    <action selector="textFieldDidChange:" destination="O7p-5E-6Wd" eventType="editingChanged" id="Der-4n-g48"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oBq-Ya-tW2" customClass="MFTextField">
@@ -309,7 +309,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="animatesPlaceholder" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="textFieldDidChange:" destination="O7p-5E-6Wd" eventType="editingDidEnd" id="hCr-9O-cBU"/>
+                                    <action selector="textFieldDidChange:" destination="O7p-5E-6Wd" eventType="editingChanged" id="tN5-Pk-j53"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Re-enter Password" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tgj-sk-JCK" customClass="MFTextField">
@@ -340,7 +340,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="animatesPlaceholder" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="textFieldDidChange:" destination="O7p-5E-6Wd" eventType="editingDidEnd" id="PNJ-Lw-v2m"/>
+                                    <action selector="textFieldDidChange:" destination="O7p-5E-6Wd" eventType="editingChanged" id="SfM-kF-AxO"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iSK-kV-gO9" customClass="MFTextField">
@@ -372,7 +372,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="animatesPlaceholder" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="textFieldDidChange:" destination="O7p-5E-6Wd" eventType="editingDidEnd" id="cNg-7i-1Zl"/>
+                                    <action selector="textFieldDidChange:" destination="O7p-5E-6Wd" eventType="editingChanged" id="t3I-Ga-0Lr"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5S5-Ml-Wr7">

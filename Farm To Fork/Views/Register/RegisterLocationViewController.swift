@@ -32,16 +32,19 @@ final class RegisterLocationViewController: UIViewController {
         countryPickerView.tag = 1
         countryPickerView.delegate = self
         countryTextField.inputView = countryPickerView
+        countryTextField.delegate = self
         
         let provincePickerView = UIPickerView()
         provincePickerView.tag = 2
         provincePickerView.delegate = self
         provinceTextField.inputView = provincePickerView
+        countryTextField.delegate = self
         
         let cityPickerView = UIPickerView()
         cityPickerView.tag = 3
         cityPickerView.delegate = self
         cityTextField.inputView = cityPickerView
+        countryTextField.delegate = self
         
         backButton.layer.borderColor = UIColor.white.cgColor
         registerButton.layer.borderColor = UIColor.white.cgColor
@@ -65,26 +68,8 @@ final class RegisterLocationViewController: UIViewController {
                     self.performSegue(withIdentifier: "unwindBackToLogin", sender: self)
                 }
             case .error(let error):
-                self.displayErrorAlert(with: error.customDescription)
+                self.displayAlert(title: "Error", message: error.customDescription)
             }
-        }
-    }
-    
-    // MARK: - Helper Functions
-    
-    /**
-     Display an error alert on the screen.
-     
-     - parameter message: The error message to be displayed on the alert
-     */
-    private func displayErrorAlert(with message: String) {
-        DispatchQueue.main.async {
-            let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-            let alertAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            
-            alert.addAction(alertAction)
-            
-            self.present(alert, animated: true, completion: nil)
         }
     }
 }
@@ -116,6 +101,14 @@ extension RegisterLocationViewController: UIPickerViewDelegate {
             viewModel.updateUserCity(to: row)
             cityTextField.text = selectionName
         }
+    }
+}
+
+// MARK: - UITextFieldDelegate
+extension RegisterLocationViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        //Block all attempts to manually insert text into the text field. The only valid strings are ones that come from the picker views
+        return false
     }
 }
 

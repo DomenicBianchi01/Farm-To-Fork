@@ -1,5 +1,5 @@
 //
-//  test.swift
+//  WallpaperWindow.swift
 //  Farm To Fork
 //
 //  Created by Domenic Bianchi on 2018-03-07.

@@ -43,20 +43,18 @@ final class LoginViewController: UIViewController {
         attemptLogin()
     }
     
-    @IBAction func unwindToViewController(segue: UIStoryboardSegue) {}
+    @IBAction func unwindToViewController(segue: UIStoryboardSegue) {
+        if segue.source.isKind(of: RegisterLocationViewController.self) {
+            displayAlert(title: "Registration Complete", message: "Please login to access Farm To Fork")
+        }
+    }
     
     @IBAction func textFieldDidChange(_ sender: UITextField) {
         textFieldDidChange(textField: sender)
     }
     
     // MARK: - Helper Functions
-    
-    /**
-     Display an error alert on the screen.
-     
-     - parameter message: The error message to be displayed on the alert
-     */
-    private func displayErrorAlert(with message: String) {
+    private func displayError(message: String) {
         DispatchQueue.main.async {
             self.loginErrorLabel.text = message
             
@@ -84,7 +82,7 @@ final class LoginViewController: UIViewController {
                         self.performSegue(withIdentifier: "goToMapFromLogin", sender: self)
                     }
                 case .error(let error):
-                    self.displayErrorAlert(with: error.description)
+                    self.displayError(message: error.description)
                 }
             }
         }
