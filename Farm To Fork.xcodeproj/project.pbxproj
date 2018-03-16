@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		42C53CB3E76A75DC0051F220 /* Pods_Farm_To_Fork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0A9CF5A462CEA72738E915 /* Pods_Farm_To_Fork.framework */; };
+		ABC95046205AB82C00DC8890 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC95045205AB82C00DC8890 /* UserProfileViewController.swift */; };
+		ABC95048205AB89E00DC8890 /* SettingUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC95047205AB89E00DC8890 /* SettingUITableViewCell.swift */; };
+		ABC9504A205AB8C300DC8890 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC95049205AB8C300DC8890 /* ChangePasswordViewController.swift */; };
 		B00F9C14204F8B2500C5BC03 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F9C13204F8B2500C5BC03 /* LoginViewModel.swift */; };
 		B00F9C16204F8D8100C5BC03 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F9C15204F8D8100C5BC03 /* User.swift */; };
 		B01E3D8920533D1F00106CA4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B01E3D8820533D1F00106CA4 /* MapKit.framework */; };
@@ -88,6 +91,9 @@
 /* Begin PBXFileReference section */
 		5D0A9CF5A462CEA72738E915 /* Pods_Farm_To_Fork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Farm_To_Fork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6680688F97D90421833C5D80 /* Pods-Farm To Fork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Farm To Fork.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Farm To Fork/Pods-Farm To Fork.debug.xcconfig"; sourceTree = "<group>"; };
+		ABC95045205AB82C00DC8890 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		ABC95047205AB89E00DC8890 /* SettingUITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingUITableViewCell.swift; sourceTree = "<group>"; };
+		ABC95049205AB8C300DC8890 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		B00F9C13204F8B2500C5BC03 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		B00F9C15204F8D8100C5BC03 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B01E3D8820533D1F00106CA4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -184,6 +190,16 @@
 				CE90940C0A635A11042E6E8F /* Pods-Farm To Fork.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		AB280A66205B609F00662D5C /* profile */ = {
+			isa = PBXGroup;
+			children = (
+				ABC95047205AB89E00DC8890 /* SettingUITableViewCell.swift */,
+				ABC95049205AB8C300DC8890 /* ChangePasswordViewController.swift */,
+				ABC95045205AB82C00DC8890 /* UserProfileViewController.swift */,
+			);
+			path = profile;
 			sourceTree = "<group>";
 		};
 		B01E3D8A2053404F00106CA4 /* Startup */ = {
@@ -386,6 +402,7 @@
 			isa = PBXGroup;
 			children = (
 				B0CD0EA72050716F00FBE902 /* WallpaperWindow.swift */,
+				AB280A66205B609F00662D5C /* profile */,
 				B01E3D8A2053404F00106CA4 /* Startup */,
 				B0CD0EA92050789100FBE902 /* Register */,
 				B0FEBC84204E3E0200982EAE /* Login */,
@@ -631,6 +648,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0F133FA2051B2B2000187BA /* RegisterLocationViewModel.swift in Sources */,
+				ABC95046205AB82C00DC8890 /* UserProfileViewController.swift in Sources */,
 				B0FEBC8B204E3F0B00982EAE /* Result.swift in Sources */,
 				B0FEBC8D204E3FF200982EAE /* JSONService.swift in Sources */,
 				B03C07CA2033BDE2001A54C6 /* LoginViewController.swift in Sources */,
@@ -638,6 +656,7 @@
 				B0DF8B5620500FF100AD2539 /* LoginService.swift in Sources */,
 				B077904720535D2A0099AD1F /* Constants.swift in Sources */,
 				B0F133F520517D12000187BA /* RegisterService.swift in Sources */,
+				ABC9504A205AB8C300DC8890 /* ChangePasswordViewController.swift in Sources */,
 				B0CD0EAD20507D2500FBE902 /* UnwindRegisterAccountSegue.swift in Sources */,
 				B0CD0EAB205078AA00FBE902 /* RegisterViewController.swift in Sources */,
 				B0CD0EA620506F1B00FBE902 /* RegisterAccountSegue.swift in Sources */,
@@ -654,6 +673,7 @@
 				B077904520535BC60099AD1F /* StartupViewModel.swift in Sources */,
 				B03C07C82033BDE2001A54C6 /* AppDelegate.swift in Sources */,
 				B0B3BFF62054BD330074DF0D /* MapViewController.swift in Sources */,
+				ABC95048205AB89E00DC8890 /* SettingUITableViewCell.swift in Sources */,
 				B02A024620501DB900ABB4F9 /* UIViewExtensions.swift in Sources */,
 				B0FEBC86204E3E3600982EAE /* TableViewModelable.swift in Sources */,
 				B071A6AB205800A300367102 /* ProgressButton.swift in Sources */,
@@ -717,11 +737,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 667D8S5SPP;
+				DEVELOPMENT_TEAM = 5TJVY2MFEH;
 				INFOPLIST_FILE = NeedsSiriExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.domenic-and-marshall.FarmToFork.NeedsSiriExtension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.domenic-and-marshall.FarmToFork1.NeedsSiriExtension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -733,11 +753,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 667D8S5SPP;
+				DEVELOPMENT_TEAM = 5TJVY2MFEH;
 				INFOPLIST_FILE = NeedsSiriExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.domenic-and-marshall.FarmToFork.NeedsSiriExtension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.domenic-and-marshall.FarmToFork1.NeedsSiriExtension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -749,11 +769,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 667D8S5SPP;
+				DEVELOPMENT_TEAM = 5TJVY2MFEH;
 				INFOPLIST_FILE = NeedsSiriExtensionUI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.domenic-and-marshall.FarmToFork.NeedsSiriExtensionUI";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.domenic-and-marshall.FarmToFork1.NeedsSiriExtensionUI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -765,11 +785,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 667D8S5SPP;
+				DEVELOPMENT_TEAM = 5TJVY2MFEH;
 				INFOPLIST_FILE = NeedsSiriExtensionUI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.domenic-and-marshall.FarmToFork.NeedsSiriExtensionUI";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.domenic-and-marshall.FarmToFork1.NeedsSiriExtensionUI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -891,11 +911,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 667D8S5SPP;
+				DEVELOPMENT_TEAM = 5TJVY2MFEH;
 				INFOPLIST_FILE = "Farm To Fork/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.domenic-and-marshall.FarmToFork";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.domenic-and-marshall.FarmToFork1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -909,11 +929,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 667D8S5SPP;
+				DEVELOPMENT_TEAM = 5TJVY2MFEH;
 				INFOPLIST_FILE = "Farm To Fork/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.domenic-and-marshall.FarmToFork";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.domenic-and-marshall.FarmToFork1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

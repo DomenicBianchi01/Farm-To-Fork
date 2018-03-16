@@ -19,5 +19,5 @@ final class UnwindRegisterAccountSegue: UIStoryboardSegue {
         transition.subtype = kCATransitionFromLeft
         source.navigationController?.view.layer.add(transition, forKey: kCATransition)
         source.navigationController?.popViewController(animated: false)
-    }
+	}
 }
