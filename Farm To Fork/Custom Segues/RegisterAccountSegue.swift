@@ -19,5 +19,6 @@ final class RegisterAccountSegue: UIStoryboardSegue {
         transition.subtype = kCATransitionFromRight
         source.navigationController?.view.layer.add(transition, forKey: kCATransition)
         source.navigationController?.pushViewController(destination, animated: false)
+		
     }
 }
