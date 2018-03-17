@@ -8,7 +8,7 @@
 
 import UIKit
 
-/// A class meant to be inherited by `Service` classes. This class helps format JSON request and decodes JSON responses. This class should never be used directly from a view model.
+/// A class meant to be inherited by `Service` classes. This class helps encode JSON requests and decodes JSON responses. This class should never be used directly from a view model.
 class JSONService {
     // MARK: - Properties
     ///IMPORTANT NOTE: For the scope of this project, the `JSONDataService` can only handle one network call at a time
@@ -24,7 +24,11 @@ class JSONService {
      - parameter type: The structure that the fetched JSON data should be parsed according to. NOTE: The structure must conform to `Decodable`.
      - parameter completion: If the function successfully fetched and parsed the JSON data, the completion block includes the parsed data as a structure that matches the type passed in the `type` parameter of this function. If the function could not parse the data, the completion block includes an error object instead.
      */
-    func request<T: Decodable>(from urlString: String, requestType: RequestType = .get, body: [String : Any]? = nil, expecting type: T.Type, completion: @escaping (Result<T>) -> Void) {
+    func request<T: Decodable>(from urlString: String,
+                               requestType: RequestType = .get,
+                               body: [String : Any]? = nil,
+                               expecting type: T.Type,
+                               completion: @escaping (Result<T>) -> Void) {
         guard let url = URL(string: urlString) else {
             completion(.error(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
             return

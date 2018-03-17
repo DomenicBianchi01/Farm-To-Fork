@@ -70,10 +70,6 @@ final class RegisterLocationViewModel {
         }
     }
     
-    var numberOfComponents: Int {
-        return 1
-    }
-    
     func numberOfRows(for picker: PickerType) -> Int {
         switch picker {
         case .country:
@@ -107,5 +103,14 @@ final class RegisterLocationViewModel {
     
     func updateUserCity(to cityRow: Int) {
         user.city = cities[cityRow]
+    }
+}
+
+// MARK: - PickerViewModelable
+extension RegisterLocationViewModel: PickerViewModelable {
+    func numberOfRows(in component: Int) -> Int { /* Not used */ return 0 }
+    
+    var numberOfComponents: Int {
+        return 1
     }
 }

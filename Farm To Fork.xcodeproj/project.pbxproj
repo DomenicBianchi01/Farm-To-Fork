@@ -22,6 +22,8 @@
 		B0232DD620583B1700E22B40 /* LocationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0232DD520583B1700E22B40 /* LocationsService.swift */; };
 		B0232DDB205842BB00E22B40 /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0232DDA205842BB00E22B40 /* Locations.swift */; };
 		B0232DDD2058463E00E22B40 /* JSONAny.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0232DDC2058463E00E22B40 /* JSONAny.swift */; };
+		B02613A0205B462A0067B378 /* NeedsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B026139F205B462A0067B378 /* NeedsViewModel.swift */; };
+		B02613A2205B4E1E0067B378 /* NeedItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02613A1205B4E1E0067B378 /* NeedItemTableViewCell.swift */; };
 		B02A024120501A7100ABB4F9 /* RequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A024020501A7100ABB4F9 /* RequestType.swift */; };
 		B02A024420501BC100ABB4F9 /* ErrorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A024320501BC100ABB4F9 /* ErrorExtensions.swift */; };
 		B02A024620501DB900ABB4F9 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A024520501DB900ABB4F9 /* UIViewExtensions.swift */; };
@@ -30,6 +32,7 @@
 		B03C07CD2033BDE2001A54C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B03C07CB2033BDE2001A54C6 /* Main.storyboard */; };
 		B03C07D22033BDE2001A54C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B03C07D12033BDE2001A54C6 /* Assets.xcassets */; };
 		B03C07D52033BDE2001A54C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B03C07D32033BDE2001A54C6 /* LaunchScreen.storyboard */; };
+		B061D3662058BF1E004E7888 /* PickerViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B061D3652058BF1E004E7888 /* PickerViewModelable.swift */; };
 		B071A6AB205800A300367102 /* ProgressButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B071A6AA205800A300367102 /* ProgressButton.swift */; };
 		B077904520535BC60099AD1F /* StartupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B077904420535BC60099AD1F /* StartupViewModel.swift */; };
 		B077904720535D2A0099AD1F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B077904620535D2A0099AD1F /* Constants.swift */; };
@@ -41,6 +44,7 @@
 		B0B3BFF92054BE450074DF0D /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B3BFF82054BE450074DF0D /* MapViewModel.swift */; };
 		B0B3BFFB2054C90D0074DF0D /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FEBC8A204E3F0B00982EAE /* Result.swift */; };
 		B0B3BFFC2054C93B0074DF0D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B077904620535D2A0099AD1F /* Constants.swift */; };
+		B0C6EC9E205972150064F2B5 /* NeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C6EC9D205972150064F2B5 /* NeedsViewController.swift */; };
 		B0CD0EA620506F1B00FBE902 /* RegisterAccountSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD0EA520506F1B00FBE902 /* RegisterAccountSegue.swift */; };
 		B0CD0EA82050716F00FBE902 /* WallpaperWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD0EA72050716F00FBE902 /* WallpaperWindow.swift */; };
 		B0CD0EAB205078AA00FBE902 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD0EAA205078AA00FBE902 /* RegisterViewController.swift */; };
@@ -108,6 +112,8 @@
 		B0232DD520583B1700E22B40 /* LocationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsService.swift; sourceTree = "<group>"; };
 		B0232DDA205842BB00E22B40 /* Locations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
 		B0232DDC2058463E00E22B40 /* JSONAny.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONAny.swift; sourceTree = "<group>"; };
+		B026139F205B462A0067B378 /* NeedsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsViewModel.swift; sourceTree = "<group>"; };
+		B02613A1205B4E1E0067B378 /* NeedItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedItemTableViewCell.swift; sourceTree = "<group>"; };
 		B02A024020501A7100ABB4F9 /* RequestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestType.swift; sourceTree = "<group>"; };
 		B02A024320501BC100ABB4F9 /* ErrorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorExtensions.swift; sourceTree = "<group>"; };
 		B02A024520501DB900ABB4F9 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
@@ -118,6 +124,7 @@
 		B03C07D12033BDE2001A54C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B03C07D42033BDE2001A54C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B03C07D62033BDE2001A54C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B061D3652058BF1E004E7888 /* PickerViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewModelable.swift; sourceTree = "<group>"; };
 		B071A6AA205800A300367102 /* ProgressButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressButton.swift; sourceTree = "<group>"; };
 		B077904420535BC60099AD1F /* StartupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupViewModel.swift; sourceTree = "<group>"; };
 		B077904620535D2A0099AD1F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -127,6 +134,7 @@
 		B0B3BFF22054BCD60074DF0D /* NeedsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsService.swift; sourceTree = "<group>"; };
 		B0B3BFF52054BD330074DF0D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		B0B3BFF82054BE450074DF0D /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		B0C6EC9D205972150064F2B5 /* NeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsViewController.swift; sourceTree = "<group>"; };
 		B0CD0EA520506F1B00FBE902 /* RegisterAccountSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAccountSegue.swift; sourceTree = "<group>"; };
 		B0CD0EA72050716F00FBE902 /* WallpaperWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperWindow.swift; sourceTree = "<group>"; };
 		B0CD0EAA205078AA00FBE902 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -227,11 +235,18 @@
 			path = "JSON Structures";
 			sourceTree = "<group>";
 		};
+		B026139E205B461C0067B378 /* Needs */ = {
+			isa = PBXGroup;
+			children = (
+				B026139F205B462A0067B378 /* NeedsViewModel.swift */,
+			);
+			path = Needs;
+			sourceTree = "<group>";
+		};
 		B02A024220501AF100ABB4F9 /* Login */ = {
 			isa = PBXGroup;
 			children = (
 				B00F9C13204F8B2500C5BC03 /* LoginViewModel.swift */,
-				B00F9C15204F8D8100C5BC03 /* User.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -311,6 +326,15 @@
 			path = Map;
 			sourceTree = "<group>";
 		};
+		B0C6EC9C205971FA0064F2B5 /* Needs */ = {
+			isa = PBXGroup;
+			children = (
+				B0C6EC9D205972150064F2B5 /* NeedsViewController.swift */,
+				B02613A1205B4E1E0067B378 /* NeedItemTableViewCell.swift */,
+			);
+			path = Needs;
+			sourceTree = "<group>";
+		};
 		B0CD0EA420506ED700FBE902 /* Custom Segues */ = {
 			isa = PBXGroup;
 			children = (
@@ -353,6 +377,7 @@
 			isa = PBXGroup;
 			children = (
 				B0FEBC85204E3E3600982EAE /* TableViewModelable.swift */,
+				B061D3652058BF1E004E7888 /* PickerViewModelable.swift */,
 				B0FEBC82204E3DE900982EAE /* Implementations */,
 			);
 			path = ViewModels;
@@ -374,6 +399,7 @@
 		B0FEBC82204E3DE900982EAE /* Implementations */ = {
 			isa = PBXGroup;
 			children = (
+				B026139E205B461C0067B378 /* Needs */,
 				B0B3BFF72054BE350074DF0D /* Map */,
 				B077904320535BBA0099AD1F /* Startup */,
 				B0F133F82051B28D000187BA /* Register */,
@@ -390,6 +416,7 @@
 				B0CD0EA92050789100FBE902 /* Register */,
 				B0FEBC84204E3E0200982EAE /* Login */,
 				B0B3BFF42054BD220074DF0D /* Map */,
+				B0C6EC9C205971FA0064F2B5 /* Needs */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -410,6 +437,7 @@
 				B077904820535EF80099AD1F /* LoginPreferences.swift */,
 				B077904620535D2A0099AD1F /* Constants.swift */,
 				B0232DDA205842BB00E22B40 /* Locations.swift */,
+				B00F9C15204F8D8100C5BC03 /* User.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -632,12 +660,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0F133FA2051B2B2000187BA /* RegisterLocationViewModel.swift in Sources */,
+				B02613A0205B462A0067B378 /* NeedsViewModel.swift in Sources */,
 				B0FEBC8B204E3F0B00982EAE /* Result.swift in Sources */,
 				B0232DDB205842BB00E22B40 /* Locations.swift in Sources */,
 				B0FEBC8D204E3FF200982EAE /* JSONService.swift in Sources */,
 				B03C07CA2033BDE2001A54C6 /* LoginViewController.swift in Sources */,
 				B02A024420501BC100ABB4F9 /* ErrorExtensions.swift in Sources */,
 				B0DF8B5620500FF100AD2539 /* LoginService.swift in Sources */,
+				B02613A2205B4E1E0067B378 /* NeedItemTableViewCell.swift in Sources */,
 				B077904720535D2A0099AD1F /* Constants.swift in Sources */,
 				B0F133F520517D12000187BA /* RegisterService.swift in Sources */,
 				B0CD0EAD20507D2500FBE902 /* UnwindRegisterAccountSegue.swift in Sources */,
@@ -648,6 +678,8 @@
 				B0B3BFF92054BE450074DF0D /* MapViewModel.swift in Sources */,
 				B077904920535EF80099AD1F /* LoginPreferences.swift in Sources */,
 				B00F9C16204F8D8100C5BC03 /* User.swift in Sources */,
+				B061D3662058BF1E004E7888 /* PickerViewModelable.swift in Sources */,
+				B0C6EC9E205972150064F2B5 /* NeedsViewController.swift in Sources */,
 				B0B3BFF32054BCD60074DF0D /* NeedsService.swift in Sources */,
 				B0F133F7205182C8000187BA /* RegisterLocationViewController.swift in Sources */,
 				B0ADAA1520520A2B00A0CD30 /* UIViewControllerExtensions.swift in Sources */,

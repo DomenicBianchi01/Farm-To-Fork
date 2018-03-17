@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProgressButton: UIButton {
+final class ProgressButton: UIButton {
     // MARK: - Properties
     private var activityIndicator: UIActivityIndicatorView
     private var originalTitle: String? = nil

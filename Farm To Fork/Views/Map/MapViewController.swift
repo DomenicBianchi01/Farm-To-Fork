@@ -33,8 +33,7 @@ final class MapViewController: UIViewController {
     // MARK: - IBActions
     @IBAction func preferredLocationButtonTapped(_ sender: Any) {
         if viewModel.isPreferredLocationSet {
-            // TODO: Segue to preferred location needs, urgent needs, and pleding
-            promptForPreferredLocation()
+            segueToNeeds()
         } else {
             promptForPreferredLocation()
         }
@@ -45,7 +44,9 @@ final class MapViewController: UIViewController {
         DispatchQueue.main.async {
             let alert = UIAlertController(title: "Preferred Location", message: "Please select your preferred Emergency Food Provider. You can change your preferred location at any time.", preferredStyle: .alert)
             let submitAction = UIAlertAction(title: "Save", style: .default) { _ in
-                self.viewModel.setPreferredLocation(id: self.locationPickerView.selectedRow(inComponent: 0))
+                let selectedRow = self.locationPickerView.selectedRow(inComponent: 0)
+                self.viewModel.setPreferredLocation(id: self.viewModel.locations[selectedRow].id)
+                self.segueToNeeds()
             }
             /*let noLocationAction = UIAlertAction(title: "Can't find a location?", style: .default) { _ in
                 //TODO: Display list from other cities
@@ -60,12 +61,16 @@ final class MapViewController: UIViewController {
                 self.locationPickerView.delegate = self
                 addedTextField.inputView = self.locationPickerView
                 addedTextField.placeholder = "Preferred Location"
+                addedTextField.delegate = self
                 self.textField = addedTextField
-                self.textField?.delegate = self
             }
             
             self.present(alert, animated: true, completion: nil)
         }
+    }
+    
+    private func segueToNeeds() {
+        performSegue(withIdentifier: Constants.Segues.needsView, sender: self)
     }
 }
 
@@ -89,11 +94,11 @@ extension MapViewController: UIPickerViewDelegate {
 // MARK: - UIPickerViewDataSource
 extension MapViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+        return viewModel.numberOfComponents
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return viewModel.locations.count
+        return viewModel.numberOfRows(in: component)
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {

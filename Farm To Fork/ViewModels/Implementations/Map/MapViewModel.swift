@@ -30,7 +30,18 @@ final class MapViewModel {
         }
     }
     
-    func setPreferredLocation(id: Int) {
-        UserDefaults.standard.set(String(id), forKey: Constants.preferredLocationId)
+    func setPreferredLocation(id: String) {
+        UserDefaults.standard.set(id, forKey: Constants.preferredLocationId)
+    }
+}
+
+// MARK: - PickerViewModelable
+extension MapViewModel: PickerViewModelable {
+    func numberOfRows(in component: Int) -> Int {
+        return locations.count
+    }
+    
+    var numberOfComponents: Int {
+        return 1
     }
 }

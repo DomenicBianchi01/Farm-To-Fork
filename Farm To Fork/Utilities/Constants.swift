@@ -18,5 +18,6 @@ struct Constants {
     struct Segues {
         static let loginStart = "LoginStart"
         static let autoLoginStart = "AutoLoginStart"
+        static let needsView = "NeedsView"
     }
 }
