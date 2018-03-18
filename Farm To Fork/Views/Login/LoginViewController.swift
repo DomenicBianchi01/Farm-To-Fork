@@ -36,6 +36,13 @@ final class LoginViewController: UIViewController {
         loginButton.layer.borderColor = UIColor.white.cgColor
         registerButton.layer.borderColor = UIColor.white.cgColor
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        usernameTextField.text = nil
+        passwordTextField.text = nil
+    }
 
     // MARK: - IBActions
     @IBAction func loginButtonTapped(_ sender: Any) {

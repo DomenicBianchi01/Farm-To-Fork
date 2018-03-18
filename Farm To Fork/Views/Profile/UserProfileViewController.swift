@@ -61,6 +61,11 @@ class UserProfileViewController: UIViewController,UITableViewDelegate,UITableVie
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
+    
+    override func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
+        let segue = LogoutUnwindSegue(identifier: unwindSegue.identifier, source: unwindSegue.source, destination: unwindSegue.destination)
+        segue.perform()
+    }
 	
 	func loadSeetings()
 	{

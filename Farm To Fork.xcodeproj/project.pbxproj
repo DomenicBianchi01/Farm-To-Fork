@@ -40,6 +40,7 @@
 		B077904520535BC60099AD1F /* StartupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B077904420535BC60099AD1F /* StartupViewModel.swift */; };
 		B077904720535D2A0099AD1F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B077904620535D2A0099AD1F /* Constants.swift */; };
 		B077904920535EF80099AD1F /* LoginPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = B077904820535EF80099AD1F /* LoginPreferences.swift */; };
+		B0A8BFC9205EFB0D00077DF7 /* LogoutUnwindSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8BFC8205EFB0D00077DF7 /* LogoutUnwindSegue.swift */; };
 		B0ADAA1520520A2B00A0CD30 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ADAA1420520A2B00A0CD30 /* UIViewControllerExtensions.swift */; };
 		B0ADAA17205223D900A0CD30 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ADAA16205223D900A0CD30 /* RegisterViewModel.swift */; };
 		B0B3BFF32054BCD60074DF0D /* NeedsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B3BFF22054BCD60074DF0D /* NeedsService.swift */; };
@@ -135,6 +136,7 @@
 		B077904420535BC60099AD1F /* StartupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupViewModel.swift; sourceTree = "<group>"; };
 		B077904620535D2A0099AD1F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B077904820535EF80099AD1F /* LoginPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPreferences.swift; sourceTree = "<group>"; };
+		B0A8BFC8205EFB0D00077DF7 /* LogoutUnwindSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutUnwindSegue.swift; sourceTree = "<group>"; };
 		B0ADAA1420520A2B00A0CD30 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		B0ADAA16205223D900A0CD30 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		B0B3BFF22054BCD60074DF0D /* NeedsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsService.swift; sourceTree = "<group>"; };
@@ -206,14 +208,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		AB280A66205B609F00662D5C /* profile */ = {
+		AB280A66205B609F00662D5C /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				ABC95047205AB89E00DC8890 /* SettingUITableViewCell.swift */,
 				ABC95049205AB8C300DC8890 /* ChangePasswordViewController.swift */,
+				ABC95047205AB89E00DC8890 /* SettingUITableViewCell.swift */,
 				ABC95045205AB82C00DC8890 /* UserProfileViewController.swift */,
 			);
-			path = profile;
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		B01E3D8A2053404F00106CA4 /* Startup */ = {
@@ -356,6 +358,7 @@
 			children = (
 				B0CD0EA520506F1B00FBE902 /* RegisterAccountSegue.swift */,
 				B0CD0EAC20507D2500FBE902 /* UnwindRegisterAccountSegue.swift */,
+				B0A8BFC8205EFB0D00077DF7 /* LogoutUnwindSegue.swift */,
 			);
 			path = "Custom Segues";
 			sourceTree = "<group>";
@@ -382,9 +385,9 @@
 			isa = PBXGroup;
 			children = (
 				B02A024320501BC100ABB4F9 /* ErrorExtensions.swift */,
+				B0F133F220517C12000187BA /* StringExtensions.swift */,
 				B02A024520501DB900ABB4F9 /* UIViewExtensions.swift */,
 				B0ADAA1420520A2B00A0CD30 /* UIViewControllerExtensions.swift */,
-				B0F133F220517C12000187BA /* StringExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -428,7 +431,7 @@
 			isa = PBXGroup;
 			children = (
 				B0CD0EA72050716F00FBE902 /* WallpaperWindow.swift */,
-				AB280A66205B609F00662D5C /* profile */,
+				AB280A66205B609F00662D5C /* Profile */,
 				B01E3D8A2053404F00106CA4 /* Startup */,
 				B0CD0EA92050789100FBE902 /* Register */,
 				B0FEBC84204E3E0200982EAE /* Login */,
@@ -715,6 +718,7 @@
 				B071A6AB205800A300367102 /* ProgressButton.swift in Sources */,
 				B0CD0EA82050716F00FBE902 /* WallpaperWindow.swift in Sources */,
 				B0F133F320517C12000187BA /* StringExtensions.swift in Sources */,
+				B0A8BFC9205EFB0D00077DF7 /* LogoutUnwindSegue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
