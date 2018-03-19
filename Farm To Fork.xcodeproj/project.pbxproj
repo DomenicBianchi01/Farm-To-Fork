@@ -23,7 +23,7 @@
 		B01FA1F82054463600863E05 /* NeedsSiriExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B01FA1E02054463600863E05 /* NeedsSiriExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B01FA205205460DF00863E05 /* AppIntentVocabulary.plist in Resources */ = {isa = PBXBuildFile; fileRef = B01FA203205460DF00863E05 /* AppIntentVocabulary.plist */; };
 		B0232DD620583B1700E22B40 /* LocationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0232DD520583B1700E22B40 /* LocationsService.swift */; };
-		B0232DDB205842BB00E22B40 /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0232DDA205842BB00E22B40 /* Locations.swift */; };
+		B0232DDB205842BB00E22B40 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0232DDA205842BB00E22B40 /* Location.swift */; };
 		B0232DDD2058463E00E22B40 /* JSONAny.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0232DDC2058463E00E22B40 /* JSONAny.swift */; };
 		B02613A0205B462A0067B378 /* NeedsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B026139F205B462A0067B378 /* NeedsViewModel.swift */; };
 		B02613A2205B4E1E0067B378 /* NeedItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02613A1205B4E1E0067B378 /* NeedItemTableViewCell.swift */; };
@@ -41,6 +41,10 @@
 		B077904720535D2A0099AD1F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B077904620535D2A0099AD1F /* Constants.swift */; };
 		B077904920535EF80099AD1F /* LoginPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = B077904820535EF80099AD1F /* LoginPreferences.swift */; };
 		B0A8BFC9205EFB0D00077DF7 /* LogoutUnwindSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8BFC8205EFB0D00077DF7 /* LogoutUnwindSegue.swift */; };
+		B0A8BFCE205F171200077DF7 /* Need.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8BFCD205F171200077DF7 /* Need.swift */; };
+		B0A8BFD0205F339000077DF7 /* ExpandedNeedItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8BFCF205F339000077DF7 /* ExpandedNeedItemTableViewCell.swift */; };
+		B0A8BFD2205F3AC300077DF7 /* PledgeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8BFD1205F3AC300077DF7 /* PledgeDelegate.swift */; };
+		B0A8BFD4205F3F3F00077DF7 /* PledgeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8BFD3205F3F3F00077DF7 /* PledgeService.swift */; };
 		B0ADAA1520520A2B00A0CD30 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ADAA1420520A2B00A0CD30 /* UIViewControllerExtensions.swift */; };
 		B0ADAA17205223D900A0CD30 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ADAA16205223D900A0CD30 /* RegisterViewModel.swift */; };
 		B0B3BFF32054BCD60074DF0D /* NeedsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B3BFF22054BCD60074DF0D /* NeedsService.swift */; };
@@ -117,7 +121,7 @@
 		B01FA2002054468000863E05 /* Farm To Fork.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Farm To Fork.entitlements"; sourceTree = "<group>"; };
 		B01FA204205460DF00863E05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = "Farm To Fork/Base.lproj/AppIntentVocabulary.plist"; sourceTree = "<group>"; };
 		B0232DD520583B1700E22B40 /* LocationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsService.swift; sourceTree = "<group>"; };
-		B0232DDA205842BB00E22B40 /* Locations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
+		B0232DDA205842BB00E22B40 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		B0232DDC2058463E00E22B40 /* JSONAny.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONAny.swift; sourceTree = "<group>"; };
 		B026139F205B462A0067B378 /* NeedsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsViewModel.swift; sourceTree = "<group>"; };
 		B02613A1205B4E1E0067B378 /* NeedItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedItemTableViewCell.swift; sourceTree = "<group>"; };
@@ -137,6 +141,10 @@
 		B077904620535D2A0099AD1F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B077904820535EF80099AD1F /* LoginPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPreferences.swift; sourceTree = "<group>"; };
 		B0A8BFC8205EFB0D00077DF7 /* LogoutUnwindSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutUnwindSegue.swift; sourceTree = "<group>"; };
+		B0A8BFCD205F171200077DF7 /* Need.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Need.swift; sourceTree = "<group>"; };
+		B0A8BFCF205F339000077DF7 /* ExpandedNeedItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedNeedItemTableViewCell.swift; sourceTree = "<group>"; };
+		B0A8BFD1205F3AC300077DF7 /* PledgeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PledgeDelegate.swift; sourceTree = "<group>"; };
+		B0A8BFD3205F3F3F00077DF7 /* PledgeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PledgeService.swift; sourceTree = "<group>"; };
 		B0ADAA1420520A2B00A0CD30 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		B0ADAA16205223D900A0CD30 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		B0B3BFF22054BCD60074DF0D /* NeedsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsService.swift; sourceTree = "<group>"; };
@@ -257,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				B026139F205B462A0067B378 /* NeedsViewModel.swift */,
+				B0A8BFD1205F3AC300077DF7 /* PledgeDelegate.swift */,
 			);
 			path = Needs;
 			sourceTree = "<group>";
@@ -299,6 +308,7 @@
 				B0F133FD2051B4EB000187BA /* Extensions */,
 				B0CD0EA420506ED700FBE902 /* Custom Segues */,
 				B071A6AC205805DC00367102 /* CustomUIElements */,
+				B0A8BFCC205F16C400077DF7 /* Entities */,
 				B0FEBC89204E3EED00982EAE /* Utilities */,
 				B0FEBC83204E3DF000982EAE /* Views */,
 				B0FEBC80204E3DDC00982EAE /* API */,
@@ -328,6 +338,16 @@
 			path = Startup;
 			sourceTree = "<group>";
 		};
+		B0A8BFCC205F16C400077DF7 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				B0232DDA205842BB00E22B40 /* Location.swift */,
+				B0A8BFCD205F171200077DF7 /* Need.swift */,
+				B00F9C15204F8D8100C5BC03 /* User.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		B0B3BFF42054BD220074DF0D /* Map */ = {
 			isa = PBXGroup;
 			children = (
@@ -349,6 +369,7 @@
 			children = (
 				B0C6EC9D205972150064F2B5 /* NeedsViewController.swift */,
 				B02613A1205B4E1E0067B378 /* NeedItemTableViewCell.swift */,
+				B0A8BFCF205F339000077DF7 /* ExpandedNeedItemTableViewCell.swift */,
 			);
 			path = Needs;
 			sourceTree = "<group>";
@@ -411,6 +432,7 @@
 				B0F133F420517D12000187BA /* RegisterService.swift */,
 				B0B3BFF22054BCD60074DF0D /* NeedsService.swift */,
 				B0232DD520583B1700E22B40 /* LocationsService.swift */,
+				B0A8BFD3205F3F3F00077DF7 /* PledgeService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -456,8 +478,6 @@
 				B02A024020501A7100ABB4F9 /* RequestType.swift */,
 				B077904820535EF80099AD1F /* LoginPreferences.swift */,
 				B077904620535D2A0099AD1F /* Constants.swift */,
-				B0232DDA205842BB00E22B40 /* Locations.swift */,
-				B00F9C15204F8D8100C5BC03 /* User.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -683,7 +703,7 @@
 				B02613A0205B462A0067B378 /* NeedsViewModel.swift in Sources */,
 				ABC95046205AB82C00DC8890 /* UserProfileViewController.swift in Sources */,
 				B0FEBC8B204E3F0B00982EAE /* Result.swift in Sources */,
-				B0232DDB205842BB00E22B40 /* Locations.swift in Sources */,
+				B0232DDB205842BB00E22B40 /* Location.swift in Sources */,
 				B0FEBC8D204E3FF200982EAE /* JSONService.swift in Sources */,
 				B03C07CA2033BDE2001A54C6 /* LoginViewController.swift in Sources */,
 				B02A024420501BC100ABB4F9 /* ErrorExtensions.swift in Sources */,
@@ -696,6 +716,7 @@
 				B0232DDD2058463E00E22B40 /* JSONAny.swift in Sources */,
 				B0CD0EAB205078AA00FBE902 /* RegisterViewController.swift in Sources */,
 				B0232DD620583B1700E22B40 /* LocationsService.swift in Sources */,
+				B0A8BFCE205F171200077DF7 /* Need.swift in Sources */,
 				B0CD0EA620506F1B00FBE902 /* RegisterAccountSegue.swift in Sources */,
 				B0B3BFF92054BE450074DF0D /* MapViewModel.swift in Sources */,
 				B077904920535EF80099AD1F /* LoginPreferences.swift in Sources */,
@@ -710,15 +731,18 @@
 				B01E3D8C2053405B00106CA4 /* StartupViewController.swift in Sources */,
 				B02A024120501A7100ABB4F9 /* RequestType.swift in Sources */,
 				B077904520535BC60099AD1F /* StartupViewModel.swift in Sources */,
+				B0A8BFD2205F3AC300077DF7 /* PledgeDelegate.swift in Sources */,
 				B03C07C82033BDE2001A54C6 /* AppDelegate.swift in Sources */,
 				B0B3BFF62054BD330074DF0D /* MapViewController.swift in Sources */,
 				ABC95048205AB89E00DC8890 /* SettingUITableViewCell.swift in Sources */,
+				B0A8BFD4205F3F3F00077DF7 /* PledgeService.swift in Sources */,
 				B02A024620501DB900ABB4F9 /* UIViewExtensions.swift in Sources */,
 				B0FEBC86204E3E3600982EAE /* TableViewModelable.swift in Sources */,
 				B071A6AB205800A300367102 /* ProgressButton.swift in Sources */,
 				B0CD0EA82050716F00FBE902 /* WallpaperWindow.swift in Sources */,
 				B0F133F320517C12000187BA /* StringExtensions.swift in Sources */,
 				B0A8BFC9205EFB0D00077DF7 /* LogoutUnwindSegue.swift in Sources */,
+				B0A8BFD0205F339000077DF7 /* ExpandedNeedItemTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

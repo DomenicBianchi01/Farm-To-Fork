@@ -10,19 +10,31 @@ import UIKit
 
 final class NeedItemTableViewCell: UITableViewCell {
     // MARK: - IBOutlets
-    @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var subtitleLabel: UILabel!
+    @IBOutlet private var titleLabel: UILabel!
+    @IBOutlet private var subtitleLabel: UILabel!
+    
+    // MARK: - Properties
+    private var need: Need? = nil
+    weak var delegate: PledgeDelegate? = nil
     
     // MARK: - Lifecycle Functions
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    // MARK: - IBActions
+    @IBAction func pledgeButtonTapped(_ sender: Any) {
+        guard let need = need else {
+            return
+        }
+        delegate?.pledgeRequested(for: need)
     }
-
+    
+    // MARK: - Helper Functions
+    func configure(for need: Need) {
+        titleLabel.text = need.name
+        subtitleLabel.text = need.description
+        self.need = need
+    }
 }

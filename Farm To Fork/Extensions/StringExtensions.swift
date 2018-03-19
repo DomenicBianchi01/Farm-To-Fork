@@ -19,6 +19,10 @@ extension String {
         return self.rangeOfCharacter(from: .decimalDigits) != nil
     }
     
+    var isNumber: Bool {
+        return Int(self) != nil
+    }
+    
     var containsUppercase: Bool {
         return self.rangeOfCharacter(from: .uppercaseLetters) != nil
     }

@@ -15,9 +15,10 @@ extension UIViewController {
     }
     
     /**
-     Display an error alert on the screen.
+     Display a basic alert on the screen. Only an "OK" alert action will be included.
      
-     - parameter message: The error message to be displayed on the alert
+     - parameter title: The title of the alert
+     - parameter message: The message to be displayed on the alert
      */
     func displayAlert(title: String, message: String) {
         DispatchQueue.main.async {

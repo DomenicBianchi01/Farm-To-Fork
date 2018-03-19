@@ -55,19 +55,19 @@ class JSONService {
             }
             do {
                 let json = try JSONDecoder().decode(type, from: data)
-                guard var jsonDict = json as? [String : String] else {
+                guard var jsonDict = json as? [String : Any] else {
                     completion(.success(json))
                     return
                 }
-                if let error = jsonDict["error"] {
+                if let error = jsonDict["error"] as? String {
                     var responseStatusCode = 0
                     if let response = response as? HTTPURLResponse {
                         responseStatusCode = response.statusCode
                     }
                     completion(.error(NSError(domain: error, code: responseStatusCode, userInfo: nil)))
-                } else if let success = jsonDict["success"]?.asBool, success {
+                } else if let success = (jsonDict["success"] as? String)?.asBool, success {
                     jsonDict.removeValue(forKey: "success")
-                    completion(.success(json))
+                    completion(.success(jsonDict as? T ?? json))
                 }
             } catch {
                 completion(.error(NSError(domain: "Invalid JSON", code: 0, userInfo: nil)))

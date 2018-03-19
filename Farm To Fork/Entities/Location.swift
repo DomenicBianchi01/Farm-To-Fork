@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class Location {
+struct Location {
     // MARK: - Properties
     let id: String
     let name: String
