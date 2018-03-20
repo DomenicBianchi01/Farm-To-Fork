@@ -13,9 +13,14 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
     // MARK: - IBOutlets
 	@IBOutlet private var profilePhoto: UIImageView!
 	@IBOutlet private var logoutButton: UIButton!
-	@IBOutlet private var removeAccountButton: UIButton!
+	@IBOutlet private var updateButton: UIButton!
+	@IBOutlet var table: UITableView!
+
+	var user:User = User()
 	
-    // MARK: - Properties
+	
+	
+	// MARK: - Properties
 	private class Setting {
 		var label:String
 		var value:String
@@ -47,7 +52,7 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
 		loadSeetings()
 		
 		logoutButton.layer.cornerRadius = 10
-		removeAccountButton.layer.cornerRadius = 10
+		updateButton.layer.cornerRadius = 10
 		profilePhoto.image?.withRenderingMode(.alwaysTemplate)
 		profilePhoto.tintColor = .blue
 	}
@@ -75,12 +80,13 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
 
 					user.password = password
 					
+					self.user = user
+					
 					self.settings = [
 						Setting(label: "First Name", value: user.firstName, Setting.FieldType.TEXT),
 						Setting(label: "Last Name", value: user.lastName, Setting.FieldType.TEXT),
 						Setting(label: "Email", value: user.email, Setting.FieldType.EMAIL),
 						Setting(label: "Password", value: user.password, Setting.FieldType.PASSWORD)]
-					
 					
 				case .error(let error):
 					self.settings = [
@@ -89,6 +95,7 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
 						Setting(label: "Email", value: "temp", Setting.FieldType.EMAIL),
 						Setting(label: "Password", value: "temp", Setting.FieldType.PASSWORD)]
 				}
+				self.table.reloadData()
 			}
 		}
 		
@@ -141,22 +148,35 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
 	}
 	
     // MARK: - IBActions
-	@IBAction func deleteAccountAction(_ sender: UIButton) {
+	@IBAction func save(_ sender: UIButton) {
 		
-		let alert = UIAlertController(title: "Delete Account", message:"Warning! This action is permanent are you sure you want to continue?", preferredStyle: .alert)
 		
-		alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel action"), style: .cancel, handler: { _ in
-			NSLog("Abort")
-			//abort
-		}))
+		let firstName:String = (table.cellForRow(at: IndexPath(row: 0, section: 0)) as! SettingUITableViewCell ).textField.text!
 		
-		alert.addAction(UIAlertAction(title: NSLocalizedString("Delete", comment: "Delete action"), style: .destructive, handler: { _ in
-			NSLog("Account deleted")
-			//delete account
-		}))
+		let lastName:String = (table.cellForRow(at: IndexPath(row: 1, section: 0)) as! SettingUITableViewCell ).textField.text!
 		
-		self.present(alert, animated: true, completion: nil)
+		let email:String = (table.cellForRow(at: IndexPath(row: 3, section: 0)) as! SettingUITableViewCell ).textField.text!
+		
+		
+		user.email = email
+		user.firstName = firstName
+		user.lastName = lastName
+		
+		UpdateUserService().updateUser(user: user){  result in
+			DispatchQueue.main.async {
+				switch result {
+				case .success:
+					NSLog("Success update")
+					
+				case .error:
+					NSLog("Fail update")
+				}
+				self.table.reloadData()
+			}
+		}
 	}
+	
+	
 	
 	@IBAction func logoutAction(_ sender: UIButton) {
         let loginViewModel = LoginViewModel()

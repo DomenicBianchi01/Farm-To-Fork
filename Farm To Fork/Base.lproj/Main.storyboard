@@ -924,7 +924,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="ccc-zb-ckg">
-                                <rect key="frame" x="0.0" y="166" width="375" height="348"/>
+                                <rect key="frame" x="0.0" y="210" width="375" height="303"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="textFieldCell" id="zOL-dG-Jgz" customClass="SettingUITableViewCell" customModule="Farm_To_Fork" customModuleProvider="target">
@@ -1072,37 +1072,36 @@
                                     <outlet property="delegate" destination="KEp-l1-4CG" id="zTm-ch-btg"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u3z-Ta-VoV">
-                                <rect key="frame" x="122" y="597" width="131" height="38"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u3z-Ta-VoV">
+                                <rect key="frame" x="122" y="609" width="131" height="38"/>
                                 <color key="backgroundColor" red="1" green="0.099114384230000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="mM6-U4-f7y"/>
-                                </constraints>
-                                <state key="normal" title="Delete Account">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="deleteAccountAction:" destination="KEp-l1-4CG" eventType="primaryActionTriggered" id="1CW-BY-soZ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OLk-mY-ul7">
-                                <rect key="frame" x="122" y="538" width="131" height="37"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="37" id="ev1-d1-xCK"/>
                                 </constraints>
                                 <state key="normal" title="Logout">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="logoutAction:" destination="KEp-l1-4CG" eventType="touchUpInside" id="D1w-r8-SSZ"/>
-                                    <segue destination="BYZ-38-t0r" kind="custom" identifier="logoutSegue" customClass="LogoutSegue" customModule="Farm_To_Fork" customModuleProvider="target" id="cX0-Ak-jMX"/>
+                                    <action selector="logoutAction:" destination="KEp-l1-4CG" eventType="primaryActionTriggered" id="aGT-XU-dfg"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="RaY-yT-iOS">
-                                <rect key="frame" x="12" y="20" width="350" height="131"/>
+                                <rect key="frame" x="12" y="64" width="350" height="131"/>
                                 <color key="tintColor" red="0.12376436540000001" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OLk-mY-ul7">
+                                <rect key="frame" x="122" y="538" width="131" height="37"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="ev1-d1-xCK"/>
+                                </constraints>
+                                <state key="normal" title="Update">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="save:" destination="KEp-l1-4CG" eventType="primaryActionTriggered" id="6UL-C2-b54"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -1124,9 +1123,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="qOR-Ug-gWG"/>
                     <connections>
-                        <outlet property="logoutButton" destination="OLk-mY-ul7" id="Xsy-eg-NxW"/>
+                        <outlet property="logoutButton" destination="u3z-Ta-VoV" id="aIW-ad-t8Q"/>
                         <outlet property="profilePhoto" destination="RaY-yT-iOS" id="RFF-hW-PEY"/>
-                        <outlet property="removeAccountButton" destination="u3z-Ta-VoV" id="DzJ-Du-LqL"/>
+                        <outlet property="table" destination="ccc-zb-ckg" id="moP-hn-u7u"/>
+                        <outlet property="updateButton" destination="OLk-mY-ul7" id="QAl-h3-mlK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="de8-wE-nIh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1215,9 +1215,7 @@
         <image name="profile" width="350" height="350"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cpp-HC-Efj"/>
         <segue reference="Bls-H3-gWY"/>
-        <segue reference="cX0-Ak-jMX"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.73333333329999995" green="0.85098039219999999" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -33,18 +33,14 @@ final class UpdateUserService: JSONService {
 				self.request(from: self.userUrlString, expecting: [String : String].self) { result in
 					switch result {
 					case .success(let userDictionary):
-						NSLog("get info in success")
 						let userObject = User(dictionary: userDictionary)!
 						
 						completion(.success(userObject))
 					case .error(let error):
-						NSLog("get info in error")
-
 						completion(.error(error))
 					}
 				}
 			case .error(let error):
-				NSLog("logged in Failed")
 				completion(.error(error))
 				
 			}
@@ -60,9 +56,11 @@ final class UpdateUserService: JSONService {
 		LoginService().login(user: user) { result in
 			switch result {
 				case .success:
+					NSLog("Success Login")
 					self.updateAddress(user: user, with: completion)
 				case .error(let error):
 					completion(.error(error))
+					NSLog("fail Login")
 				
 			}
 		}
@@ -72,11 +70,13 @@ final class UpdateUserService: JSONService {
 
 		let addressBody: [String : Any] = ["CityID" : user.city.key]
 		
-		request(from: "\(userUpdateUrlString)\\address", requestType: .post, body: addressBody, expecting: [String : String].self) { result in
+		request(from: "\(userUpdateUrlString)\\address", requestType: .put, body: addressBody, expecting: [String : String].self) { result in
 			switch result {
 			case .success:
+				NSLog("Success address")
 				self.updateInfo(user: user, with: completion)
 			case .error(let error):
+				NSLog("fail address")
 				completion(.error(error))
 			}
 		}
@@ -89,11 +89,13 @@ final class UpdateUserService: JSONService {
 										"LastName" : user.lastName]
 		
 		
-		request(from: "\(userUpdateUrlString)", requestType: .post, body: userBody, expecting: [String : String].self) { result in
+		request(from: "\(userUpdateUrlString)", requestType: .put, body: userBody, expecting: [String : String].self) { result in
 			switch result {
 			case .success:
+				NSLog("Success info")
 				completion(.success(()))
 			case .error(let error):
+				NSLog("fail info")
 				completion(.error(error))
 			}
 		}
