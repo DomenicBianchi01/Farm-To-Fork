@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 
 class UserProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // MARK: - IBOutlets
@@ -59,11 +60,40 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
     // MARK: - Helper Functions
 	private func loadSeetings()
 	{
-		settings += [
-			Setting(label: "First Name", value: "Marshall", Setting.FieldType.TEXT),
-			Setting(label: "Last Name", value: "Asch", Setting.FieldType.TEXT),
-			Setting(label: "Email", value: "masch@uoguelph.ca", Setting.FieldType.EMAIL),
-			Setting(label: "Password", value: "Abcd1234", Setting.FieldType.PASSWORD)]
+		
+		
+		guard let username = KeychainWrapper.standard.string(forKey: Constants.username), let password = KeychainWrapper.standard.string(forKey: Constants.password) else {
+			self.performSegue(withIdentifier: Constants.Segues.loginStart, sender: self)
+			return
+		}
+		
+
+		UpdateUserService().fetchUserData(email: username, pass: password){ result in
+			DispatchQueue.main.async {
+				switch result {
+				case .success(var user):
+
+					user.password = password
+					
+					self.settings = [
+						Setting(label: "First Name", value: user.firstName, Setting.FieldType.TEXT),
+						Setting(label: "Last Name", value: user.lastName, Setting.FieldType.TEXT),
+						Setting(label: "Email", value: user.email, Setting.FieldType.EMAIL),
+						Setting(label: "Password", value: user.password, Setting.FieldType.PASSWORD)]
+					
+					
+				case .error(let error):
+					self.settings = [
+						Setting(label: "First Name", value: "temp", Setting.FieldType.TEXT),
+						Setting(label: "Last Name", value: "temp", Setting.FieldType.TEXT),
+						Setting(label: "Email", value: "temp", Setting.FieldType.EMAIL),
+						Setting(label: "Password", value: "temp", Setting.FieldType.PASSWORD)]
+				}
+			}
+		}
+		
+		
+		
 		
 	}
 	
@@ -135,53 +165,4 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
 		isLoggedIn = false
 	}
 
-	@IBAction func passwordChange(_ sender: UITextField) {
-		
-		let alert = UIAlertController(title: "Change Password", message:"", preferredStyle: .alert)
-		alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .`default`, handler: { _ in
-			NSLog("The \"OK\" alert occured.")
-			
-			//check old pass is correct
-			// check that the new passwords match
-			
-			let oldPass = alert.textFields![0].text!
-			let newPass = alert.textFields![1].text!
-			let confirmPass = alert.textFields![2].text!
-			
-			NSLog("oldPass = \(oldPass) \n new pass: \(newPass) \n confirmPass = \(confirmPass)")
-			
-			//update password
-		}))
-		alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel action"), style: .cancel, handler: { _ in
-			NSLog("The \"OK\" alert occured.")
-			//abort
-		}))
-		alert.addTextField { (textField) in
-			textField.placeholder = "Old Password"
-			if #available(iOS 11.0, *) {
-				textField.textContentType = UITextContentType.password
-			} else {
-				// Fallback on earlier versions
-			}
-		}
-		
-		alert.addTextField { (textField) in
-			textField.placeholder = "New Password"
-			if #available(iOS 11.0, *) {
-				textField.textContentType = UITextContentType.password
-			} else {
-				// Fallback on earlier versions
-			}
-		}
-		alert.addTextField { (textField) in
-			textField.placeholder = "Confirm Password"
-			if #available(iOS 11.0, *) {
-				textField.textContentType = UITextContentType.password
-			} else {
-				// Fallback on earlier versions
-			}
-		}
-		self.present(alert, animated: true, completion: nil)
-		
-	}
 }

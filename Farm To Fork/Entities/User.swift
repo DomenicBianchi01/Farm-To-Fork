@@ -34,4 +34,23 @@ struct User {
         self.province = province
         self.city = city
     }
+	
+	
+	// MARK: - Lifecycle Functions
+	init?(dictionary: [String : String]) {
+		guard let firstName = dictionary["FirstName"],
+			let lastName = dictionary["LastName"],
+			let email = dictionary["Email"],
+			let city = dictionary["CityID"]
+		else {
+				return nil
+		}
+		self.firstName = firstName
+		self.lastName = lastName
+		self.email = email
+		self.password = "*********"
+		self.country = (key: "", value: "")
+		self.province = (key: "", value: "")
+		self.city = (key: city, value: "")
+	}
 }

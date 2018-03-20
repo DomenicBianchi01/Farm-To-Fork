@@ -178,7 +178,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="N45-ih-Udk">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N45-ih-Udk">
                                 <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </mapView>
@@ -209,7 +209,7 @@
                                 <action selector="preferredLocationButtonTapped:" destination="86S-uw-EdG" id="1I9-IQ-PQV"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Profile" style="plain" id="efS-9H-3dB">
+                        <barButtonItem key="rightBarButtonItem" image="profile" style="plain" id="efS-9H-3dB">
                             <color key="tintColor" red="0.58097495639999996" green="0.64982592839999997" blue="0.33504829860000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="KEp-l1-4CG" kind="show" id="cpp-HC-Efj"/>
