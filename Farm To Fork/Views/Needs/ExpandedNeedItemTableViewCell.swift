@@ -30,6 +30,11 @@ class ExpandedNeedItemTableViewCell: UITableViewCell {
     func configure(for need: Need) {
         categoryLabel.text = "\(need.category) - \(need.type)"
         pledgeLabel.text = "\(need.currentQuantity) items pleged"
-        pledgesNeededLabel.text = "We need \(need.targetQuantity - need.currentQuantity) more to reach our goal of \(need.targetQuantity) items!"
+        
+        if need.targetQuantity - need.currentQuantity > 0 {
+            pledgesNeededLabel.text = "We need \(need.targetQuantity - need.currentQuantity) more to reach our goal of \(need.targetQuantity) items!"
+        } else {
+            pledgesNeededLabel.text = "We have reached our pledge goal of \(need.targetQuantity) items! You can still pledge if you wish!"
+        }
     }
 }

@@ -7,9 +7,15 @@
 //
 
 import UIKit
+import MapKit
 
 final class MapViewController: UIViewController {
+    // MARK: - IBOutlets
+    @IBOutlet var mapView: MKMapView!
+    @IBOutlet var toolbar: UIToolbar!
+
     // MARK: - Properties
+    private let locationManager = CLLocationManager()
     private let viewModel = MapViewModel()
     private let locationPickerView = UIPickerView()
     private var textField: UITextField? = nil
@@ -28,6 +34,11 @@ final class MapViewController: UIViewController {
                 }
             }
         }
+        
+        locationManager.delegate = self
+        locationManager.requestAlwaysAuthorization()
+        
+        mapView.delegate = self
     }
     
     // MARK: - IBActions
@@ -103,5 +114,24 @@ extension MapViewController: UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return viewModel.locations[row].name
+    }
+}
+
+// MARK: - MKMapViewDelegate
+extension MapViewController: MKMapViewDelegate {
+}
+
+// MARK: - CLLocationManagerDelegate
+extension MapViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse || status == .authorizedAlways {
+            mapView.showsUserLocation = true
+            let buttonItem = MKUserTrackingBarButtonItem(mapView: mapView)
+            let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+            toolbar.items = [flexibleSpace, buttonItem]
+        } else {
+            mapView.showsUserLocation = false
+            toolbar.items = nil
+        }
     }
 }

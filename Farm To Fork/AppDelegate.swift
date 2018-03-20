@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 import Intents
 
+var isLoggedIn: Bool = false
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -44,16 +46,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
         if #available(iOS 11.0, *) {
-            guard let intent = userActivity.interaction?.intent as? INSearchForNotebookItemsIntent else {
-                print("AppDelegate: Start Workout Intent - FALSE")
-                return false
+            guard let intent = userActivity.interaction?.intent as? INSearchForNotebookItemsIntent, intent.status == .completed else {
+                return true
             }
-            print("AppDelegate: Start Workout Intent - TRUE")
-            print(intent)
+
+            if let window = self.window, let rootViewController = window.rootViewController, isLoggedIn {
+                let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NeedsNavController")
+                var currentController = rootViewController
+                while let presentedController = currentController.presentedViewController {
+                    currentController = presentedController
+                }
+                currentController.present(controller, animated: true, completion: nil)
+            }
             return true
         }
         return false
     }
-
 }
-

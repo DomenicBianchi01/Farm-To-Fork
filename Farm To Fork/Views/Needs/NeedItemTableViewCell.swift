@@ -12,6 +12,7 @@ final class NeedItemTableViewCell: UITableViewCell {
     // MARK: - IBOutlets
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var subtitleLabel: UILabel!
+    @IBOutlet var personalPledgeCountLabel: UILabel!
     
     // MARK: - Properties
     private var need: Need? = nil
@@ -35,6 +36,7 @@ final class NeedItemTableViewCell: UITableViewCell {
     func configure(for need: Need) {
         titleLabel.text = need.name
         subtitleLabel.text = need.description
+        personalPledgeCountLabel.text = "You have pledged 2 of this item" //TODO: This data should come from the Pledge API when it is created
         self.need = need
     }
 }

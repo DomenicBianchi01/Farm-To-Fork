@@ -13,7 +13,7 @@ final class MapViewModel {
     var locations: [Location] = []
     
     var isPreferredLocationSet: Bool {
-        return UserDefaults.standard.string(forKey: Constants.preferredLocationId) != nil ? true : false
+        return UserDefaults.appGroup?.string(forKey: Constants.preferredLocationId) != nil ? true : false
     }
     
     // MARK: - Helper Functions
@@ -31,7 +31,7 @@ final class MapViewModel {
     }
     
     func setPreferredLocation(id: String) {
-        UserDefaults.standard.set(id, forKey: Constants.preferredLocationId)
+        UserDefaults.appGroup?.set(id, forKey: Constants.preferredLocationId)
     }
 }
 

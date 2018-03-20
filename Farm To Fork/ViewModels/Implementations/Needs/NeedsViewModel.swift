@@ -15,7 +15,7 @@ final class NeedsViewModel {
     
     // MARK: - Helper Functions
     func fetchNeeds(with completion: @escaping ((Result<Void>) -> Void)) {
-        guard let locationId = UserDefaults.standard.string(forKey: Constants.preferredLocationId) else {
+        guard let locationId = UserDefaults.appGroup?.string(forKey: Constants.preferredLocationId) else {
             completion(.error(NSError(domain: "No preferred location found", code: 0, userInfo: nil)))
             return
         }

@@ -43,6 +43,12 @@ final class LoginViewController: UIViewController {
         usernameTextField.text = nil
         passwordTextField.text = nil
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        usernameTextField.text = nil
+        passwordTextField.text = nil
+    }
 
     // MARK: - IBActions
     @IBAction func loginButtonTapped(_ sender: Any) {
@@ -83,6 +89,7 @@ final class LoginViewController: UIViewController {
                 case .success:
                     self.viewModel.removePasswordFromKeychain()
                     self.viewModel.savePasswordToKeychain()
+                    isLoggedIn = true
                     if self.viewModel.firstLogin {
                         self.promptForLoginPreferences()
                     } else {
@@ -123,15 +130,15 @@ final class LoginViewController: UIViewController {
     }
     
     private func promptForSiriKit() {
-//        DispatchQueue.main.async {
-//            if INPreferences.siriAuthorizationStatus() == .notDetermined {
-//                INPreferences.requestSiriAuthorization() { _ in
-//                    self.performSegue(withIdentifier: "goToMapFromLogin", sender: self)
-//                }
-//            } else {
-//                self.performSegue(withIdentifier: "goToMapFromLogin", sender: self)
-//            }
-//        }
+        DispatchQueue.main.async {
+            if INPreferences.siriAuthorizationStatus() == .notDetermined {
+                INPreferences.requestSiriAuthorization() { _ in
+                    self.performSegue(withIdentifier: "goToMapFromLogin", sender: self)
+                }
+            } else {
+                self.performSegue(withIdentifier: "goToMapFromLogin", sender: self)
+            }
+        }
     }
 
     private func textFieldDidChange(textField: UITextField) {

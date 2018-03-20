@@ -9,6 +9,7 @@
 import Foundation
 
 struct User {
+    // MARK: - Properties
     var firstName: String
     var lastName: String
     var email: String
@@ -17,6 +18,7 @@ struct User {
     var province: (key: String, value: String)
     var city: (key: String, value: String)
     
+    // MARK: - Lifecycle Functions
     init(firstName: String = "",
          lastName: String = "",
          email: String = "",

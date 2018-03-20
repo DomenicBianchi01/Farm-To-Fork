@@ -43,12 +43,12 @@ class JSONService {
             request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
         }
     
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+//        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         urlDataTask?.cancel()
         urlDataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            DispatchQueue.main.async {
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            }
+//            DispatchQueue.main.async {
+//                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+//            }
             guard let data = data else {
                 completion(.error(NSError(domain: "No data returned", code: 0, userInfo: nil)))
                 return
@@ -68,6 +68,8 @@ class JSONService {
                 } else if let success = (jsonDict["success"] as? String)?.asBool, success {
                     jsonDict.removeValue(forKey: "success")
                     completion(.success(jsonDict as? T ?? json))
+                } else {
+                    completion(.success(json))
                 }
             } catch {
                 completion(.error(NSError(domain: "Invalid JSON", code: 0, userInfo: nil)))

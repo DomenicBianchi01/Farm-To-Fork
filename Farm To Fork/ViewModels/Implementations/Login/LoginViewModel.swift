@@ -31,7 +31,7 @@ final class LoginViewModel {
     func savePasswordToKeychain() {
         if newManualSignIn {
             if KeychainWrapper.standard.set(user.password, forKey: Constants.password) && KeychainWrapper.standard.set(user.email, forKey: Constants.username) {
-                UserDefaults.standard.set(true, forKey: Constants.passwordSaved)
+                UserDefaults.appGroup?.set(true, forKey: Constants.passwordSaved)
             }
         }
     }
@@ -39,19 +39,23 @@ final class LoginViewModel {
     // MARK: - Functions
     func removePasswordFromKeychain() {
         if KeychainWrapper.standard.removeAllKeys() {
-            UserDefaults.standard.removeObject(forKey: Constants.passwordSaved)
+            UserDefaults.appGroup?.removeObject(forKey: Constants.passwordSaved)
         }
     }
     
     func enableLoginPreference(_ preference: LoginPreference) {
-        UserDefaults.standard.set(preference.rawValue, forKey: Constants.loginPreference)
+        UserDefaults.appGroup?.set(preference.rawValue, forKey: Constants.loginPreference)
+    }
+    
+    func disableLoginPreference() {
+        UserDefaults.appGroup?.removeObject(forKey: Constants.loginPreference)
     }
     
     var firstLogin: Bool {
-        return !UserDefaults.standard.bool(forKey: Constants.loginPreference)
+        return !(UserDefaults.appGroup?.bool(forKey: Constants.loginPreference) ?? false)
     }
     
     private var newManualSignIn: Bool {
-        return !UserDefaults.standard.bool(forKey: Constants.passwordSaved)
+        return !(UserDefaults.appGroup?.bool(forKey: Constants.passwordSaved) ?? false)
     }
 }

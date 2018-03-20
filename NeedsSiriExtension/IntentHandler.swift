@@ -17,25 +17,29 @@ final class IntentHandler: INExtension {
 // MARK: - INSearchForNotebookItemsIntentHandling
 extension IntentHandler: INSearchForNotebookItemsIntentHandling {
     func handle(intent: INSearchForNotebookItemsIntent, completion: @escaping (INSearchForNotebookItemsIntentResponse) -> Void) {
-        print(intent)
-        
-        guard let locationId = UserDefaults.standard.string(forKey: Constants.preferredLocationId) else {
-            completion(INSearchForNotebookItemsIntentResponse(code: .failure, userActivity: nil))
+
+        guard let locationId = UserDefaults.appGroup?.string(forKey: Constants.preferredLocationId) else {
+            completion(INSearchForNotebookItemsIntentResponse(code: .failureRequiringAppLaunch, userActivity: nil))
             return
         }
         
-        /*NeedsService().fetchNeeds(forLocation: locationId) { result in
-            
-        }*/
-        
-        let response = INSearchForNotebookItemsIntentResponse(code: .success, userActivity: nil)
-        response.notes = [INNote(title: INSpeakableString(spokenPhrase: "Test"), contents: [], groupName: INSpeakableString(spokenPhrase: "Urgent Needs"), createdDateComponents: nil, modifiedDateComponents: nil, identifier: nil),
-        INNote(title: INSpeakableString(spokenPhrase: "Test2"), contents: [], groupName: INSpeakableString(spokenPhrase: "Urgent Needs"), createdDateComponents: nil, modifiedDateComponents: nil, identifier: nil),
-        INNote(title: INSpeakableString(spokenPhrase: "Test3"), contents: [], groupName: INSpeakableString(spokenPhrase: "Urgent Needs"), createdDateComponents: nil, modifiedDateComponents: nil, identifier: nil)]
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            completion(response)
+        NeedsService().fetchNeeds(forLocation: locationId) { result in
+            switch result {
+            case .success(let needs):
+                let response = INSearchForNotebookItemsIntentResponse(code: .success, userActivity: nil)
+                var notes: [INNote] = []
+                for need in needs {
+                    notes.append(INNote(title: INSpeakableString(spokenPhrase: need.name),
+                        contents: [INTextNoteContent(text: "\(need.targetQuantity - need.currentQuantity) more pledges needed!")],
+                        groupName: INSpeakableString(spokenPhrase: "Urgent Needs"),
+                        createdDateComponents: nil,
+                        modifiedDateComponents: nil, identifier: nil))
+                }
+                response.notes = notes
+                completion(response)
+            case .error:
+                completion(INSearchForNotebookItemsIntentResponse(code: .failure, userActivity: nil))
+            }
         }
     }
 }
-

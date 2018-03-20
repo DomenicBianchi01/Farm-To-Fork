@@ -8,13 +8,14 @@
 
 import UIKit
 
-class UserProfileViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
-	@IBOutlet var profilePhoto: UIImageView!
-	@IBOutlet var logoutButton: UIButton!
-	@IBOutlet var removeAccountButton: UIButton!
+class UserProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    // MARK: - IBOutlets
+	@IBOutlet private var profilePhoto: UIImageView!
+	@IBOutlet private var logoutButton: UIButton!
+	@IBOutlet private var removeAccountButton: UIButton!
 	
-	
-	class Setting {
+    // MARK: - Properties
+	private class Setting {
 		var label:String
 		var value:String
 		
@@ -36,38 +37,27 @@ class UserProfileViewController: UIViewController,UITableViewDelegate,UITableVie
 		}
 	}
 	
+	private var settings = [Setting]()
+	private var sections = ["Account Information"]
 	
-	var settings = [Setting]()
-	var sections = ["Account Information"]
-	
-	
-	
-	
+    // MARK: - Lifecycle Functions
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		loadSeetings()
-		
 		
 		logoutButton.layer.cornerRadius = 10
 		removeAccountButton.layer.cornerRadius = 10
 		profilePhoto.image?.withRenderingMode(.alwaysTemplate)
 		profilePhoto.tintColor = .blue
-		
-		
-		// Do any additional setup after loading the view, typically from a nib.
 	}
 	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
-    
-    override func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
-        let segue = LogoutUnwindSegue(identifier: unwindSegue.identifier, source: unwindSegue.source, destination: unwindSegue.destination)
-        segue.perform()
-    }
 	
-	func loadSeetings()
+    // MARK: - Helper Functions
+	private func loadSeetings()
 	{
 		settings += [
 			Setting(label: "First Name", value: "Marshall", Setting.FieldType.TEXT),
@@ -77,7 +67,7 @@ class UserProfileViewController: UIViewController,UITableViewDelegate,UITableVie
 		
 	}
 	
-	
+    // MARK: - Table View Functions
 	func numberOfSections(in tableView: UITableView) -> Int {
 		return 1
 	}
@@ -93,12 +83,9 @@ class UserProfileViewController: UIViewController,UITableViewDelegate,UITableVie
 	
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		
-		
 		var cellType = "textFieldCell"
 		
 		let setting = settings[indexPath.row]
-		
 		
 		switch setting.type {
 		case Setting.FieldType.TEXT:
@@ -120,11 +107,10 @@ class UserProfileViewController: UIViewController,UITableViewDelegate,UITableVie
 		cell.label.text = setting.label
 		cell.textField.text = setting.value
 		
-		
 		return cell
 	}
 	
-	
+    // MARK: - IBActions
 	@IBAction func deleteAccountAction(_ sender: UIButton) {
 		
 		let alert = UIAlertController(title: "Delete Account", message:"Warning! This action is permanent are you sure you want to continue?", preferredStyle: .alert)
@@ -143,13 +129,12 @@ class UserProfileViewController: UIViewController,UITableViewDelegate,UITableVie
 	}
 	
 	@IBAction func logoutAction(_ sender: UIButton) {
-		
-		LoginViewModel().removePasswordFromKeychain()
-		
+        let loginViewModel = LoginViewModel()
+		loginViewModel.removePasswordFromKeychain()
+        loginViewModel.disableLoginPreference()
+		isLoggedIn = false
 	}
-	
-	
-	
+
 	@IBAction func passwordChange(_ sender: UITextField) {
 		
 		let alert = UIAlertController(title: "Change Password", message:"", preferredStyle: .alert)
@@ -199,8 +184,4 @@ class UserProfileViewController: UIViewController,UITableViewDelegate,UITableVie
 		self.present(alert, animated: true, completion: nil)
 		
 	}
-	
-	
 }
-
-

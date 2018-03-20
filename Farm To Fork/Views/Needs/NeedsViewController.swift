@@ -51,6 +51,7 @@ extension NeedsViewController: UITextFieldDelegate {
 extension NeedsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        // If the expanded cell is tapped or its parent cell is tapped
         if let expandedIndexPath = viewModel.expandedIndexPath, indexPath.row == expandedIndexPath.row || indexPath.row == expandedIndexPath.row - 1 {
             viewModel.expandedIndexPath = nil
             if #available(iOS 11.0, *) {
@@ -63,18 +64,24 @@ extension NeedsViewController: UITableViewDelegate {
                 tableView.endUpdates()
             }
         } else if let expandedIndexPath = viewModel.expandedIndexPath {
-            let newExpandedIndexPath = IndexPath(row: indexPath.row + 1, section: 0)
+            let newExpandedIndexPath: IndexPath
+            if indexPath.row > expandedIndexPath.row {
+                newExpandedIndexPath = IndexPath(row: indexPath.row, section: 0)
+            } else {
+                newExpandedIndexPath = IndexPath(row: indexPath.row + 1, section: 0)
+            }
+            
             viewModel.expandedIndexPath = newExpandedIndexPath
             
             if #available(iOS 11.0, *) {
                 tableView.performBatchUpdates({
-                    tableView.insertRows(at: [newExpandedIndexPath], with: .top)
                     tableView.deleteRows(at: [expandedIndexPath], with: .top)
+                    tableView.insertRows(at: [newExpandedIndexPath], with: .top)
                 }, completion: nil)
             } else {
                 tableView.beginUpdates()
-                tableView.insertRows(at: [newExpandedIndexPath], with: .top)
                 tableView.deleteRows(at: [expandedIndexPath], with: .top)
+                tableView.insertRows(at: [newExpandedIndexPath], with: .top)
                 tableView.endUpdates()
             }
         } else {
