@@ -7,9 +7,21 @@
 //
 
 import UIKit
+import MaterialTextField
+import SwiftKeychainWrapper
+
 
 final class ChangePasswordViewController: UIViewController {
-    // MARK: - Lifecycle Functions
+	@IBOutlet var oldPass: MFTextField!
+	@IBOutlet var newPass1: MFTextField!
+	@IBOutlet var newPass2: MFTextField!
+	
+	@IBOutlet var save: UIButton!
+	
+	 private let viewModel = RegisterViewModel()
+	
+	
+	// MARK: - Lifecycle Functions
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -19,6 +31,125 @@ final class ChangePasswordViewController: UIViewController {
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
+	}
+	
+	@IBAction func dismissKeyboard(_ sender: UISwipeGestureRecognizer) {
+		self.view.endEditing(true)
+	}
+	
+	@IBAction func save(_ sender: UIButton) {
+		
+		let oldPassword = oldPass.text ?? ""
+		
+		guard let username = KeychainWrapper.standard.string(forKey: Constants.username), let password = KeychainWrapper.standard.string(forKey: Constants.password) else {
+			self.performSegue(withIdentifier: Constants.Segues.loginStart, sender: self)
+			return
+		}
+		
+		if viewModel.passwordIsValid && password == oldPassword {
+			
+			NSLog("Okay to change password")
+			
+			var user = User()
+			
+			user.email = username
+			user.password = password
+			
+			let newPass = viewModel.user.password
+
+			
+			UpdateUserService().changePassword(user: user, newPass: newPass) { result in
+				DispatchQueue.main.async {
+					switch result {
+					case .success:
+						
+						// update the stored password
+						KeychainWrapper.standard.set(newPass, forKey: Constants.password)
+						
+						// go back to the profile page
+						self.performSegue(withIdentifier: "unwindToProfile", sender: self)
+						
+					case .error(let error):
+						NSLog("Failed to change the password: \(error.description)")
+						
+						self.oldPass.shake()
+						self.newPass1.shake()
+						self.newPass2.shake()
+					}
+				}
+			}
+		}
+		else {
+			NSLog("Invalid Password Try again")
+			
+			self.oldPass.shake()
+			self.newPass1.shake()
+			self.newPass2.shake()
+		}
+		
+		
+	}
+	@IBAction func textChanged(_ sender: UITextField) {
+		
+		textFieldDidChange(textField: sender)
+	}
+	
+	
+	private func textFieldDidChange(textField: UITextField) {
+		
+		if textField == oldPass {
+			
+		} else if textField == newPass1 {
+			let newPassword1 = newPass1.text ?? "1"
+			let newPassword2 = newPass2.text ?? "2"
+			
+			viewModel.updatePasswordElements(textField.text ?? "")
+			
+			// make sure it meets the requirements
+			if viewModel.passwordIsValid {
+				removePasswordRequirementsError()
+			} else {
+				setPasswordRequirementsError()
+			}
+			
+			// make sure the passwords match
+			if viewModel.verify(password1: newPassword1, password2: newPassword2) {
+				removePasswordMismatchError()
+			} else {
+				setPasswordMismatchError()
+			}
+		} else if textField == newPass2 {
+			let newPassword1 = newPass1.text ?? "1"
+			let newPassword2 = newPass2.text ?? "2"
+			
+			if viewModel.update(password1: newPassword1, password2: newPassword2) {
+				removePasswordMismatchError()
+			} else {
+				setPasswordMismatchError()
+			}
+		}
+		
+	}
+	
+	
+	private func setPasswordRequirementsError() {
+		newPass1.setError(viewModel.passwordRequirementsError, animated: true)
+		newPass1.underlineColor = .red
+	}
+	
+	private func removePasswordRequirementsError() {
+		newPass1.setError(nil, animated: true)
+		newPass1.underlineColor = .green
+	}
+	
+	private func setPasswordMismatchError() {
+		newPass2.setError(viewModel.passwordMismatchError, animated: true)
+		newPass2.underlineColor = .red
+	}
+	
+	private func removePasswordMismatchError() {
+		newPass2.setError(nil, animated: true)
+		newPass2.underlineColor = .green
 	}
 }
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		42C53CB3E76A75DC0051F220 /* Pods_Farm_To_Fork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0A9CF5A462CEA72738E915 /* Pods_Farm_To_Fork.framework */; };
+		AB9B39FF20617FE60088BFC4 /* UpdateUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9B39FE20617FE60088BFC4 /* UpdateUserService.swift */; };
 		ABC95046205AB82C00DC8890 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC95045205AB82C00DC8890 /* UserProfileViewController.swift */; };
 		ABC95048205AB89E00DC8890 /* SettingUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC95047205AB89E00DC8890 /* SettingUITableViewCell.swift */; };
 		ABC9504A205AB8C300DC8890 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC95049205AB8C300DC8890 /* ChangePasswordViewController.swift */; };
@@ -99,6 +100,7 @@
 /* Begin PBXFileReference section */
 		5D0A9CF5A462CEA72738E915 /* Pods_Farm_To_Fork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Farm_To_Fork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6680688F97D90421833C5D80 /* Pods-Farm To Fork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Farm To Fork.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Farm To Fork/Pods-Farm To Fork.debug.xcconfig"; sourceTree = "<group>"; };
+		AB9B39FE20617FE60088BFC4 /* UpdateUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserService.swift; sourceTree = "<group>"; };
 		ABC95045205AB82C00DC8890 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		ABC95047205AB89E00DC8890 /* SettingUITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingUITableViewCell.swift; sourceTree = "<group>"; };
 		ABC95049205AB8C300DC8890 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
@@ -406,6 +408,7 @@
 				B0FEBC8C204E3FF200982EAE /* JSONService.swift */,
 				B0DF8B5520500FF100AD2539 /* LoginService.swift */,
 				B0F133F420517D12000187BA /* RegisterService.swift */,
+				AB9B39FE20617FE60088BFC4 /* UpdateUserService.swift */,
 				B0B3BFF22054BCD60074DF0D /* NeedsService.swift */,
 				B0232DD520583B1700E22B40 /* LocationsService.swift */,
 				B0A8BFD3205F3F3F00077DF7 /* PledgeService.swift */,
@@ -690,6 +693,7 @@
 				ABC95048205AB89E00DC8890 /* SettingUITableViewCell.swift in Sources */,
 				B0A8BFD4205F3F3F00077DF7 /* PledgeService.swift in Sources */,
 				B02A024620501DB900ABB4F9 /* UIViewExtensions.swift in Sources */,
+				AB9B39FF20617FE60088BFC4 /* UpdateUserService.swift in Sources */,
 				B0FEBC86204E3E3600982EAE /* TableViewModelable.swift in Sources */,
 				B071A6AB205800A300367102 /* ProgressButton.swift in Sources */,
 				B0CD0EA82050716F00FBE902 /* WallpaperWindow.swift in Sources */,

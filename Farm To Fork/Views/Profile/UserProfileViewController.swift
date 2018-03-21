@@ -7,14 +7,20 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 
 class UserProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // MARK: - IBOutlets
 	@IBOutlet private var profilePhoto: UIImageView!
 	@IBOutlet private var logoutButton: UIButton!
-	@IBOutlet private var removeAccountButton: UIButton!
+	@IBOutlet private var updateButton: UIButton!
+	@IBOutlet var table: UITableView!
+
+	var user:User = User()
 	
-    // MARK: - Properties
+	
+	
+	// MARK: - Properties
 	private class Setting {
 		var label:String
 		var value:String
@@ -43,10 +49,10 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
     // MARK: - Lifecycle Functions
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		loadSeetings()
+		loadSettings()
 		
 		logoutButton.layer.cornerRadius = 10
-		removeAccountButton.layer.cornerRadius = 10
+		updateButton.layer.cornerRadius = 10
 		profilePhoto.image?.withRenderingMode(.alwaysTemplate)
 		profilePhoto.tintColor = .blue
 	}
@@ -57,13 +63,44 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
 	}
 	
     // MARK: - Helper Functions
-	private func loadSeetings()
+	private func loadSettings()
 	{
-		settings += [
-			Setting(label: "First Name", value: "Marshall", Setting.FieldType.TEXT),
-			Setting(label: "Last Name", value: "Asch", Setting.FieldType.TEXT),
-			Setting(label: "Email", value: "masch@uoguelph.ca", Setting.FieldType.EMAIL),
-			Setting(label: "Password", value: "Abcd1234", Setting.FieldType.PASSWORD)]
+		
+		
+		guard let username = KeychainWrapper.standard.string(forKey: Constants.username), let password = KeychainWrapper.standard.string(forKey: Constants.password) else {
+			return
+		}
+		
+
+		UpdateUserService().fetchUserData(email: username, pass: password){ result in
+			DispatchQueue.main.async {
+				switch result {
+				case .success(var user):
+
+					user.password = password
+					
+					self.user = user
+					
+					self.settings = [
+						Setting(label: "First Name", value: user.firstName, Setting.FieldType.TEXT),
+						Setting(label: "Last Name", value: user.lastName, Setting.FieldType.TEXT),
+						Setting(label: "Email", value: user.email, Setting.FieldType.EMAIL),
+						Setting(label: "Password", value: user.password, Setting.FieldType.PASSWORD)]
+					
+				case .error(let error):
+					NSLog("Loading data failed \(error.description)")
+					self.settings = [
+						Setting(label: "First Name", value: "temp", Setting.FieldType.TEXT),
+						Setting(label: "Last Name", value: "temp", Setting.FieldType.TEXT),
+						Setting(label: "Email", value: "temp", Setting.FieldType.EMAIL),
+						Setting(label: "Password", value: "temp", Setting.FieldType.PASSWORD)]
+				}
+				self.table.reloadData()
+			}
+		}
+		
+		
+		
 		
 	}
 	
@@ -111,21 +148,41 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
 	}
 	
     // MARK: - IBActions
-	@IBAction func deleteAccountAction(_ sender: UIButton) {
+	@IBAction func save(_ sender: UIButton) {
 		
-		let alert = UIAlertController(title: "Delete Account", message:"Warning! This action is permanent are you sure you want to continue?", preferredStyle: .alert)
 		
-		alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel action"), style: .cancel, handler: { _ in
-			NSLog("Abort")
-			//abort
-		}))
+		let firstName:String = (table.cellForRow(at: IndexPath(row: 0, section: 0)) as! SettingUITableViewCell ).textField.text!
+		let lastName:String = (table.cellForRow(at: IndexPath(row: 1, section: 0)) as! SettingUITableViewCell ).textField.text!
+		let email:String = (table.cellForRow(at: IndexPath(row: 2, section: 0)) as! SettingUITableViewCell ).textField.text!
 		
-		alert.addAction(UIAlertAction(title: NSLocalizedString("Delete", comment: "Delete action"), style: .destructive, handler: { _ in
-			NSLog("Account deleted")
-			//delete account
-		}))
 		
-		self.present(alert, animated: true, completion: nil)
+		guard let username = KeychainWrapper.standard.string(forKey: Constants.username), let password = KeychainWrapper.standard.string(forKey: Constants.password) else {
+			return
+		}
+		
+		
+		user.email = username
+		user.password = password
+		user.firstName = firstName
+		user.lastName = lastName
+		
+		NSLog("pass: \(password)")
+		
+		UpdateUserService().updateUser(user: user, newEmail: email){  result in
+			DispatchQueue.main.async {
+				switch result {
+				case .success:
+					NSLog("Success update")
+				case .error:
+					NSLog("Fail update")
+				}
+			}
+		}
+	}
+	
+
+	@IBAction func dismissKeyboard(_ sender: UISwipeGestureRecognizer) {
+		self.view.endEditing(true)
 	}
 	
 	@IBAction func logoutAction(_ sender: UIButton) {
@@ -134,54 +191,8 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
         loginViewModel.disableLoginPreference()
 		isLoggedIn = false
 	}
+	
+	
+	@IBAction func unwindToProfile(sender: UIStoryboardSegue) {}
 
-	@IBAction func passwordChange(_ sender: UITextField) {
-		
-		let alert = UIAlertController(title: "Change Password", message:"", preferredStyle: .alert)
-		alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .`default`, handler: { _ in
-			NSLog("The \"OK\" alert occured.")
-			
-			//check old pass is correct
-			// check that the new passwords match
-			
-			let oldPass = alert.textFields![0].text!
-			let newPass = alert.textFields![1].text!
-			let confirmPass = alert.textFields![2].text!
-			
-			NSLog("oldPass = \(oldPass) \n new pass: \(newPass) \n confirmPass = \(confirmPass)")
-			
-			//update password
-		}))
-		alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel action"), style: .cancel, handler: { _ in
-			NSLog("The \"OK\" alert occured.")
-			//abort
-		}))
-		alert.addTextField { (textField) in
-			textField.placeholder = "Old Password"
-			if #available(iOS 11.0, *) {
-				textField.textContentType = UITextContentType.password
-			} else {
-				// Fallback on earlier versions
-			}
-		}
-		
-		alert.addTextField { (textField) in
-			textField.placeholder = "New Password"
-			if #available(iOS 11.0, *) {
-				textField.textContentType = UITextContentType.password
-			} else {
-				// Fallback on earlier versions
-			}
-		}
-		alert.addTextField { (textField) in
-			textField.placeholder = "Confirm Password"
-			if #available(iOS 11.0, *) {
-				textField.textContentType = UITextContentType.password
-			} else {
-				// Fallback on earlier versions
-			}
-		}
-		self.present(alert, animated: true, completion: nil)
-		
-	}
 }

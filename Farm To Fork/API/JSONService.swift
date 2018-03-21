@@ -59,12 +59,17 @@ class JSONService {
                     completion(.success(json))
                     return
                 }
-                if let error = jsonDict["error"] as? String {
+                if let error = jsonDict["error"] {
                     var responseStatusCode = 0
                     if let response = response as? HTTPURLResponse {
                         responseStatusCode = response.statusCode
                     }
-                    completion(.error(NSError(domain: error, code: responseStatusCode, userInfo: nil)))
+
+                    if let errorString = error as? String {
+                        completion(.error(NSError(domain: errorString, code: responseStatusCode, userInfo: nil)))
+                    } else {
+                        completion(.error(NSError(domain: "There was an error", code: responseStatusCode, userInfo: nil)))
+                    }
                 } else if let success = (jsonDict["success"] as? String)?.asBool, success {
                     jsonDict.removeValue(forKey: "success")
                     completion(.success(jsonDict as? T ?? json))
@@ -72,7 +77,7 @@ class JSONService {
                     completion(.success(json))
                 }
             } catch {
-                completion(.error(NSError(domain: "Invalid JSON", code: 0, userInfo: nil)))
+				completion(.error(NSError(domain: "Invalid JSON", code: 0, userInfo: nil)))
             }
         }
         urlDataTask?.resume()

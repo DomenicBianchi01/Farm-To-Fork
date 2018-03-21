@@ -125,12 +125,10 @@ extension MapViewController: MKMapViewDelegate {
 extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse || status == .authorizedAlways {
-            mapView.showsUserLocation = true
             let buttonItem = MKUserTrackingBarButtonItem(mapView: mapView)
             let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
             toolbar.items = [flexibleSpace, buttonItem]
         } else {
-            mapView.showsUserLocation = false
             toolbar.items = nil
         }
     }
