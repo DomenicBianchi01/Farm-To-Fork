@@ -941,7 +941,7 @@
                                                     </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yj0-NG-XCt">
                                                     <rect key="frame" x="31" y="12" width="100" height="20"/>
@@ -1104,6 +1104,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="OLk-mY-ul7" firstAttribute="leading" secondItem="u3z-Ta-VoV" secondAttribute="leading" id="5Ej-zy-4r7"/>
                             <constraint firstItem="OLk-mY-ul7" firstAttribute="top" secondItem="ccc-zb-ckg" secondAttribute="bottom" constant="24" id="CaK-Ak-1oJ"/>
@@ -1120,6 +1121,9 @@
                             <constraint firstItem="RaY-yT-iOS" firstAttribute="top" secondItem="mAT-wb-yts" secondAttribute="top" id="pEr-TA-UJk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mAT-wb-yts"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="y7S-Iw-csD" appends="YES" id="Pqo-0k-kam"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="qOR-Ug-gWG"/>
                     <connections>
@@ -1130,6 +1134,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="de8-wE-nIh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="y7S-Iw-csD">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="KEp-l1-4CG" id="GNW-ji-7It"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1132" y="1521.5892053973014"/>
         </scene>

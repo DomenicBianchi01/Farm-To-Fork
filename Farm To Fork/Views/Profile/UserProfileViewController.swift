@@ -155,12 +155,13 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
 		
 		let lastName:String = (table.cellForRow(at: IndexPath(row: 1, section: 0)) as! SettingUITableViewCell ).textField.text!
 		
-		let email:String = (table.cellForRow(at: IndexPath(row: 3, section: 0)) as! SettingUITableViewCell ).textField.text!
+		let email:String = (table.cellForRow(at: IndexPath(row: 2, section: 0)) as! SettingUITableViewCell ).textField.text!
 		
 		
 		user.email = email
 		user.firstName = firstName
 		user.lastName = lastName
+		
 		
 		UpdateUserService().updateUser(user: user){  result in
 			DispatchQueue.main.async {
@@ -177,6 +178,12 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
 	}
 	
 	
+
+	@IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+	
+	
+		self.view.endEditing(true)
+	}
 	
 	@IBAction func logoutAction(_ sender: UIButton) {
         let loginViewModel = LoginViewModel()

@@ -72,7 +72,7 @@ class JSONService {
                     completion(.success(json))
                 }
             } catch {
-                completion(.error(NSError(domain: "Invalid JSON", code: 0, userInfo: nil)))
+				completion(.error(NSError(domain: "Invalid JSON", code: 0, userInfo: nil)))
             }
         }
         urlDataTask?.resume()

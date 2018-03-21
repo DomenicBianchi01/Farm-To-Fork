@@ -30,17 +30,22 @@ final class UpdateUserService: JSONService {
 			switch result {
 			case .success:
 				NSLog("logged in success")
-				self.request(from: self.userUrlString, expecting: [String : String].self) { result in
+				self.request(from: self.userUrlString, expecting: [String : JSONAny].self) { result in
 					switch result {
 					case .success(let userDictionary):
-						let userObject = User(dictionary: userDictionary)!
+						
+						
+						NSLog("Success get info")
+						let userObject:User = User(dictionary: (userDictionary.first?.value.value as? [String : String])!)!
 						
 						completion(.success(userObject))
 					case .error(let error):
+						NSLog("Failed get info \(error.description)")
 						completion(.error(error))
 					}
 				}
 			case .error(let error):
+				NSLog("Failed login: \(error.description)")
 				completion(.error(error))
 				
 			}
@@ -59,8 +64,9 @@ final class UpdateUserService: JSONService {
 					NSLog("Success Login")
 					self.updateAddress(user: user, with: completion)
 				case .error(let error):
+					NSLog("Failed login: \(error.description)")
 					completion(.error(error))
-					NSLog("fail Login")
+				
 				
 			}
 		}
@@ -70,13 +76,13 @@ final class UpdateUserService: JSONService {
 
 		let addressBody: [String : Any] = ["CityID" : user.city.key]
 		
-		request(from: "\(userUpdateUrlString)\\address", requestType: .put, body: addressBody, expecting: [String : String].self) { result in
+		request(from: "\(userUpdateUrlString)/address", requestType: .put, body: addressBody, expecting: [String : String].self) { result in
 			switch result {
 			case .success:
 				NSLog("Success address")
 				self.updateInfo(user: user, with: completion)
 			case .error(let error):
-				NSLog("fail address")
+				NSLog("fail address \(error.description)")
 				completion(.error(error))
 			}
 		}
@@ -92,10 +98,10 @@ final class UpdateUserService: JSONService {
 		request(from: "\(userUpdateUrlString)", requestType: .put, body: userBody, expecting: [String : String].self) { result in
 			switch result {
 			case .success:
-				NSLog("Success info")
+				NSLog("Success update info")
 				completion(.success(()))
 			case .error(let error):
-				NSLog("fail info")
+				NSLog("fail update info:  \(error.description)")
 				completion(.error(error))
 			}
 		}
@@ -120,7 +126,7 @@ final class UpdateUserService: JSONService {
 		let body: [String : Any] = ["oldpass" : user.password,
 										"newpass" : newPass]
 		
-		request(from: "\(userUpdateUrlString)\\pass", requestType: .post, body: body, expecting: [String : String].self) { result in
+		request(from: "\(userUpdateUrlString)/pass", requestType: .post, body: body, expecting: [String : String].self) { result in
 			switch result {
 			case .success:
 				completion(.success(()))
