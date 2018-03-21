@@ -49,7 +49,7 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
     // MARK: - Lifecycle Functions
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		loadSeetings()
+		loadSettings()
 		
 		logoutButton.layer.cornerRadius = 10
 		updateButton.layer.cornerRadius = 10
@@ -63,7 +63,7 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
 	}
 	
     // MARK: - Helper Functions
-	private func loadSeetings()
+	private func loadSettings()
 	{
 		
 		
@@ -89,6 +89,7 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
 						Setting(label: "Password", value: user.password, Setting.FieldType.PASSWORD)]
 					
 				case .error(let error):
+					NSLog("Loading data failed \(error.description)")
 					self.settings = [
 						Setting(label: "First Name", value: "temp", Setting.FieldType.TEXT),
 						Setting(label: "Last Name", value: "temp", Setting.FieldType.TEXT),
@@ -168,20 +169,15 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
 				switch result {
 				case .success:
 					NSLog("Success update")
-					
 				case .error:
 					NSLog("Fail update")
 				}
-				self.table.reloadData()
 			}
 		}
 	}
 	
-	
 
-	@IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
-	
-	
+	@IBAction func dismissKeyboard(_ sender: UISwipeGestureRecognizer) {
 		self.view.endEditing(true)
 	}
 	
