@@ -83,5 +83,69 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Farm To Fork/API/UpdateUserService.swift"
+            timestampString = "543266892.153253"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "fetchUserData(email:pass:with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Farm To Fork/API/UpdateUserService.swift"
+            timestampString = "543266892.153663"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "fetchUserData(email:pass:with:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Farm_To_Fork.Result&lt;Swift.Dictionary&lt;Swift.String, Farm_To_Fork.JSONAny&gt;&gt;) -&gt; () in closure #1 (Farm_To_Fork.Result&lt;()&gt;) -&gt; () in Farm_To_Fork.UpdateUserService.fetchUserData(email: Swift.String, pass: Swift.String, with: (Farm_To_Fork.Result&lt;Farm_To_Fork.User&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Farm To Fork"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/workspace/Farm%20To%20Fork/Farm%20To%20Fork/API/UpdateUserService.swift"
+                  timestampString = "543355315.063874"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "264">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Farm_To_Fork.Result&lt;Swift.Dictionary&lt;Swift.String, Farm_To_Fork.JSONAny&gt;&gt;) -&gt; () in closure #1 (Farm_To_Fork.Result&lt;()&gt;) -&gt; () in Farm_To_Fork.UpdateUserService.fetchUserData(email: Swift.String, pass: Swift.String, with: (Farm_To_Fork.Result&lt;Farm_To_Fork.User&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Farm To Fork"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/workspace/Farm%20To%20Fork/Farm%20To%20Fork/API/UpdateUserService.swift"
+                  timestampString = "543355315.069319"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "4471">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
