@@ -37,11 +37,11 @@ struct User {
 	
 	
 	// MARK: - Lifecycle Functions
-	init?(dictionary: [String : String]) {
-		guard let firstName = dictionary["FirstName"],
-			let lastName = dictionary["LastName"],
-			let email = dictionary["Email"],
-			let city = dictionary["CityID"]
+	init?(dictionary: [String : JSONAny]) {
+		guard let firstName = dictionary["FirstName"]?.value as? String,
+			let lastName = dictionary["LastName"]?.value as? String,
+			let email = dictionary["Email"]?.value as? String,
+			let city = dictionary["CityID"]?.value as? String
 		else {
 				return nil
 		}

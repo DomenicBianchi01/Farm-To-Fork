@@ -36,7 +36,7 @@ final class UpdateUserService: JSONService {
 						
 						
 						NSLog("Success get info")
-						let userObject:User = User(dictionary: (userDictionary.first?.value.value as? [String : String])!)!
+						let userObject:User = User(dictionary: userDictionary)!
 						
 						completion(.success(userObject))
 					case .error(let error):
