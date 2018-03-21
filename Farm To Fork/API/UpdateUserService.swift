@@ -55,13 +55,20 @@ final class UpdateUserService: JSONService {
 	}
 	
 	
-	func updateUser(user: User, with completion: @escaping (Result<Void>) -> Void) {
+	func updateUser(user: User, newEmail:String, with completion: @escaping (Result<Void>) -> Void) {
 		
 
 		LoginService().login(user: user) { result in
 			switch result {
 				case .success:
 					NSLog("Success Login")
+					
+					
+			
+					var user = User(user)
+						
+						user.email = newEmail
+					
 					self.updateAddress(user: user, with: completion)
 				case .error(let error):
 					NSLog("Failed login: \(error.description)")

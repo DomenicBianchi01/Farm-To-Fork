@@ -1148,7 +1148,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Old Password" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4ad-Io-PhB" customClass="MFTextField">
-                                <rect key="frame" x="10" y="219" width="343" height="60"/>
+                                <rect key="frame" x="10" y="112" width="343" height="60"/>
                                 <color key="tintColor" red="0.73333333329999995" green="0.85098039219999999" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="iPa-fW-iS9"/>
@@ -1175,11 +1175,11 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="animatesPlaceholder" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="textFieldDidChange:" destination="O7p-5E-6Wd" eventType="editingChanged" id="gOZ-zD-vtP"/>
+                                    <action selector="textChanged:" destination="j9c-lu-Nxz" eventType="editingChanged" id="F2r-6A-LQH"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New Password" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3H0-2P-f1j" customClass="MFTextField">
-                                <rect key="frame" x="10" y="308" width="343" height="60"/>
+                                <rect key="frame" x="10" y="201" width="343" height="60"/>
                                 <color key="tintColor" red="0.73333333329999995" green="0.85098039219999999" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
@@ -1203,11 +1203,11 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="animatesPlaceholder" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="textFieldDidChange:" destination="O7p-5E-6Wd" eventType="editingChanged" id="xj9-Cr-1zX"/>
+                                    <action selector="textChanged:" destination="j9c-lu-Nxz" eventType="editingChanged" id="UMA-PB-0B4"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Re-enter Password" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uvC-QW-y3U" customClass="MFTextField">
-                                <rect key="frame" x="10" y="394" width="343" height="60"/>
+                                <rect key="frame" x="10" y="287" width="343" height="60"/>
                                 <color key="tintColor" red="0.73333333329999995" green="0.85098039219999999" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Dj6-c7-qTZ"/>
@@ -1234,14 +1234,14 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="animatesPlaceholder" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="textFieldDidChange:" destination="O7p-5E-6Wd" eventType="editingChanged" id="12g-dD-is9"/>
+                                    <action selector="textChanged:" destination="j9c-lu-Nxz" eventType="editingChanged" id="OCq-fa-o1e"/>
                                 </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="nbD-mg-TJQ" firstAttribute="bottom" secondItem="uvC-QW-y3U" secondAttribute="bottom" constant="213" id="62o-dc-t80"/>
+                            <constraint firstItem="nbD-mg-TJQ" firstAttribute="bottom" secondItem="uvC-QW-y3U" secondAttribute="bottom" constant="320" id="62o-dc-t80"/>
                             <constraint firstItem="4ad-Io-PhB" firstAttribute="leading" secondItem="3H0-2P-f1j" secondAttribute="leading" id="HuN-ph-U0j"/>
                             <constraint firstItem="4ad-Io-PhB" firstAttribute="trailing" secondItem="3H0-2P-f1j" secondAttribute="trailing" id="IIR-3f-aqf"/>
                             <constraint firstItem="4ad-Io-PhB" firstAttribute="trailing" secondItem="uvC-QW-y3U" secondAttribute="trailing" id="L5j-FN-wwj"/>
@@ -1250,7 +1250,7 @@
                             <constraint firstItem="4ad-Io-PhB" firstAttribute="leading" secondItem="uvC-QW-y3U" secondAttribute="leading" id="YHh-ov-MfD"/>
                             <constraint firstItem="3H0-2P-f1j" firstAttribute="top" secondItem="4ad-Io-PhB" secondAttribute="bottom" constant="29" id="fmo-Hv-Oqn"/>
                             <constraint firstItem="nbD-mg-TJQ" firstAttribute="trailing" secondItem="4ad-Io-PhB" secondAttribute="trailing" constant="22" id="hA3-dC-NlX"/>
-                            <constraint firstItem="4ad-Io-PhB" firstAttribute="top" secondItem="nbD-mg-TJQ" secondAttribute="top" constant="155" id="vgH-nM-KfQ"/>
+                            <constraint firstItem="4ad-Io-PhB" firstAttribute="top" secondItem="nbD-mg-TJQ" secondAttribute="top" constant="48" id="vgH-nM-KfQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nbD-mg-TJQ"/>
                         <connections>
@@ -1264,7 +1264,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save"/>
                                 <connections>
-                                    <action selector="save:" destination="j9c-lu-Nxz" eventType="primaryActionTriggered" id="UzE-W5-kA0"/>
+                                    <action selector="save:" destination="j9c-lu-Nxz" eventType="primaryActionTriggered" id="Sq6-A0-sSr"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -1273,9 +1273,12 @@
                         <outlet property="newPass1" destination="3H0-2P-f1j" id="ChW-2J-66e"/>
                         <outlet property="newPass2" destination="uvC-QW-y3U" id="0de-Ja-yoz"/>
                         <outlet property="oldPass" destination="4ad-Io-PhB" id="hou-ev-n4x"/>
+                        <outlet property="save" destination="0rT-XI-VPs" id="BRc-8j-y6w"/>
+                        <segue destination="lBi-A0-6ED" kind="unwind" identifier="unwindToProfile" unwindAction="unwindToProfileWithSender:" id="ayf-cc-GDd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x55-i7-lTu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="lBi-A0-6ED" userLabel="Exit" sceneMemberID="exit"/>
                 <swipeGestureRecognizer direction="down" id="5Gz-cT-cxg">
                     <connections>
                         <action selector="dismissKeyboard:" destination="j9c-lu-Nxz" id="XlL-PF-leV"/>

@@ -53,4 +53,17 @@ struct User {
 		self.province = (key: "", value: "")
 		self.city = (key: city, value: "")
 	}
+	
+	
+	init (_ user: User) {
+	
+		self.firstName = user.firstName
+		self.lastName = user.lastName
+		self.email = user.email
+		self.password = user.password
+		self.country = user.country
+		self.province = user.province
+		self.city = user.city
+		
+	}
 }

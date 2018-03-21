@@ -68,7 +68,6 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
 		
 		
 		guard let username = KeychainWrapper.standard.string(forKey: Constants.username), let password = KeychainWrapper.standard.string(forKey: Constants.password) else {
-			self.performSegue(withIdentifier: Constants.Segues.loginStart, sender: self)
 			return
 		}
 		
@@ -153,18 +152,23 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
 		
 		
 		let firstName:String = (table.cellForRow(at: IndexPath(row: 0, section: 0)) as! SettingUITableViewCell ).textField.text!
-		
 		let lastName:String = (table.cellForRow(at: IndexPath(row: 1, section: 0)) as! SettingUITableViewCell ).textField.text!
-		
 		let email:String = (table.cellForRow(at: IndexPath(row: 2, section: 0)) as! SettingUITableViewCell ).textField.text!
 		
 		
-		user.email = email
+		guard let username = KeychainWrapper.standard.string(forKey: Constants.username), let password = KeychainWrapper.standard.string(forKey: Constants.password) else {
+			return
+		}
+		
+		
+		user.email = username
+		user.password = password
 		user.firstName = firstName
 		user.lastName = lastName
 		
+		NSLog("pass: \(password)")
 		
-		UpdateUserService().updateUser(user: user){  result in
+		UpdateUserService().updateUser(user: user, newEmail: email){  result in
 			DispatchQueue.main.async {
 				switch result {
 				case .success:
@@ -187,5 +191,8 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
         loginViewModel.disableLoginPreference()
 		isLoggedIn = false
 	}
+	
+	
+	@IBAction func unwindToProfile(sender: UIStoryboardSegue) {}
 
 }

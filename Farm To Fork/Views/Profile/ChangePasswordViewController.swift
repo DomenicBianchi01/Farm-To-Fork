@@ -8,12 +8,15 @@
 
 import UIKit
 import MaterialTextField
+import SwiftKeychainWrapper
+
 
 final class ChangePasswordViewController: UIViewController {
 	@IBOutlet var oldPass: MFTextField!
 	@IBOutlet var newPass1: MFTextField!
 	@IBOutlet var newPass2: MFTextField!
 	
+	@IBOutlet var save: UIButton!
 	
 	 private let viewModel = RegisterViewModel()
 	
@@ -37,11 +40,58 @@ final class ChangePasswordViewController: UIViewController {
 	@IBAction func save(_ sender: UIButton) {
 		
 		let oldPassword = oldPass.text ?? ""
-		let newPassword1 = newPass1.text ?? "1"
-		let newPasswrd2 = newPass2.text ?? "2"
+		
+		guard let username = KeychainWrapper.standard.string(forKey: Constants.username), let password = KeychainWrapper.standard.string(forKey: Constants.password) else {
+			self.performSegue(withIdentifier: Constants.Segues.loginStart, sender: self)
+			return
+		}
+		
+		if viewModel.passwordIsValid && password == oldPassword {
+			
+			NSLog("Okay to change password")
+			
+			var user = User()
+			
+			user.email = username
+			user.password = password
+			
+			let newPass = viewModel.user.password
+
+			
+			UpdateUserService().changePassword(user: user, newPass: newPass) { result in
+				DispatchQueue.main.async {
+					switch result {
+					case .success:
+						
+						// update the stored password
+						KeychainWrapper.standard.set(newPass, forKey: Constants.password)
+						
+						// go back to the profile page
+						self.performSegue(withIdentifier: "unwindToProfile", sender: self)
+						
+					case .error(let error):
+						NSLog("Failed to change the password: \(error.description)")
+						
+						self.oldPass.shake()
+						self.newPass1.shake()
+						self.newPass2.shake()
+					}
+				}
+			}
+		}
+		else {
+			NSLog("Invalid Password Try again")
+			
+			self.oldPass.shake()
+			self.newPass1.shake()
+			self.newPass2.shake()
+		}
 		
 		
+	}
+	@IBAction func textChanged(_ sender: UITextField) {
 		
+		textFieldDidChange(textField: sender)
 	}
 	
 	
@@ -101,8 +151,5 @@ final class ChangePasswordViewController: UIViewController {
 		newPass2.setError(nil, animated: true)
 		newPass2.underlineColor = .green
 	}
-	
-	
-	
 }
 
