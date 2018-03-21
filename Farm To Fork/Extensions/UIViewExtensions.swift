@@ -11,15 +11,25 @@ import UIKit
 
 extension UIView {
     /// Applies a blue effect using the specified style to the view. This function has no effect on the view if the user has turned on the "Reduce Transparency" option in the iOS settings.
-    func applyBlurEffect(using style: UIBlurEffectStyle) {
+    func applyBlurEffect(using style: UIBlurEffectStyle, cornerRadius: CGFloat = 0) {
         if !UIAccessibilityIsReduceTransparencyEnabled() {
             backgroundColor = .clear
             let blurEffect = UIBlurEffect(style: style)
             let blurEffectView = UIVisualEffectView(effect: blurEffect)
-            blurEffectView.frame = frame
+            blurEffectView.frame = bounds
+            blurEffectView.layer.cornerRadius = cornerRadius
+            blurEffectView.clipsToBounds = true
             blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             insertSubview(blurEffectView, at: 0)
         }
+    }
+    
+    /// Adds a very thin gray shadow along the border of all four edges of the view
+    func addShadow() {
+        layer.shadowOpacity = 0.5
+        layer.shadowColor = UIColor.gray.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 0)
+        layer.shadowRadius = 2
     }
     
     /// Rapidly but shortly shakes the given view horizontally. In the context of this app, a good example would be providing an invalid password when logging in and shaking the password text field to indicate the password was invalid.

@@ -13,7 +13,8 @@ final class MapViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var toolbar: UIToolbar!
-
+    @IBOutlet var toolbarView: UIView!
+    
     // MARK: - Properties
     private let locationManager = CLLocationManager()
     private let viewModel = MapViewModel()
@@ -34,6 +35,17 @@ final class MapViewController: UIViewController {
                 }
             }
         }
+        
+        toolbarView.applyBlurEffect(using: .extraLight, cornerRadius: 15)
+        toolbarView.addShadow()
+        
+        //Credit: https://stackoverflow.com/a/16035779/4268022
+        //Credit: https://stackoverflow.com/a/48369847/4268022
+        toolbar.setBackgroundImage(UIImage(), forToolbarPosition: .any, barMetrics: .default)
+        toolbar.setShadowImage(UIImage(), forToolbarPosition: .any)
+        toolbar.backgroundColor = .clear
+        
+        toolbar.items = [MKUserTrackingBarButtonItem(mapView: mapView)]
         
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
@@ -125,11 +137,9 @@ extension MapViewController: MKMapViewDelegate {
 extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse || status == .authorizedAlways {
-            let buttonItem = MKUserTrackingBarButtonItem(mapView: mapView)
-            let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-            toolbar.items = [flexibleSpace, buttonItem]
+            mapView.showsUserLocation = true
         } else {
-            toolbar.items = nil
+            mapView.showsUserLocation = false
         }
     }
 }

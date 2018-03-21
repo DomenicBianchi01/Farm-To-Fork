@@ -54,6 +54,7 @@ final class StartupViewController: UIViewController {
                 self.progressView.progress = 1.0
                 switch result {
                 case .success:
+                    isLoggedIn = true
                     self.performSegue(withIdentifier: Constants.Segues.autoLoginStart, sender: self)
                 case .error:
                     self.performSegue(withIdentifier: Constants.Segues.loginStart, sender: self)

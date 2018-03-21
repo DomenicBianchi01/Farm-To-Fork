@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
         if #available(iOS 11.0, *) {
-            guard let intent = userActivity.interaction?.intent as? INSearchForNotebookItemsIntent, intent.status == .completed else {
+            guard (userActivity.interaction?.intent as? INSearchForNotebookItemsIntent) != nil else {
                 return true
             }
 

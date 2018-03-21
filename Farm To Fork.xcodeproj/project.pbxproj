@@ -529,6 +529,9 @@
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
 							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
 							com.apple.Siri = {
 								enabled = 1;
 							};

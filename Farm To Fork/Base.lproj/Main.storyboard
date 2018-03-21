@@ -178,27 +178,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N45-ih-Udk">
-                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsCompass="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N45-ih-Udk">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </mapView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O5g-Bo-eT9">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <items>
-                                    <barButtonItem title="Item" id="90D-aH-wFK"/>
-                                </items>
-                                <color key="tintColor" red="0.59503139319999998" green="0.66696369359999996" blue="0.3482086901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </toolbar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z2k-wS-X3o">
+                                <rect key="frame" x="315" y="101" width="44" height="88"/>
+                                <subviews>
+                                    <toolbar opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jfQ-d8-jJg">
+                                        <rect key="frame" x="-8" y="0.0" width="60" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="JcH-91-g8g"/>
+                                        </constraints>
+                                        <items>
+                                            <barButtonItem title="Location" id="yya-ln-THw"/>
+                                        </items>
+                                    </toolbar>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="Eb5-A3-PRK"/>
+                                    <constraint firstItem="jfQ-d8-jJg" firstAttribute="centerX" secondItem="Z2k-wS-X3o" secondAttribute="centerX" id="TFv-Wt-ad6"/>
+                                    <constraint firstAttribute="width" constant="44" id="Taa-h1-Gps"/>
+                                    <constraint firstItem="jfQ-d8-jJg" firstAttribute="top" secondItem="Z2k-wS-X3o" secondAttribute="top" id="lSf-aN-f7H"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="O5g-Bo-eT9" firstAttribute="trailing" secondItem="UEk-nC-M4c" secondAttribute="trailing" id="CHd-xm-cmB"/>
-                            <constraint firstItem="O5g-Bo-eT9" firstAttribute="leading" secondItem="UEk-nC-M4c" secondAttribute="leading" id="M7p-p6-Spr"/>
-                            <constraint firstItem="O5g-Bo-eT9" firstAttribute="bottom" secondItem="UEk-nC-M4c" secondAttribute="bottom" id="TBz-pJ-ebc"/>
                             <constraint firstAttribute="trailing" secondItem="N45-ih-Udk" secondAttribute="trailing" id="Ua4-MJ-2qk"/>
                             <constraint firstItem="N45-ih-Udk" firstAttribute="leading" secondItem="zuP-6n-aoz" secondAttribute="leading" id="c52-da-BaY"/>
                             <constraint firstItem="N45-ih-Udk" firstAttribute="top" secondItem="UEk-nC-M4c" secondAttribute="top" id="e4x-ai-gou"/>
-                            <constraint firstItem="O5g-Bo-eT9" firstAttribute="top" secondItem="N45-ih-Udk" secondAttribute="bottom" id="eU0-hk-Hel"/>
+                            <constraint firstItem="UEk-nC-M4c" firstAttribute="trailing" secondItem="Z2k-wS-X3o" secondAttribute="trailing" constant="16" id="lL8-qk-wPs"/>
+                            <constraint firstItem="N45-ih-Udk" firstAttribute="bottom" secondItem="zuP-6n-aoz" secondAttribute="bottom" id="mdO-Ps-fEh"/>
+                            <constraint firstItem="Z2k-wS-X3o" firstAttribute="top" secondItem="UEk-nC-M4c" secondAttribute="top" constant="37" id="tqn-R7-PxB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UEk-nC-M4c"/>
                     </view>
@@ -218,7 +236,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="N45-ih-Udk" id="oW2-UF-UK6"/>
-                        <outlet property="toolbar" destination="O5g-Bo-eT9" id="45Y-Iv-M0m"/>
+                        <outlet property="toolbar" destination="jfQ-d8-jJg" id="s1P-26-UPR"/>
+                        <outlet property="toolbarView" destination="Z2k-wS-X3o" id="J5s-eb-aAC"/>
                         <segue destination="AjO-hQ-gkI" kind="presentation" identifier="NeedsView" id="BCL-n4-Esi"/>
                     </connections>
                 </viewController>
