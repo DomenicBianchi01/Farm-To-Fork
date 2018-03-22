@@ -1099,6 +1099,7 @@
                                 </state>
                                 <connections>
                                     <action selector="logoutAction:" destination="KEp-l1-4CG" eventType="primaryActionTriggered" id="aGT-XU-dfg"/>
+                                    <segue destination="BYZ-38-t0r" kind="custom" customClass="LogoutSegue" customModule="Farm_To_Fork" customModuleProvider="target" id="pT5-vS-ADg"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="RaY-yT-iOS">
@@ -1315,6 +1316,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Bls-H3-gWY"/>
+        <segue reference="pT5-vS-ADg"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.73333333329999995" green="0.85098039219999999" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>
