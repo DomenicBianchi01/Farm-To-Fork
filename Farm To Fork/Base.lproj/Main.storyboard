@@ -227,7 +227,7 @@
                                 <action selector="preferredLocationButtonTapped:" destination="86S-uw-EdG" id="1I9-IQ-PQV"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="profile" style="plain" id="efS-9H-3dB">
+                        <barButtonItem key="rightBarButtonItem" image="profileBarButton" style="plain" id="efS-9H-3dB">
                             <color key="tintColor" red="0.58097495639999996" green="0.64982592839999997" blue="0.33504829860000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="KEp-l1-4CG" kind="show" id="cpp-HC-Efj"/>
@@ -1311,6 +1311,7 @@
         <image name="Checklist" width="34" height="34"/>
         <image name="FarmToForkLogo" width="216" height="216"/>
         <image name="profile" width="350" height="350"/>
+        <image name="profileBarButton" width="34" height="34"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Bls-H3-gWY"/>
