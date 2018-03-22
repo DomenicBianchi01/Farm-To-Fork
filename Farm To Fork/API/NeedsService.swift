@@ -8,6 +8,8 @@
 
 import Foundation
 
+// Used by both the iOS and watchOS apps
+
 final class NeedsService: JSONService {
     func fetchNeeds(forLocation locationId: String, with completion: @escaping ((Result<[Need]>) -> Void)) {
         

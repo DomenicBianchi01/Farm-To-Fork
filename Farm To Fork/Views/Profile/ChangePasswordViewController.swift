@@ -10,7 +10,6 @@ import UIKit
 import MaterialTextField
 import SwiftKeychainWrapper
 
-
 final class ChangePasswordViewController: UIViewController {
 	@IBOutlet var oldPass: MFTextField!
 	@IBOutlet var newPass1: MFTextField!
