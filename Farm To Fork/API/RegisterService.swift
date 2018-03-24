@@ -15,6 +15,7 @@ final class RegisterService: JSONService {
     
     // MARK: - Functions
     
+    /// Register the `User` with the Farm To Fork program.
     func register(user: User, with completion: @escaping (Result<Void>) -> Void) {
         let body: [String : Any] = ["Email" : user.email,
                                     "pass" : user.password,
@@ -32,18 +33,21 @@ final class RegisterService: JSONService {
         }
     }
     
+    /// Fetch a list of countries
     func fetchCountries(with completion: @escaping ((Result<[(key: String, value: String)]>) -> Void)) {
         fetchData(from: "\(locationUrlString)countries") { result in
             completion(result)
         }
     }
     
+    /// Fetch a list of provinces within the given country
     func fetchProvinces(for countryCode: Int, with completion: @escaping ((Result<[(key: String, value: String)]>) -> Void)) {
         fetchData(from: "\(locationUrlString)\(countryCode)/provinces") { result in
             completion(result)
         }
     }
     
+    /// Fetch a list of cities within the given province
     func fetchCities(for provinceCode: Int, with completion: @escaping ((Result<[(key: String, value: String)]>) -> Void)) {
         fetchData(from: "\(locationUrlString)\(provinceCode)/cities") { result in
             completion(result)

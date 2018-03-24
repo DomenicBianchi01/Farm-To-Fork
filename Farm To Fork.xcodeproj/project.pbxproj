@@ -12,6 +12,23 @@
 		ABC95046205AB82C00DC8890 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC95045205AB82C00DC8890 /* UserProfileViewController.swift */; };
 		ABC95048205AB89E00DC8890 /* SettingUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC95047205AB89E00DC8890 /* SettingUITableViewCell.swift */; };
 		ABC9504A205AB8C300DC8890 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC95049205AB8C300DC8890 /* ChangePasswordViewController.swift */; };
+		B0001664206349BD00101744 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0001662206349BD00101744 /* Interface.storyboard */; };
+		B0001666206349BD00101744 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0001665206349BD00101744 /* Assets.xcassets */; };
+		B000166D206349BD00101744 /* Farm To Fork For Apple Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B000166C206349BD00101744 /* Farm To Fork For Apple Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B0001672206349BD00101744 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0001671206349BD00101744 /* InterfaceController.swift */; };
+		B0001674206349BD00101744 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0001673206349BD00101744 /* ExtensionDelegate.swift */; };
+		B0001676206349BD00101744 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0001675206349BD00101744 /* NotificationController.swift */; };
+		B0001678206349BD00101744 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0001677206349BD00101744 /* Assets.xcassets */; };
+		B000167D206349BD00101744 /* Farm To Fork For Apple Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B0001660206349BD00101744 /* Farm To Fork For Apple Watch.app */; };
+		B000168820634D4300101744 /* WatchNeedsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B000168720634D4300101744 /* WatchNeedsViewModel.swift */; };
+		B000168A20634D7900101744 /* WatchTableViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B000168920634D7900101744 /* WatchTableViewModelable.swift */; };
+		B000168B20634E2C00101744 /* Need.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8BFCD205F171200077DF7 /* Need.swift */; };
+		B000168C20634EBF00101744 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FEBC8A204E3F0B00982EAE /* Result.swift */; };
+		B000168D20634EFD00101744 /* JSONService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FEBC8C204E3FF200982EAE /* JSONService.swift */; };
+		B000168E20634F0000101744 /* NeedsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B3BFF22054BCD60074DF0D /* NeedsService.swift */; };
+		B000168F20634F0A00101744 /* JSONAny.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0232DDC2058463E00E22B40 /* JSONAny.swift */; };
+		B000169020634F1300101744 /* RequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A024020501A7100ABB4F9 /* RequestType.swift */; };
+		B000169120634F1C00101744 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F133F220517C12000187BA /* StringExtensions.swift */; };
 		B00F9C14204F8B2500C5BC03 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F9C13204F8B2500C5BC03 /* LoginViewModel.swift */; };
 		B00F9C16204F8D8100C5BC03 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F9C15204F8D8100C5BC03 /* User.swift */; };
 		B01E3D8920533D1F00106CA4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B01E3D8820533D1F00106CA4 /* MapKit.framework */; };
@@ -32,6 +49,8 @@
 		B03C07CD2033BDE2001A54C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B03C07CB2033BDE2001A54C6 /* Main.storyboard */; };
 		B03C07D22033BDE2001A54C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B03C07D12033BDE2001A54C6 /* Assets.xcassets */; };
 		B03C07D52033BDE2001A54C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B03C07D32033BDE2001A54C6 /* LaunchScreen.storyboard */; };
+		B04B2DD92063C011007F07EE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B077904620535D2A0099AD1F /* Constants.swift */; };
+		B04B2DDC2063C1E1007F07EE /* NeedRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04B2DDB2063C1E1007F07EE /* NeedRowController.swift */; };
 		B061D3662058BF1E004E7888 /* PickerViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B061D3652058BF1E004E7888 /* PickerViewModelable.swift */; };
 		B071A6AB205800A300367102 /* ProgressButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B071A6AA205800A300367102 /* ProgressButton.swift */; };
 		B077904520535BC60099AD1F /* StartupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B077904420535BC60099AD1F /* StartupViewModel.swift */; };
@@ -62,18 +81,40 @@
 		B0CD0EA82050716F00FBE902 /* WallpaperWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD0EA72050716F00FBE902 /* WallpaperWindow.swift */; };
 		B0CD0EAB205078AA00FBE902 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD0EAA205078AA00FBE902 /* RegisterViewController.swift */; };
 		B0CD0EAD20507D2500FBE902 /* UnwindRegisterAccountSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD0EAC20507D2500FBE902 /* UnwindRegisterAccountSegue.swift */; };
+		B0D0423E2065E187007DE107 /* LocationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0232DD520583B1700E22B40 /* LocationsService.swift */; };
+		B0D0423F2065E192007DE107 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0232DDA205842BB00E22B40 /* Location.swift */; };
 		B0DF8B5620500FF100AD2539 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DF8B5520500FF100AD2539 /* LoginService.swift */; };
 		B0EED74F20574AC6008CF4D5 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0EED74E20574AC6008CF4D5 /* LocalAuthentication.framework */; };
 		B0F133F320517C12000187BA /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F133F220517C12000187BA /* StringExtensions.swift */; };
 		B0F133F520517D12000187BA /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F133F420517D12000187BA /* RegisterService.swift */; };
 		B0F133F7205182C8000187BA /* RegisterLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F133F6205182C8000187BA /* RegisterLocationViewController.swift */; };
 		B0F133FA2051B2B2000187BA /* RegisterLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F133F92051B2B2000187BA /* RegisterLocationViewModel.swift */; };
+		B0FC11892063E35F008A28B8 /* WatchSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FC11882063E35F008A28B8 /* WatchSessionManager.swift */; };
+		B0FC118B2063F731008A28B8 /* WatchSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FC11882063E35F008A28B8 /* WatchSessionManager.swift */; };
+		B0FC118C2063F74E008A28B8 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8BFDC205F4E7A00077DF7 /* UserDefaults.swift */; };
+		B0FC118D2063FDF0008A28B8 /* ErrorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A024320501BC100ABB4F9 /* ErrorExtensions.swift */; };
+		B0FC11902063FF14008A28B8 /* NeedInfoRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FC118F2063FF14008A28B8 /* NeedInfoRowController.swift */; };
+		B0FC119420640B81008A28B8 /* NeedInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FC119320640B81008A28B8 /* NeedInfoController.swift */; };
 		B0FEBC86204E3E3600982EAE /* TableViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FEBC85204E3E3600982EAE /* TableViewModelable.swift */; };
 		B0FEBC8B204E3F0B00982EAE /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FEBC8A204E3F0B00982EAE /* Result.swift */; };
 		B0FEBC8D204E3FF200982EAE /* JSONService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FEBC8C204E3FF200982EAE /* JSONService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		B000166E206349BD00101744 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B03C07BC2033BDE2001A54C6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B000166B206349BD00101744;
+			remoteInfo = "Farm To Fork For Apple Watch Extension";
+		};
+		B000167B206349BD00101744 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B03C07BC2033BDE2001A54C6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B000165F206349BD00101744;
+			remoteInfo = "Farm To Fork For Apple Watch";
+		};
 		B01FA1F62054463600863E05 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B03C07BC2033BDE2001A54C6 /* Project object */;
@@ -84,6 +125,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		B0001683206349BD00101744 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B000166D206349BD00101744 /* Farm To Fork For Apple Watch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0001685206349BD00101744 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				B000167D206349BD00101744 /* Farm To Fork For Apple Watch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B01FA1FF2054463600863E05 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -104,6 +167,19 @@
 		ABC95045205AB82C00DC8890 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		ABC95047205AB89E00DC8890 /* SettingUITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingUITableViewCell.swift; sourceTree = "<group>"; };
 		ABC95049205AB8C300DC8890 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		B0001660206349BD00101744 /* Farm To Fork For Apple Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Farm To Fork For Apple Watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0001663206349BD00101744 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		B0001665206349BD00101744 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B0001667206349BD00101744 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B000166C206349BD00101744 /* Farm To Fork For Apple Watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Farm To Fork For Apple Watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0001671206349BD00101744 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		B0001673206349BD00101744 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		B0001675206349BD00101744 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		B0001677206349BD00101744 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B0001679206349BD00101744 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B000167A206349BD00101744 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		B000168720634D4300101744 /* WatchNeedsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchNeedsViewModel.swift; sourceTree = "<group>"; };
+		B000168920634D7900101744 /* WatchTableViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchTableViewModelable.swift; sourceTree = "<group>"; };
 		B00F9C13204F8B2500C5BC03 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		B00F9C15204F8D8100C5BC03 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B01E3D8820533D1F00106CA4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -129,6 +205,9 @@
 		B03C07D12033BDE2001A54C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B03C07D42033BDE2001A54C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B03C07D62033BDE2001A54C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B04B2DDA2063C01F007F07EE /* Farm To Fork For Apple Watch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Farm To Fork For Apple Watch Extension.entitlements"; sourceTree = "<group>"; };
+		B04B2DDB2063C1E1007F07EE /* NeedRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedRowController.swift; sourceTree = "<group>"; };
+		B04B2DDD2063C582007F07EE /* Farm To Fork For Apple Watch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Farm To Fork For Apple Watch.entitlements"; sourceTree = "<group>"; };
 		B061D3652058BF1E004E7888 /* PickerViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewModelable.swift; sourceTree = "<group>"; };
 		B071A6AA205800A300367102 /* ProgressButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressButton.swift; sourceTree = "<group>"; };
 		B077904420535BC60099AD1F /* StartupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupViewModel.swift; sourceTree = "<group>"; };
@@ -157,6 +236,9 @@
 		B0F133F420517D12000187BA /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
 		B0F133F6205182C8000187BA /* RegisterLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterLocationViewController.swift; sourceTree = "<group>"; };
 		B0F133F92051B2B2000187BA /* RegisterLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterLocationViewModel.swift; sourceTree = "<group>"; };
+		B0FC11882063E35F008A28B8 /* WatchSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSessionManager.swift; sourceTree = "<group>"; };
+		B0FC118F2063FF14008A28B8 /* NeedInfoRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedInfoRowController.swift; sourceTree = "<group>"; };
+		B0FC119320640B81008A28B8 /* NeedInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedInfoController.swift; sourceTree = "<group>"; };
 		B0FEBC85204E3E3600982EAE /* TableViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModelable.swift; sourceTree = "<group>"; };
 		B0FEBC8A204E3F0B00982EAE /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		B0FEBC8C204E3FF200982EAE /* JSONService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONService.swift; sourceTree = "<group>"; };
@@ -164,6 +246,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B0001669206349BD00101744 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B01FA1DD2054463600863E05 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -212,6 +301,41 @@
 				ABC95045205AB82C00DC8890 /* UserProfileViewController.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		B0001661206349BD00101744 /* Farm To Fork For Apple Watch */ = {
+			isa = PBXGroup;
+			children = (
+				B04B2DDD2063C582007F07EE /* Farm To Fork For Apple Watch.entitlements */,
+				B0001662206349BD00101744 /* Interface.storyboard */,
+				B0001665206349BD00101744 /* Assets.xcassets */,
+				B0001667206349BD00101744 /* Info.plist */,
+			);
+			path = "Farm To Fork For Apple Watch";
+			sourceTree = "<group>";
+		};
+		B0001670206349BD00101744 /* Farm To Fork For Apple Watch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B04B2DDA2063C01F007F07EE /* Farm To Fork For Apple Watch Extension.entitlements */,
+				B0FC118E2063FEF9008A28B8 /* Views */,
+				B000168620634D3500101744 /* ViewModels */,
+				B0001673206349BD00101744 /* ExtensionDelegate.swift */,
+				B0001675206349BD00101744 /* NotificationController.swift */,
+				B0001677206349BD00101744 /* Assets.xcassets */,
+				B0001679206349BD00101744 /* Info.plist */,
+				B000167A206349BD00101744 /* PushNotificationPayload.apns */,
+			);
+			path = "Farm To Fork For Apple Watch Extension";
+			sourceTree = "<group>";
+		};
+		B000168620634D3500101744 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B000168920634D7900101744 /* WatchTableViewModelable.swift */,
+				B000168720634D4300101744 /* WatchNeedsViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		B01E3D8A2053404F00106CA4 /* Startup */ = {
@@ -263,6 +387,8 @@
 				B01FA203205460DF00863E05 /* AppIntentVocabulary.plist */,
 				B03C07C62033BDE2001A54C6 /* Farm To Fork */,
 				B01FA1E12054463600863E05 /* NeedsSiriExtension */,
+				B0001661206349BD00101744 /* Farm To Fork For Apple Watch */,
+				B0001670206349BD00101744 /* Farm To Fork For Apple Watch Extension */,
 				B03C07C52033BDE2001A54C6 /* Products */,
 				927B6EFA33C14C93F6F1803B /* Pods */,
 				4D91C78F0126573F42E8DEBF /* Frameworks */,
@@ -274,6 +400,8 @@
 			children = (
 				B03C07C42033BDE2001A54C6 /* Farm To Fork.app */,
 				B01FA1E02054463600863E05 /* NeedsSiriExtension.appex */,
+				B0001660206349BD00101744 /* Farm To Fork For Apple Watch.app */,
+				B000166C206349BD00101744 /* Farm To Fork For Apple Watch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -291,6 +419,7 @@
 				B0FEBC80204E3DDC00982EAE /* API */,
 				B0FEBC7D204E3DC300982EAE /* ViewModels */,
 				B03C07C72033BDE2001A54C6 /* AppDelegate.swift */,
+				B0FC11882063E35F008A28B8 /* WatchSessionManager.swift */,
 				B03C07CB2033BDE2001A54C6 /* Main.storyboard */,
 				B03C07D12033BDE2001A54C6 /* Assets.xcassets */,
 				B03C07D32033BDE2001A54C6 /* LaunchScreen.storyboard */,
@@ -391,6 +520,17 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		B0FC118E2063FEF9008A28B8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B0001671206349BD00101744 /* InterfaceController.swift */,
+				B04B2DDB2063C1E1007F07EE /* NeedRowController.swift */,
+				B0FC118F2063FF14008A28B8 /* NeedInfoRowController.swift */,
+				B0FC119320640B81008A28B8 /* NeedInfoController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		B0FEBC7D204E3DC300982EAE /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -464,6 +604,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B000165F206349BD00101744 /* Farm To Fork For Apple Watch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B0001684206349BD00101744 /* Build configuration list for PBXNativeTarget "Farm To Fork For Apple Watch" */;
+			buildPhases = (
+				B000165E206349BD00101744 /* Resources */,
+				B0001683206349BD00101744 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B000166F206349BD00101744 /* PBXTargetDependency */,
+			);
+			name = "Farm To Fork For Apple Watch";
+			productName = "Farm To Fork For Apple Watch";
+			productReference = B0001660206349BD00101744 /* Farm To Fork For Apple Watch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		B000166B206349BD00101744 /* Farm To Fork For Apple Watch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B0001682206349BD00101744 /* Build configuration list for PBXNativeTarget "Farm To Fork For Apple Watch Extension" */;
+			buildPhases = (
+				B0001668206349BD00101744 /* Sources */,
+				B0001669206349BD00101744 /* Frameworks */,
+				B000166A206349BD00101744 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Farm To Fork For Apple Watch Extension";
+			productName = "Farm To Fork For Apple Watch Extension";
+			productReference = B000166C206349BD00101744 /* Farm To Fork For Apple Watch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		B01FA1DF2054463600863E05 /* NeedsSiriExtension */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B01FA1FE2054463600863E05 /* Build configuration list for PBXNativeTarget "NeedsSiriExtension" */;
@@ -492,11 +666,13 @@
 				927F691FA54CA189BC7C410C /* [CP] Embed Pods Frameworks */,
 				2ACB2D46424EDCD14B91784C /* [CP] Copy Pods Resources */,
 				B01FA1FF2054463600863E05 /* Embed App Extensions */,
+				B0001685206349BD00101744 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				B01FA1F72054463600863E05 /* PBXTargetDependency */,
+				B000167C206349BD00101744 /* PBXTargetDependency */,
 			);
 			name = "Farm To Fork";
 			productName = "Farm To Fork";
@@ -513,6 +689,24 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Domenic Bianchi & Marshall Asch";
 				TargetAttributes = {
+					B000165F206349BD00101744 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+						};
+					};
+					B000166B206349BD00101744 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+						};
+					};
 					B01FA1DF2054463600863E05 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -554,11 +748,30 @@
 			targets = (
 				B03C07C32033BDE2001A54C6 /* Farm To Fork */,
 				B01FA1DF2054463600863E05 /* NeedsSiriExtension */,
+				B000165F206349BD00101744 /* Farm To Fork For Apple Watch */,
+				B000166B206349BD00101744 /* Farm To Fork For Apple Watch Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B000165E206349BD00101744 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0001666206349BD00101744 /* Assets.xcassets in Resources */,
+				B0001664206349BD00101744 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B000166A206349BD00101744 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0001678206349BD00101744 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B01FA1DE2054463600863E05 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -636,6 +849,34 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B0001668206349BD00101744 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0FC119420640B81008A28B8 /* NeedInfoController.swift in Sources */,
+				B000169120634F1C00101744 /* StringExtensions.swift in Sources */,
+				B0001676206349BD00101744 /* NotificationController.swift in Sources */,
+				B04B2DDC2063C1E1007F07EE /* NeedRowController.swift in Sources */,
+				B000168B20634E2C00101744 /* Need.swift in Sources */,
+				B0FC118C2063F74E008A28B8 /* UserDefaults.swift in Sources */,
+				B0FC118D2063FDF0008A28B8 /* ErrorExtensions.swift in Sources */,
+				B0001674206349BD00101744 /* ExtensionDelegate.swift in Sources */,
+				B0FC11902063FF14008A28B8 /* NeedInfoRowController.swift in Sources */,
+				B000168E20634F0000101744 /* NeedsService.swift in Sources */,
+				B0D0423E2065E187007DE107 /* LocationsService.swift in Sources */,
+				B000168A20634D7900101744 /* WatchTableViewModelable.swift in Sources */,
+				B000168C20634EBF00101744 /* Result.swift in Sources */,
+				B0D0423F2065E192007DE107 /* Location.swift in Sources */,
+				B000168820634D4300101744 /* WatchNeedsViewModel.swift in Sources */,
+				B0FC118B2063F731008A28B8 /* WatchSessionManager.swift in Sources */,
+				B0001672206349BD00101744 /* InterfaceController.swift in Sources */,
+				B000169020634F1300101744 /* RequestType.swift in Sources */,
+				B04B2DD92063C011007F07EE /* Constants.swift in Sources */,
+				B000168F20634F0A00101744 /* JSONAny.swift in Sources */,
+				B000168D20634EFD00101744 /* JSONService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B01FA1DC2054463600863E05 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -698,6 +939,7 @@
 				B02A024620501DB900ABB4F9 /* UIViewExtensions.swift in Sources */,
 				AB9B39FF20617FE60088BFC4 /* UpdateUserService.swift in Sources */,
 				B0FEBC86204E3E3600982EAE /* TableViewModelable.swift in Sources */,
+				B0FC11892063E35F008A28B8 /* WatchSessionManager.swift in Sources */,
 				B071A6AB205800A300367102 /* ProgressButton.swift in Sources */,
 				B0CD0EA82050716F00FBE902 /* WallpaperWindow.swift in Sources */,
 				B0F133F320517C12000187BA /* StringExtensions.swift in Sources */,
@@ -709,6 +951,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		B000166F206349BD00101744 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B000166B206349BD00101744 /* Farm To Fork For Apple Watch Extension */;
+			targetProxy = B000166E206349BD00101744 /* PBXContainerItemProxy */;
+		};
+		B000167C206349BD00101744 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B000165F206349BD00101744 /* Farm To Fork For Apple Watch */;
+			targetProxy = B000167B206349BD00101744 /* PBXContainerItemProxy */;
+		};
 		B01FA1F72054463600863E05 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B01FA1DF2054463600863E05 /* NeedsSiriExtension */;
@@ -717,6 +969,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		B0001662206349BD00101744 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B0001663206349BD00101744 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		B01FA203205460DF00863E05 /* AppIntentVocabulary.plist */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -744,6 +1004,80 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B000167E206349BD00101744 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 667D8S5SPP;
+				IBSC_MODULE = Farm_To_Fork_For_Apple_Watch_Extension;
+				INFOPLIST_FILE = "Farm To Fork For Apple Watch/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.domenic-and-marshall.FarmToFork.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+			};
+			name = Debug;
+		};
+		B000167F206349BD00101744 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 667D8S5SPP;
+				IBSC_MODULE = Farm_To_Fork_For_Apple_Watch_Extension;
+				INFOPLIST_FILE = "Farm To Fork For Apple Watch/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.domenic-and-marshall.FarmToFork.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+			};
+			name = Release;
+		};
+		B0001680206349BD00101744 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 667D8S5SPP;
+				INFOPLIST_FILE = "Farm To Fork For Apple Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.domenic-and-marshall.FarmToFork.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+			};
+			name = Debug;
+		};
+		B0001681206349BD00101744 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 667D8S5SPP;
+				INFOPLIST_FILE = "Farm To Fork For Apple Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.domenic-and-marshall.FarmToFork.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+			};
+			name = Release;
+		};
 		B01FA1F92054463600863E05 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -927,6 +1261,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B0001682206349BD00101744 /* Build configuration list for PBXNativeTarget "Farm To Fork For Apple Watch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0001680206349BD00101744 /* Debug */,
+				B0001681206349BD00101744 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B0001684206349BD00101744 /* Build configuration list for PBXNativeTarget "Farm To Fork For Apple Watch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B000167E206349BD00101744 /* Debug */,
+				B000167F206349BD00101744 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B01FA1FE2054463600863E05 /* Build configuration list for PBXNativeTarget "NeedsSiriExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

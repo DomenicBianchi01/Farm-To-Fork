@@ -9,88 +9,8 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NeedsSiriExtensionUI/IntentViewController.swift"
-            timestampString = "543153709.6703351"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "configureView(for:of:interactiveBehavior:context:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NeedsSiriKitExtensionUI/IntentViewController.swift"
-            timestampString = "543154394.411351"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "configureView(for:of:interactiveBehavior:context:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NeedsSiriKitExtensionUI/IntentViewController.swift"
-            timestampString = "543154395.5716341"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "desiredSize"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Farm To Fork/Views/Login/LoginViewController.swift"
-            timestampString = "543158969.0582941"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "unwindToViewController(segue:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Farm To Fork/Views/Register/RegisterViewController.swift"
-            timestampString = "543158999.023337"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "unwind(for:towardsViewController:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Farm To Fork/API/UpdateUserService.swift"
-            timestampString = "543266892.153253"
+            timestampString = "543612648.643522"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "26"
@@ -106,14 +26,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Farm To Fork/API/UpdateUserService.swift"
-            timestampString = "543266892.153663"
+            timestampString = "543612654.238693"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "fetchUserData(email:pass:with:)"
             landmarkType = "7">
-<<<<<<< Updated upstream
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
@@ -123,12 +42,12 @@
                   moduleName = "Farm To Fork"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/workspace/Farm%20To%20Fork/Farm%20To%20Fork/API/UpdateUserService.swift"
-                  timestampString = "543355315.063874"
+                  timestampString = "543612654.2474869"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
-                  offsetFromSymbolStart = "264">
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "1861">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -138,15 +57,14 @@
                   moduleName = "Farm To Fork"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/workspace/Farm%20To%20Fork/Farm%20To%20Fork/API/UpdateUserService.swift"
-                  timestampString = "543355315.069319"
+                  timestampString = "543612654.250982"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
-                  offsetFromSymbolStart = "4471">
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "2537">
                </Location>
             </Locations>
-=======
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -155,13 +73,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Farm To Fork/AppDelegate.swift"
-            timestampString = "543366411.887756"
+            filePath = "Farm To Fork/API/UpdateUserService.swift"
+            timestampString = "543612656.735515"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "application(_:continue:restorationHandler:)"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "fetchUserData(email:pass:with:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -171,63 +89,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Farm To Fork/AppDelegate.swift"
-            timestampString = "543366411.888009"
+            filePath = "Farm To Fork/API/UpdateUserService.swift"
+            timestampString = "543612657.496057"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "application(_:continue:restorationHandler:)"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "fetchUserData(email:pass:with:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Farm To Fork/AppDelegate.swift"
-            timestampString = "543366411.8881609"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "application(_:continue:restorationHandler:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Farm To Fork/AppDelegate.swift"
-            timestampString = "543366411.888292"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "application(_:continue:restorationHandler:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Farm To Fork/AppDelegate.swift"
-            timestampString = "543366411.888459"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "application(_:continue:restorationHandler:)"
-            landmarkType = "7">
->>>>>>> Stashed changes
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

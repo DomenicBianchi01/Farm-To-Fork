@@ -14,6 +14,8 @@ struct Constants {
     static let username = "username"
     static let loginPreference = "LoginPreference"
     static let preferredLocationId = "PreferredLocationID"
+    static let setPreferredLocationId = "setPreferredLocationID"
+    static let error = "Error"
     
     struct Segues {
         static let loginStart = "LoginStart"
