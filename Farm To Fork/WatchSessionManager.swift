@@ -8,25 +8,36 @@
 
 import WatchConnectivity
 
-class WatchSessionManager: NSObject {
+final class WatchSessionManager: NSObject {
     // MARK: - Shared Instances
     static let shared = WatchSessionManager()
+    private let session = WCSession.default
     
     // MARK: - Lifecycle Functions
     override init() {
         super.init()
         
         if WCSession.isSupported() {
-            WCSession.default.delegate = self
-            if WCSession.default.activationState == .notActivated {
-                WCSession.default.activate()
+            session.delegate = self
+            if session.activationState == .notActivated {
+                session.activate()
             }
         }
     }
     
     // MARK: - Helper Functions
-    func sendMessage(with completion: @escaping ((Result<[String : Any]>) -> Void)) {
-        WCSession.default.sendMessage([Constants.preferredLocationId : "getValue"], replyHandler: { result in
+    
+    /**
+     Send a message (request) to the iOS app. For example, send a message to the iOS app so it can return data from the UserDefaults app group that it has access to.
+     
+     - parameter data: A dictionary of data to send to the iOS app that it can use to execute the request.
+    */
+    func sendMessage(with data: [String : Any], and completion: @escaping ((Result<[String : Any]>) -> Void)) {
+        guard session.activationState == .activated else {
+            completion(.error(NSError(domain: "Cannot communicate between watch and iOS app.", code: 0, userInfo: nil)))
+            return
+        }
+        session.sendMessage(data, replyHandler: { result in
             completion(.success(result))
         }, errorHandler: { error in
             completion(.error(error))
@@ -37,10 +48,19 @@ class WatchSessionManager: NSObject {
 // MARK: WCSessionDelegate
 extension WatchSessionManager: WCSessionDelegate {
     func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
+        guard UserDefaults.appGroup?.string(forKey: Constants.passwordSaved) != nil else {
+            replyHandler([Constants.error : "Please login on the iOS app first"])
+            return
+        }
+        
         if message[Constants.preferredLocationId] != nil, let preferredLocation = UserDefaults.appGroup?.string(forKey: Constants.preferredLocationId) {
             replyHandler([Constants.preferredLocationId : preferredLocation])
-        } else {
+        } else if let preferredLocation = message[Constants.setPreferredLocationId] as? String {
+            UserDefaults.appGroup?.set(preferredLocation, forKey: Constants.preferredLocationId)
+            //Nothing to send back
             replyHandler([:])
+        } else {
+            replyHandler([Constants.error : "Could not process message"])
         }
     }
     

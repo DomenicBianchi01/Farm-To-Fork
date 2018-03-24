@@ -81,6 +81,8 @@
 		B0CD0EA82050716F00FBE902 /* WallpaperWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD0EA72050716F00FBE902 /* WallpaperWindow.swift */; };
 		B0CD0EAB205078AA00FBE902 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD0EAA205078AA00FBE902 /* RegisterViewController.swift */; };
 		B0CD0EAD20507D2500FBE902 /* UnwindRegisterAccountSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD0EAC20507D2500FBE902 /* UnwindRegisterAccountSegue.swift */; };
+		B0D0423E2065E187007DE107 /* LocationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0232DD520583B1700E22B40 /* LocationsService.swift */; };
+		B0D0423F2065E192007DE107 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0232DDA205842BB00E22B40 /* Location.swift */; };
 		B0DF8B5620500FF100AD2539 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DF8B5520500FF100AD2539 /* LoginService.swift */; };
 		B0EED74F20574AC6008CF4D5 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0EED74E20574AC6008CF4D5 /* LocalAuthentication.framework */; };
 		B0F133F320517C12000187BA /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F133F220517C12000187BA /* StringExtensions.swift */; };
@@ -861,8 +863,10 @@
 				B0001674206349BD00101744 /* ExtensionDelegate.swift in Sources */,
 				B0FC11902063FF14008A28B8 /* NeedInfoRowController.swift in Sources */,
 				B000168E20634F0000101744 /* NeedsService.swift in Sources */,
+				B0D0423E2065E187007DE107 /* LocationsService.swift in Sources */,
 				B000168A20634D7900101744 /* WatchTableViewModelable.swift in Sources */,
 				B000168C20634EBF00101744 /* Result.swift in Sources */,
+				B0D0423F2065E192007DE107 /* Location.swift in Sources */,
 				B000168820634D4300101744 /* WatchNeedsViewModel.swift in Sources */,
 				B0FC118B2063F731008A28B8 /* WatchSessionManager.swift in Sources */,
 				B0001672206349BD00101744 /* InterfaceController.swift in Sources */,

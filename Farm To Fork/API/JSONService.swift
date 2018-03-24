@@ -11,15 +11,17 @@ import UIKit
 /// A class meant to be inherited by `Service` classes. This class helps encode JSON requests and decodes JSON responses. This class should never be used directly from a view model.
 class JSONService {
     // MARK: - Properties
-    ///IMPORTANT NOTE: For the scope of this project, the `JSONDataService` can only handle one network call at a time
+    ///IMPORTANT NOTE: For the scope of this project, the `JSONService` can only handle one network call at a time
     private var urlDataTask: URLSessionDataTask? = nil
     
     // MARK: - Functions
     /**
      Fetch JSON data and parse it according to the `type` parameter in the function. In other words, the `url` must return JSON that maps to `type`.
      
+     All requests made through this function have 15 seconds to receive a response, otherwise the request will timeout.
+     
      - parameter urlString: A string representation of the URL that will return JSON data. This function will check if the string does indeed represent a valid URL. If not, an error is returned.
-     - parameter requestType: Specifies if the request is a `GET` or `POST`. Defaults to `GET`
+     - parameter requestType: Specifies the type of request using the `RequestType` enum. Defaults to `GET`
      - parameter body: If this parameter is included, the dictionary is sent in the http body
      - parameter type: The structure that the fetched JSON data should be parsed according to. NOTE: The structure must conform to `Decodable`.
      - parameter completion: If the function successfully fetched and parsed the JSON data, the completion block includes the parsed data as a structure that matches the type passed in the `type` parameter of this function. If the function could not parse the data, the completion block includes an error object instead.
@@ -68,7 +70,7 @@ class JSONService {
                     if let errorString = error as? String {
                         completion(.error(NSError(domain: errorString, code: responseStatusCode, userInfo: nil)))
                     } else {
-                        completion(.error(NSError(domain: "There was an error", code: responseStatusCode, userInfo: nil)))
+                        completion(.error(NSError(domain: "Could not retrieve data", code: responseStatusCode, userInfo: nil)))
                     }
                 } else if let success = (jsonDict["success"] as? String)?.asBool, success {
                     jsonDict.removeValue(forKey: "success")

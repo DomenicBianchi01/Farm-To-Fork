@@ -11,25 +11,33 @@ import Foundation
 final class WatchNeedsViewModel {
     // MARK: - Properties
     private(set) var needs: [Need] = []
+    private(set) var locations: [Location] = []
     
     // MARK: - Helper Functions
-    func fetchNeeds(with completion: @escaping ((Result<Void>) -> Void)) {
-        WatchSessionManager.shared.sendMessage { result in
+    func fetchData(with completion: @escaping ((Result<Void>) -> Void)) {
+        WatchSessionManager.shared.sendMessage(with: [Constants.preferredLocationId : "getValue"]) { result in
             switch result {
             case .success(let response):
+                if let error = response[Constants.error] as? String {
+                    completion(.error(NSError(domain: error, code: 0, userInfo: nil)))
+                    return
+                }
                 guard let preferredLocationId = response[Constants.preferredLocationId] as? String else {
-                    completion(.error(NSError(domain: "No preferred location found.", code: 0, userInfo: nil)))
+                    //TODO: Don't hardcode city id!
+                    self.executeLocationsAPICall(forCity: "150", with: completion)
                     return
                 }
                 self.executeNeedsAPICall(forLocation: preferredLocationId, with: completion)
-            case .error:
-                break
+            case .error(let error):
+                completion(.error(error))
             }
         }
     }
-    
-    func need(at index: Int) -> Need {
-        return needs[index]
+
+    func setPreferredLocation(id: String, with completion: @escaping ((Result<Void>) -> Void)) {
+        WatchSessionManager.shared.sendMessage(with: [Constants.setPreferredLocationId : id]) { result in
+            completion(.success(()))
+        }
     }
     
     private func executeNeedsAPICall(forLocation locationId: String, with completion: @escaping ((Result<Void>) -> Void)) {
@@ -37,6 +45,18 @@ final class WatchNeedsViewModel {
             switch result {
             case .success(let needs):
                 self.needs = needs
+                completion(.success(()))
+            case .error(let error):
+                completion(.error(error))
+            }
+        }
+    }
+    
+    private func executeLocationsAPICall(forCity cityId: String, with completion: @escaping ((Result<Void>) -> Void)) {
+        LocationsService().fetchLocations(forCity: cityId) { result in
+            switch result {
+            case .success(let locations):
+                self.locations = locations
                 completion(.success(()))
             case .error(let error):
                 completion(.error(error))

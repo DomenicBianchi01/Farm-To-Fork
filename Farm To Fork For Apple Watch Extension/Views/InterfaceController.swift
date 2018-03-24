@@ -13,14 +13,20 @@ final class InterfaceController: WKInterfaceController {
     // MARK: - IBOutlet
     @IBOutlet private var itemsTable: WKInterfaceTable!
     @IBOutlet private var loadingLabel: WKInterfaceLabel!
+    @IBOutlet private var preferredLocationPicker: WKInterfacePicker!
+    @IBOutlet private var preferredLocationSaveButton: WKInterfaceButton!
     
     // MARK: - Properties
     private let viewModel = WatchNeedsViewModel()
     private let session = WCSession.default
+    private var selectedRow: String? = nil
     
     // MARK: - Lifecycle Functions
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
+        
+        preferredLocationPicker.setHidden(true)
+        preferredLocationSaveButton.setHidden(true)
         
         session.delegate = self
         session.activate()
@@ -37,28 +43,63 @@ final class InterfaceController: WKInterfaceController {
     }
     
     override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
-        presentController(withName: "NeedInfo", context: viewModel.need(at: rowIndex))
+        presentController(withName: "NeedInfo", context: viewModel.needs[rowIndex])
+    }
+    
+    // MARK: - IBActions
+    @IBAction func pickerSelectedLocationChanged(_ value: Int) {
+        selectedRow = viewModel.locations[value].id
+    }
+    
+    @IBAction func savePreferredLocation() {
+        guard let selectedRow = selectedRow else {
+            return
+        }
+        preferredLocationPicker.setHidden(true)
+        preferredLocationSaveButton.setHidden(true)
+        loadingLabel.setText("Saving...")
+        viewModel.setPreferredLocation(id: selectedRow) { _ in
+            self.fetchData()
+        }
+    }
+    
+    // MARK: - Helper Functions
+    private func fetchData() {
+        viewModel.fetchData { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success:
+                    if self.viewModel.numberOfRows > 0 {
+                        self.itemsTable.setNumberOfRows(self.viewModel.numberOfRows, withRowType: "ItemRow")
+                        for index in 0 ..< self.viewModel.numberOfRows {
+                            guard let controller = self.itemsTable.rowController(at: index) as? NeedRowController else { continue }
+                            
+                            controller.configure(for: self.viewModel.needs[index])
+                        }
+                        self.loadingLabel.setHidden(true)
+                    } else {
+                        let pickerItems: [WKPickerItem] = self.viewModel.locations.map {
+                            let pickerItem = WKPickerItem()
+                            pickerItem.title = $0.name
+                            return pickerItem
+                        }
+                        self.loadingLabel.setText("Select your preferred location")
+                        self.preferredLocationPicker.setItems(pickerItems)
+                        self.preferredLocationPicker.setHidden(false)
+                        self.preferredLocationSaveButton.setHidden(false)
+                        self.preferredLocationPicker.focus()
+                    }
+                case .error(let error):
+                    self.loadingLabel.setText(error.description)
+                }
+            }
+        }
     }
 }
 
 // MARK: - WCSessionDelegate
 extension InterfaceController: WCSessionDelegate {
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        viewModel.fetchNeeds { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success:
-                    self.itemsTable.setNumberOfRows(self.viewModel.numberOfRows, withRowType: "ItemRow")
-                    for index in 0 ..< self.viewModel.numberOfRows {
-                        guard let controller = self.itemsTable.rowController(at: index) as? NeedRowController else { continue }
-                        
-                        controller.configure(for: self.viewModel.needs[index])
-                    }
-                    self.loadingLabel.setHidden(true)
-                case .error(let error):
-                    self.loadingLabel.setText(error.description)
-                }
-            }
-        }
+        fetchData()
     }
 }

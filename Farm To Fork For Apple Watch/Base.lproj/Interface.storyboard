@@ -29,10 +29,22 @@
                                 </tableRow>
                             </items>
                         </table>
+                        <picker height="100" alignment="left" focusStyle="stack" id="Nlz-UN-7bc">
+                            <connections>
+                                <action selector="pickerSelectedLocationChanged:" destination="AgC-eL-Hgc" id="y1W-G5-EnD"/>
+                            </connections>
+                        </picker>
+                        <button width="1" alignment="left" title="Save" id="Bbp-db-fXY">
+                            <connections>
+                                <action selector="savePreferredLocation" destination="AgC-eL-Hgc" id="XV4-gv-igW"/>
+                            </connections>
+                        </button>
                     </items>
                     <connections>
                         <outlet property="itemsTable" destination="5Xm-ce-TX8" id="tJF-a6-dVV"/>
                         <outlet property="loadingLabel" destination="7i2-J8-DXa" id="a5w-Un-4gS"/>
+                        <outlet property="preferredLocationPicker" destination="Nlz-UN-7bc" id="TIO-Te-6ua"/>
+                        <outlet property="preferredLocationSaveButton" destination="Bbp-db-fXY" id="aFu-fY-iwA"/>
                     </connections>
                 </controller>
             </objects>
