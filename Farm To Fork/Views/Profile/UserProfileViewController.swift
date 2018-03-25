@@ -18,8 +18,6 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
 
 	var user:User = User()
 	
-	
-	
 	// MARK: - Properties
 	private class Setting {
 		var label:String

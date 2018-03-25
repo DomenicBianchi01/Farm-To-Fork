@@ -19,7 +19,7 @@ final class InterfaceController: WKInterfaceController {
     // MARK: - Properties
     private let viewModel = WatchNeedsViewModel()
     private let session = WCSession.default
-    private var selectedRow: String? = nil
+    private var selectedRow: Int? = nil
     
     // MARK: - Lifecycle Functions
     override func awake(withContext context: Any?) {
@@ -48,7 +48,7 @@ final class InterfaceController: WKInterfaceController {
     
     // MARK: - IBActions
     @IBAction func pickerSelectedLocationChanged(_ value: Int) {
-        selectedRow = viewModel.locations[value].id
+        selectedRow = value
     }
     
     @IBAction func savePreferredLocation() {
@@ -58,7 +58,7 @@ final class InterfaceController: WKInterfaceController {
         preferredLocationPicker.setHidden(true)
         preferredLocationSaveButton.setHidden(true)
         loadingLabel.setText("Saving...")
-        viewModel.setPreferredLocation(id: selectedRow) { _ in
+        viewModel.setPreferredLocation(viewModel.locations[selectedRow]) { _ in
             self.fetchData()
         }
     }
@@ -77,6 +77,7 @@ final class InterfaceController: WKInterfaceController {
                             controller.configure(for: self.viewModel.needs[index])
                         }
                         self.loadingLabel.setHidden(true)
+                        self.setTitle("Needs")
                     } else {
                         let pickerItems: [WKPickerItem] = self.viewModel.locations.map {
                             let pickerItem = WKPickerItem()

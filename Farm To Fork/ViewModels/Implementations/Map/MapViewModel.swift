@@ -30,8 +30,9 @@ final class MapViewModel {
         }
     }
     
-    func setPreferredLocation(id: String) {
-        UserDefaults.appGroup?.set(id, forKey: Constants.preferredLocationId)
+    func setPreferredLocation(_ location: Location) {
+        UserDefaults.appGroup?.set(location.id, forKey: Constants.preferredLocationId)
+        UserDefaults.appGroup?.set(location.name, forKey: Constants.preferredLocationName)
     }
 }
 

@@ -9,6 +9,7 @@
 import Foundation
 
 enum LoginPreference: Int {
+    /// Refers to Touch ID or Face ID
     case biometric = 1
     case password
     case autoLogin

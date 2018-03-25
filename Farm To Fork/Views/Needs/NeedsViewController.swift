@@ -14,6 +14,7 @@ final class NeedsViewController: UIViewController {
     
     // MARK: - Properties
     private let viewModel = NeedsViewModel()
+    private let locationName = UserDefaults.appGroup?.string(forKey: Constants.preferredLocationName)
     
     // MARK: - Lifecycle Functions
     override func viewDidLoad() {
@@ -21,6 +22,10 @@ final class NeedsViewController: UIViewController {
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 44
+        
+        if let locationName = locationName {
+            title = locationName + " Needs"
+        }
         
         viewModel.fetchNeeds { result in
             DispatchQueue.main.async {

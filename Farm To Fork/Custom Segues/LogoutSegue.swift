@@ -18,7 +18,6 @@ final class LogoutSegue: UIStoryboardSegue {
         transition.type = kCATransitionReveal
         transition.subtype = kCATransitionFromBottom
         source.navigationController?.view.layer.add(transition, forKey: kCATransition)
-        source.navigationController?.setNavigationBarHidden(true, animated: false)
         source.navigationController?.pushViewController(destination, animated: false)
     }
 }

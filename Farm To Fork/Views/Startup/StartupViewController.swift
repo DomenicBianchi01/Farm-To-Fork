@@ -55,7 +55,7 @@ final class StartupViewController: UIViewController {
                 switch result {
                 case .success:
                     isLoggedIn = true
-                    self.performSegue(withIdentifier: Constants.Segues.autoLoginStart, sender: self)
+                    self.performSegue(withIdentifier: Constants.Segues.loginStart, sender: self)
                 case .error:
                     self.performSegue(withIdentifier: Constants.Segues.loginStart, sender: self)
                 }

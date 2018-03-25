@@ -34,8 +34,9 @@ final class WatchNeedsViewModel {
         }
     }
 
-    func setPreferredLocation(id: String, with completion: @escaping ((Result<Void>) -> Void)) {
-        WatchSessionManager.shared.sendMessage(with: [Constants.setPreferredLocationId : id]) { result in
+    func setPreferredLocation(_ location: Location, with completion: @escaping ((Result<Void>) -> Void)) {
+        WatchSessionManager.shared.sendMessage(with: [Constants.setPreferredLocationId : location.id,
+                                                      Constants.setPreferredLocationName : location.name]) { result in
             completion(.success(()))
         }
     }

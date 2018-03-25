@@ -18,6 +18,7 @@ final class LoginViewController: UIViewController {
     @IBOutlet private var loginButton: ProgressButton!
     @IBOutlet private var registerButton: UIButton!
     @IBOutlet private var loginErrorLabel: UILabel!
+    @IBOutlet var splashBackgroundImageView: UIImageView!
     
     // MARK: - Properties
     private let viewModel = LoginViewModel()
@@ -37,11 +38,29 @@ final class LoginViewController: UIViewController {
         registerButton.layer.borderColor = UIColor.white.cgColor
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if isLoggedIn {
+            view.alpha = 0
+        } else {
+            view.alpha = 1
+        }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         usernameTextField.text = nil
         passwordTextField.text = nil
+        
+        DispatchQueue.main.async {
+            self.splashBackgroundImageView.isHidden = true
+            
+            if isLoggedIn {
+                self.performSegue(withIdentifier: "goToMapFromLogin", sender: self)
+            }
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {

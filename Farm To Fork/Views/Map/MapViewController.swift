@@ -68,7 +68,7 @@ final class MapViewController: UIViewController {
             let alert = UIAlertController(title: "Preferred Location", message: "Please select your preferred Emergency Food Provider. You can change your preferred location at any time.", preferredStyle: .alert)
             let submitAction = UIAlertAction(title: "Save", style: .default) { _ in
                 let selectedRow = self.locationPickerView.selectedRow(inComponent: 0)
-                self.viewModel.setPreferredLocation(id: self.viewModel.locations[selectedRow].id)
+                self.viewModel.setPreferredLocation(self.viewModel.locations[selectedRow])
                 self.segueToNeeds()
             }
             /*let noLocationAction = UIAlertAction(title: "Can't find a location?", style: .default) { _ in

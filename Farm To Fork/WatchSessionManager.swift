@@ -55,12 +55,13 @@ extension WatchSessionManager: WCSessionDelegate {
         
         if message[Constants.preferredLocationId] != nil, let preferredLocation = UserDefaults.appGroup?.string(forKey: Constants.preferredLocationId) {
             replyHandler([Constants.preferredLocationId : preferredLocation])
-        } else if let preferredLocation = message[Constants.setPreferredLocationId] as? String {
-            UserDefaults.appGroup?.set(preferredLocation, forKey: Constants.preferredLocationId)
+        } else if let preferredLocationId = message[Constants.setPreferredLocationId] as? String, let preferredLocationName = message[Constants.setPreferredLocationName] as? String {
+            UserDefaults.appGroup?.set(preferredLocationId, forKey: Constants.preferredLocationId)
+            UserDefaults.appGroup?.set(preferredLocationName, forKey: Constants.preferredLocationName)
             //Nothing to send back
             replyHandler([:])
         } else {
-            replyHandler([Constants.error : "Could not process message"])
+            replyHandler([:])
         }
     }
     
