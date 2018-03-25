@@ -24,9 +24,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash" translatesAutoresizingMaskIntoConstraints="NO" id="Iob-dm-oos">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FarmToForkLogo" translatesAutoresizingMaskIntoConstraints="NO" id="zh2-0c-E6A">
                                 <rect key="frame" x="137" y="20" width="100" height="100"/>
                                 <constraints>
@@ -142,13 +139,10 @@
                         <constraints>
                             <constraint firstItem="Vd3-xY-Ii0" firstAttribute="top" secondItem="1PL-MA-9kB" secondAttribute="bottom" constant="8" id="0Sd-TM-ybg"/>
                             <constraint firstItem="toi-1t-fjy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="31e-Dy-1RD"/>
-                            <constraint firstItem="Iob-dm-oos" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="9aX-Mu-cyH"/>
                             <constraint firstItem="SCj-ML-3s0" firstAttribute="top" secondItem="Vd3-xY-Ii0" secondAttribute="bottom" constant="15" id="D8X-L0-6Uh"/>
-                            <constraint firstItem="Iob-dm-oos" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="DYl-GV-nSm"/>
                             <constraint firstItem="SCj-ML-3s0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Ndt-DG-1Xf"/>
                             <constraint firstItem="pmJ-Bh-BGm" firstAttribute="top" secondItem="SCj-ML-3s0" secondAttribute="bottom" constant="40" id="Q58-y8-52G"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SCj-ML-3s0" secondAttribute="trailing" constant="16" id="QOc-hx-Ygb"/>
-                            <constraint firstItem="Iob-dm-oos" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="VE0-0Q-R5W"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Vd3-xY-Ii0" secondAttribute="trailing" constant="16" id="e8n-dD-xac"/>
                             <constraint firstItem="1PL-MA-9kB" firstAttribute="top" secondItem="zh2-0c-E6A" secondAttribute="bottom" constant="8" id="gAg-gc-Vts"/>
                             <constraint firstItem="pmJ-Bh-BGm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gnR-Sm-M1G"/>
@@ -156,7 +150,6 @@
                             <constraint firstItem="zh2-0c-E6A" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="l1f-yb-t01"/>
                             <constraint firstItem="1PL-MA-9kB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="pu1-WV-uin"/>
                             <constraint firstItem="zh2-0c-E6A" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="r97-xl-c42"/>
-                            <constraint firstItem="Iob-dm-oos" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="rrm-D7-wW6"/>
                             <constraint firstItem="Vd3-xY-Ii0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="tZV-DW-UcX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1PL-MA-9kB" secondAttribute="trailing" constant="16" id="y8u-eU-aEv"/>
                         </constraints>
@@ -168,7 +161,6 @@
                         <outlet property="loginErrorLabel" destination="1PL-MA-9kB" id="19Y-8J-y2K"/>
                         <outlet property="passwordTextField" destination="SCj-ML-3s0" id="eh5-qt-QGy"/>
                         <outlet property="registerButton" destination="toi-1t-fjy" id="43X-Yf-tPS"/>
-                        <outlet property="splashBackgroundImageView" destination="Iob-dm-oos" id="adX-jN-1Iq"/>
                         <outlet property="usernameTextField" destination="Vd3-xY-Ii0" id="fcD-6b-J9y"/>
                         <segue destination="WgC-qI-DoZ" kind="presentation" identifier="goToMapFromLogin" id="Bls-H3-gWY"/>
                     </connections>
@@ -420,7 +412,7 @@
                         <viewLayoutGuide key="safeArea" id="PwY-kJ-SQm"/>
                     </view>
                     <navigationItem key="navigationItem" title="Needs" id="Hdh-aY-RXf">
-                        <barButtonItem key="leftBarButtonItem" title="Close" id="Zq6-5u-V7g">
+                        <barButtonItem key="leftBarButtonItem" title="Dismiss" id="Zq6-5u-V7g">
                             <color key="tintColor" red="0.59503139319999998" green="0.66696369359999996" blue="0.3482086901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="dismissButtonTapped:" destination="Ocx-Fk-R2w" id="PhW-Vn-Ye1"/>
@@ -880,6 +872,7 @@
                     <connections>
                         <outlet property="progressView" destination="MJn-CL-sZF" id="MhR-ai-I0z"/>
                         <segue destination="gYn-Ei-7Vu" kind="presentation" identifier="LoginStart" modalTransitionStyle="crossDissolve" id="mwq-0R-0Ax"/>
+                        <segue destination="WgC-qI-DoZ" kind="presentation" identifier="AutoLoginStart" id="ZbM-8H-XQK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OSf-Wn-cCA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1106,7 +1099,11 @@
                                 </state>
                                 <connections>
                                     <action selector="logoutAction:" destination="KEp-l1-4CG" eventType="primaryActionTriggered" id="aGT-XU-dfg"/>
-                                    <segue destination="hdv-Ke-dnB" kind="unwind" unwindAction="unwindToViewControllerWithSegue:" id="r6b-o5-vkE"/>
+<<<<<<< HEAD
+                                    <segue destination="BYZ-38-t0r" kind="custom" customClass="LogoutSegue" customModule="Farm_To_Fork" customModuleProvider="target" id="pT5-vS-ADg"/>
+=======
+                                    <segue destination="gYn-Ei-7Vu" kind="presentation" id="Erd-Jh-HfR"/>
+>>>>>>> db99e05ee7aec74ed202e4a63935d228faf9767f
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="RaY-yT-iOS">
@@ -1158,7 +1155,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="de8-wE-nIh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="hdv-Ke-dnB" userLabel="Exit" sceneMemberID="exit"/>
                 <swipeGestureRecognizer direction="down" id="ycQ-8f-Pc8">
                     <connections>
                         <action selector="dismissKeyboard:" destination="KEp-l1-4CG" id="JP8-gY-BEa"/>
@@ -1176,7 +1172,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Old Password" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4ad-Io-PhB" customClass="MFTextField">
-                                <rect key="frame" x="10" y="112" width="343" height="60"/>
+                                <rect key="frame" x="10" y="68" width="343" height="60"/>
                                 <color key="tintColor" red="0.73333333329999995" green="0.85098039219999999" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="iPa-fW-iS9"/>
@@ -1207,7 +1203,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New Password" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3H0-2P-f1j" customClass="MFTextField">
-                                <rect key="frame" x="10" y="201" width="343" height="60"/>
+                                <rect key="frame" x="10" y="157" width="343" height="104"/>
                                 <color key="tintColor" red="0.73333333329999995" green="0.85098039219999999" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
@@ -1319,9 +1315,16 @@
     <resources>
         <image name="Checklist" width="34" height="34"/>
         <image name="FarmToForkLogo" width="216" height="216"/>
-        <image name="Splash" width="960" height="640"/>
         <image name="profile" width="350" height="350"/>
         <image name="profileBarButton" width="34" height="34"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Bls-H3-gWY"/>
+<<<<<<< HEAD
+        <segue reference="pT5-vS-ADg"/>
+=======
+        <segue reference="Erd-Jh-HfR"/>
+>>>>>>> db99e05ee7aec74ed202e4a63935d228faf9767f
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.73333333329999995" green="0.85098039219999999" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>
