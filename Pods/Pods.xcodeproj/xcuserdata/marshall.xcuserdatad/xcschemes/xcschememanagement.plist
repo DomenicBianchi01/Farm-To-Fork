@@ -7,7 +7,7 @@
 		<key>MaterialTextField.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>7</integer>
+			<integer>5</integer>
 		</dict>
 		<key>Pods-Farm To Fork.xcscheme</key>
 		<dict>
@@ -19,7 +19,7 @@
 		<key>SwiftKeychainWrapper.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>8</integer>
+			<integer>6</integer>
 		</dict>
 		<key>TextFieldEffects.xcscheme</key>
 		<dict>

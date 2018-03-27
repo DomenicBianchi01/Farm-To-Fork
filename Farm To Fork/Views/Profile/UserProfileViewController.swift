@@ -191,6 +191,9 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
 		user.firstName = firstName
 		user.lastName = lastName
 		
+		self.settings[4].value = self.preferedLocation?.name ?? "Prefered Location";
+		self.table.reloadData()
+		
 		NSLog("pass: \(password)")
 		
 		UpdateUserService().updateUser(user: user, newEmail: email){  result in
