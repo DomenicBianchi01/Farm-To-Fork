@@ -52,8 +52,10 @@ class Location {
     }
     
     // MARK: - Lifecycle Functions
+    /// If a `Location` is being created from watchOS, make sure `generateCoordinates` is false!
     init?(id: String,
-          dictionary: [String : Any]) {
+          dictionary: [String : Any],
+          generateCoordinates: Bool) {
         guard let name = dictionary["EFPName"] as? String,
             let monday = dictionary["Monday"] as? String,
             let tuesday = dictionary["Tuesday"] as? String,
@@ -92,23 +94,25 @@ class Location {
             self.fullAddressWithNewlines = "\(streetNumber) \(streetName)\n\(cityName) \(postalCode)"
         }
     
-        let dispatchGroup = DispatchGroup()
-        dispatchGroup.enter()
-        convertAddressToCoordinates(self.fullAddress) { result in
-            switch result {
-            case .success(let coordinates):
-                self.coordinates = coordinates
-                dispatchGroup.leave()
-            case .error:
-                dispatchGroup.leave()
-                break
+        if generateCoordinates {
+            let dispatchGroup = DispatchGroup()
+            dispatchGroup.enter()
+            convertAddressToCoordinates(self.fullAddress) { result in
+                switch result {
+                case .success(let coordinates):
+                    self.coordinates = coordinates
+                    dispatchGroup.leave()
+                case .error:
+                    dispatchGroup.leave()
+                    break
+                }
             }
-        }
-        
-        dispatchGroup.wait()
-        
-        if coordinates == nil {
-            return nil
+            
+            dispatchGroup.wait()
+            
+            if coordinates == nil {
+                return nil
+            }
         }
     }
     

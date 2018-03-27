@@ -22,7 +22,7 @@ final class MapViewModel {
     // MARK: - Helper Functions
     func fetchEFPLocations(with completion: @escaping ((Result<Void>) -> Void)) {
         //TODO: DON'T HARDCODE CITY NUMBER
-        LocationsService().fetchLocations(forCity: "150") { result in
+        LocationsService().fetchLocations(forCity: "150", generateCoordinates: true) { result in
             switch result {
             case .success(let locations):
                 self.locations = locations

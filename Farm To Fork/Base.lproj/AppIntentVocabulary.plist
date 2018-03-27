@@ -13,23 +13,6 @@
 			<array>
 				<dict>
 					<key>VocabularyItemIdentifier</key>
-					<string>needs</string>
-					<key>VocabularyItemSynonyms</key>
-					<array>
-						<dict>
-							<key>VocabularyItemExamples</key>
-							<array>
-								<string>display needs list</string>
-								<string>show me a list of needs</string>
-								<string>show my list of needs</string>
-							</array>
-							<key>VocabularyItemPhrase</key>
-							<string>needs</string>
-						</dict>
-					</array>
-				</dict>
-				<dict>
-					<key>VocabularyItemIdentifier</key>
 					<string>urgent needs</string>
 					<key>VocabularyItemSynonyms</key>
 					<array>
