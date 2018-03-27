@@ -14,7 +14,7 @@ final class NeedsViewController: UIViewController {
     
     // MARK: - Properties
     private let viewModel = NeedsViewModel()
-    private let locationName = UserDefaults.appGroup?.string(forKey: Constants.preferredLocationName)
+    private var locationName = UserDefaults.appGroup?.string(forKey: Constants.preferredLocationName)
     
     // MARK: - Lifecycle Functions
     override func viewDidLoad() {
@@ -26,7 +26,26 @@ final class NeedsViewController: UIViewController {
         if let locationName = locationName {
             title = locationName + " Needs"
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        fetchNeeds()
+    }
+    
+    func selectedLocation(_ location: Location) {
+        viewModel.location = location
+        locationName = location.name
+    }
+
+    // MARK: - IBActions
+    @IBAction func dismissButtonTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    // MARK: - Helper Functions
+    private func fetchNeeds() {
         viewModel.fetchNeeds { result in
             DispatchQueue.main.async {
                 switch result {
@@ -37,11 +56,6 @@ final class NeedsViewController: UIViewController {
                 }
             }
         }
-    }
-
-    // MARK: - IBActions
-    @IBAction func dismissButtonTapped(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
     }
 }
 

@@ -41,6 +41,9 @@
 		B0232DDD2058463E00E22B40 /* JSONAny.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0232DDC2058463E00E22B40 /* JSONAny.swift */; };
 		B02613A0205B462A0067B378 /* NeedsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B026139F205B462A0067B378 /* NeedsViewModel.swift */; };
 		B02613A2205B4E1E0067B378 /* NeedItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02613A1205B4E1E0067B378 /* NeedItemTableViewCell.swift */; };
+		B0272DE82068885F00F8F2E2 /* EFPMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0272DE72068885F00F8F2E2 /* EFPMarker.swift */; };
+		B0272DEA2068919000F8F2E2 /* LocationInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0272DE92068919000F8F2E2 /* LocationInfoViewController.swift */; };
+		B0272DEC2068920100F8F2E2 /* LocationInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0272DEB2068920100F8F2E2 /* LocationInfoViewModel.swift */; };
 		B02A024120501A7100ABB4F9 /* RequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A024020501A7100ABB4F9 /* RequestType.swift */; };
 		B02A024420501BC100ABB4F9 /* ErrorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A024320501BC100ABB4F9 /* ErrorExtensions.swift */; };
 		B02A024620501DB900ABB4F9 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A024520501DB900ABB4F9 /* UIViewExtensions.swift */; };
@@ -51,7 +54,10 @@
 		B03C07D52033BDE2001A54C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B03C07D32033BDE2001A54C6 /* LaunchScreen.storyboard */; };
 		B04B2DD92063C011007F07EE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B077904620535D2A0099AD1F /* Constants.swift */; };
 		B04B2DDC2063C1E1007F07EE /* NeedRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04B2DDB2063C1E1007F07EE /* NeedRowController.swift */; };
+		B0554DAB2069624D00A49E74 /* LocationInfoDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0554DAA2069624D00A49E74 /* LocationInfoDelegate.swift */; };
 		B061D3662058BF1E004E7888 /* PickerViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B061D3652058BF1E004E7888 /* PickerViewModelable.swift */; };
+		B06E3EE92069BDAD003ED34C /* LocationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E3EE82069BDAD003ED34C /* LocationSearchViewController.swift */; };
+		B06E3EEC2069C196003ED34C /* MatchedLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E3EEB2069C196003ED34C /* MatchedLocationTableViewCell.swift */; };
 		B071A6AB205800A300367102 /* ProgressButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B071A6AA205800A300367102 /* ProgressButton.swift */; };
 		B077904520535BC60099AD1F /* StartupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B077904420535BC60099AD1F /* StartupViewModel.swift */; };
 		B077904720535D2A0099AD1F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B077904620535D2A0099AD1F /* Constants.swift */; };
@@ -83,6 +89,12 @@
 		B0CD0EAD20507D2500FBE902 /* UnwindRegisterAccountSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD0EAC20507D2500FBE902 /* UnwindRegisterAccountSegue.swift */; };
 		B0D0423E2065E187007DE107 /* LocationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0232DD520583B1700E22B40 /* LocationsService.swift */; };
 		B0D0423F2065E192007DE107 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0232DDA205842BB00E22B40 /* Location.swift */; };
+		B0DC7C6D20690A2F00E544D2 /* LocationInfoHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC7C6C20690A2F00E544D2 /* LocationInfoHeaderTableViewCell.swift */; };
+		B0DC7C6F20690C9200E544D2 /* LocationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC7C6E20690C9200E544D2 /* LocationDelegate.swift */; };
+		B0DC7C712069138900E544D2 /* LocationConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC7C702069138900E544D2 /* LocationConfigurable.swift */; };
+		B0DC7C732069142700E544D2 /* LocationInfoBasicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC7C722069142700E544D2 /* LocationInfoBasicTableViewCell.swift */; };
+		B0DC7C75206919CD00E544D2 /* LocationInfoHoursTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC7C74206919CD00E544D2 /* LocationInfoHoursTableViewCell.swift */; };
+		B0DC7C77206920F600E544D2 /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC7C76206920F600E544D2 /* DoubleExtensions.swift */; };
 		B0DF8B5620500FF100AD2539 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DF8B5520500FF100AD2539 /* LoginService.swift */; };
 		B0EED74F20574AC6008CF4D5 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0EED74E20574AC6008CF4D5 /* LocalAuthentication.framework */; };
 		B0F133F320517C12000187BA /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F133F220517C12000187BA /* StringExtensions.swift */; };
@@ -195,6 +207,9 @@
 		B0232DDC2058463E00E22B40 /* JSONAny.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONAny.swift; sourceTree = "<group>"; };
 		B026139F205B462A0067B378 /* NeedsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsViewModel.swift; sourceTree = "<group>"; };
 		B02613A1205B4E1E0067B378 /* NeedItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedItemTableViewCell.swift; sourceTree = "<group>"; };
+		B0272DE72068885F00F8F2E2 /* EFPMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFPMarker.swift; sourceTree = "<group>"; };
+		B0272DE92068919000F8F2E2 /* LocationInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInfoViewController.swift; sourceTree = "<group>"; };
+		B0272DEB2068920100F8F2E2 /* LocationInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInfoViewModel.swift; sourceTree = "<group>"; };
 		B02A024020501A7100ABB4F9 /* RequestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestType.swift; sourceTree = "<group>"; };
 		B02A024320501BC100ABB4F9 /* ErrorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorExtensions.swift; sourceTree = "<group>"; };
 		B02A024520501DB900ABB4F9 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
@@ -208,7 +223,10 @@
 		B04B2DDA2063C01F007F07EE /* Farm To Fork For Apple Watch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Farm To Fork For Apple Watch Extension.entitlements"; sourceTree = "<group>"; };
 		B04B2DDB2063C1E1007F07EE /* NeedRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedRowController.swift; sourceTree = "<group>"; };
 		B04B2DDD2063C582007F07EE /* Farm To Fork For Apple Watch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Farm To Fork For Apple Watch.entitlements"; sourceTree = "<group>"; };
+		B0554DAA2069624D00A49E74 /* LocationInfoDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInfoDelegate.swift; sourceTree = "<group>"; };
 		B061D3652058BF1E004E7888 /* PickerViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewModelable.swift; sourceTree = "<group>"; };
+		B06E3EE82069BDAD003ED34C /* LocationSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewController.swift; sourceTree = "<group>"; };
+		B06E3EEB2069C196003ED34C /* MatchedLocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchedLocationTableViewCell.swift; sourceTree = "<group>"; };
 		B071A6AA205800A300367102 /* ProgressButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressButton.swift; sourceTree = "<group>"; };
 		B077904420535BC60099AD1F /* StartupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupViewModel.swift; sourceTree = "<group>"; };
 		B077904620535D2A0099AD1F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -230,6 +248,12 @@
 		B0CD0EA72050716F00FBE902 /* WallpaperWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperWindow.swift; sourceTree = "<group>"; };
 		B0CD0EAA205078AA00FBE902 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B0CD0EAC20507D2500FBE902 /* UnwindRegisterAccountSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnwindRegisterAccountSegue.swift; sourceTree = "<group>"; };
+		B0DC7C6C20690A2F00E544D2 /* LocationInfoHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInfoHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		B0DC7C6E20690C9200E544D2 /* LocationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDelegate.swift; sourceTree = "<group>"; };
+		B0DC7C702069138900E544D2 /* LocationConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationConfigurable.swift; sourceTree = "<group>"; };
+		B0DC7C722069142700E544D2 /* LocationInfoBasicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInfoBasicTableViewCell.swift; sourceTree = "<group>"; };
+		B0DC7C74206919CD00E544D2 /* LocationInfoHoursTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInfoHoursTableViewCell.swift; sourceTree = "<group>"; };
+		B0DC7C76206920F600E544D2 /* DoubleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtensions.swift; sourceTree = "<group>"; };
 		B0DF8B5520500FF100AD2539 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		B0EED74E20574AC6008CF4D5 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		B0F133F220517C12000187BA /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
@@ -428,6 +452,15 @@
 			path = "Farm To Fork";
 			sourceTree = "<group>";
 		};
+		B06E3EEA2069C17E003ED34C /* Searching */ = {
+			isa = PBXGroup;
+			children = (
+				B06E3EE82069BDAD003ED34C /* LocationSearchViewController.swift */,
+				B06E3EEB2069C196003ED34C /* MatchedLocationTableViewCell.swift */,
+			);
+			path = Searching;
+			sourceTree = "<group>";
+		};
 		B071A6AC205805DC00367102 /* CustomUIElements */ = {
 			isa = PBXGroup;
 			children = (
@@ -457,7 +490,13 @@
 		B0B3BFF42054BD220074DF0D /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				B06E3EEA2069C17E003ED34C /* Searching */,
+				B0272DE72068885F00F8F2E2 /* EFPMarker.swift */,
 				B0B3BFF52054BD330074DF0D /* MapViewController.swift */,
+				B0272DE92068919000F8F2E2 /* LocationInfoViewController.swift */,
+				B0DC7C6C20690A2F00E544D2 /* LocationInfoHeaderTableViewCell.swift */,
+				B0DC7C722069142700E544D2 /* LocationInfoBasicTableViewCell.swift */,
+				B0DC7C74206919CD00E544D2 /* LocationInfoHoursTableViewCell.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -465,7 +504,11 @@
 		B0B3BFF72054BE350074DF0D /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				B0DC7C6E20690C9200E544D2 /* LocationDelegate.swift */,
+				B0554DAA2069624D00A49E74 /* LocationInfoDelegate.swift */,
+				B0DC7C702069138900E544D2 /* LocationConfigurable.swift */,
 				B0B3BFF82054BE450074DF0D /* MapViewModel.swift */,
+				B0272DEB2068920100F8F2E2 /* LocationInfoViewModel.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -513,6 +556,7 @@
 			children = (
 				B02A024320501BC100ABB4F9 /* ErrorExtensions.swift */,
 				B0F133F220517C12000187BA /* StringExtensions.swift */,
+				B0DC7C76206920F600E544D2 /* DoubleExtensions.swift */,
 				B0A8BFDC205F4E7A00077DF7 /* UserDefaults.swift */,
 				B02A024520501DB900ABB4F9 /* UIViewExtensions.swift */,
 				B0ADAA1420520A2B00A0CD30 /* UIViewControllerExtensions.swift */,
@@ -560,8 +604,8 @@
 			isa = PBXGroup;
 			children = (
 				B026139E205B461C0067B378 /* Needs */,
-				B0B3BFF72054BE350074DF0D /* Map */,
 				B077904320535BBA0099AD1F /* Startup */,
+				B0B3BFF72054BE350074DF0D /* Map */,
 				B0F133F82051B28D000187BA /* Register */,
 				B02A024220501AF100ABB4F9 /* Login */,
 			);
@@ -902,11 +946,13 @@
 				B02613A0205B462A0067B378 /* NeedsViewModel.swift in Sources */,
 				ABC95046205AB82C00DC8890 /* UserProfileViewController.swift in Sources */,
 				B0FEBC8B204E3F0B00982EAE /* Result.swift in Sources */,
+				B0DC7C77206920F600E544D2 /* DoubleExtensions.swift in Sources */,
 				B0232DDB205842BB00E22B40 /* Location.swift in Sources */,
 				B0FEBC8D204E3FF200982EAE /* JSONService.swift in Sources */,
 				B03C07CA2033BDE2001A54C6 /* LoginViewController.swift in Sources */,
 				B02A024420501BC100ABB4F9 /* ErrorExtensions.swift in Sources */,
 				B0DF8B5620500FF100AD2539 /* LoginService.swift in Sources */,
+				B0272DEA2068919000F8F2E2 /* LocationInfoViewController.swift in Sources */,
 				B02613A2205B4E1E0067B378 /* NeedItemTableViewCell.swift in Sources */,
 				B077904720535D2A0099AD1F /* Constants.swift in Sources */,
 				B0F133F520517D12000187BA /* RegisterService.swift in Sources */,
@@ -916,17 +962,23 @@
 				B0232DDD2058463E00E22B40 /* JSONAny.swift in Sources */,
 				B0CD0EAB205078AA00FBE902 /* RegisterViewController.swift in Sources */,
 				B0232DD620583B1700E22B40 /* LocationsService.swift in Sources */,
+				B0DC7C75206919CD00E544D2 /* LocationInfoHoursTableViewCell.swift in Sources */,
+				B0DC7C732069142700E544D2 /* LocationInfoBasicTableViewCell.swift in Sources */,
 				B0A8BFCE205F171200077DF7 /* Need.swift in Sources */,
 				B0CD0EA620506F1B00FBE902 /* RegisterAccountSegue.swift in Sources */,
 				B0B3BFF92054BE450074DF0D /* MapViewModel.swift in Sources */,
 				B077904920535EF80099AD1F /* LoginPreferences.swift in Sources */,
+				B0272DEC2068920100F8F2E2 /* LocationInfoViewModel.swift in Sources */,
+				B06E3EEC2069C196003ED34C /* MatchedLocationTableViewCell.swift in Sources */,
 				B00F9C16204F8D8100C5BC03 /* User.swift in Sources */,
 				B061D3662058BF1E004E7888 /* PickerViewModelable.swift in Sources */,
+				B0DC7C6D20690A2F00E544D2 /* LocationInfoHeaderTableViewCell.swift in Sources */,
 				B0C6EC9E205972150064F2B5 /* NeedsViewController.swift in Sources */,
 				B0B3BFF32054BCD60074DF0D /* NeedsService.swift in Sources */,
 				B0F133F7205182C8000187BA /* RegisterLocationViewController.swift in Sources */,
 				B0ADAA1520520A2B00A0CD30 /* UIViewControllerExtensions.swift in Sources */,
 				B00F9C14204F8B2500C5BC03 /* LoginViewModel.swift in Sources */,
+				B0554DAB2069624D00A49E74 /* LocationInfoDelegate.swift in Sources */,
 				B0ADAA17205223D900A0CD30 /* RegisterViewModel.swift in Sources */,
 				B01E3D8C2053405B00106CA4 /* StartupViewController.swift in Sources */,
 				B02A024120501A7100ABB4F9 /* RequestType.swift in Sources */,
@@ -934,15 +986,19 @@
 				B0A8BFD2205F3AC300077DF7 /* PledgeDelegate.swift in Sources */,
 				B03C07C82033BDE2001A54C6 /* AppDelegate.swift in Sources */,
 				B0B3BFF62054BD330074DF0D /* MapViewController.swift in Sources */,
+				B06E3EE92069BDAD003ED34C /* LocationSearchViewController.swift in Sources */,
 				ABC95048205AB89E00DC8890 /* SettingUITableViewCell.swift in Sources */,
 				B0A8BFD4205F3F3F00077DF7 /* PledgeService.swift in Sources */,
 				B02A024620501DB900ABB4F9 /* UIViewExtensions.swift in Sources */,
+				B0272DE82068885F00F8F2E2 /* EFPMarker.swift in Sources */,
 				AB9B39FF20617FE60088BFC4 /* UpdateUserService.swift in Sources */,
 				B0FEBC86204E3E3600982EAE /* TableViewModelable.swift in Sources */,
 				B0FC11892063E35F008A28B8 /* WatchSessionManager.swift in Sources */,
 				B071A6AB205800A300367102 /* ProgressButton.swift in Sources */,
 				B0CD0EA82050716F00FBE902 /* WallpaperWindow.swift in Sources */,
 				B0F133F320517C12000187BA /* StringExtensions.swift in Sources */,
+				B0DC7C712069138900E544D2 /* LocationConfigurable.swift in Sources */,
+				B0DC7C6F20690C9200E544D2 /* LocationDelegate.swift in Sources */,
 				B0A8BFC9205EFB0D00077DF7 /* LogoutSegue.swift in Sources */,
 				B0A8BFD0205F339000077DF7 /* ExpandedNeedItemTableViewCell.swift in Sources */,
 			);

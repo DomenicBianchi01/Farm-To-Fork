@@ -9,94 +9,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Farm To Fork/API/UpdateUserService.swift"
-            timestampString = "543612657.496057"
+            filePath = "Farm To Fork/Views/Map/Searching/LocationSearchViewController.swift"
+            timestampString = "543805908.846769"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "fetchUserData(email:pass:with:)"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "updateSearchResults(for:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Farm To Fork For Apple Watch Extension/ViewModels/WatchNeedsViewModel.swift"
-            timestampString = "543618453.186183"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "fetchData(with:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Farm To Fork/Views/Needs/NeedsViewController.swift"
-            timestampString = "543618453.186344"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Farm To Fork/Views/Needs/NeedsViewController.swift"
-            timestampString = "543618453.1864491"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Farm_To_Fork.NeedsViewController.viewDidLoad() -&gt; ()"
-                  moduleName = "Farm To Fork"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/workspace/Farm%20To%20Fork/Farm%20To%20Fork/Views/Needs/NeedsViewController.swift"
-                  timestampString = "543618453.335469"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "30"
-                  endingLineNumber = "30"
-                  offsetFromSymbolStart = "1077">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Farm_To_Fork.Result&lt;()&gt;) -&gt; () in Farm_To_Fork.NeedsViewController.viewDidLoad() -&gt; ()"
-                  moduleName = "Farm To Fork"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/workspace/Farm%20To%20Fork/Farm%20To%20Fork/Views/Needs/NeedsViewController.swift"
-                  timestampString = "543618453.3393"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "32">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

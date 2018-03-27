@@ -7,10 +7,13 @@
 //
 
 import Foundation
+import CoreLocation
+import MapKit
 
 final class MapViewModel {
     // MARK: - Properties
-    var locations: [Location] = []
+    private(set) var locations: [Location] = []
+    private(set) var locationMarkers: [EFPMarker] = []
     
     var isPreferredLocationSet: Bool {
         return UserDefaults.appGroup?.string(forKey: Constants.preferredLocationId) != nil ? true : false
@@ -23,6 +26,12 @@ final class MapViewModel {
             switch result {
             case .success(let locations):
                 self.locations = locations
+                for location in locations {
+                    guard let coordinates = location.coordinates else {
+                        continue
+                    }
+                    self.locationMarkers.append(EFPMarker(title: location.name, coordinate: coordinates, id: location.id))
+                }
                 completion(.success(()))
             case .error(let error):
                 completion(.error(error))
@@ -33,6 +42,22 @@ final class MapViewModel {
     func setPreferredLocation(_ location: Location) {
         UserDefaults.appGroup?.set(location.id, forKey: Constants.preferredLocationId)
         UserDefaults.appGroup?.set(location.name, forKey: Constants.preferredLocationName)
+    }
+    
+    func calculateRoute(from startLocation: CLLocationCoordinate2D, to endLocation: CLLocationCoordinate2D, by transportType: MKDirectionsTransportType, completion: @escaping (MKDirectionsResponse?) -> Void) {
+        
+        let request = MKDirectionsRequest()
+        request.source = MKMapItem(placemark: MKPlacemark(coordinate: startLocation, addressDictionary: nil))
+        request.destination = MKMapItem(placemark: MKPlacemark(coordinate: endLocation, addressDictionary: nil))
+        request.transportType = transportType
+        
+        MKDirections(request: request).calculate { response, error in
+            guard let response = response, error == nil else {
+                completion(nil)
+                return
+            }
+            completion(response)
+        }
     }
 }
 

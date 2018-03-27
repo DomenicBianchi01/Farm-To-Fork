@@ -11,13 +11,21 @@ import UIKit
 
 extension UIView {
     /// Applies a blue effect using the specified style to the view. This function has no effect on the view if the user has turned on the "Reduce Transparency" option in the iOS settings.
-    func applyBlurEffect(using style: UIBlurEffectStyle, cornerRadius: CGFloat = 0) {
+    func applyBlurEffect(using style: UIBlurEffectStyle, cornerRadius: CGFloat = 0, corners: UIRectCorner = []) {
         if !UIAccessibilityIsReduceTransparencyEnabled() {
             backgroundColor = .clear
             let blurEffect = UIBlurEffect(style: style)
             let blurEffectView = UIVisualEffectView(effect: blurEffect)
             blurEffectView.frame = bounds
-            blurEffectView.layer.cornerRadius = cornerRadius
+            
+            let maskPath = UIBezierPath(roundedRect: bounds,
+                                        byRoundingCorners: corners,
+                                        cornerRadii: CGSize(width: cornerRadius, height: 0.0))
+            
+            let maskLayer = CAShapeLayer()
+            maskLayer.path = maskPath.cgPath
+            blurEffectView.layer.mask = maskLayer
+            
             blurEffectView.clipsToBounds = true
             blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             insertSubview(blurEffectView, at: 0)
@@ -42,5 +50,12 @@ extension UIView {
         animation.toValue = NSValue(cgPoint: CGPoint(x: center.x + 5, y: center.y))
         
         layer.add(animation, forKey: "position")
+    }
+    
+    /// Calls `layoutIfNeeded()` on the view with an animation duration of 0.5 seconds
+    func refreshView() {
+        UIView.animate(withDuration: 0.5) {
+            self.layoutIfNeeded()
+        }
     }
 }

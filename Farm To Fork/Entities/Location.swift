@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import CoreLocation
 
-struct Location {
+class Location {
     // MARK: - Properties
     let id: String
     let name: String
@@ -23,14 +24,15 @@ struct Location {
     let phoneNumber: String?
     let contactName: String?
     let unitNumber: String?
-    
     /// Provides the `streetNumber`, `streetName`, `unitNumber` (if applicable), `cityName`, and `postalCode` all within one string
-    var fullAddress: String {
-        if let unitNumber = unitNumber {
-            return "\(streetNumber) \(streetName) Unit \(unitNumber) \(cityName) \(postalCode)"
-        }
-        return "\(streetNumber) \(streetName) \(cityName) \(postalCode)"
-    }
+    let fullAddress: String
+    /// Provides the `streetNumber`, `streetName`, and `unitNumber` (if applicable) on one line; then `cityName`, and `postalCode` on a second line
+    let fullAddressWithNewlines: String
+    
+    private(set) var coordinates: CLLocationCoordinate2D? = nil
+    
+    /// The distance (in meters) between this location at the current position of the user
+    var distance: Double? = nil
     
     // MARK: - Structs
     struct Hours {
@@ -41,6 +43,12 @@ struct Location {
         let friday: String
         let saturday: String
         let sunday: String
+        
+        let daysOfTheWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+        
+        var hours: [String] {
+            return [monday, tuesday, wednesday, thursday, friday, saturday, sunday]
+        }
     }
     
     // MARK: - Lifecycle Functions
@@ -75,5 +83,43 @@ struct Location {
         self.phoneNumber = dictionary["PhoneNumber"] as? String
         self.contactName = dictionary["ContactName"] as? String
         self.unitNumber = dictionary["UnitNumber"] as? String
+        
+        if let unitNumber = unitNumber {
+            self.fullAddress = "\(streetNumber) \(streetName) Unit \(unitNumber) \(cityName) \(postalCode)"
+            self.fullAddressWithNewlines = "\(streetNumber) \(streetName) Unit \(unitNumber)\n\(cityName) \(postalCode)"
+        } else {
+            self.fullAddress = "\(streetNumber) \(streetName) \(cityName) \(postalCode)"
+            self.fullAddressWithNewlines = "\(streetNumber) \(streetName)\n\(cityName) \(postalCode)"
+        }
+    
+        let dispatchGroup = DispatchGroup()
+        dispatchGroup.enter()
+        convertAddressToCoordinates(self.fullAddress) { result in
+            switch result {
+            case .success(let coordinates):
+                self.coordinates = coordinates
+                dispatchGroup.leave()
+            case .error:
+                dispatchGroup.leave()
+                break
+            }
+        }
+        
+        dispatchGroup.wait()
+        
+        if coordinates == nil {
+            return nil
+        }
+    }
+    
+    private func convertAddressToCoordinates(_ address: String, with completion: @escaping ((Result<CLLocationCoordinate2D>) -> Void )) {
+        let geoCoder = CLGeocoder()
+        geoCoder.geocodeAddressString(address) { (placemarks, error) in
+            guard let placemarks = placemarks, let location = placemarks.first?.location?.coordinate else {
+                completion(.error(error ?? NSError(domain: "Error", code: 0, userInfo: nil)))
+                return
+            }
+            completion(.success(location))
+        }
     }
 }

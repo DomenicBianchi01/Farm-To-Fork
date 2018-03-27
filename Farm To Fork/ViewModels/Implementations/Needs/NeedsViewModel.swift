@@ -11,12 +11,18 @@ import UIKit
 final class NeedsViewModel {
     // MARK: - Properties
     private var needs: [Need] = []
+    var location: Location? = nil
     var expandedIndexPath: IndexPath? = nil
     
     // MARK: - Helper Functions
     func fetchNeeds(with completion: @escaping ((Result<Void>) -> Void)) {
-        guard let locationId = UserDefaults.appGroup?.string(forKey: Constants.preferredLocationId) else {
-            completion(.error(NSError(domain: "No preferred location found", code: 0, userInfo: nil)))
+        let locationId: String
+        if let location = location {
+            locationId = location.id
+        } else if let locationIdentifier = UserDefaults.appGroup?.string(forKey: Constants.preferredLocationId) {
+            locationId = locationIdentifier
+        } else {
+            completion(.error(NSError(domain: "No location info found", code: 0, userInfo: nil)))
             return
         }
         
