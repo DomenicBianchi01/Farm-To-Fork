@@ -10,7 +10,7 @@ import WatchKit
 
 final class NeedRowController: NSObject {
     // MARK: - IBOutlets
-    @IBOutlet var titleLabel: WKInterfaceLabel!
+    @IBOutlet private var titleLabel: WKInterfaceLabel!
     
     // MARK: - Functions
     func configure(for need: Need) {

@@ -10,8 +10,8 @@ import WatchKit
 
 final class NeedInfoController: WKInterfaceController {
     // MARK: - IBOutlets
-    @IBOutlet var needInfoTable: WKInterfaceTable!
-    @IBOutlet var itemNameLabel: WKInterfaceLabel!
+    @IBOutlet private var needInfoTable: WKInterfaceTable!
+    @IBOutlet private var itemNameLabel: WKInterfaceLabel!
     
     // MARK: - Lifecycle Functions
     override func awake(withContext context: Any?) {

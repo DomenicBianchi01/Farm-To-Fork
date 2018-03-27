@@ -10,7 +10,7 @@ import UIKit
 
 final class LocationSearchViewController: UIViewController {
     // MARK: - IBOutlets
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet private var tableView: UITableView!
     
     // MARK: - Properties
     var locations: [Location] = []

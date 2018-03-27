@@ -14,7 +14,7 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
 	@IBOutlet private var profilePhoto: UIImageView!
 	@IBOutlet private var logoutButton: UIButton!
 	@IBOutlet private var updateButton: UIButton!
-	@IBOutlet var table: UITableView!
+	@IBOutlet private var table: UITableView!
 
 	var user:User = User()
 	

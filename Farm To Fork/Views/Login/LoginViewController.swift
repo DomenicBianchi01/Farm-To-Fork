@@ -18,7 +18,7 @@ final class LoginViewController: UIViewController {
     @IBOutlet private var loginButton: ProgressButton!
     @IBOutlet private var registerButton: UIButton!
     @IBOutlet private var loginErrorLabel: UILabel!
-    @IBOutlet var splashBackgroundImageView: UIImageView!
+    @IBOutlet private var splashBackgroundImageView: UIImageView!
     
     // MARK: - Properties
     private let viewModel = LoginViewModel()

@@ -12,7 +12,7 @@ final class NeedItemTableViewCell: UITableViewCell {
     // MARK: - IBOutlets
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var subtitleLabel: UILabel!
-    @IBOutlet var personalPledgeCountLabel: UILabel!
+    @IBOutlet private var personalPledgeCountLabel: UILabel!
     
     // MARK: - Properties
     private var need: Need? = nil
