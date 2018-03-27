@@ -63,10 +63,6 @@ extension LocationInfoViewModel: TableViewModelable {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
         
-        if (indexPath.section == 0 && indexPath.row == 0) || indexPath.section == 1 {
-            cell.separatorInset = UIEdgeInsets(top: 0, left: 10000, bottom: 0, right: 0)
-        }
-        
         return cell
     }
 }

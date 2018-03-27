@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import UserNotifications
 
 final class MapViewController: UIViewController {
     // MARK: - IBOutlets
@@ -87,6 +88,24 @@ final class MapViewController: UIViewController {
         locationManager.requestAlwaysAuthorization()
         
         mapView.delegate = self
+        
+        if CLLocationManager.authorizationStatus() == .authorizedAlways {
+            locationManager.startMonitoringSignificantLocationChanges()
+            locationManager.allowsBackgroundLocationUpdates = true
+            locationManager.pausesLocationUpdatesAutomatically = false
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        mapView.showAnnotations(viewModel.locationMarkers, animated: true)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        mapView.userTrackingMode = .follow
     }
     
     // MARK: - IBActions
@@ -164,6 +183,76 @@ final class MapViewController: UIViewController {
         heightConstraint?.constant = mapView.frame.height - 20
     }
     
+    private func searchForNearbyGrocceryStores(from location: CLLocation) {
+        let request = MKLocalSearchRequest()
+        request.naturalLanguageQuery = "grocery store"
+        // IMPORTANT NOTE: This only works when the map is following the user. If the map does not have the user in its region, the region will be incorrect.
+        request.region = mapView.region
+        let search = MKLocalSearch(request: request)
+        
+        search.start { response, _ in
+            guard let response = response else {
+                return
+            }
+            
+            for mapItem in response.mapItems {
+                guard let distance = self.distance(to: mapItem.placemark) else {
+                    continue
+                }
+                if distance < 6000.0 {
+                    guard let preferredLocationId = UserDefaults.appGroup?.string(forKey: Constants.preferredLocationId) else {
+                        self.scheduleNotification(title: "Are you going grocery shopping?",
+                                                  message: "Take a look at what food providers near you need so you can help out your community!")
+                        break
+                    }
+                    NeedsService().fetchNeeds(forLocation: preferredLocationId, with: { result in
+                        switch result {
+                        case .success(let needs):
+                            let names = needs.map { return $0.name }
+                            self.scheduleNotification(title: "Are you going grocery shopping?",
+                                                      message: "Your preferred food provider needs the following items: " + names.joined(separator: ", "))
+                        case .error:
+                            self.scheduleNotification(title: "Are you going grocery shopping?",
+                                                      message: "Take a look at what food providers near you need so you can help out your community!")
+                        }
+                    })
+                    break
+                }
+            }
+        }
+    }
+    
+    private func scheduleNotification(title: String, message: String) {
+        UNUserNotificationCenter.current().getNotificationSettings(completionHandler: { result in
+            if result.authorizationStatus == .authorized {
+                let content = UNMutableNotificationContent()
+                content.title = title
+                content.body = message
+                content.sound = UNNotificationSound.default()
+                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+                let request = UNNotificationRequest(identifier: "FiveSecond", content: content, trigger: trigger)
+                let center = UNUserNotificationCenter.current()
+                center.add(request) { _ in }
+            }
+        })
+    }
+    
+    private func calculateDirections(from userCoordinates: CLLocationCoordinate2D, to destinationCoordinates: CLLocationCoordinate2D, by transportType: MKDirectionsTransportType) {
+        viewModel.calculateRoute(from: userCoordinates, to: destinationCoordinates, by: transportType) { response in
+            self.mapView.removeOverlays(self.mapView.overlays)
+            
+            guard let unwrappedResponse = response,
+                let route = unwrappedResponse.routes.first else {
+                    self.displayAlert(title: "Error", message: "Unable to generate directions.")
+                    return
+            }
+            
+            self.mapView.add(route.polyline)
+            let newRect = self.mapView.mapRectThatFits(route.polyline.boundingMapRect, edgePadding: UIEdgeInsetsMake(25, 25, 25, 25))
+            self.mapView.setVisibleMapRect(newRect, animated: true)
+        }
+    }
+    
     // MARK: - Segue Functions
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "locationInfoContainerSegue", let viewController = segue.destination as? LocationInfoViewController {
@@ -194,19 +283,23 @@ extension MapViewController: LocationInfoDelegate {
             return
         }
         
-        viewModel.calculateRoute(from: userCoordinates, to: locationCoordinates, by: .automobile) { response in
-            self.mapView.removeOverlays(self.mapView.overlays)
-            
-            guard let unwrappedResponse = response,
-                let route = unwrappedResponse.routes.first else {
-                    self.displayAlert(title: "Error", message: "Unable to generate directions.")
-                    return
-            }
-            
-            self.mapView.add(route.polyline)
-            let newRect = self.mapView.mapRectThatFits(route.polyline.boundingMapRect, edgePadding: UIEdgeInsetsMake(25, 25, 25, 25))
-            self.mapView.setVisibleMapRect(newRect, animated: true)
+        let alertController = UIAlertController(title: "Directions", message: "Select the type of directions you would like", preferredStyle: .actionSheet)
+        
+        let walkingDirections = UIAlertAction(title: "Walking", style: .default) { (UIAlertAction) in
+            self.calculateDirections(from: userCoordinates, to: locationCoordinates, by: .walking)
         }
+        
+        let automobileDirections = UIAlertAction(title: "Automobile", style: .default) { (UIAlertAction) in
+            self.calculateDirections(from: userCoordinates, to: locationCoordinates, by: .automobile)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alertController.addAction(walkingDirections)
+        alertController.addAction(automobileDirections)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
     }
     
     func viewNeeds(for location: Location) {
@@ -278,20 +371,26 @@ extension MapViewController: MKMapViewDelegate {
     }
 }
 
-// MARK: - UISearchResultsUpdating
-extension MapViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        // TODO
-    }
-}
-
 // MARK: - CLLocationManagerDelegate
 extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse || status == .authorizedAlways {
-            mapView.showsUserLocation = true
+            locationManager.startMonitoringSignificantLocationChanges()
+            locationManager.allowsBackgroundLocationUpdates = true
+            locationManager.pausesLocationUpdatesAutomatically = false
         } else {
             mapView.showsUserLocation = false
         }
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .alert, .sound]) { _,_  in }
+    }
+    
+    // https://developer.apple.com/documentation/corelocation/getting_the_user_s_location/using_the_significant_change_location_service
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else {
+            return
+        }
+        searchForNearbyGrocceryStores(from: location)
+        
     }
 }

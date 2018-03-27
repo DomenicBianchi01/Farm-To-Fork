@@ -46,6 +46,10 @@
 	<string>TODO</string>
 	<key>NSSiriUsageDescription</key>
 	<string>Farm To Fork can provide you with a list of urgent needs through Siri</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
