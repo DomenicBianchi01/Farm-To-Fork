@@ -141,6 +141,9 @@ final class MapViewController: UIViewController {
                 self.textField = addedTextField
             }
             
+            alert.popoverPresentationController?.sourceView = self.view
+            alert.popoverPresentationController?.sourceRect = self.view.bounds
+            
             self.present(alert, animated: true, completion: nil)
         }
     }
@@ -178,7 +181,7 @@ final class MapViewController: UIViewController {
     
     private func setLocationInfoHeight() {
         let heightConstraint = locationInfoView.constraints.first(where: { $0.firstAttribute == .height })
-        heightConstraint?.constant = mapView.frame.height - 20
+        heightConstraint?.constant = view.frame.height
     }
     
     private func searchForNearbyGrocceryStores(from location: CLLocation) {
@@ -290,7 +293,7 @@ extension MapViewController: LocationInfoDelegate {
             return
         }
         
-        let alertController = UIAlertController(title: "Directions", message: "Select the type of directions you would like", preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: "Directions", message: "Select the type of directions you would like", preferredStyle: UIDevice.alertStyle)
         
         let walkingDirections = UIAlertAction(title: "Walking", style: .default) { (UIAlertAction) in
             self.calculateDirections(from: userCoordinates, to: locationCoordinates, by: .walking)
@@ -305,6 +308,9 @@ extension MapViewController: LocationInfoDelegate {
         alertController.addAction(walkingDirections)
         alertController.addAction(automobileDirections)
         alertController.addAction(cancelAction)
+        
+        alertController.popoverPresentationController?.sourceView = view
+        alertController.popoverPresentationController?.sourceRect = view.bounds
         
         present(alertController, animated: true, completion: nil)
     }

@@ -165,6 +165,9 @@ extension NeedsViewController: PledgeDelegate {
             addedTextField.delegate = self
         }
         
+        alert.popoverPresentationController?.sourceView = view
+        alert.popoverPresentationController?.sourceRect = view.bounds
+        
         present(alert, animated: true, completion: nil)
     }
 }

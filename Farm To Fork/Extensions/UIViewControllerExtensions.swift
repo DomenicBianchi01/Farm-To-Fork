@@ -27,6 +27,9 @@ extension UIViewController {
             
             alert.addAction(alertAction)
             
+            alert.popoverPresentationController?.sourceView = self.view
+            alert.popoverPresentationController?.sourceRect = self.view.bounds
+            
             self.present(alert, animated: true, completion: nil)
         }
     }

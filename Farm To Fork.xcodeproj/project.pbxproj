@@ -52,6 +52,7 @@
 		B03C07CD2033BDE2001A54C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B03C07CB2033BDE2001A54C6 /* Main.storyboard */; };
 		B03C07D22033BDE2001A54C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B03C07D12033BDE2001A54C6 /* Assets.xcassets */; };
 		B03C07D52033BDE2001A54C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B03C07D32033BDE2001A54C6 /* LaunchScreen.storyboard */; };
+		B0479C3C206A80CA009083CB /* UIDeviceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0479C3B206A80CA009083CB /* UIDeviceExtensions.swift */; };
 		B04B2DD92063C011007F07EE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B077904620535D2A0099AD1F /* Constants.swift */; };
 		B04B2DDC2063C1E1007F07EE /* NeedRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04B2DDB2063C1E1007F07EE /* NeedRowController.swift */; };
 		B0554DAB2069624D00A49E74 /* LocationInfoDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0554DAA2069624D00A49E74 /* LocationInfoDelegate.swift */; };
@@ -220,6 +221,7 @@
 		B03C07D12033BDE2001A54C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B03C07D42033BDE2001A54C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B03C07D62033BDE2001A54C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0479C3B206A80CA009083CB /* UIDeviceExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExtensions.swift; sourceTree = "<group>"; };
 		B04B2DDA2063C01F007F07EE /* Farm To Fork For Apple Watch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Farm To Fork For Apple Watch Extension.entitlements"; sourceTree = "<group>"; };
 		B04B2DDB2063C1E1007F07EE /* NeedRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedRowController.swift; sourceTree = "<group>"; };
 		B04B2DDD2063C582007F07EE /* Farm To Fork For Apple Watch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Farm To Fork For Apple Watch.entitlements"; sourceTree = "<group>"; };
@@ -560,6 +562,7 @@
 				B0A8BFDC205F4E7A00077DF7 /* UserDefaults.swift */,
 				B02A024520501DB900ABB4F9 /* UIViewExtensions.swift */,
 				B0ADAA1420520A2B00A0CD30 /* UIViewControllerExtensions.swift */,
+				B0479C3B206A80CA009083CB /* UIDeviceExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -994,6 +997,7 @@
 				B0A8BFD4205F3F3F00077DF7 /* PledgeService.swift in Sources */,
 				B02A024620501DB900ABB4F9 /* UIViewExtensions.swift in Sources */,
 				B0272DE82068885F00F8F2E2 /* EFPMarker.swift in Sources */,
+				B0479C3C206A80CA009083CB /* UIDeviceExtensions.swift in Sources */,
 				AB9B39FF20617FE60088BFC4 /* UpdateUserService.swift in Sources */,
 				B0FEBC86204E3E3600982EAE /* TableViewModelable.swift in Sources */,
 				B0FC11892063E35F008A28B8 /* WatchSessionManager.swift in Sources */,

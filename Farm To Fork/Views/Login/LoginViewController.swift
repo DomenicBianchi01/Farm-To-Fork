@@ -122,7 +122,7 @@ final class LoginViewController: UIViewController {
     }
     
     private func promptForLoginPreferences() {
-        let alert = UIAlertController(title: "Login", message: "Would you like to be automatically logged in each time you open this app?", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Login", message: "Would you like to be automatically logged in each time you open this app?", preferredStyle: UIDevice.alertStyle)
         let yesAction = UIAlertAction(title: "Yes!", style: .default) { _ in
             self.viewModel.enableLoginPreference(.autoLogin)
             self.promptForSiriKit()
@@ -144,6 +144,9 @@ final class LoginViewController: UIViewController {
         }
         
         alert.addAction(passwordAction)
+        
+        alert.popoverPresentationController?.sourceView = view
+        alert.popoverPresentationController?.sourceRect = view.frame
         
         present(alert, animated: true, completion: nil)
     }
