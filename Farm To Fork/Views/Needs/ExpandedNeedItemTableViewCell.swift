@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExpandedNeedItemTableViewCell: UITableViewCell {
+final class ExpandedNeedItemTableViewCell: UITableViewCell {
     // MARK: - IBOutlets
     @IBOutlet private var categoryLabel: UILabel!
     @IBOutlet private var pledgeLabel: UILabel!

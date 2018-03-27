@@ -88,12 +88,6 @@ final class MapViewController: UIViewController {
         locationManager.requestAlwaysAuthorization()
         
         mapView.delegate = self
-        
-        if CLLocationManager.authorizationStatus() == .authorizedAlways {
-            locationManager.startMonitoringSignificantLocationChanges()
-            locationManager.allowsBackgroundLocationUpdates = true
-            locationManager.pausesLocationUpdatesAutomatically = false
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -106,6 +100,10 @@ final class MapViewController: UIViewController {
         super.viewDidDisappear(animated)
         
         mapView.userTrackingMode = .follow
+        //200 meters in all directions
+        let viewRegion = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2D(), 200, 200)
+        let adjustedRegion = mapView.regionThatFits(viewRegion)
+        mapView.setRegion(adjustedRegion, animated: false)
     }
     
     // MARK: - IBActions
@@ -280,6 +278,15 @@ extension MapViewController: LocationDelegate {
 extension MapViewController: LocationInfoDelegate {
     func directionsRequested(to location: Location) {
         guard let userCoordinates = mapView.userLocation.location?.coordinate, let locationCoordinates = location.coordinates else {
+            if CLLocationManager.locationServicesEnabled() {
+                if CLLocationManager.authorizationStatus() == .authorizedWhenInUse || CLLocationManager.authorizationStatus() == .authorizedAlways {
+                    displayAlert(title: "Error", message: "Could not determine user location")
+                } else {
+                    displayAlert(title: "Location Services", message: "Please enable location services to get directions")
+                }
+            } else {
+                displayAlert(title: "Location Services", message: "Please enable location services to get directions")
+            }
             return
         }
         
@@ -350,7 +357,7 @@ extension MapViewController: MKMapViewDelegate {
         
         if !isLocationInfoViewPreviewing {
             isLocationInfoViewPreviewing = true
-            locationInfoViewTopSpaceConstraint?.constant = self.view.frame.height - 250
+            locationInfoViewTopSpaceConstraint?.constant = mapView.frame.height - 200
             self.view.refreshView()
         }
         
@@ -374,10 +381,13 @@ extension MapViewController: MKMapViewDelegate {
 // MARK: - CLLocationManagerDelegate
 extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status == .authorizedWhenInUse || status == .authorizedAlways {
+        if status == .authorizedAlways {
             locationManager.startMonitoringSignificantLocationChanges()
             locationManager.allowsBackgroundLocationUpdates = true
             locationManager.pausesLocationUpdatesAutomatically = false
+            mapView.showsUserLocation = true
+        } else if status == .authorizedWhenInUse {
+            mapView.showsUserLocation = true
         } else {
             mapView.showsUserLocation = false
         }
