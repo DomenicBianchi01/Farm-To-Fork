@@ -15,6 +15,7 @@ final class EFPMarker: NSObject, MKAnnotation {
     let coordinate: CLLocationCoordinate2D
     private let id: String
     
+    // MARK: - Lifecycle Functions
     init(title: String? = nil,
          coordinate: CLLocationCoordinate2D,
          id: String) {

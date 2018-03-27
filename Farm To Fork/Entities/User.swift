@@ -35,16 +35,14 @@ struct User {
         self.city = city
     }
 	
-	
-	// MARK: - Lifecycle Functions
 	init?(dictionary: [String : JSONAny]) {
 		guard let firstName = dictionary["FirstName"]?.value as? String,
 			let lastName = dictionary["LastName"]?.value as? String,
 			let email = dictionary["Email"]?.value as? String,
-			let city = dictionary["CityID"]?.value as? String
-		else {
-				return nil
-		}
+			let city = dictionary["CityID"]?.value as? String else {
+                return nil
+        }
+        
 		self.firstName = firstName
 		self.lastName = lastName
 		self.email = email
@@ -55,8 +53,7 @@ struct User {
 	}
 	
 	
-	init (_ user: User) {
-	
+	init(_ user: User) {
 		self.firstName = user.firstName
 		self.lastName = user.lastName
 		self.email = user.email
@@ -64,6 +61,5 @@ struct User {
 		self.country = user.country
 		self.province = user.province
 		self.city = user.city
-		
 	}
 }

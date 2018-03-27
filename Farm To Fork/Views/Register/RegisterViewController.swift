@@ -92,7 +92,7 @@ final class RegisterViewController: UIViewController {
             viewModel.update(lastName: textField.text ?? "")
         } else if textField == emailTextField {
             viewModel.update(email: textField.text ?? "")
-            if textField.text?.isValidEmail ?? false {
+            if textField.text?.isEmailAddress ?? false {
                 removeInvalidEmailError()
             } else {
                 setInvalidEmailError()
