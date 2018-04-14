@@ -16,6 +16,7 @@ final class MapViewController: UIViewController {
     @IBOutlet private var toolbar: UIToolbar!
     @IBOutlet private var toolbarView: UIView!
     @IBOutlet private var locationInfoView: UIView!
+    @IBOutlet private var efpListButton: UIButton!
     
     // MARK: - Properties
     private let locationManager = CLLocationManager()
@@ -83,6 +84,10 @@ final class MapViewController: UIViewController {
         toolbar.backgroundColor = .clear
         
         toolbar.items = [MKUserTrackingBarButtonItem(mapView: mapView)]
+        
+        efpListButton.setImage(#imageLiteral(resourceName: "Store"), for: .normal)
+
+        efpListButton.imageEdgeInsets = UIEdgeInsetsMake(5, 5, 5, 5)
         
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
@@ -262,6 +267,10 @@ final class MapViewController: UIViewController {
             setLocationInfoHeight()
         } else if segue.identifier == Constants.Segues.needsView, let viewController = segue.destination.childViewControllers.first as? NeedsViewController, let location = locationViewController?.location {
             viewController.selectedLocation(location)
+        } else if segue.identifier == Constants.Segues.viewLocations, let viewController = segue.destination.childViewControllers.first as? LocationSearchViewController {
+            viewController.inSearchMode = false
+            viewController.locations = viewModel.locations
+            viewController.delegate = self
         }
     }
 }
@@ -406,7 +415,7 @@ extension MapViewController: CLLocationManagerDelegate {
         guard let location = locations.last else {
             return
         }
+
         searchForNearbyGrocceryStores(from: location)
-        
     }
 }

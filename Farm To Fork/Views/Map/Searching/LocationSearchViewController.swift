@@ -15,11 +15,18 @@ final class LocationSearchViewController: UIViewController {
     // MARK: - Properties
     var locations: [Location] = []
     private var matchedLocations: [Location] = []
+    var inSearchMode: Bool = true
     weak var delegate: LocationDelegate? = nil
     
     // MARK: - Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.reloadData()
+    }
+    
+    // MARK: - IBActions
+    @IBAction func closeButtonTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
 }
 
@@ -38,7 +45,8 @@ extension LocationSearchViewController: UISearchResultsUpdating {
 // MARK: - UITableViewDelegate
 extension LocationSearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.selected(location: matchedLocations[indexPath.row])
+        let location = inSearchMode ? matchedLocations[indexPath.row] : locations[indexPath.row]
+        delegate?.selected(location: location)
         dismiss(animated: true, completion: nil)
     }
 }
@@ -50,14 +58,15 @@ extension LocationSearchViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return matchedLocations.count
+        return inSearchMode ? matchedLocations.count : locations.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "matchedLocationReuseIdentifier", for: indexPath)
         
         if let cell = cell as? LocationConfigurable {
-            cell.configure(for: matchedLocations[indexPath.row])
+            let location = inSearchMode ? matchedLocations[indexPath.row] : locations[indexPath.row]
+            cell.configure(for: location)
         }
         
         return cell

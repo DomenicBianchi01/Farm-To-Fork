@@ -6,7 +6,7 @@
 	<true/>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.domenic-and-marshall.FarmToFork.AppGroup</string>
+		<string>group.domenic.bianchi.FarmToFork.AppGroup</string>
 	</array>
 </dict>
 </plist>

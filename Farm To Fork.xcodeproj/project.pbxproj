@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		42C53CB3E76A75DC0051F220 /* Pods_Farm_To_Fork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0A9CF5A462CEA72738E915 /* Pods_Farm_To_Fork.framework */; };
+		070FB37A3CC51BFFDF1DEE18 /* Pods_Farm_To_Fork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1551C5C983ADC0EFB6C50AF2 /* Pods_Farm_To_Fork.framework */; };
 		AB9B39FF20617FE60088BFC4 /* UpdateUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9B39FE20617FE60088BFC4 /* UpdateUserService.swift */; };
 		ABC95046205AB82C00DC8890 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC95045205AB82C00DC8890 /* UserProfileViewController.swift */; };
 		ABC95048205AB89E00DC8890 /* SettingUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC95047205AB89E00DC8890 /* SettingUITableViewCell.swift */; };
@@ -174,8 +174,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5D0A9CF5A462CEA72738E915 /* Pods_Farm_To_Fork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Farm_To_Fork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6680688F97D90421833C5D80 /* Pods-Farm To Fork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Farm To Fork.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Farm To Fork/Pods-Farm To Fork.debug.xcconfig"; sourceTree = "<group>"; };
+		1551C5C983ADC0EFB6C50AF2 /* Pods_Farm_To_Fork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Farm_To_Fork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB9B39FE20617FE60088BFC4 /* UpdateUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserService.swift; sourceTree = "<group>"; };
 		ABC95045205AB82C00DC8890 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		ABC95047205AB89E00DC8890 /* SettingUITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingUITableViewCell.swift; sourceTree = "<group>"; };
@@ -268,10 +267,18 @@
 		B0FEBC85204E3E3600982EAE /* TableViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModelable.swift; sourceTree = "<group>"; };
 		B0FEBC8A204E3F0B00982EAE /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		B0FEBC8C204E3FF200982EAE /* JSONService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONService.swift; sourceTree = "<group>"; };
-		CE90940C0A635A11042E6E8F /* Pods-Farm To Fork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Farm To Fork.release.xcconfig"; path = "Pods/Target Support Files/Pods-Farm To Fork/Pods-Farm To Fork.release.xcconfig"; sourceTree = "<group>"; };
+		B639635381868D60B36A6F4C /* Pods-Farm To Fork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Farm To Fork.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Farm To Fork/Pods-Farm To Fork.debug.xcconfig"; sourceTree = "<group>"; };
+		F705216B0905249711BECA92 /* Pods-Farm To Fork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Farm To Fork.release.xcconfig"; path = "Pods/Target Support Files/Pods-Farm To Fork/Pods-Farm To Fork.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1D9B5084C988F2E1A35D33C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B0001669206349BD00101744 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -292,31 +299,31 @@
 			files = (
 				B0EED74F20574AC6008CF4D5 /* LocalAuthentication.framework in Frameworks */,
 				B01E3D8920533D1F00106CA4 /* MapKit.framework in Frameworks */,
-				42C53CB3E76A75DC0051F220 /* Pods_Farm_To_Fork.framework in Frameworks */,
+				070FB37A3CC51BFFDF1DEE18 /* Pods_Farm_To_Fork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B9710244F674DE8C3D8809F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B639635381868D60B36A6F4C /* Pods-Farm To Fork.debug.xcconfig */,
+				F705216B0905249711BECA92 /* Pods-Farm To Fork.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		4D91C78F0126573F42E8DEBF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				B0EED74E20574AC6008CF4D5 /* LocalAuthentication.framework */,
 				B01E3D8820533D1F00106CA4 /* MapKit.framework */,
-				5D0A9CF5A462CEA72738E915 /* Pods_Farm_To_Fork.framework */,
 				B01FA1EA2054463600863E05 /* IntentsUI.framework */,
+				1551C5C983ADC0EFB6C50AF2 /* Pods_Farm_To_Fork.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		927B6EFA33C14C93F6F1803B /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				6680688F97D90421833C5D80 /* Pods-Farm To Fork.debug.xcconfig */,
-				CE90940C0A635A11042E6E8F /* Pods-Farm To Fork.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		AB280A66205B609F00662D5C /* Profile */ = {
@@ -416,8 +423,8 @@
 				B0001661206349BD00101744 /* Farm To Fork For Apple Watch */,
 				B0001670206349BD00101744 /* Farm To Fork For Apple Watch Extension */,
 				B03C07C52033BDE2001A54C6 /* Products */,
-				927B6EFA33C14C93F6F1803B /* Pods */,
 				4D91C78F0126573F42E8DEBF /* Frameworks */,
+				0B9710244F674DE8C3D8809F /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -657,6 +664,7 @@
 			buildPhases = (
 				B000165E206349BD00101744 /* Resources */,
 				B0001683206349BD00101744 /* Embed App Extensions */,
+				1D9B5084C988F2E1A35D33C9 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -706,14 +714,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B03C07D92033BDE2001A54C6 /* Build configuration list for PBXNativeTarget "Farm To Fork" */;
 			buildPhases = (
-				DEC225DA31E243D8AD052AE5 /* [CP] Check Pods Manifest.lock */,
+				BD126C4B6F65DD740789393A /* [CP] Check Pods Manifest.lock */,
 				B03C07C02033BDE2001A54C6 /* Sources */,
 				B03C07C12033BDE2001A54C6 /* Frameworks */,
 				B03C07C22033BDE2001A54C6 /* Resources */,
-				927F691FA54CA189BC7C410C /* [CP] Embed Pods Frameworks */,
-				2ACB2D46424EDCD14B91784C /* [CP] Copy Pods Resources */,
 				B01FA1FF2054463600863E05 /* Embed App Extensions */,
 				B0001685206349BD00101744 /* Embed Watch Content */,
+				2EB4A3E8B297AA0C2F049C78 /* [CP] Embed Pods Frameworks */,
+				669CB8EF6E54B8DE986487CA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -733,8 +741,8 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
-				ORGANIZATIONNAME = "Domenic Bianchi & Marshall Asch";
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = "Domenic Bianchi";
 				TargetAttributes = {
 					B000165F206349BD00101744 = {
 						CreatedOnToolsVersion = 9.2;
@@ -846,22 +854,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2ACB2D46424EDCD14B91784C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Farm To Fork/Pods-Farm To Fork-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		927F691FA54CA189BC7C410C /* [CP] Embed Pods Frameworks */ = {
+		2EB4A3E8B297AA0C2F049C78 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -881,7 +874,22 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Farm To Fork/Pods-Farm To Fork-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DEC225DA31E243D8AD052AE5 /* [CP] Check Pods Manifest.lock */ = {
+		669CB8EF6E54B8DE986487CA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Farm To Fork/Pods-Farm To Fork-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD126C4B6F65DD740789393A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1075,12 +1083,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 667D8S5SPP;
 				IBSC_MODULE = Farm_To_Fork_For_Apple_Watch_Extension;
 				INFOPLIST_FILE = "Farm To Fork For Apple Watch/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.domenic-and-marshall.FarmToFork.watchkitapp";
+				PRODUCT_BUNDLE_IDENTIFIER = com.domenic.bianchi.FarmToFork.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -1094,12 +1104,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 667D8S5SPP;
 				IBSC_MODULE = Farm_To_Fork_For_Apple_Watch_Extension;
 				INFOPLIST_FILE = "Farm To Fork For Apple Watch/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.domenic-and-marshall.FarmToFork.watchkitapp";
+				PRODUCT_BUNDLE_IDENTIFIER = com.domenic.bianchi.FarmToFork.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -1116,7 +1128,7 @@
 				DEVELOPMENT_TEAM = 667D8S5SPP;
 				INFOPLIST_FILE = "Farm To Fork For Apple Watch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.domenic-and-marshall.FarmToFork.watchkitapp.watchkitextension";
+				PRODUCT_BUNDLE_IDENTIFIER = com.domenic.bianchi.FarmToFork.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1134,7 +1146,7 @@
 				DEVELOPMENT_TEAM = 667D8S5SPP;
 				INFOPLIST_FILE = "Farm To Fork For Apple Watch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.domenic-and-marshall.FarmToFork.watchkitapp.watchkitextension";
+				PRODUCT_BUNDLE_IDENTIFIER = com.domenic.bianchi.FarmToFork.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1153,7 +1165,7 @@
 				INFOPLIST_FILE = NeedsSiriExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.domenic-and-marshall.FarmToFork.NeedsSiriKitExtension";
+				PRODUCT_BUNDLE_IDENTIFIER = com.domenic.bianchi.FarmToFork.NeedsSiriKitExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -1170,7 +1182,7 @@
 				INFOPLIST_FILE = NeedsSiriExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.domenic-and-marshall.FarmToFork.NeedsSiriKitExtension";
+				PRODUCT_BUNDLE_IDENTIFIER = com.domenic.bianchi.FarmToFork.NeedsSiriKitExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -1192,6 +1204,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1199,6 +1212,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1249,6 +1263,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1256,6 +1271,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1288,7 +1304,7 @@
 		};
 		B03C07DA2033BDE2001A54C6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6680688F97D90421833C5D80 /* Pods-Farm To Fork.debug.xcconfig */;
+			baseConfigurationReference = B639635381868D60B36A6F4C /* Pods-Farm To Fork.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1298,7 +1314,7 @@
 				INFOPLIST_FILE = "Farm To Fork/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.domenic-and-marshall.FarmToFork";
+				PRODUCT_BUNDLE_IDENTIFIER = com.domenic.bianchi.FarmToFork;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1307,7 +1323,7 @@
 		};
 		B03C07DB2033BDE2001A54C6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CE90940C0A635A11042E6E8F /* Pods-Farm To Fork.release.xcconfig */;
+			baseConfigurationReference = F705216B0905249711BECA92 /* Pods-Farm To Fork.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1317,7 +1333,7 @@
 				INFOPLIST_FILE = "Farm To Fork/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.domenic-and-marshall.FarmToFork";
+				PRODUCT_BUNDLE_IDENTIFIER = com.domenic.bianchi.FarmToFork;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -26,7 +26,7 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	<key>WKCompanionAppBundleIdentifier</key>
-	<string>com.domenic-and-marshall.FarmToFork</string>
+	<string>com.domenic.bianchi.FarmToFork</string>
 	<key>WKWatchKitApp</key>
 	<true/>
 </dict>
