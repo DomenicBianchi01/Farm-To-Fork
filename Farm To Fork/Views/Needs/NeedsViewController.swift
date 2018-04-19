@@ -14,7 +14,7 @@ final class NeedsViewController: UIViewController {
     
     // MARK: - Properties
     private let viewModel = NeedsViewModel()
-    private var locationName = UserDefaults.appGroup?.string(forKey: Constants.preferredLocationName)
+    private var locationName: String? = nil
     var hideCloseButton = true
     
     // MARK: - Lifecycle Functions
@@ -30,19 +30,17 @@ final class NeedsViewController: UIViewController {
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(preferredLocationSet), name:
-            .locationsFetched, object: nil)
+            .preferredLocationSet, object: nil)
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 44
         
-        if let locationName = locationName {
-            navigationItem.title = locationName + " Needs"
-        }
+        refreshTitle()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        refreshTitle()
         fetchNeeds()
     }
 
@@ -61,8 +59,15 @@ final class NeedsViewController: UIViewController {
         locationName = location.name
     }
     
-    @objc private func preferredLocationSet() {
+    private func refreshTitle() {
         locationName = UserDefaults.appGroup?.string(forKey: Constants.preferredLocationName)
+        if let locationName = locationName {
+            navigationItem.title = locationName + " Needs"
+        }
+    }
+    
+    @objc private func preferredLocationSet() {
+        refreshTitle()
         fetchNeeds()
     }
     

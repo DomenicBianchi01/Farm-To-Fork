@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LocationInfoBasicTableViewCell: UITableViewCell {
+final class LocationInfoBasicTableViewCell: UITableViewCell {
     // MARK: - IBOutlets
     @IBOutlet private var label: UILabel!
     @IBOutlet private var imageBackgroundView: UIView!
