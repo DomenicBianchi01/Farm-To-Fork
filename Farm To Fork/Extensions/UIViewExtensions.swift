@@ -51,11 +51,4 @@ extension UIView {
         
         layer.add(animation, forKey: "position")
     }
-    
-    /// Calls `layoutIfNeeded()` on the view with an animation duration of 0.5 seconds
-    func refreshView() {
-        UIView.animate(withDuration: 0.5) {
-            self.layoutIfNeeded()
-        }
-    }
 }

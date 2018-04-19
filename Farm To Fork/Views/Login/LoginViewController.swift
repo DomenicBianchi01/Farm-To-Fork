@@ -10,6 +10,7 @@ import UIKit
 import MaterialTextField
 import Intents
 import LocalAuthentication
+import AudioToolbox
 
 final class LoginViewController: UIViewController {
     // MARK: - IBOutlets
@@ -116,6 +117,7 @@ final class LoginViewController: UIViewController {
                     }
                 case .error(let error):
                     self.displayError(message: error.description)
+                    AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
                 }
             }
         }

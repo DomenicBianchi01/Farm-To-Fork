@@ -52,7 +52,10 @@
 		B03C07CD2033BDE2001A54C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B03C07CB2033BDE2001A54C6 /* Main.storyboard */; };
 		B03C07D22033BDE2001A54C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B03C07D12033BDE2001A54C6 /* Assets.xcassets */; };
 		B03C07D52033BDE2001A54C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B03C07D32033BDE2001A54C6 /* LaunchScreen.storyboard */; };
+		B044121B20841A500088F07F /* ChangeEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B044121A20841A500088F07F /* ChangeEmailViewController.swift */; };
+		B044121D20841B3C0088F07F /* MFTextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B044121C20841B3C0088F07F /* MFTextFieldExtensions.swift */; };
 		B0479C3C206A80CA009083CB /* UIDeviceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0479C3B206A80CA009083CB /* UIDeviceExtensions.swift */; };
+		B048D5E720851388009BA814 /* ChangeEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B048D5E620851388009BA814 /* ChangeEmailViewModel.swift */; };
 		B04B2DD92063C011007F07EE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B077904620535D2A0099AD1F /* Constants.swift */; };
 		B04B2DDC2063C1E1007F07EE /* NeedRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04B2DDB2063C1E1007F07EE /* NeedRowController.swift */; };
 		B0554DAB2069624D00A49E74 /* LocationInfoDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0554DAA2069624D00A49E74 /* LocationInfoDelegate.swift */; };
@@ -63,6 +66,8 @@
 		B077904520535BC60099AD1F /* StartupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B077904420535BC60099AD1F /* StartupViewModel.swift */; };
 		B077904720535D2A0099AD1F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B077904620535D2A0099AD1F /* Constants.swift */; };
 		B077904920535EF80099AD1F /* LoginPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = B077904820535EF80099AD1F /* LoginPreferences.swift */; };
+		B097574B2082DD2E003AAF22 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B097574A2082DD2E003AAF22 /* ProfileViewModel.swift */; };
+		B097574E2082DEAF003AAF22 /* ProfileOptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B097574D2082DEAF003AAF22 /* ProfileOptionTableViewCell.swift */; };
 		B0A8BFC9205EFB0D00077DF7 /* LogoutSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8BFC8205EFB0D00077DF7 /* LogoutSegue.swift */; };
 		B0A8BFCE205F171200077DF7 /* Need.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8BFCD205F171200077DF7 /* Need.swift */; };
 		B0A8BFD0205F339000077DF7 /* ExpandedNeedItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8BFCF205F339000077DF7 /* ExpandedNeedItemTableViewCell.swift */; };
@@ -83,7 +88,11 @@
 		B0B3BFF92054BE450074DF0D /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B3BFF82054BE450074DF0D /* MapViewModel.swift */; };
 		B0B3BFFB2054C90D0074DF0D /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FEBC8A204E3F0B00982EAE /* Result.swift */; };
 		B0B3BFFC2054C93B0074DF0D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B077904620535D2A0099AD1F /* Constants.swift */; };
+		B0B7DA6720880CF300C36D40 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B7DA6620880CF300C36D40 /* TabBarController.swift */; };
+		B0B7DA6A2088117700C36D40 /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B7DA692088117700C36D40 /* TabBarViewModel.swift */; };
+		B0B7DA6C208813E600C36D40 /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B7DA6B208813E600C36D40 /* NotificationExtensions.swift */; };
 		B0C6EC9E205972150064F2B5 /* NeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C6EC9D205972150064F2B5 /* NeedsViewController.swift */; };
+		B0C898422082D14A00E7514F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C898412082D14A00E7514F /* ProfileViewController.swift */; };
 		B0CD0EA620506F1B00FBE902 /* RegisterAccountSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD0EA520506F1B00FBE902 /* RegisterAccountSegue.swift */; };
 		B0CD0EA82050716F00FBE902 /* WallpaperWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD0EA72050716F00FBE902 /* WallpaperWindow.swift */; };
 		B0CD0EAB205078AA00FBE902 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD0EAA205078AA00FBE902 /* RegisterViewController.swift */; };
@@ -220,7 +229,10 @@
 		B03C07D12033BDE2001A54C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B03C07D42033BDE2001A54C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B03C07D62033BDE2001A54C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B044121A20841A500088F07F /* ChangeEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeEmailViewController.swift; sourceTree = "<group>"; };
+		B044121C20841B3C0088F07F /* MFTextFieldExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MFTextFieldExtensions.swift; sourceTree = "<group>"; };
 		B0479C3B206A80CA009083CB /* UIDeviceExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExtensions.swift; sourceTree = "<group>"; };
+		B048D5E620851388009BA814 /* ChangeEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeEmailViewModel.swift; sourceTree = "<group>"; };
 		B04B2DDA2063C01F007F07EE /* Farm To Fork For Apple Watch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Farm To Fork For Apple Watch Extension.entitlements"; sourceTree = "<group>"; };
 		B04B2DDB2063C1E1007F07EE /* NeedRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedRowController.swift; sourceTree = "<group>"; };
 		B04B2DDD2063C582007F07EE /* Farm To Fork For Apple Watch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Farm To Fork For Apple Watch.entitlements"; sourceTree = "<group>"; };
@@ -232,6 +244,8 @@
 		B077904420535BC60099AD1F /* StartupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupViewModel.swift; sourceTree = "<group>"; };
 		B077904620535D2A0099AD1F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B077904820535EF80099AD1F /* LoginPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPreferences.swift; sourceTree = "<group>"; };
+		B097574A2082DD2E003AAF22 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		B097574D2082DEAF003AAF22 /* ProfileOptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileOptionTableViewCell.swift; sourceTree = "<group>"; };
 		B0A8BFC8205EFB0D00077DF7 /* LogoutSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutSegue.swift; sourceTree = "<group>"; };
 		B0A8BFCD205F171200077DF7 /* Need.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Need.swift; sourceTree = "<group>"; };
 		B0A8BFCF205F339000077DF7 /* ExpandedNeedItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedNeedItemTableViewCell.swift; sourceTree = "<group>"; };
@@ -244,7 +258,11 @@
 		B0B3BFF22054BCD60074DF0D /* NeedsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsService.swift; sourceTree = "<group>"; };
 		B0B3BFF52054BD330074DF0D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		B0B3BFF82054BE450074DF0D /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		B0B7DA6620880CF300C36D40 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		B0B7DA692088117700C36D40 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
+		B0B7DA6B208813E600C36D40 /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
 		B0C6EC9D205972150064F2B5 /* NeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsViewController.swift; sourceTree = "<group>"; };
+		B0C898412082D14A00E7514F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B0CD0EA520506F1B00FBE902 /* RegisterAccountSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAccountSegue.swift; sourceTree = "<group>"; };
 		B0CD0EA72050716F00FBE902 /* WallpaperWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperWindow.swift; sourceTree = "<group>"; };
 		B0CD0EAA205078AA00FBE902 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -329,6 +347,8 @@
 		AB280A66205B609F00662D5C /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				B044121820841A2A0088F07F /* Menu */,
+				B044121920841A380088F07F /* Email */,
 				ABC95049205AB8C300DC8890 /* ChangePasswordViewController.swift */,
 				ABC95047205AB89E00DC8890 /* SettingUITableViewCell.swift */,
 				ABC95045205AB82C00DC8890 /* UserProfileViewController.swift */,
@@ -449,8 +469,8 @@
 				B0A8BFCC205F16C400077DF7 /* Entities */,
 				B0FEBC89204E3EED00982EAE /* Utilities */,
 				B0FEBC83204E3DF000982EAE /* Views */,
-				B0FEBC80204E3DDC00982EAE /* API */,
 				B0FEBC7D204E3DC300982EAE /* ViewModels */,
+				B0FEBC80204E3DDC00982EAE /* API */,
 				B03C07C72033BDE2001A54C6 /* AppDelegate.swift */,
 				B0FC11882063E35F008A28B8 /* WatchSessionManager.swift */,
 				B03C07CB2033BDE2001A54C6 /* Main.storyboard */,
@@ -459,6 +479,23 @@
 				B03C07D62033BDE2001A54C6 /* Info.plist */,
 			);
 			path = "Farm To Fork";
+			sourceTree = "<group>";
+		};
+		B044121820841A2A0088F07F /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				B0C898412082D14A00E7514F /* ProfileViewController.swift */,
+				B097574D2082DEAF003AAF22 /* ProfileOptionTableViewCell.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		B044121920841A380088F07F /* Email */ = {
+			isa = PBXGroup;
+			children = (
+				B044121A20841A500088F07F /* ChangeEmailViewController.swift */,
+			);
+			path = Email;
 			sourceTree = "<group>";
 		};
 		B06E3EEA2069C17E003ED34C /* Searching */ = {
@@ -484,6 +521,15 @@
 				B077904420535BC60099AD1F /* StartupViewModel.swift */,
 			);
 			path = Startup;
+			sourceTree = "<group>";
+		};
+		B09757492082DD20003AAF22 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				B097574A2082DD2E003AAF22 /* ProfileViewModel.swift */,
+				B048D5E620851388009BA814 /* ChangeEmailViewModel.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		B0A8BFCC205F16C400077DF7 /* Entities */ = {
@@ -513,13 +559,21 @@
 		B0B3BFF72054BE350074DF0D /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				B0B3BFF82054BE450074DF0D /* MapViewModel.swift */,
 				B0DC7C6E20690C9200E544D2 /* LocationDelegate.swift */,
 				B0554DAA2069624D00A49E74 /* LocationInfoDelegate.swift */,
 				B0DC7C702069138900E544D2 /* LocationConfigurable.swift */,
-				B0B3BFF82054BE450074DF0D /* MapViewModel.swift */,
 				B0272DEB2068920100F8F2E2 /* LocationInfoViewModel.swift */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		B0B7DA682088116600C36D40 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				B0B7DA692088117700C36D40 /* TabBarViewModel.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		B0C6EC9C205971FA0064F2B5 /* Needs */ = {
@@ -567,9 +621,11 @@
 				B0F133F220517C12000187BA /* StringExtensions.swift */,
 				B0DC7C76206920F600E544D2 /* DoubleExtensions.swift */,
 				B0A8BFDC205F4E7A00077DF7 /* UserDefaults.swift */,
+				B0B7DA6B208813E600C36D40 /* NotificationExtensions.swift */,
 				B02A024520501DB900ABB4F9 /* UIViewExtensions.swift */,
 				B0ADAA1420520A2B00A0CD30 /* UIViewControllerExtensions.swift */,
 				B0479C3B206A80CA009083CB /* UIDeviceExtensions.swift */,
+				B044121C20841B3C0088F07F /* MFTextFieldExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -613,6 +669,8 @@
 		B0FEBC82204E3DE900982EAE /* Implementations */ = {
 			isa = PBXGroup;
 			children = (
+				B0B7DA682088116600C36D40 /* TabBar */,
+				B09757492082DD20003AAF22 /* Profile */,
 				B026139E205B461C0067B378 /* Needs */,
 				B077904320535BBA0099AD1F /* Startup */,
 				B0B3BFF72054BE350074DF0D /* Map */,
@@ -626,6 +684,7 @@
 			isa = PBXGroup;
 			children = (
 				B0CD0EA72050716F00FBE902 /* WallpaperWindow.swift */,
+				B0B7DA6620880CF300C36D40 /* TabBarController.swift */,
 				AB280A66205B609F00662D5C /* Profile */,
 				B01E3D8A2053404F00106CA4 /* Startup */,
 				B0CD0EA92050789100FBE902 /* Register */,
@@ -861,11 +920,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Farm To Fork/Pods-Farm To Fork-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DeviceKit/DeviceKit.framework",
 				"${BUILT_PRODUCTS_DIR}/MaterialTextField/MaterialTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DeviceKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 			);
@@ -959,6 +1020,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0B7DA6720880CF300C36D40 /* TabBarController.swift in Sources */,
 				B0F133FA2051B2B2000187BA /* RegisterLocationViewModel.swift in Sources */,
 				B02613A0205B462A0067B378 /* NeedsViewModel.swift in Sources */,
 				ABC95046205AB82C00DC8890 /* UserProfileViewController.swift in Sources */,
@@ -971,15 +1033,18 @@
 				B0DF8B5620500FF100AD2539 /* LoginService.swift in Sources */,
 				B0272DEA2068919000F8F2E2 /* LocationInfoViewController.swift in Sources */,
 				B02613A2205B4E1E0067B378 /* NeedItemTableViewCell.swift in Sources */,
+				B097574B2082DD2E003AAF22 /* ProfileViewModel.swift in Sources */,
 				B077904720535D2A0099AD1F /* Constants.swift in Sources */,
 				B0F133F520517D12000187BA /* RegisterService.swift in Sources */,
 				ABC9504A205AB8C300DC8890 /* ChangePasswordViewController.swift in Sources */,
+				B097574E2082DEAF003AAF22 /* ProfileOptionTableViewCell.swift in Sources */,
 				B0CD0EAD20507D2500FBE902 /* UnwindRegisterAccountSegue.swift in Sources */,
 				B0A8BFDD205F4E7A00077DF7 /* UserDefaults.swift in Sources */,
 				B0232DDD2058463E00E22B40 /* JSONAny.swift in Sources */,
 				B0CD0EAB205078AA00FBE902 /* RegisterViewController.swift in Sources */,
 				B0232DD620583B1700E22B40 /* LocationsService.swift in Sources */,
 				B0DC7C75206919CD00E544D2 /* LocationInfoHoursTableViewCell.swift in Sources */,
+				B0C898422082D14A00E7514F /* ProfileViewController.swift in Sources */,
 				B0DC7C732069142700E544D2 /* LocationInfoBasicTableViewCell.swift in Sources */,
 				B0A8BFCE205F171200077DF7 /* Need.swift in Sources */,
 				B0CD0EA620506F1B00FBE902 /* RegisterAccountSegue.swift in Sources */,
@@ -995,6 +1060,8 @@
 				B0F133F7205182C8000187BA /* RegisterLocationViewController.swift in Sources */,
 				B0ADAA1520520A2B00A0CD30 /* UIViewControllerExtensions.swift in Sources */,
 				B00F9C14204F8B2500C5BC03 /* LoginViewModel.swift in Sources */,
+				B048D5E720851388009BA814 /* ChangeEmailViewModel.swift in Sources */,
+				B044121B20841A500088F07F /* ChangeEmailViewController.swift in Sources */,
 				B0554DAB2069624D00A49E74 /* LocationInfoDelegate.swift in Sources */,
 				B0ADAA17205223D900A0CD30 /* RegisterViewModel.swift in Sources */,
 				B01E3D8C2053405B00106CA4 /* StartupViewController.swift in Sources */,
@@ -1002,6 +1069,7 @@
 				B077904520535BC60099AD1F /* StartupViewModel.swift in Sources */,
 				B0A8BFD2205F3AC300077DF7 /* PledgeDelegate.swift in Sources */,
 				B03C07C82033BDE2001A54C6 /* AppDelegate.swift in Sources */,
+				B0B7DA6C208813E600C36D40 /* NotificationExtensions.swift in Sources */,
 				B0B3BFF62054BD330074DF0D /* MapViewController.swift in Sources */,
 				B06E3EE92069BDAD003ED34C /* LocationSearchViewController.swift in Sources */,
 				ABC95048205AB89E00DC8890 /* SettingUITableViewCell.swift in Sources */,
@@ -1009,6 +1077,8 @@
 				B02A024620501DB900ABB4F9 /* UIViewExtensions.swift in Sources */,
 				B0272DE82068885F00F8F2E2 /* EFPMarker.swift in Sources */,
 				B0479C3C206A80CA009083CB /* UIDeviceExtensions.swift in Sources */,
+				B0B7DA6A2088117700C36D40 /* TabBarViewModel.swift in Sources */,
+				B044121D20841B3C0088F07F /* MFTextFieldExtensions.swift in Sources */,
 				AB9B39FF20617FE60088BFC4 /* UpdateUserService.swift in Sources */,
 				B0FEBC86204E3E3600982EAE /* TableViewModelable.swift in Sources */,
 				B0FC11892063E35F008A28B8 /* WatchSessionManager.swift in Sources */,
@@ -1309,6 +1379,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Farm To Fork/Farm To Fork.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 667D8S5SPP;
 				INFOPLIST_FILE = "Farm To Fork/Info.plist";
@@ -1316,6 +1387,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.domenic.bianchi.FarmToFork;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1328,6 +1400,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Farm To Fork/Farm To Fork.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 667D8S5SPP;
 				INFOPLIST_FILE = "Farm To Fork/Info.plist";
@@ -1335,6 +1408,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.domenic.bianchi.FarmToFork;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

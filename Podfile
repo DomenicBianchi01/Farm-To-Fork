@@ -3,4 +3,5 @@ target 'Farm To Fork' do
   platform :ios, '10.0'
   pod 'MaterialTextField'
   pod 'SwiftKeychainWrapper'
+  pod 'DeviceKit'
 end

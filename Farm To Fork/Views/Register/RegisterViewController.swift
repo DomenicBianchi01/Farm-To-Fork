@@ -92,10 +92,13 @@ final class RegisterViewController: UIViewController {
             viewModel.update(lastName: textField.text ?? "")
         } else if textField == emailTextField {
             viewModel.update(email: textField.text ?? "")
-            if textField.text?.isEmailAddress ?? false {
-                removeInvalidEmailError()
+            guard let mfTextField = textField as? MFTextField else {
+                return
+            }
+            if mfTextField.text?.isEmailAddress ?? false {
+                mfTextField.removeInvalidEmailError()
             } else {
-                setInvalidEmailError()
+                mfTextField.setInvalidEmailError()
             }
         }
     }
@@ -148,22 +151,12 @@ extension RegisterViewController: UITextFieldDelegate {
     }
     
     private func setPasswordMismatchError() {
-        reenterTextField.setError(viewModel.passwordMismatchError, animated: true)
+        reenterTextField.setError(MFTextField.passwordMismatchError, animated: true)
         reenterTextField.underlineColor = .red
     }
     
     private func removePasswordMismatchError() {
         reenterTextField.setError(nil, animated: true)
         reenterTextField.underlineColor = .green
-    }
-    
-    private func setInvalidEmailError() {
-        emailTextField.setError(viewModel.invalidEmailError, animated: true)
-        emailTextField.underlineColor = .red
-    }
-    
-    private func removeInvalidEmailError() {
-        emailTextField.setError(nil, animated: true)
-        emailTextField.underlineColor = .green
     }
 }

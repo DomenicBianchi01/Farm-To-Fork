@@ -6,7 +6,7 @@
 //  Copyright © 2018 Domenic Bianchi & Marshall Asch. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 final class LoginService: JSONService {
     func login(user: User, with completion: @escaping (Result<Void>) -> Void) {

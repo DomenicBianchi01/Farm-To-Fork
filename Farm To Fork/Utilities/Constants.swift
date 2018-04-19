@@ -24,5 +24,7 @@ struct Constants {
         static let autoLoginStart = "AutoLoginStart"
         static let needsView = "NeedsView"
         static let viewLocations = "viewLocationsSegue"
+        static let emailAddress = "emailAddressSegue"
+        static let personalInfo = "personalInfoSegue"
     }
 }

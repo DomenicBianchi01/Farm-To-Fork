@@ -15,6 +15,7 @@ final class LocationSearchViewController: UIViewController {
     // MARK: - Properties
     var locations: [Location] = []
     private var matchedLocations: [Location] = []
+    /// If this view controller is being used to show matching locations based on a search, the value of this variable should be `true`. If this view controller is being used to simply show the list of all EFP locations, the value of this should variable be `false`.
     var inSearchMode: Bool = true
     weak var delegate: LocationDelegate? = nil
     

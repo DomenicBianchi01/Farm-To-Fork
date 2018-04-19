@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MatchedLocationTableViewCell: UITableViewCell {
+final class MatchedLocationTableViewCell: UITableViewCell {
     // MARK: - IBOutlets
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var subtitleLabel: UILabel!

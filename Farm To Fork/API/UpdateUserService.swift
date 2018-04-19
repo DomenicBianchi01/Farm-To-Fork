@@ -143,25 +143,6 @@ final class UpdateUserService: JSONService {
 		}
 	}
 	
-	
-	func fetchCountries(with completion: @escaping ((Result<[(key: String, value: String)]>) -> Void)) {
-		fetchData(from: "\(locationUrlString)countries") { result in
-			completion(result)
-		}
-	}
-	
-	func fetchProvinces(for countryCode: Int, with completion: @escaping ((Result<[(key: String, value: String)]>) -> Void)) {
-		fetchData(from: "\(locationUrlString)\(countryCode)/provinces") { result in
-			completion(result)
-		}
-	}
-	
-	func fetchCities(for provinceCode: Int, with completion: @escaping ((Result<[(key: String, value: String)]>) -> Void)) {
-		fetchData(from: "\(locationUrlString)\(provinceCode)/cities") { result in
-			completion(result)
-		}
-	}
-	
 	// MARK: - Private Helper Functions
 	private func fetchData(from urlString: String, with completion: @escaping ((Result<[(key: String, value: String)]>) -> Void)) {
 		request(from: urlString, expecting: [String : String].self) { result in
@@ -175,5 +156,35 @@ final class UpdateUserService: JSONService {
 			}
 		}
 	}
-}
+    
+    //**** NEW STUFF ****
+    
+    func updateInfo(for user: User, with completion: @escaping (Result<Void>) -> Void) {
+        
+        // LIMITATION: Cannot change email address since the backend uses the email address to verify the user for some reason...
+        var userBody: [String : String] = [:]
+            
 
+            userBody["Email"] = user.email
+        
+            userBody["FirstName"] = "Domenic"
+    
+        
+       
+            userBody["LastName"] = "Bianchi"
+        
+        
+        //let sessionCookie = (HTTPCookieStorage.shared.cookies?.first(where: { $0.name == "PHPSESSID"}))! //DO NOT FORCE UNWRAP
+
+        request(from: "\(userUpdateUrlString)", requestType: .put, body: userBody, expecting: [String : String].self) { result in
+            switch result {
+            case .success:
+                NSLog("Success update info")
+                completion(.success(()))
+            case .error(let error):
+                NSLog("fail update info:  \(error.description)")
+                completion(.error(error))
+            }
+        }
+    }
+}

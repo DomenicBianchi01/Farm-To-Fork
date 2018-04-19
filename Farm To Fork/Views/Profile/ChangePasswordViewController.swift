@@ -142,7 +142,7 @@ final class ChangePasswordViewController: UIViewController {
 	}
 	
 	private func setPasswordMismatchError() {
-		newPass2.setError(viewModel.passwordMismatchError, animated: true)
+		newPass2.setError(MFTextField.passwordMismatchError, animated: true)
 		newPass2.underlineColor = .red
 	}
 	

@@ -15,16 +15,28 @@ final class NeedsViewController: UIViewController {
     // MARK: - Properties
     private let viewModel = NeedsViewModel()
     private var locationName = UserDefaults.appGroup?.string(forKey: Constants.preferredLocationName)
+    var hideCloseButton = true
     
     // MARK: - Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if #available(iOS 11.0, *) {
+            navigationController?.navigationBar.prefersLargeTitles = true
+        }
+        
+        if hideCloseButton {
+            navigationItem.leftBarButtonItem = nil
+        }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(preferredLocationSet), name:
+            .locationsFetched, object: nil)
+        
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 44
         
         if let locationName = locationName {
-            title = locationName + " Needs"
+            navigationItem.title = locationName + " Needs"
         }
     }
     
@@ -33,18 +45,27 @@ final class NeedsViewController: UIViewController {
         
         fetchNeeds()
     }
-    
-    func selectedLocation(_ location: Location) {
-        viewModel.location = location
-        locationName = location.name
-    }
 
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     // MARK: - IBActions
     @IBAction func dismissButtonTapped(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
     // MARK: - Helper Functions
+    func selectedLocation(_ location: Location) {
+        viewModel.location = location
+        locationName = location.name
+    }
+    
+    @objc private func preferredLocationSet() {
+        locationName = UserDefaults.appGroup?.string(forKey: Constants.preferredLocationName)
+        fetchNeeds()
+    }
+    
     private func fetchNeeds() {
         viewModel.fetchNeeds { result in
             DispatchQueue.main.async {

@@ -15,10 +15,6 @@ final class MapViewModel {
     private(set) var locations: [Location] = []
     private(set) var locationMarkers: [EFPMarker] = []
     
-    var isPreferredLocationSet: Bool {
-        return UserDefaults.appGroup?.string(forKey: Constants.preferredLocationId) != nil ? true : false
-    }
-    
     // MARK: - Helper Functions
     func fetchEFPLocations(with completion: @escaping ((Result<Void>) -> Void)) {
         //TODO: DON'T HARDCODE CITY NUMBER
@@ -26,6 +22,7 @@ final class MapViewModel {
             switch result {
             case .success(let locations):
                 self.locations = locations
+                NotificationCenter.default.post(name: .locationsFetched, object: nil, userInfo: [NotificationKeys.locations : locations])
                 for location in locations {
                     guard let coordinates = location.coordinates else {
                         continue
@@ -37,11 +34,6 @@ final class MapViewModel {
                 completion(.error(error))
             }
         }
-    }
-    
-    func setPreferredLocation(_ location: Location) {
-        UserDefaults.appGroup?.set(location.id, forKey: Constants.preferredLocationId)
-        UserDefaults.appGroup?.set(location.name, forKey: Constants.preferredLocationName)
     }
     
     /**

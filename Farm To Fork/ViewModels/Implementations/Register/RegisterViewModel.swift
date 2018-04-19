@@ -113,12 +113,4 @@ final class RegisterViewModel {
     var passwordRequirementsError: NSError {
         return NSError(domain: "MFDemoErrorDomain", code: 100, userInfo: [NSLocalizedDescriptionKey: passwordElements.asString()])
     }
-    
-    var passwordMismatchError: NSError {
-        return NSError(domain: "MFDemoErrorDomain", code: 100, userInfo: [NSLocalizedDescriptionKey: "Passwords do not match"])
-    }
-    
-    var invalidEmailError: NSError {
-        return NSError(domain: "MFDemoErrorDomain", code: 100, userInfo: [NSLocalizedDescriptionKey: "Invalid email"])
-    }
 }

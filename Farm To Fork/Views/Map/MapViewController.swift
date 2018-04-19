@@ -9,14 +9,12 @@
 import UIKit
 import MapKit
 import UserNotifications
+import DeviceKit
 
 final class MapViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet private var mapView: MKMapView!
-    @IBOutlet private var toolbar: UIToolbar!
-    @IBOutlet private var toolbarView: UIView!
     @IBOutlet private var locationInfoView: UIView!
-    @IBOutlet private var efpListButton: UIButton!
     
     // MARK: - Properties
     private let locationManager = CLLocationManager()
@@ -74,20 +72,7 @@ final class MapViewController: UIViewController {
             }
         }
         
-        toolbarView.applyBlurEffect(using: .extraLight, cornerRadius: 10, corners: [.allCorners])
-        toolbarView.addShadow()
-        
-        //Credit: https://stackoverflow.com/a/16035779/4268022
-        //Credit: https://stackoverflow.com/a/48369847/4268022
-        toolbar.setBackgroundImage(UIImage(), forToolbarPosition: .any, barMetrics: .default)
-        toolbar.setShadowImage(UIImage(), forToolbarPosition: .any)
-        toolbar.backgroundColor = .clear
-        
-        toolbar.items = [MKUserTrackingBarButtonItem(mapView: mapView)]
-        
-        efpListButton.setImage(#imageLiteral(resourceName: "Store"), for: .normal)
-
-        efpListButton.imageEdgeInsets = UIEdgeInsetsMake(5, 5, 5, 5)
+        navigationItem.rightBarButtonItem = MKUserTrackingBarButtonItem(mapView: mapView)
         
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
@@ -111,48 +96,7 @@ final class MapViewController: UIViewController {
         mapView.setRegion(adjustedRegion, animated: false)
     }
     
-    // MARK: - IBActions
-    @IBAction func preferredLocationButtonTapped(_ sender: Any) {
-        if viewModel.isPreferredLocationSet {
-            segueToNeeds()
-        } else {
-            promptForPreferredLocation()
-        }
-    }
-    
     // MARK: - Helper Functions
-    private func promptForPreferredLocation() {
-        DispatchQueue.main.async {
-            let alert = UIAlertController(title: "Preferred Location", message: "Please select your preferred Emergency Food Provider. You can change your preferred location at any time.", preferredStyle: .alert)
-            let submitAction = UIAlertAction(title: "Save", style: .default) { _ in
-                let selectedRow = self.locationPickerView.selectedRow(inComponent: 0)
-                self.viewModel.setPreferredLocation(self.viewModel.locations[selectedRow])
-                self.segueToNeeds()
-            }
-            /*let noLocationAction = UIAlertAction(title: "Can't find a location?", style: .default) { _ in
-                //TODO: Display list from other cities
-            }*/
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-            
-            alert.addAction(submitAction)
-            //alert.addAction(noLocationAction)
-            alert.addAction(cancelAction)
-            
-            alert.addTextField() { addedTextField in
-                self.locationPickerView.delegate = self
-                addedTextField.inputView = self.locationPickerView
-                addedTextField.placeholder = "Preferred Location"
-                addedTextField.delegate = self
-                self.textField = addedTextField
-            }
-            
-            alert.popoverPresentationController?.sourceView = self.view
-            alert.popoverPresentationController?.sourceRect = self.view.bounds
-            
-            self.present(alert, animated: true, completion: nil)
-        }
-    }
-    
     private func segueToNeeds() {
         performSegue(withIdentifier: Constants.Segues.needsView, sender: self)
     }
@@ -168,6 +112,17 @@ final class MapViewController: UIViewController {
         if locationViewController?.isTableViewScrollable ?? false {
             locationViewController?.resetTableView()
             locationViewController?.setTableViewScrollable(isScrollable: false)
+        }
+        
+        let heightOffset: CGFloat
+        if Device() == .iPhoneX || Device() == Device.simulator(.iPhoneX) { //The second half of this conditional is included so it will work on simulators
+            heightOffset = 100
+        } else {
+            heightOffset = 75
+        }
+        
+        guard locationInfoView.frame.origin.y + translation.y < view.frame.height - heightOffset else {
+            return
         }
         locationInfoView.center = CGPoint(x: locationInfoView.center.x, y: locationInfoView.center.y + translation.y)
         locationInfoViewTopSpaceConstraint?.constant += translation.y
@@ -267,6 +222,7 @@ final class MapViewController: UIViewController {
             setLocationInfoHeight()
         } else if segue.identifier == Constants.Segues.needsView, let viewController = segue.destination.childViewControllers.first as? NeedsViewController, let location = locationViewController?.location {
             viewController.selectedLocation(location)
+            viewController.hideCloseButton = false
         } else if segue.identifier == Constants.Segues.viewLocations, let viewController = segue.destination.childViewControllers.first as? LocationSearchViewController {
             viewController.inSearchMode = false
             viewController.locations = viewModel.locations
@@ -329,38 +285,6 @@ extension MapViewController: LocationInfoDelegate {
     }
 }
 
-// MARK: - UITextFieldDelegate
-extension MapViewController: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        //Block all attempts to manually insert text into the text field. The only valid strings are ones that come from the `locationPickerView`
-        return false
-    }
-}
-
-// MARK: - UIPickerViewDelegate
-extension MapViewController: UIPickerViewDelegate {
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if viewModel.locations.count > row {
-            textField?.text = viewModel.locations[row].name
-        }
-    }
-}
-
-// MARK: - UIPickerViewDataSource
-extension MapViewController: UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return viewModel.numberOfComponents
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return viewModel.numberOfRows(in: component)
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return viewModel.locations[row].name
-    }
-}
-
 // MARK: - MKMapViewDelegate
 extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
@@ -372,8 +296,10 @@ extension MapViewController: MKMapViewDelegate {
         
         if !isLocationInfoViewPreviewing {
             isLocationInfoViewPreviewing = true
-            locationInfoViewTopSpaceConstraint?.constant = mapView.frame.height - 200
-            self.view.refreshView()
+            UIView.animate(withDuration: 0.5) {
+                self.locationInfoViewTopSpaceConstraint?.constant = mapView.frame.height - 210
+                self.view.layoutIfNeeded()
+            }
         }
         
         mapView.setCenter(annotation.coordinate, animated: true)
@@ -381,8 +307,10 @@ extension MapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
         isLocationInfoViewPreviewing = false
-        locationInfoViewTopSpaceConstraint?.constant = self.view.frame.height
-        self.view.refreshView()
+        UIView.animate(withDuration: 0.5) {
+            self.locationInfoViewTopSpaceConstraint?.constant = self.view.frame.height
+            self.view.layoutIfNeeded()
+        }
     }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
