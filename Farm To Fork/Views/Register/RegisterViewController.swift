@@ -61,6 +61,14 @@ final class RegisterViewController: UIViewController {
         textFieldDidChange(textField: sender)
     }
     
+    @IBAction func nextStepButtonTapped(_ sender: Any) {
+        if viewModel.allFieldsValid {
+            performSegue(withIdentifier: Constants.Segues.registerNextStep, sender: self)
+        } else {
+            displayAlert(title: "Registration Error", message: "Check that all fields are valid before continuing to the next step.")
+        }
+    }
+    
     // MARK: - Helper Functions
     private func textFieldDidChange(textField: UITextField) {
         if textField == passwordTextField {
@@ -91,15 +99,20 @@ final class RegisterViewController: UIViewController {
         } else if textField == lastNameTextField {
             viewModel.update(lastName: textField.text ?? "")
         } else if textField == emailTextField {
+            updateEmail(textField: textField)
+        }
+    }
+    
+    private func updateEmail(textField: UITextField) {
+        guard let mfTextField = textField as? MFTextField else {
+            return
+        }
+        if mfTextField.text?.isEmailAddress ?? false {
             viewModel.update(email: textField.text ?? "")
-            guard let mfTextField = textField as? MFTextField else {
-                return
-            }
-            if mfTextField.text?.isEmailAddress ?? false {
-                mfTextField.removeInvalidEmailError()
-            } else {
-                mfTextField.setInvalidEmailError()
-            }
+            mfTextField.removeInvalidEmailError()
+        } else {
+            viewModel.update(email: "")
+            mfTextField.setInvalidEmailError()
         }
     }
 }
@@ -134,7 +147,7 @@ extension RegisterViewController: UITextFieldDelegate {
         } else if textField == lastNameTextField {
             viewModel.update(lastName: textField.text ?? "")
         } else if textField == emailTextField {
-            viewModel.update(email: textField.text ?? "")
+            updateEmail(textField: textField)
         } else if textField == passwordTextField {
             passwordTextField.setError(nil, animated: true)
         }

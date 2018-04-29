@@ -10,7 +10,6 @@
 		070FB37A3CC51BFFDF1DEE18 /* Pods_Farm_To_Fork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1551C5C983ADC0EFB6C50AF2 /* Pods_Farm_To_Fork.framework */; };
 		AB9B39FF20617FE60088BFC4 /* UpdateUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9B39FE20617FE60088BFC4 /* UpdateUserService.swift */; };
 		ABC95046205AB82C00DC8890 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC95045205AB82C00DC8890 /* UserProfileViewController.swift */; };
-		ABC95048205AB89E00DC8890 /* SettingUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC95047205AB89E00DC8890 /* SettingUITableViewCell.swift */; };
 		ABC9504A205AB8C300DC8890 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC95049205AB8C300DC8890 /* ChangePasswordViewController.swift */; };
 		B0001664206349BD00101744 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0001662206349BD00101744 /* Interface.storyboard */; };
 		B0001666206349BD00101744 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0001665206349BD00101744 /* Assets.xcassets */; };
@@ -186,7 +185,6 @@
 		1551C5C983ADC0EFB6C50AF2 /* Pods_Farm_To_Fork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Farm_To_Fork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB9B39FE20617FE60088BFC4 /* UpdateUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserService.swift; sourceTree = "<group>"; };
 		ABC95045205AB82C00DC8890 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
-		ABC95047205AB89E00DC8890 /* SettingUITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingUITableViewCell.swift; sourceTree = "<group>"; };
 		ABC95049205AB8C300DC8890 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		B0001660206349BD00101744 /* Farm To Fork For Apple Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Farm To Fork For Apple Watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0001663206349BD00101744 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -350,7 +348,6 @@
 				B044121820841A2A0088F07F /* Menu */,
 				B044121920841A380088F07F /* Email */,
 				ABC95049205AB8C300DC8890 /* ChangePasswordViewController.swift */,
-				ABC95047205AB89E00DC8890 /* SettingUITableViewCell.swift */,
 				ABC95045205AB82C00DC8890 /* UserProfileViewController.swift */,
 			);
 			path = Profile;
@@ -1072,7 +1069,6 @@
 				B0B7DA6C208813E600C36D40 /* NotificationExtensions.swift in Sources */,
 				B0B3BFF62054BD330074DF0D /* MapViewController.swift in Sources */,
 				B06E3EE92069BDAD003ED34C /* LocationSearchViewController.swift in Sources */,
-				ABC95048205AB89E00DC8890 /* SettingUITableViewCell.swift in Sources */,
 				B0A8BFD4205F3F3F00077DF7 /* PledgeService.swift in Sources */,
 				B02A024620501DB900ABB4F9 /* UIViewExtensions.swift in Sources */,
 				B0272DE82068885F00F8F2E2 /* EFPMarker.swift in Sources */,

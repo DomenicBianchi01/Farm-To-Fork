@@ -25,13 +25,15 @@ final class RegisterLocationViewModel {
     }
     
     // MARK: - Helper Functions
-    func fetchCountries() {
+    func fetchCountries(with completion: @escaping (Result<Void>) -> Void) {
         registerService.fetchCountries { result in
             switch result {
             case .success(let countries):
                 self.countries = countries
-            case .error:
+                completion(.success(()))
+            case .error(let error):
                 self.countries = [(key: "", value: "Error loading")]
+                completion(.error(error))
             }
         }
     }

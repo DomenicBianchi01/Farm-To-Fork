@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreData
 import Intents
 
 var isLoggedIn: Bool = false
@@ -46,21 +45,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
-        if #available(iOS 11.0, *) {
-            guard (userActivity.interaction?.intent as? INSearchForNotebookItemsIntent) != nil else {
-                return true
-            }
-
-            if let window = self.window, let rootViewController = window.rootViewController, isLoggedIn {
-                let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NeedsNavController")
-                var currentController = rootViewController
-                while let presentedController = currentController.presentedViewController {
-                    currentController = presentedController
-                }
-                currentController.present(controller, animated: true, completion: nil)
-            }
+        guard #available(iOS 11.0, *) else {
+            return false
+        }
+        
+        guard (userActivity.interaction?.intent as? INSearchForNotebookItemsIntent) != nil else {
             return true
         }
-        return false
+        
+        if let window = self.window, let rootViewController = window.rootViewController, isLoggedIn {
+            let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NeedsNavController")
+            var currentController = rootViewController
+            while let presentedController = currentController.presentedViewController {
+                currentController = presentedController
+            }
+            currentController.present(controller, animated: true, completion: nil)
+        }
+        return true
     }
 }

@@ -52,6 +52,15 @@ final class RegisterViewModel {
         }
     }
     
+    // MARK: - Computed Properties
+    var allFieldsValid: Bool {
+        return passwordIsValid &&
+            !user.password.isEmpty &&
+            !user.firstName.isEmpty &&
+            !user.lastName.isEmpty &&
+            !user.email.isEmpty
+    }
+    
     // MARK: - Helper Functions
     func update(firstName: String) {
         user.firstName = firstName
@@ -70,6 +79,7 @@ final class RegisterViewModel {
             user.password = password1
             return true
         }
+        user.password = ""
         return false
     }
     

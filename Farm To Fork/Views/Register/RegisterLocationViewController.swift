@@ -29,19 +29,19 @@ final class RegisterLocationViewController: UIViewController {
         view.addGestureRecognizer(tapRecognizer)
         
         let countryPickerView = UIPickerView()
-        countryPickerView.tag = 1
+        countryPickerView.tag = RegisterLocationViewModel.PickerType.country.rawValue
         countryPickerView.delegate = self
         countryTextField.inputView = countryPickerView
         countryTextField.delegate = self
         
         let provincePickerView = UIPickerView()
-        provincePickerView.tag = 2
+        provincePickerView.tag = RegisterLocationViewModel.PickerType.province.rawValue
         provincePickerView.delegate = self
         provinceTextField.inputView = provincePickerView
         countryTextField.delegate = self
         
         let cityPickerView = UIPickerView()
-        cityPickerView.tag = 3
+        cityPickerView.tag = RegisterLocationViewModel.PickerType.city.rawValue
         cityPickerView.delegate = self
         cityTextField.inputView = cityPickerView
         countryTextField.delegate = self
@@ -49,9 +49,11 @@ final class RegisterLocationViewController: UIViewController {
         backButton.layer.borderColor = UIColor.white.cgColor
         registerButton.layer.borderColor = UIColor.white.cgColor
         
-        viewModel.fetchCountries()
-        
-        //TODO: Reload picker views after all data has been fetched
+        viewModel.fetchCountries() { _ in
+            DispatchQueue.main.async {
+                countryPickerView.reloadAllComponents()
+            }
+        }
     }
     
     override func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {

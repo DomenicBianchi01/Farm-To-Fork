@@ -12,7 +12,6 @@ import MaterialTextField
 extension MFTextField {
     // MARK: - Properties
     static let passwordMismatchError = NSError(domain: "MFDemoErrorDomain", code: 100, userInfo: [NSLocalizedDescriptionKey: "Passwords do not match"])
-    
     static let invalidEmailError = NSError(domain: "MFDemoErrorDomain", code: 101, userInfo: [NSLocalizedDescriptionKey: "Invalid email"])
     
     // MARK: - Helper Functions

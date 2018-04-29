@@ -21,4 +21,3 @@ final class LogoutSegue: UIStoryboardSegue {
         source.navigationController?.pushViewController(destination, animated: false)
     }
 }
-

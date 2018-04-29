@@ -32,6 +32,7 @@ final class NeedsViewModel {
                 self.needs = needs
                 completion(.success(()))
             case .error(let error):
+                self.needs = []
                 completion(.error(error))
             }
         }
@@ -57,6 +58,9 @@ extension NeedsViewModel: TableViewModelable {
         if let expandedIndexPath = expandedIndexPath, indexPath == expandedIndexPath {
             cellIdentifier = "ExpandedNeedItemReuseIdentifier"
         } else {
+            guard indexPath.row < needs.count else {
+                return UITableViewCell()
+            }
             cellIdentifier = "NeedItemReuseIdentifier"
         }
         

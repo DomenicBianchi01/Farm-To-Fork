@@ -26,5 +26,6 @@ struct Constants {
         static let viewLocations = "viewLocationsSegue"
         static let emailAddress = "emailAddressSegue"
         static let personalInfo = "personalInfoSegue"
+        static let registerNextStep = "registerNextStep"
     }
 }

@@ -7,18 +7,32 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
+import MessageUI
 
 final class ProfileViewModel {
+    // MARK: - Properties
+    var canSendMail = MFMailComposeViewController.canSendMail()
     
     // MARK: - Helper Functions
     func updateLoginPreference(_ preference: LoginPreference) {
         UserDefaults.appGroup?.set(preference.rawValue, forKey: Constants.loginPreference)
     }
+
+    func logout() {
+        _ = KeychainWrapper.standard.removeAllKeys()
+        UserDefaults.resetAppGroup()
+        isLoggedIn = false
+        //TODO: Call Logout API
+    }
 }
 
 extension ProfileViewModel: TableViewModelable {
     var numberOfSections: Int {
-        return 4
+        if canSendMail {
+            return 4
+        }
+        return 3
     }
     
     func numberOfRows(in section: Int) -> Int {
@@ -40,10 +54,10 @@ extension ProfileViewModel: TableViewModelable {
         
         if indexPath.section == 0 || indexPath.section == 1 {
             reuseIdentifier = "basicCellReuseIdentifier"
-        } else if indexPath.section == 2 {
-            reuseIdentifier = "logoutReuseIdentifier"
-        } else {
+        } else if indexPath.section == 2 && canSendMail {
             reuseIdentifier = "feedbackReuseIdentifier"
+        } else {
+            reuseIdentifier = "logoutReuseIdentifier"
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)

@@ -10,7 +10,7 @@ import Foundation
 
 final class StartupViewModel {
     // MARK: - Computed Properties
-    /// Returns the login preference that the user previously selected.
+    /// Returns the login preference that the user prefers.
     var authenticationMethod: LoginPreference? {
         return LoginPreference(rawValue: UserDefaults.appGroup?.integer(forKey: Constants.loginPreference) ?? 0)
     }

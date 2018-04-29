@@ -154,13 +154,13 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
 			break
 		}
 		
-		let cell = tableView.dequeueReusableCell(withIdentifier: cellType, for: indexPath) as! SettingUITableViewCell;
+//        let cell = tableView.dequeueReusableCell(withIdentifier: cellType, for: indexPath) as! SettingUITableViewCell;
+//
+//
+//        cell.label.text = setting.label
+//        cell.textField.text = setting.value
 		
-		
-		cell.label.text = setting.label
-		cell.textField.text = setting.value
-		
-		return cell
+		return UITableViewCell()
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -175,37 +175,37 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
 	@IBAction func save(_ sender: UIButton) {
 		
 		
-		let firstName:String = (table.cellForRow(at: IndexPath(row: 0, section: 0)) as! SettingUITableViewCell ).textField.text!
-		let lastName:String = (table.cellForRow(at: IndexPath(row: 1, section: 0)) as! SettingUITableViewCell ).textField.text!
-		let email:String = (table.cellForRow(at: IndexPath(row: 2, section: 0)) as! SettingUITableViewCell ).textField.text!
-		
-		self.setPreferredLocation(preferedLocation)
-		
-		guard let username = KeychainWrapper.standard.string(forKey: Constants.username), let password = KeychainWrapper.standard.string(forKey: Constants.password) else {
-			return
-		}
-		
-		
-		user.email = username
-		user.password = password
-		user.firstName = firstName
-		user.lastName = lastName
-		
-		self.settings[4].value = self.preferedLocation?.name ?? "Prefered Location";
-		self.table.reloadData()
-		
-		NSLog("pass: \(password)")
-		
-		UpdateUserService().updateUser(user: user, newEmail: email){  result in
-			DispatchQueue.main.async {
-				switch result {
-				case .success:
-					NSLog("Success update")
-				case .error:
-					NSLog("Fail update")
-				}
-			}
-		}
+//        let firstName:String = (table.cellForRow(at: IndexPath(row: 0, section: 0)) as! SettingUITableViewCell ).textField.text!
+//        let lastName:String = (table.cellForRow(at: IndexPath(row: 1, section: 0)) as! SettingUITableViewCell ).textField.text!
+//        let email:String = (table.cellForRow(at: IndexPath(row: 2, section: 0)) as! SettingUITableViewCell ).textField.text!
+//
+//        self.setPreferredLocation(preferedLocation)
+//
+//        guard let username = KeychainWrapper.standard.string(forKey: Constants.username), let password = KeychainWrapper.standard.string(forKey: Constants.password) else {
+//            return
+//        }
+//
+//
+//        user.email = username
+//        user.password = password
+//        user.firstName = firstName
+//        user.lastName = lastName
+//
+//        self.settings[4].value = self.preferedLocation?.name ?? "Prefered Location";
+//        self.table.reloadData()
+//
+//        NSLog("pass: \(password)")
+//
+//        UpdateUserService().updateUser(user: user, newEmail: email){  result in
+//            DispatchQueue.main.async {
+//                switch result {
+//                case .success:
+//                    NSLog("Success update")
+//                case .error:
+//                    NSLog("Fail update")
+//                }
+//            }
+//		}
 	}
 	
 

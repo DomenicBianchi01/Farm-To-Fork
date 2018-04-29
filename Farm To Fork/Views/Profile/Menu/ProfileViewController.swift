@@ -8,6 +8,8 @@
 
 import UIKit
 import LocalAuthentication
+import MessageUI
+import DeviceKit
 
 final class ProfileViewController: UIViewController {
     // MARK: - IBOutlets
@@ -23,12 +25,50 @@ final class ProfileViewController: UIViewController {
         if #available(iOS 11.0, *) {
             navigationController?.navigationBar.prefersLargeTitles = true
         }
-        
-        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    //TODO: Why is this not being called?
+    override func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
+        let segue = LogoutSegue(identifier: unwindSegue.identifier, source: unwindSegue.source, destination: unwindSegue.destination)
+        segue.perform()
+    }
+    
+    // MARK: - IBActions
+    @IBAction func logoutButtonTapped(_ sender: Any) {
+        viewModel.logout()
+    }
+    
+    // MARK: - Helper Functions
+    private func promptForFeedback() {
+        if viewModel.canSendMail {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients(["dbianchi@uoguelph.ca"])
+            mail.setSubject("Farm To Fork iOS Feedback")
+            
+            let appVersion = (Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String) ?? "Unknown"
+            let operatingSystemVersion = ProcessInfo.processInfo.operatingSystemVersion
+            
+            mail.setMessageBody("""
+                Enter your feedback here!
+                \n------\n\n
+                Version: \(appVersion) \n
+                iOS \(operatingSystemVersion.majorVersion).\(operatingSystemVersion.minorVersion).\(operatingSystemVersion.patchVersion) (\(Device().description))
+                """, isHTML: false)
+            
+            present(mail, animated: true)
+        }
+    }
+}
+
+// MARK: - MFMailComposeViewControllerDelegate
+extension ProfileViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
     }
 }
 
@@ -44,8 +84,7 @@ extension ProfileViewController: UITableViewDelegate {
             } else if indexPath.row == 1 {
                 performSegue(withIdentifier: Constants.Segues.emailAddress, sender: self)
             }
-        }
-        if indexPath.section == 1 {
+        } else if indexPath.section == 1 {
             let alertController = UIAlertController(title: "Login Preference", message: "Select one of the options below to change your login preference", preferredStyle: UIDevice.alertStyle)
             
             let autoAction = UIAlertAction(title: "Automatically log in", style: .default) { _ in
@@ -74,6 +113,8 @@ extension ProfileViewController: UITableViewDelegate {
             alertController.popoverPresentationController?.sourceRect = view.frame
             
             present(alertController, animated: true, completion: nil)
+        } else if indexPath.section == 2 {
+            promptForFeedback()
         }
     }
 }

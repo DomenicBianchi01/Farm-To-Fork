@@ -49,7 +49,7 @@ final class TabBarController: UITabBarController {
         items[1].title = locationName
     }
     
-    private func promptForPreferredLocation() {
+    func promptForPreferredLocation() {
         let locationPickerView = UIPickerView()
         DispatchQueue.main.async {
             let alert = UIAlertController(title: "Preferred Location", message: "Please select your preferred Emergency Food Provider. You can change your preferred location at any time.", preferredStyle: .alert)

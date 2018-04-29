@@ -27,7 +27,7 @@ final class LocationSearchViewController: UIViewController {
     
     // MARK: - IBActions
     @IBAction func closeButtonTapped(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true)
     }
 }
 
@@ -48,7 +48,7 @@ extension LocationSearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let location = inSearchMode ? matchedLocations[indexPath.row] : locations[indexPath.row]
         delegate?.selected(location: location)
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true)
     }
 }
 

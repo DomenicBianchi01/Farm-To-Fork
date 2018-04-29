@@ -47,8 +47,15 @@ final class ChangeEmailViewController: UIViewController {
         guard let newEmail = newAddressTextField.text else {
             return
         }
+        
         viewModel.updateInfo(for: User(email: newEmail)) { result in
-            
+            switch result {
+            case .success:
+                //TODO
+                break
+            case .error(let error):
+                self.displayAlert(title: "Error", message: error.customDescription)
+            }
         }
     }
 }

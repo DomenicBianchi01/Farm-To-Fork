@@ -50,7 +50,15 @@ final class NeedsViewController: UIViewController {
     
     // MARK: - IBActions
     @IBAction func dismissButtonTapped(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true)
+    }
+    
+    @IBAction func changeLocationButtonTapped(_ sender: Any) {
+        guard let tabBar = tabBarController as? TabBarController else {
+            return
+        }
+        //TODO: I really don't like this (using the tab bar controller to prompt for the preferred location) but I don't want to duplicate the code in the function.
+        tabBar.promptForPreferredLocation()
     }
     
     // MARK: - Helper Functions
@@ -79,6 +87,7 @@ final class NeedsViewController: UIViewController {
                     self.tableView.reloadData()
                 case .error(let error):
                     self.displayAlert(title: "Error", message: error.customDescription)
+                    self.tableView.reloadData()
                 }
             }
         }
