@@ -17,6 +17,8 @@ struct Need {
     let targetQuantity: Int
     let currentQuantity: Int
     
+    //TODO: Needs to have an ID property
+    
     // MARK: - Lifecycle Functions
     init?(dictionary: [String : String]) {
         guard let name = dictionary["ItemName"],
@@ -37,5 +39,4 @@ struct Need {
         self.targetQuantity = targetQuantityInt
         self.currentQuantity = currentQuantityInt
     }
-    
 }

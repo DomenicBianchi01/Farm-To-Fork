@@ -42,12 +42,8 @@ final class MapViewController: UIViewController {
             resultSearchController.hidesNavigationBarDuringPresentation = false
             resultSearchController.dimsBackgroundDuringPresentation = true
             definesPresentationContext = true
-            
-            if #available(iOS 11.0, *) {
-                navigationItem.searchController = resultSearchController
-            } else {
-                navigationItem.titleView = resultSearchController.searchBar
-            }
+
+            navigationItem.searchController = resultSearchController
         }
         
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(draggedView(_:)))
@@ -72,7 +68,9 @@ final class MapViewController: UIViewController {
             }
         }
         
-        navigationItem.rightBarButtonItem = MKUserTrackingBarButtonItem(mapView: mapView)
+        if CLLocationManager.locationServicesEnabled() && (CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse) {
+            navigationItem.rightBarButtonItem = MKUserTrackingBarButtonItem(mapView: mapView)
+        }
         
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
@@ -91,7 +89,7 @@ final class MapViewController: UIViewController {
         
         mapView.userTrackingMode = .follow
         //200 meters in all directions
-        let viewRegion = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2D(), 200, 200)
+        let viewRegion = MKCoordinateRegion.init(center: CLLocationCoordinate2D(), latitudinalMeters: 200, longitudinalMeters: 200)
         let adjustedRegion = mapView.regionThatFits(viewRegion)
         mapView.setRegion(adjustedRegion, animated: false)
     }
@@ -103,7 +101,7 @@ final class MapViewController: UIViewController {
     
     //Credit: https://stackoverflow.com/a/43714987/4268022
     @objc private func draggedView(_ sender: UIPanGestureRecognizer) {
-        view.bringSubview(toFront: locationInfoView)
+        view.bringSubviewToFront(locationInfoView)
         let translation = sender.translation(in: view)
         guard locationInfoView.frame.origin.y + translation.y > mapView.frame.origin.y + 25 else {
             locationViewController?.setTableViewScrollable(isScrollable: true)
@@ -145,7 +143,7 @@ final class MapViewController: UIViewController {
     }
     
     private func searchForNearbyGrocceryStores(from location: CLLocation) {
-        let request = MKLocalSearchRequest()
+        let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = "grocery store"
         // IMPORTANT NOTE: This only works when the map is following the user. If the map does not have the user in its region, the region will be incorrect.
         request.region = mapView.region
@@ -160,6 +158,7 @@ final class MapViewController: UIViewController {
                 guard let distance = self.distance(to: mapItem.placemark) else {
                     continue
                 }
+                //TODO: Make this value smaller in production
                 if distance < 6000.0 {
                     guard let preferredLocationId = UserDefaults.appGroup?.string(forKey: Constants.preferredLocationId) else {
                         self.scheduleNotification(title: "Are you going grocery shopping?",
@@ -189,7 +188,7 @@ final class MapViewController: UIViewController {
                 let content = UNMutableNotificationContent()
                 content.title = title
                 content.body = message
-                content.sound = UNNotificationSound.default()
+                content.sound = UNNotificationSound.default
                 let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
                 let request = UNNotificationRequest(identifier: "FiveSecond", content: content, trigger: trigger)
                 let center = UNUserNotificationCenter.current()
@@ -202,14 +201,13 @@ final class MapViewController: UIViewController {
         viewModel.calculateRoute(from: userCoordinates, to: destinationCoordinates, by: transportType) { response in
             self.mapView.removeOverlays(self.mapView.overlays)
             
-            guard let unwrappedResponse = response,
-                let route = unwrappedResponse.routes.first else {
+            guard let route = response?.routes.first else {
                     self.displayAlert(title: "Error", message: "Unable to generate directions.")
                     return
             }
             
-            self.mapView.add(route.polyline)
-            let newRect = self.mapView.mapRectThatFits(route.polyline.boundingMapRect, edgePadding: UIEdgeInsetsMake(25, 25, 25, 25))
+            self.mapView.addOverlay(route.polyline)
+            let newRect = self.mapView.mapRectThatFits(route.polyline.boundingMapRect, edgePadding: UIEdgeInsets.init(top: 25, left: 25, bottom: 25, right: 25))
             self.mapView.setVisibleMapRect(newRect, animated: true)
         }
     }
@@ -220,10 +218,10 @@ final class MapViewController: UIViewController {
             locationViewController = viewController
             locationViewController?.delegate = self
             setLocationInfoHeight()
-        } else if segue.identifier == Constants.Segues.needsView, let viewController = segue.destination.childViewControllers.first as? NeedsViewController, let location = locationViewController?.location {
+        } else if segue.identifier == Constants.Segues.needsView, let viewController = segue.destination.children.first as? NeedsViewController, let location = locationViewController?.location {
             viewController.selectedLocation(location)
             viewController.hideCloseButton = false
-        } else if segue.identifier == Constants.Segues.viewLocations, let viewController = segue.destination.childViewControllers.first as? LocationSearchViewController {
+        } else if segue.identifier == Constants.Segues.viewLocations, let viewController = segue.destination.children.first as? LocationSearchViewController {
             viewController.inSearchMode = false
             viewController.locations = viewModel.locations
             viewController.delegate = self
@@ -248,12 +246,12 @@ extension MapViewController: LocationInfoDelegate {
         guard let userCoordinates = mapView.userLocation.location?.coordinate, let locationCoordinates = location.coordinates else {
             if CLLocationManager.locationServicesEnabled() {
                 if CLLocationManager.authorizationStatus() == .authorizedWhenInUse || CLLocationManager.authorizationStatus() == .authorizedAlways {
-                    displayAlert(title: "Error", message: "Could not determine user location")
+                    displaySCLAlert("Location Error", message: "Could not determine user location", style: .error)
                 } else {
-                    displayAlert(title: "Location Services", message: "Please enable location services to get directions")
+                    displaySCLAlert("Location Services", message: "Please enable location services to get directions", style: .info)
                 }
             } else {
-                displayAlert(title: "Location Services", message: "Please enable location services to get directions")
+                displaySCLAlert("Location Services", message: "Please enable location services to get directions", style: .info)
             }
             return
         }

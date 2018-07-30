@@ -10,7 +10,7 @@ import UIKit
 
 final class WallpaperWindow: UIWindow {
     // MARK: - Properties
-    let wallpaper = UIImageView(image: #imageLiteral(resourceName: "Splash"))
+    private let wallpaper = UIImageView(image: #imageLiteral(resourceName: "Splash"))
     
     // MARK: - Lifecycle Functions
     init() {
@@ -26,7 +26,7 @@ final class WallpaperWindow: UIWindow {
         let leftConstraint = NSLayoutConstraint(item: wallpaper, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1, constant: 0)
         let rightConstraint = NSLayoutConstraint(item: wallpaper, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1, constant: 0)
         
-        addConstraints([topConstraint, bottomConstraint, leftConstraint, rightConstraint])
+        NSLayoutConstraint.activate([topConstraint, bottomConstraint, leftConstraint, rightConstraint])
     }
     
     required init?(coder aDecoder: NSCoder) {

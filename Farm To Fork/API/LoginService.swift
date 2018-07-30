@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftKeychainWrapper
 
 final class LoginService: JSONService {
     func login(user: User, with completion: @escaping (Result<Void>) -> Void) {
@@ -15,12 +16,24 @@ final class LoginService: JSONService {
         
         request(from: "https://farmtofork.marshallasch.ca/api.php/2.0/user/login", requestType: .post, body: body, expecting: [String : String].self) { result in
             switch result {
-            case .success:
-                completion(.success(()))
+            case .success(let result):
+                guard let token = result["token"] else {
+                    completion(.error(NSError(domain: "No access token returned in response", code: 0, userInfo: nil)))
+                    return
+                }
+                if self.saveToken(token) {
+                    completion(.success(()))
+                } else {
+                    completion(.error(NSError(domain: "Could not save token", code: 0, userInfo: nil)))
+                }
             case .error(let error):
                 completion(.error(error))
             }
-            
         }
+    }
+    
+    // MARK: - Private Helper Functions
+    private func saveToken(_ token: String) -> Bool {
+        return KeychainWrapper.standard.set(token, forKey: Constants.token)
     }
 }

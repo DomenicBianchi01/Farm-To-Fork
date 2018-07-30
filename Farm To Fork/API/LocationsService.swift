@@ -6,19 +6,19 @@
 //  Copyright © 2018 Domenic Bianchi & Marshall Asch. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 // Used by both the iOS and watchOS apps
 
 final class LocationsService: JSONService {
-    func fetchLocations(forCity cityId: String, generateCoordinates: Bool, with completion: @escaping ((Result<[Location]>) -> Void)) {
+    func fetchLocations(forCity cityId: String, with completion: @escaping ((Result<[Location]>) -> Void)) {
         request(from: "https://farmtofork.marshallasch.ca/api.php/2.0/EFP/city/\(cityId)", expecting: [String : JSONAny].self) { result in
             switch result {
             case .success(let efps):
                 var locations: [Location] = []
                 for location in efps {
                     guard let dictionary = location.value.value as? [String : Any],
-                        let location = Location(id: location.key, dictionary: dictionary, generateCoordinates: generateCoordinates) else {
+                        let location = Location(id: location.key, dictionary: dictionary) else {
                         continue
                     }
                     locations.append(location)

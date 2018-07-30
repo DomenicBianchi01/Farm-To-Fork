@@ -58,6 +58,11 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>NSUserActivityTypes</key>
+	<dict>
+		<key>Item</key>
+		<string>com.domenic.bianchi.FarmToFork.siriShortcut</string>
+	</dict>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

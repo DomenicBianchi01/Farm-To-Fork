@@ -18,7 +18,7 @@ final class MapViewModel {
     // MARK: - Helper Functions
     func fetchEFPLocations(with completion: @escaping ((Result<Void>) -> Void)) {
         //TODO: DON'T HARDCODE CITY NUMBER
-        LocationsService().fetchLocations(forCity: "150", generateCoordinates: true) { result in
+        LocationsService().fetchLocations(forCity: "150") { result in
             switch result {
             case .success(let locations):
                 self.locations = locations
@@ -44,9 +44,9 @@ final class MapViewModel {
      - parameter transportType: The type of directions that should be calculated (automobile or walking)
      - parameter completion: The completion block called when the route is calculated. If the route was calculated successfully, a `MKDirectionsResponse` object is included in the response. If the calculation failed, the object is nil.
      */
-    func calculateRoute(from startLocation: CLLocationCoordinate2D, to endLocation: CLLocationCoordinate2D, by transportType: MKDirectionsTransportType, completion: @escaping (MKDirectionsResponse?) -> Void) {
+    func calculateRoute(from startLocation: CLLocationCoordinate2D, to endLocation: CLLocationCoordinate2D, by transportType: MKDirectionsTransportType, completion: @escaping (MKDirections.Response?) -> Void) {
         
-        let request = MKDirectionsRequest()
+        let request = MKDirections.Request()
         request.source = MKMapItem(placemark: MKPlacemark(coordinate: startLocation, addressDictionary: nil))
         request.destination = MKMapItem(placemark: MKPlacemark(coordinate: endLocation, addressDictionary: nil))
         request.transportType = transportType

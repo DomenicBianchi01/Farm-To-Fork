@@ -19,6 +19,9 @@ final class RegisterViewModel {
     private struct PasswordComponents: OptionSet {
         let rawValue: Int
         
+        /// The required minimum length of a password
+        static let passwordLength = 8
+        
         /// Length requirement
         static let characters = PasswordComponents(rawValue: 1 << 0)
         /// Numbers requirement
@@ -33,7 +36,7 @@ final class RegisterViewModel {
             var string = ""
             
             if !self.contains(.characters) {
-                string += "8 characters, "
+                string += "\(RegisterViewModel.PasswordComponents.passwordLength) characters, "
             }
             if !self.contains(.numbers) {
                 string += "1 number, "
@@ -59,6 +62,14 @@ final class RegisterViewModel {
             !user.firstName.isEmpty &&
             !user.lastName.isEmpty &&
             !user.email.isEmpty
+    }
+    
+    var passwordIsValid: Bool {
+        return passwordElements.rawValue == PasswordComponents.characters.rawValue + PasswordComponents.numbers.rawValue + PasswordComponents.lowercase.rawValue + PasswordComponents.uppercase.rawValue
+    }
+    
+    var passwordRequirementsError: NSError {
+        return NSError(domain: "MFDemoErrorDomain", code: 100, userInfo: [NSLocalizedDescriptionKey: passwordElements.asString()])
     }
     
     // MARK: - Helper Functions
@@ -91,7 +102,7 @@ final class RegisterViewModel {
     }
     
     func updatePasswordElements(_ password: String) {
-        if password.count >= 8 {
+        if password.count >= PasswordComponents.passwordLength {
             passwordElements.insert(.characters)
         } else {
             passwordElements.remove(.characters)
@@ -114,13 +125,5 @@ final class RegisterViewModel {
         } else {
             passwordElements.remove(.lowercase)
         }
-    }
-    
-    var passwordIsValid: Bool {
-        return passwordElements.rawValue == PasswordComponents.characters.rawValue + PasswordComponents.numbers.rawValue + PasswordComponents.lowercase.rawValue + PasswordComponents.uppercase.rawValue
-    }
-    
-    var passwordRequirementsError: NSError {
-        return NSError(domain: "MFDemoErrorDomain", code: 100, userInfo: [NSLocalizedDescriptionKey: passwordElements.asString()])
     }
 }

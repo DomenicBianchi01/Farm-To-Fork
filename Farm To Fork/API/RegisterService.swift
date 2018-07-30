@@ -34,28 +34,28 @@ final class RegisterService: JSONService {
     }
     
     /// Fetch a list of countries
-    func fetchCountries(with completion: @escaping ((Result<[(key: String, value: String)]>) -> Void)) {
+    func fetchCountries(with completion: @escaping (Result<[(key: String, value: String)]>) -> Void) {
         fetchData(from: "\(locationUrlString)countries") { result in
             completion(result)
         }
     }
     
     /// Fetch a list of provinces within the given country
-    func fetchProvinces(for countryCode: Int, with completion: @escaping ((Result<[(key: String, value: String)]>) -> Void)) {
+    func fetchProvinces(for countryCode: Int, with completion: @escaping (Result<[(key: String, value: String)]>) -> Void) {
         fetchData(from: "\(locationUrlString)\(countryCode)/provinces") { result in
             completion(result)
         }
     }
     
     /// Fetch a list of cities within the given province
-    func fetchCities(for provinceCode: Int, with completion: @escaping ((Result<[(key: String, value: String)]>) -> Void)) {
+    func fetchCities(for provinceCode: Int, with completion: @escaping (Result<[(key: String, value: String)]>) -> Void) {
         fetchData(from: "\(locationUrlString)\(provinceCode)/cities") { result in
             completion(result)
         }
     }
     
     // MARK: - Private Helper Functions
-    private func fetchData(from urlString: String, with completion: @escaping ((Result<[(key: String, value: String)]>) -> Void)) {
+    private func fetchData(from urlString: String, with completion: @escaping (Result<[(key: String, value: String)]>) -> Void) {
         request(from: urlString, expecting: [String : String].self) { result in
             switch result {
             case .success(let dictionary):

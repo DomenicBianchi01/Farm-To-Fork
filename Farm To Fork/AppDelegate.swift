@@ -16,7 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow? = WallpaperWindow()
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        //Spin up the Watch session manager (calling shared will initialize an instance of the class)
         _ = WatchSessionManager.shared
         return true
     }
@@ -44,23 +45,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Saves changes in the application's managed object context before the application terminates.
     }
     
-    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
-        guard #available(iOS 11.0, *) else {
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        // Siri Shortcuts only available on iOS 12+
+        guard #available(iOS 12.0, *) else {
             return false
         }
         
-        guard (userActivity.interaction?.intent as? INSearchForNotebookItemsIntent) != nil else {
-            return true
-        }
+        //TODO: If not logged in, attempt login to get token
         
-        if let window = self.window, let rootViewController = window.rootViewController, isLoggedIn {
+        if userActivity.persistentIdentifier?.rawValue == "com.domenic.bianchi.FarmToFork.siriShortcut", let window = self.window, let rootViewController = window.rootViewController/*, isLoggedIn*/ {
             let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NeedsNavController")
             var currentController = rootViewController
             while let presentedController = currentController.presentedViewController {
                 currentController = presentedController
             }
             currentController.present(controller, animated: true, completion: nil)
+            return true
         }
-        return true
+        return false
     }
 }

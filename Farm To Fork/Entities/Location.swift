@@ -29,6 +29,10 @@ class Location {
     /// Provides the `streetNumber`, `streetName`, and `unitNumber` (if applicable) on one line; then `cityName`, and `postalCode` on a second line
     let fullAddressWithNewlines: String
     
+    /** Coordinates for the location. On iOS applications, if coordinates are not included within the `dictionary` in the intializer, an attempt to generate coordinates will be made (based on `fullAddress`).
+     
+    WatchOS Note: If the `dictionary` provided in the initializer does not contain coordinates, coordinates will not be generated.
+     */
     private(set) var coordinates: CLLocationCoordinate2D? = nil
     
     /// The distance (in meters) between this location at the current position of the user
@@ -52,10 +56,8 @@ class Location {
     }
     
     // MARK: - Lifecycle Functions
-    /// If a `Location` is being created from watchOS, make sure `generateCoordinates` is false!
     init?(id: String,
-          dictionary: [String : Any],
-          generateCoordinates: Bool) {
+          dictionary: [String : Any]) {
         guard let name = dictionary["EFPName"] as? String,
             let monday = dictionary["Monday"] as? String,
             let tuesday = dictionary["Tuesday"] as? String,
@@ -93,8 +95,11 @@ class Location {
             self.fullAddress = "\(streetNumber) \(streetName) \(cityName) \(postalCode)"
             self.fullAddressWithNewlines = "\(streetNumber) \(streetName)\n\(cityName) \(postalCode)"
         }
-    
-        if generateCoordinates {
+        
+        if let latitude = dictionary["latitude"] as? Double, let longitude = dictionary["longitude"] as? Double {
+            self.coordinates = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        } else {
+            #if os(iOS)
             let dispatchGroup = DispatchGroup()
             dispatchGroup.enter()
             convertAddressToCoordinates(self.fullAddress) { result in
@@ -104,23 +109,30 @@ class Location {
                     dispatchGroup.leave()
                 case .error:
                     dispatchGroup.leave()
-                    break
                 }
             }
-            
             dispatchGroup.wait()
-            
-            if coordinates == nil {
-                return nil
-            }
+            #endif
+        }
+        
+        if coordinates == nil {
+            return nil
         }
     }
     
-    private func convertAddressToCoordinates(_ address: String, with completion: @escaping ((Result<CLLocationCoordinate2D>) -> Void )) {
+    /**
+     Given a address (street number, name, postal code, etc), attempt to generate coordinates.
+     
+     This function is only available on iOS applications. Calling this function from a watchOS application would cause the `CLGeocoder` to either hang (resulting in the completion block never being called) or return an error.
+     
+     - parameter address: The address of the location trying to convert into coordinates. The more details included, the higher chance of generating accurate coordinates.
+     */
+    @available(watchOS, unavailable)
+    private func convertAddressToCoordinates(_ address: String, with completion: @escaping ((Result<CLLocationCoordinate2D>) -> Void)) {
         let geoCoder = CLGeocoder()
         geoCoder.geocodeAddressString(address) { (placemarks, error) in
             guard let placemarks = placemarks, let location = placemarks.first?.location?.coordinate else {
-                completion(.error(error ?? NSError(domain: "Error", code: 0, userInfo: nil)))
+                completion(.error(error ?? NSError(domain: "Could not generate coordinates", code: 0, userInfo: nil)))
                 return
             }
             completion(.success(location))

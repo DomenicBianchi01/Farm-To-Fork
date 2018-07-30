@@ -21,10 +21,6 @@ final class NeedsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if #available(iOS 11.0, *) {
-            navigationController?.navigationBar.prefersLargeTitles = true
-        }
-        
         if hideCloseButton {
             navigationItem.leftBarButtonItem = nil
         }
@@ -32,7 +28,7 @@ final class NeedsViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(preferredLocationSet), name:
             .preferredLocationSet, object: nil)
         
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 44
         
         refreshTitle()
@@ -108,15 +104,9 @@ extension NeedsViewController: UITableViewDelegate {
         // If the expanded cell is tapped or its parent cell is tapped
         if let expandedIndexPath = viewModel.expandedIndexPath, indexPath.row == expandedIndexPath.row || indexPath.row == expandedIndexPath.row - 1 {
             viewModel.expandedIndexPath = nil
-            if #available(iOS 11.0, *) {
-                tableView.performBatchUpdates({
-                    tableView.deleteRows(at: [expandedIndexPath], with: .top)
-                }, completion: nil)
-            } else {
-                tableView.beginUpdates()
+            tableView.performBatchUpdates({
                 tableView.deleteRows(at: [expandedIndexPath], with: .top)
-                tableView.endUpdates()
-            }
+            }, completion: nil)
         } else if let expandedIndexPath = viewModel.expandedIndexPath {
             let newExpandedIndexPath: IndexPath
             if indexPath.row > expandedIndexPath.row {
@@ -126,31 +116,18 @@ extension NeedsViewController: UITableViewDelegate {
             }
             
             viewModel.expandedIndexPath = newExpandedIndexPath
-            
-            if #available(iOS 11.0, *) {
-                tableView.performBatchUpdates({
-                    tableView.deleteRows(at: [expandedIndexPath], with: .top)
-                    tableView.insertRows(at: [newExpandedIndexPath], with: .top)
-                }, completion: nil)
-            } else {
-                tableView.beginUpdates()
+
+            tableView.performBatchUpdates({
                 tableView.deleteRows(at: [expandedIndexPath], with: .top)
                 tableView.insertRows(at: [newExpandedIndexPath], with: .top)
-                tableView.endUpdates()
-            }
+            }, completion: nil)
         } else {
             let newExpandedIndexPath = IndexPath(row: indexPath.row + 1, section: 0)
             viewModel.expandedIndexPath = newExpandedIndexPath
-            
-            if #available(iOS 11.0, *) {
-                tableView.performBatchUpdates({
-                    tableView.insertRows(at: [newExpandedIndexPath], with: .top)
-                }, completion: nil)
-            } else {
-                tableView.beginUpdates()
+
+            tableView.performBatchUpdates({
                 tableView.insertRows(at: [newExpandedIndexPath], with: .top)
-                tableView.endUpdates()
-            }
+            }, completion: nil)
         }
     }
 }
@@ -185,7 +162,7 @@ extension NeedsViewController: PledgeDelegate {
             guard let textField = alert.textFields?.first, let pledgedAmount = Int(textField.text ?? "") else {
                 return
             }
-            PledgeService().makePledge() { _ in
+            PledgeService().makePledge(needID: 0 /*TODO*/, quantity: pledgedAmount) { _ in
                 //TODO
             }
         }
@@ -196,6 +173,7 @@ extension NeedsViewController: PledgeDelegate {
         
         alert.addTextField() { addedTextField in
             addedTextField.placeholder = "Number of \(need.name)'s"
+            //TODO: Check that all input is numbers as user types
             addedTextField.keyboardType = .numberPad
             addedTextField.delegate = self
         }

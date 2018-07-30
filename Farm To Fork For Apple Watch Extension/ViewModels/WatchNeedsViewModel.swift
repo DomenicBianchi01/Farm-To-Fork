@@ -54,7 +54,7 @@ final class WatchNeedsViewModel {
     }
     
     private func executeLocationsAPICall(forCity cityId: String, with completion: @escaping ((Result<Void>) -> Void)) {
-        LocationsService().fetchLocations(forCity: cityId, generateCoordinates: false) { result in
+        LocationsService().fetchLocations(forCity: cityId) { result in
             switch result {
             case .success(let locations):
                 self.locations = locations

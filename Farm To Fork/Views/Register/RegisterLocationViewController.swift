@@ -56,7 +56,7 @@ final class RegisterLocationViewController: UIViewController {
         }
     }
     
-    override func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
+    override func unwind(for unwindSegue: UIStoryboardSegue, towards subsequentVC: UIViewController) {
         let segue = UnwindRegisterAccountSegue(identifier: unwindSegue.identifier, source: unwindSegue.source, destination: unwindSegue.destination)
         segue.perform()
     }
@@ -70,7 +70,7 @@ final class RegisterLocationViewController: UIViewController {
                     self.performSegue(withIdentifier: "unwindBackToLogin", sender: self)
                 }
             case .error(let error):
-                self.displayAlert(title: "Error", message: error.customDescription)
+                self.displaySCLAlert("Registration Error", message: error.customDescription, style: .error)
             }
         }
     }

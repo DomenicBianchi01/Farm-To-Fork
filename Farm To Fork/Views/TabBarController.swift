@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Intents
 
 final class TabBarController: UITabBarController {
     // MARK: - Properties
@@ -63,7 +64,9 @@ final class TabBarController: UITabBarController {
              //TODO: Display list from other cities
              }*/
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
-                self.selectedIndex = 0
+                if UserDefaults.appGroup?.string(forKey: Constants.preferredLocationId) == nil {
+                    self.selectedIndex = 0
+                }
             }
             
             alert.addAction(submitAction)
@@ -95,6 +98,17 @@ final class TabBarController: UITabBarController {
         } else {
             let locationName = UserDefaults.appGroup?.string(forKey: Constants.preferredLocationName)
             item.title = locationName
+
+            if #available(iOS 12.0, *) {
+                let activity = NSUserActivity(activityType: "com.domenic.bianchi.FarmToFork.siriShortcut")
+                activity.title = "View preferred location needs"
+                activity.userInfo = ["color" : "red"]
+                activity.isEligibleForSearch = true
+                activity.isEligibleForPrediction = true
+                activity.persistentIdentifier = NSUserActivityPersistentIdentifier(rawValue: "com.domenic.bianchi.FarmToFork.siriShortcut")
+                view.userActivity = activity
+                activity.becomeCurrent()
+            }
         }
     }
 }

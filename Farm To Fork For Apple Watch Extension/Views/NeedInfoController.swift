@@ -26,9 +26,9 @@ final class NeedInfoController: WKInterfaceController {
         for index in 0 ..< 2 {
             guard let controller = needInfoTable.rowController(at: index) as? NeedInfoRowController else { continue }
             if index == 0 {
-                controller.configure(for: need.currentQuantity, withDescription: "items pledged!")
+                controller.configure(value: need.currentQuantity, withDescription: "items pledged!")
             } else {
-                controller.configure(for: need.targetQuantity - need.currentQuantity, withDescription: "more to reach our goal!")
+                controller.configure(value: need.targetQuantity - need.currentQuantity, withDescription: "more to reach our goal!")
             }
         }
     }

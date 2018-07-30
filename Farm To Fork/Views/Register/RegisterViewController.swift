@@ -8,6 +8,7 @@
 
 import UIKit
 import MaterialTextField
+import SCLAlertView
 
 final class RegisterViewController: UIViewController {
     // MARK: - IBOutlets
@@ -38,11 +39,9 @@ final class RegisterViewController: UIViewController {
         emailTextField.delegate = self
         passwordTextField.delegate = self
         reenterTextField.delegate = self
-        
-        passwordTextField.errorColor = .white
     }
     
-    override func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
+    override func unwind(for unwindSegue: UIStoryboardSegue, towards subsequentVC: UIViewController) {
         let segue = UnwindRegisterAccountSegue(identifier: unwindSegue.identifier, source: unwindSegue.source, destination: unwindSegue.destination)
         segue.perform()
     }
@@ -65,33 +64,33 @@ final class RegisterViewController: UIViewController {
         if viewModel.allFieldsValid {
             performSegue(withIdentifier: Constants.Segues.registerNextStep, sender: self)
         } else {
-            displayAlert(title: "Registration Error", message: "Check that all fields are valid before continuing to the next step.")
+            displaySCLAlert("Registration Error", message: "Check that all fields are valid before continuing to the next step.", style: .warning)
         }
     }
     
     // MARK: - Helper Functions
     private func textFieldDidChange(textField: UITextField) {
         if textField == passwordTextField {
-            let password1 = textField.text ?? ""
-            let password2 = reenterTextField.text ?? "2"
-            viewModel.updatePasswordElements(textField.text ?? "")
+            let password1 = textField.text
+            let password2 = reenterTextField.text
+            viewModel.updatePasswordElements(password1 ?? "")
             if viewModel.passwordIsValid {
                 removePasswordRequirementsError()
             } else {
                 setPasswordRequirementsError()
             }
             
-            if viewModel.verify(password1: password1, password2: password2) {
+            if viewModel.verify(password1: password1 ?? "1", password2: password2 ?? "2") {
                 removePasswordMismatchError()
             } else {
                 setPasswordMismatchError()
             }
         } else if textField == reenterTextField {
-            let password1 = textField.text ?? "1"
-            let password2 = passwordTextField.text ?? "2"
-            if viewModel.update(password1: password1, password2: password2) {
+            let password1 = textField.text
+            let password2 = passwordTextField.text
+            if viewModel.update(password1: password1 ?? "1" , password2: password2 ?? "2") {
                 removePasswordMismatchError()
-            } else {
+            } else if password1 != nil && password2 != nil {
                 setPasswordMismatchError()
             }
         } else if textField == firstNameTextField {
@@ -104,16 +103,36 @@ final class RegisterViewController: UIViewController {
     }
     
     private func updateEmail(textField: UITextField) {
-        guard let mfTextField = textField as? MFTextField else {
+        guard let textField = textField as? MFTextField else {
             return
         }
-        if mfTextField.text?.isEmailAddress ?? false {
+        if textField.text?.isEmailAddress ?? false {
             viewModel.update(email: textField.text ?? "")
-            mfTextField.removeInvalidEmailError()
+           textField.removeInvalidEmailError()
         } else {
             viewModel.update(email: "")
-            mfTextField.setInvalidEmailError()
+           textField.setInvalidEmailError()
         }
+    }
+    
+    private func setPasswordRequirementsError() {
+        passwordTextField.setError(viewModel.passwordRequirementsError, animated: false)
+        passwordTextField.underlineColor = .red
+    }
+    
+    private func removePasswordRequirementsError() {
+        passwordTextField.setError(nil, animated: true)
+        passwordTextField.underlineColor = .green
+    }
+    
+    private func setPasswordMismatchError() {
+        reenterTextField.setError(MFTextField.passwordMismatchError, animated: true)
+        reenterTextField.underlineColor = .red
+    }
+    
+    private func removePasswordMismatchError() {
+        reenterTextField.setError(nil, animated: true)
+        reenterTextField.underlineColor = .green
     }
 }
 
@@ -151,25 +170,5 @@ extension RegisterViewController: UITextFieldDelegate {
         } else if textField == passwordTextField {
             passwordTextField.setError(nil, animated: true)
         }
-    }
-    
-    private func setPasswordRequirementsError() {
-        passwordTextField.setError(viewModel.passwordRequirementsError, animated: true)
-        passwordTextField.underlineColor = .red
-    }
-    
-    private func removePasswordRequirementsError() {
-        passwordTextField.setError(nil, animated: true)
-        passwordTextField.underlineColor = .green
-    }
-    
-    private func setPasswordMismatchError() {
-        reenterTextField.setError(MFTextField.passwordMismatchError, animated: true)
-        reenterTextField.underlineColor = .red
-    }
-    
-    private func removePasswordMismatchError() {
-        reenterTextField.setError(nil, animated: true)
-        reenterTextField.underlineColor = .green
     }
 }

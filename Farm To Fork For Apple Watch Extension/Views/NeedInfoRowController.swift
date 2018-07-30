@@ -14,7 +14,7 @@ final class NeedInfoRowController: NSObject {
     @IBOutlet private var subtitleLabel: WKInterfaceLabel!
     
     // MARK: - Helper Functions
-    func configure(for value: Int, withDescription description: String) {
+    func configure(value: Int, withDescription description: String) {
         numberLabel.setText("\(value)")
         subtitleLabel.setText(description)
     }

@@ -8,6 +8,7 @@
 
 import UIKit
 import MaterialTextField
+import SCLAlertView
 import Intents
 import LocalAuthentication
 import AudioToolbox
@@ -78,7 +79,7 @@ final class LoginViewController: UIViewController {
     
     @IBAction func unwindToViewController(segue: UIStoryboardSegue) {
         if segue.source.isKind(of: RegisterLocationViewController.self) {
-            displayAlert(title: "Registration Complete", message: "Please login to access Farm To Fork")
+            displaySCLAlert("Registration Complete", message: "You can now login to access Farm To Fork!", style: .success)
         }
     }
     

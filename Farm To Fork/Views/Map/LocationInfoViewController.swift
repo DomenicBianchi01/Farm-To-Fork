@@ -21,7 +21,7 @@ final class LocationInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 44
 
         view.applyBlurEffect(using: .extraLight, cornerRadius: 15, corners: [.topLeft, .topRight])

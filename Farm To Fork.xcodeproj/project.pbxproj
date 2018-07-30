@@ -26,15 +26,12 @@
 		B000168D20634EFD00101744 /* JSONService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FEBC8C204E3FF200982EAE /* JSONService.swift */; };
 		B000168E20634F0000101744 /* NeedsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B3BFF22054BCD60074DF0D /* NeedsService.swift */; };
 		B000168F20634F0A00101744 /* JSONAny.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0232DDC2058463E00E22B40 /* JSONAny.swift */; };
-		B000169020634F1300101744 /* RequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A024020501A7100ABB4F9 /* RequestType.swift */; };
 		B000169120634F1C00101744 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F133F220517C12000187BA /* StringExtensions.swift */; };
+		B0033CAF20FEC8C1009B7932 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0033CAE20FEC8C1009B7932 /* Intents.framework */; };
 		B00F9C14204F8B2500C5BC03 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F9C13204F8B2500C5BC03 /* LoginViewModel.swift */; };
 		B00F9C16204F8D8100C5BC03 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F9C15204F8D8100C5BC03 /* User.swift */; };
 		B01E3D8920533D1F00106CA4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B01E3D8820533D1F00106CA4 /* MapKit.framework */; };
 		B01E3D8C2053405B00106CA4 /* StartupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01E3D8B2053405B00106CA4 /* StartupViewController.swift */; };
-		B01FA1E32054463600863E05 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01FA1E22054463600863E05 /* IntentHandler.swift */; };
-		B01FA1F82054463600863E05 /* NeedsSiriExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B01FA1E02054463600863E05 /* NeedsSiriExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		B01FA205205460DF00863E05 /* AppIntentVocabulary.plist in Resources */ = {isa = PBXBuildFile; fileRef = B01FA203205460DF00863E05 /* AppIntentVocabulary.plist */; };
 		B0232DD620583B1700E22B40 /* LocationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0232DD520583B1700E22B40 /* LocationsService.swift */; };
 		B0232DDB205842BB00E22B40 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0232DDA205842BB00E22B40 /* Location.swift */; };
 		B0232DDD2058463E00E22B40 /* JSONAny.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0232DDC2058463E00E22B40 /* JSONAny.swift */; };
@@ -43,7 +40,6 @@
 		B0272DE82068885F00F8F2E2 /* EFPMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0272DE72068885F00F8F2E2 /* EFPMarker.swift */; };
 		B0272DEA2068919000F8F2E2 /* LocationInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0272DE92068919000F8F2E2 /* LocationInfoViewController.swift */; };
 		B0272DEC2068920100F8F2E2 /* LocationInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0272DEB2068920100F8F2E2 /* LocationInfoViewModel.swift */; };
-		B02A024120501A7100ABB4F9 /* RequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A024020501A7100ABB4F9 /* RequestType.swift */; };
 		B02A024420501BC100ABB4F9 /* ErrorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A024320501BC100ABB4F9 /* ErrorExtensions.swift */; };
 		B02A024620501DB900ABB4F9 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A024520501DB900ABB4F9 /* UIViewExtensions.swift */; };
 		B03C07C82033BDE2001A54C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03C07C72033BDE2001A54C6 /* AppDelegate.swift */; };
@@ -72,26 +68,19 @@
 		B0A8BFD0205F339000077DF7 /* ExpandedNeedItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8BFCF205F339000077DF7 /* ExpandedNeedItemTableViewCell.swift */; };
 		B0A8BFD2205F3AC300077DF7 /* PledgeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8BFD1205F3AC300077DF7 /* PledgeDelegate.swift */; };
 		B0A8BFD4205F3F3F00077DF7 /* PledgeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8BFD3205F3F3F00077DF7 /* PledgeService.swift */; };
-		B0A8BFD5205F445E00077DF7 /* NeedsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B3BFF22054BCD60074DF0D /* NeedsService.swift */; };
-		B0A8BFD6205F446300077DF7 /* JSONService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FEBC8C204E3FF200982EAE /* JSONService.swift */; };
-		B0A8BFD7205F446C00077DF7 /* JSONAny.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0232DDC2058463E00E22B40 /* JSONAny.swift */; };
-		B0A8BFD8205F446F00077DF7 /* Need.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8BFCD205F171200077DF7 /* Need.swift */; };
-		B0A8BFD9205F447C00077DF7 /* RequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A024020501A7100ABB4F9 /* RequestType.swift */; };
-		B0A8BFDA205F47C400077DF7 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F133F220517C12000187BA /* StringExtensions.swift */; };
 		B0A8BFDD205F4E7A00077DF7 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8BFDC205F4E7A00077DF7 /* UserDefaults.swift */; };
-		B0A8BFDE205F4EEF00077DF7 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8BFDC205F4E7A00077DF7 /* UserDefaults.swift */; };
 		B0ADAA1520520A2B00A0CD30 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ADAA1420520A2B00A0CD30 /* UIViewControllerExtensions.swift */; };
 		B0ADAA17205223D900A0CD30 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ADAA16205223D900A0CD30 /* RegisterViewModel.swift */; };
 		B0B3BFF32054BCD60074DF0D /* NeedsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B3BFF22054BCD60074DF0D /* NeedsService.swift */; };
 		B0B3BFF62054BD330074DF0D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B3BFF52054BD330074DF0D /* MapViewController.swift */; };
 		B0B3BFF92054BE450074DF0D /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B3BFF82054BE450074DF0D /* MapViewModel.swift */; };
-		B0B3BFFB2054C90D0074DF0D /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FEBC8A204E3F0B00982EAE /* Result.swift */; };
-		B0B3BFFC2054C93B0074DF0D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B077904620535D2A0099AD1F /* Constants.swift */; };
 		B0B7DA6720880CF300C36D40 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B7DA6620880CF300C36D40 /* TabBarController.swift */; };
 		B0B7DA6A2088117700C36D40 /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B7DA692088117700C36D40 /* TabBarViewModel.swift */; };
 		B0B7DA6C208813E600C36D40 /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B7DA6B208813E600C36D40 /* NotificationExtensions.swift */; };
+		B0BD371C210C1299005149FF /* PaginatedResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BD371B210C1299005149FF /* PaginatedResults.swift */; };
 		B0C6EC9E205972150064F2B5 /* NeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C6EC9D205972150064F2B5 /* NeedsViewController.swift */; };
 		B0C898422082D14A00E7514F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C898412082D14A00E7514F /* ProfileViewController.swift */; };
+		B0C97BD62109705400AD8FA1 /* SCLAlertViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C97BD52109705400AD8FA1 /* SCLAlertViewExtensions.swift */; };
 		B0CD0EA620506F1B00FBE902 /* RegisterAccountSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD0EA520506F1B00FBE902 /* RegisterAccountSegue.swift */; };
 		B0CD0EA82050716F00FBE902 /* WallpaperWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD0EA72050716F00FBE902 /* WallpaperWindow.swift */; };
 		B0CD0EAB205078AA00FBE902 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD0EAA205078AA00FBE902 /* RegisterViewController.swift */; };
@@ -136,13 +125,6 @@
 			remoteGlobalIDString = B000165F206349BD00101744;
 			remoteInfo = "Farm To Fork For Apple Watch";
 		};
-		B01FA1F62054463600863E05 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B03C07BC2033BDE2001A54C6 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B01FA1DF2054463600863E05;
-			remoteInfo = NeedsSiriExtension;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -174,7 +156,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				B01FA1F82054463600863E05 /* NeedsSiriExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -199,16 +180,13 @@
 		B000167A206349BD00101744 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		B000168720634D4300101744 /* WatchNeedsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchNeedsViewModel.swift; sourceTree = "<group>"; };
 		B000168920634D7900101744 /* WatchTableViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchTableViewModelable.swift; sourceTree = "<group>"; };
+		B0033CAE20FEC8C1009B7932 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		B00F9C13204F8B2500C5BC03 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		B00F9C15204F8D8100C5BC03 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B01E3D8820533D1F00106CA4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		B01E3D8B2053405B00106CA4 /* StartupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupViewController.swift; sourceTree = "<group>"; };
-		B01FA1E02054463600863E05 /* NeedsSiriExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NeedsSiriExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		B01FA1E22054463600863E05 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
-		B01FA1E42054463600863E05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B01FA1EA2054463600863E05 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
 		B01FA2002054468000863E05 /* Farm To Fork.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Farm To Fork.entitlements"; sourceTree = "<group>"; };
-		B01FA204205460DF00863E05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = "Farm To Fork/Base.lproj/AppIntentVocabulary.plist"; sourceTree = "<group>"; };
 		B0232DD520583B1700E22B40 /* LocationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsService.swift; sourceTree = "<group>"; };
 		B0232DDA205842BB00E22B40 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		B0232DDC2058463E00E22B40 /* JSONAny.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONAny.swift; sourceTree = "<group>"; };
@@ -217,7 +195,6 @@
 		B0272DE72068885F00F8F2E2 /* EFPMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFPMarker.swift; sourceTree = "<group>"; };
 		B0272DE92068919000F8F2E2 /* LocationInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInfoViewController.swift; sourceTree = "<group>"; };
 		B0272DEB2068920100F8F2E2 /* LocationInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInfoViewModel.swift; sourceTree = "<group>"; };
-		B02A024020501A7100ABB4F9 /* RequestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestType.swift; sourceTree = "<group>"; };
 		B02A024320501BC100ABB4F9 /* ErrorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorExtensions.swift; sourceTree = "<group>"; };
 		B02A024520501DB900ABB4F9 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		B03C07C42033BDE2001A54C6 /* Farm To Fork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Farm To Fork.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -249,7 +226,6 @@
 		B0A8BFCF205F339000077DF7 /* ExpandedNeedItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedNeedItemTableViewCell.swift; sourceTree = "<group>"; };
 		B0A8BFD1205F3AC300077DF7 /* PledgeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PledgeDelegate.swift; sourceTree = "<group>"; };
 		B0A8BFD3205F3F3F00077DF7 /* PledgeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PledgeService.swift; sourceTree = "<group>"; };
-		B0A8BFDB205F4DEE00077DF7 /* NeedsSiriExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NeedsSiriExtension.entitlements; sourceTree = "<group>"; };
 		B0A8BFDC205F4E7A00077DF7 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		B0ADAA1420520A2B00A0CD30 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		B0ADAA16205223D900A0CD30 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
@@ -259,8 +235,10 @@
 		B0B7DA6620880CF300C36D40 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		B0B7DA692088117700C36D40 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
 		B0B7DA6B208813E600C36D40 /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
+		B0BD371B210C1299005149FF /* PaginatedResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginatedResults.swift; sourceTree = "<group>"; };
 		B0C6EC9D205972150064F2B5 /* NeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsViewController.swift; sourceTree = "<group>"; };
 		B0C898412082D14A00E7514F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		B0C97BD52109705400AD8FA1 /* SCLAlertViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCLAlertViewExtensions.swift; sourceTree = "<group>"; };
 		B0CD0EA520506F1B00FBE902 /* RegisterAccountSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAccountSegue.swift; sourceTree = "<group>"; };
 		B0CD0EA72050716F00FBE902 /* WallpaperWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperWindow.swift; sourceTree = "<group>"; };
 		B0CD0EAA205078AA00FBE902 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -302,17 +280,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B01FA1DD2054463600863E05 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B03C07C12033BDE2001A54C6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0033CAF20FEC8C1009B7932 /* Intents.framework in Frameworks */,
 				B0EED74F20574AC6008CF4D5 /* LocalAuthentication.framework in Frameworks */,
 				B01E3D8920533D1F00106CA4 /* MapKit.framework in Frameworks */,
 				070FB37A3CC51BFFDF1DEE18 /* Pods_Farm_To_Fork.framework in Frameworks */,
@@ -334,6 +306,7 @@
 		4D91C78F0126573F42E8DEBF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B0033CAE20FEC8C1009B7932 /* Intents.framework */,
 				B0EED74E20574AC6008CF4D5 /* LocalAuthentication.framework */,
 				B01E3D8820533D1F00106CA4 /* MapKit.framework */,
 				B01FA1EA2054463600863E05 /* IntentsUI.framework */,
@@ -396,16 +369,6 @@
 			path = Startup;
 			sourceTree = "<group>";
 		};
-		B01FA1E12054463600863E05 /* NeedsSiriExtension */ = {
-			isa = PBXGroup;
-			children = (
-				B0A8BFDB205F4DEE00077DF7 /* NeedsSiriExtension.entitlements */,
-				B01FA1E22054463600863E05 /* IntentHandler.swift */,
-				B01FA1E42054463600863E05 /* Info.plist */,
-			);
-			path = NeedsSiriExtension;
-			sourceTree = "<group>";
-		};
 		B0232DD9205842AE00E22B40 /* JSON Structures */ = {
 			isa = PBXGroup;
 			children = (
@@ -434,9 +397,7 @@
 		B03C07BB2033BDE2001A54C6 = {
 			isa = PBXGroup;
 			children = (
-				B01FA203205460DF00863E05 /* AppIntentVocabulary.plist */,
 				B03C07C62033BDE2001A54C6 /* Farm To Fork */,
-				B01FA1E12054463600863E05 /* NeedsSiriExtension */,
 				B0001661206349BD00101744 /* Farm To Fork For Apple Watch */,
 				B0001670206349BD00101744 /* Farm To Fork For Apple Watch Extension */,
 				B03C07C52033BDE2001A54C6 /* Products */,
@@ -449,7 +410,6 @@
 			isa = PBXGroup;
 			children = (
 				B03C07C42033BDE2001A54C6 /* Farm To Fork.app */,
-				B01FA1E02054463600863E05 /* NeedsSiriExtension.appex */,
 				B0001660206349BD00101744 /* Farm To Fork For Apple Watch.app */,
 				B000166C206349BD00101744 /* Farm To Fork For Apple Watch Extension.appex */,
 			);
@@ -535,6 +495,7 @@
 				B0232DDA205842BB00E22B40 /* Location.swift */,
 				B0A8BFCD205F171200077DF7 /* Need.swift */,
 				B00F9C15204F8D8100C5BC03 /* User.swift */,
+				B0BD371B210C1299005149FF /* PaginatedResults.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -623,6 +584,7 @@
 				B0ADAA1420520A2B00A0CD30 /* UIViewControllerExtensions.swift */,
 				B0479C3B206A80CA009083CB /* UIDeviceExtensions.swift */,
 				B044121C20841B3C0088F07F /* MFTextFieldExtensions.swift */,
+				B0C97BD52109705400AD8FA1 /* SCLAlertViewExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -704,7 +666,6 @@
 			isa = PBXGroup;
 			children = (
 				B0FEBC8A204E3F0B00982EAE /* Result.swift */,
-				B02A024020501A7100ABB4F9 /* RequestType.swift */,
 				B077904820535EF80099AD1F /* LoginPreferences.swift */,
 				B077904620535D2A0099AD1F /* Constants.swift */,
 			);
@@ -749,23 +710,6 @@
 			productReference = B000166C206349BD00101744 /* Farm To Fork For Apple Watch Extension.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
 		};
-		B01FA1DF2054463600863E05 /* NeedsSiriExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B01FA1FE2054463600863E05 /* Build configuration list for PBXNativeTarget "NeedsSiriExtension" */;
-			buildPhases = (
-				B01FA1DC2054463600863E05 /* Sources */,
-				B01FA1DD2054463600863E05 /* Frameworks */,
-				B01FA1DE2054463600863E05 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = NeedsSiriExtension;
-			productName = NeedsSiriExtension;
-			productReference = B01FA1E02054463600863E05 /* NeedsSiriExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 		B03C07C32033BDE2001A54C6 /* Farm To Fork */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B03C07D92033BDE2001A54C6 /* Build configuration list for PBXNativeTarget "Farm To Fork" */;
@@ -777,12 +721,10 @@
 				B01FA1FF2054463600863E05 /* Embed App Extensions */,
 				B0001685206349BD00101744 /* Embed Watch Content */,
 				2EB4A3E8B297AA0C2F049C78 /* [CP] Embed Pods Frameworks */,
-				669CB8EF6E54B8DE986487CA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B01FA1F72054463600863E05 /* PBXTargetDependency */,
 				B000167C206349BD00101744 /* PBXTargetDependency */,
 			);
 			name = "Farm To Fork";
@@ -811,6 +753,7 @@
 					};
 					B000166B206349BD00101744 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -821,17 +764,9 @@
 							};
 						};
 					};
-					B01FA1DF2054463600863E05 = {
-						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
-						SystemCapabilities = {
-							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
-							};
-						};
-					};
 					B03C07C32033BDE2001A54C6 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -864,7 +799,6 @@
 			projectRoot = "";
 			targets = (
 				B03C07C32033BDE2001A54C6 /* Farm To Fork */,
-				B01FA1DF2054463600863E05 /* NeedsSiriExtension */,
 				B000165F206349BD00101744 /* Farm To Fork For Apple Watch */,
 				B000166B206349BD00101744 /* Farm To Fork For Apple Watch Extension */,
 			);
@@ -889,20 +823,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B01FA1DE2054463600863E05 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B03C07C22033BDE2001A54C6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B03C07D52033BDE2001A54C6 /* LaunchScreen.storyboard in Resources */,
 				B03C07D22033BDE2001A54C6 /* Assets.xcassets in Resources */,
-				B01FA205205460DF00863E05 /* AppIntentVocabulary.plist in Resources */,
 				B03C07CD2033BDE2001A54C6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -919,32 +845,19 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Farm To Fork/Pods-Farm To Fork-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/DeviceKit/DeviceKit.framework",
 				"${BUILT_PRODUCTS_DIR}/MaterialTextField/MaterialTextField.framework",
+				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DeviceKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialTextField.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Farm To Fork/Pods-Farm To Fork-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		669CB8EF6E54B8DE986487CA /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Farm To Fork/Pods-Farm To Fork-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BD126C4B6F65DD740789393A /* [CP] Check Pods Manifest.lock */ = {
@@ -989,27 +902,9 @@
 				B000168820634D4300101744 /* WatchNeedsViewModel.swift in Sources */,
 				B0FC118B2063F731008A28B8 /* WatchSessionManager.swift in Sources */,
 				B0001672206349BD00101744 /* InterfaceController.swift in Sources */,
-				B000169020634F1300101744 /* RequestType.swift in Sources */,
 				B04B2DD92063C011007F07EE /* Constants.swift in Sources */,
 				B000168F20634F0A00101744 /* JSONAny.swift in Sources */,
 				B000168D20634EFD00101744 /* JSONService.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B01FA1DC2054463600863E05 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B0A8BFD7205F446C00077DF7 /* JSONAny.swift in Sources */,
-				B0B3BFFB2054C90D0074DF0D /* Result.swift in Sources */,
-				B0A8BFD6205F446300077DF7 /* JSONService.swift in Sources */,
-				B0A8BFDA205F47C400077DF7 /* StringExtensions.swift in Sources */,
-				B0A8BFD5205F445E00077DF7 /* NeedsService.swift in Sources */,
-				B01FA1E32054463600863E05 /* IntentHandler.swift in Sources */,
-				B0A8BFDE205F4EEF00077DF7 /* UserDefaults.swift in Sources */,
-				B0B3BFFC2054C93B0074DF0D /* Constants.swift in Sources */,
-				B0A8BFD8205F446F00077DF7 /* Need.swift in Sources */,
-				B0A8BFD9205F447C00077DF7 /* RequestType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1020,6 +915,7 @@
 				B0B7DA6720880CF300C36D40 /* TabBarController.swift in Sources */,
 				B0F133FA2051B2B2000187BA /* RegisterLocationViewModel.swift in Sources */,
 				B02613A0205B462A0067B378 /* NeedsViewModel.swift in Sources */,
+				B0BD371C210C1299005149FF /* PaginatedResults.swift in Sources */,
 				ABC95046205AB82C00DC8890 /* UserProfileViewController.swift in Sources */,
 				B0FEBC8B204E3F0B00982EAE /* Result.swift in Sources */,
 				B0DC7C77206920F600E544D2 /* DoubleExtensions.swift in Sources */,
@@ -1047,6 +943,7 @@
 				B0CD0EA620506F1B00FBE902 /* RegisterAccountSegue.swift in Sources */,
 				B0B3BFF92054BE450074DF0D /* MapViewModel.swift in Sources */,
 				B077904920535EF80099AD1F /* LoginPreferences.swift in Sources */,
+				B0C97BD62109705400AD8FA1 /* SCLAlertViewExtensions.swift in Sources */,
 				B0272DEC2068920100F8F2E2 /* LocationInfoViewModel.swift in Sources */,
 				B06E3EEC2069C196003ED34C /* MatchedLocationTableViewCell.swift in Sources */,
 				B00F9C16204F8D8100C5BC03 /* User.swift in Sources */,
@@ -1062,7 +959,6 @@
 				B0554DAB2069624D00A49E74 /* LocationInfoDelegate.swift in Sources */,
 				B0ADAA17205223D900A0CD30 /* RegisterViewModel.swift in Sources */,
 				B01E3D8C2053405B00106CA4 /* StartupViewController.swift in Sources */,
-				B02A024120501A7100ABB4F9 /* RequestType.swift in Sources */,
 				B077904520535BC60099AD1F /* StartupViewModel.swift in Sources */,
 				B0A8BFD2205F3AC300077DF7 /* PledgeDelegate.swift in Sources */,
 				B03C07C82033BDE2001A54C6 /* AppDelegate.swift in Sources */,
@@ -1101,11 +997,6 @@
 			target = B000165F206349BD00101744 /* Farm To Fork For Apple Watch */;
 			targetProxy = B000167B206349BD00101744 /* PBXContainerItemProxy */;
 		};
-		B01FA1F72054463600863E05 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B01FA1DF2054463600863E05 /* NeedsSiriExtension */;
-			targetProxy = B01FA1F62054463600863E05 /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -1115,14 +1006,6 @@
 				B0001663206349BD00101744 /* Base */,
 			);
 			name = Interface.storyboard;
-			sourceTree = "<group>";
-		};
-		B01FA203205460DF00863E05 /* AppIntentVocabulary.plist */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B01FA204205460DF00863E05 /* Base */,
-			);
-			name = AppIntentVocabulary.plist;
 			sourceTree = "<group>";
 		};
 		B03C07CB2033BDE2001A54C6 /* Main.storyboard */ = {
@@ -1198,7 +1081,7 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 4.0;
 			};
@@ -1216,43 +1099,9 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 4.0;
-			};
-			name = Release;
-		};
-		B01FA1F92054463600863E05 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = NeedsSiriExtension/NeedsSiriExtension.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 667D8S5SPP;
-				INFOPLIST_FILE = NeedsSiriExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.domenic.bianchi.FarmToFork.NeedsSiriKitExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		B01FA1FA2054463600863E05 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = NeedsSiriExtension/NeedsSiriExtension.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 667D8S5SPP;
-				INFOPLIST_FILE = NeedsSiriExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.domenic.bianchi.FarmToFork.NeedsSiriKitExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -1379,12 +1228,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 667D8S5SPP;
 				INFOPLIST_FILE = "Farm To Fork/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.domenic.bianchi.FarmToFork;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1400,12 +1249,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 667D8S5SPP;
 				INFOPLIST_FILE = "Farm To Fork/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.domenic.bianchi.FarmToFork;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1427,15 +1276,6 @@
 			buildConfigurations = (
 				B000167E206349BD00101744 /* Debug */,
 				B000167F206349BD00101744 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B01FA1FE2054463600863E05 /* Build configuration list for PBXNativeTarget "NeedsSiriExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B01FA1F92054463600863E05 /* Debug */,
-				B01FA1FA2054463600863E05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

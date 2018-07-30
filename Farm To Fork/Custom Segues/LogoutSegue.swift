@@ -12,11 +12,11 @@ final class LogoutSegue: UIStoryboardSegue {
     // MARK: - Segue Functions
     override func perform() {
         let transition: CATransition = CATransition()
-        let timeFunc : CAMediaTimingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        let timeFunc : CAMediaTimingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         transition.duration = 0.5
         transition.timingFunction = timeFunc
-        transition.type = kCATransitionReveal
-        transition.subtype = kCATransitionFromBottom
+        transition.type = CATransitionType.reveal
+        transition.subtype = CATransitionSubtype.fromBottom
         source.navigationController?.view.layer.add(transition, forKey: kCATransition)
         source.navigationController?.pushViewController(destination, animated: false)
     }

@@ -52,7 +52,6 @@ struct User {
 		self.city = (key: city, value: "")
 	}
 	
-	
 	init(_ user: User) {
 		self.firstName = user.firstName
 		self.lastName = user.lastName

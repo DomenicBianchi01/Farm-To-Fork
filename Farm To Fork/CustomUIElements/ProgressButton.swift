@@ -17,21 +17,21 @@ final class ProgressButton: UIButton {
     override init(frame: CGRect) {
         let activityIndicator = UIActivityIndicatorView()
         activityIndicator.hidesWhenStopped = true
-        activityIndicator.activityIndicatorViewStyle = .white
+        activityIndicator.style = .white
         self.activityIndicator = activityIndicator
         super.init(frame: frame)
-        addConstraints(to: self.activityIndicator)
         addSubview(activityIndicator)
+        addConstraints(to: self.activityIndicator)
     }
     
     required init?(coder aDecoder: NSCoder) {
         let activityIndicator = UIActivityIndicatorView()
         activityIndicator.hidesWhenStopped = true
-        activityIndicator.activityIndicatorViewStyle = .white
+        activityIndicator.style = .white
         self.activityIndicator = activityIndicator
         super.init(coder: aDecoder)
-        addConstraints(to: self.activityIndicator)
         addSubview(activityIndicator)
+        addConstraints(to: self.activityIndicator)
     }
     
     // MARK: - Activity Indicator Functions
@@ -52,11 +52,11 @@ final class ProgressButton: UIButton {
     
     // MARK: - Private Helper Functions
     private func addConstraints(to activityIndicator: UIActivityIndicatorView) {
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+
         let xCenterConstraint = NSLayoutConstraint(item: self, attribute: .centerX, relatedBy: .equal, toItem: activityIndicator, attribute: .centerX, multiplier: 1, constant: 0)
         let yCenterConstraint = NSLayoutConstraint(item: self, attribute: .centerY, relatedBy: .equal, toItem: activityIndicator, attribute: .centerY, multiplier: 1, constant: 0)
-        
-        addConstraint(xCenterConstraint)
-        addConstraint(yCenterConstraint)
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([xCenterConstraint, yCenterConstraint])
     }
 }

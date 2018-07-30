@@ -227,7 +227,7 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
 	func getEFPLocations()
 	{
 		
-		LocationsService().fetchLocations(forCity: "150", generateCoordinates: true) {  result in
+		LocationsService().fetchLocations(forCity: "150") {  result in
 			DispatchQueue.main.async {
 			switch result {
 			case .success(let locations):

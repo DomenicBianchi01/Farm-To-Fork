@@ -12,11 +12,11 @@ final class RegisterAccountSegue: UIStoryboardSegue {
     // MARK: - Segue Functions
     override func perform() {
         let transition: CATransition = CATransition()
-        let timeFunc : CAMediaTimingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        let timeFunc : CAMediaTimingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         transition.duration = 0.25
         transition.timingFunction = timeFunc
-        transition.type = kCATransitionPush
-        transition.subtype = kCATransitionFromRight
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromRight
         source.navigationController?.view.layer.add(transition, forKey: kCATransition)
         source.navigationController?.pushViewController(destination, animated: false)
     }

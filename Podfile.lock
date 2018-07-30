@@ -1,18 +1,28 @@
 PODS:
-  - DeviceKit (1.4.0)
-  - MaterialTextField (0.2.1)
+  - DeviceKit (1.7.0)
+  - MaterialTextField (1.0.1)
+  - SCLAlertView (0.8)
   - SwiftKeychainWrapper (3.0.1)
 
 DEPENDENCIES:
   - DeviceKit
-  - MaterialTextField
+  - MaterialTextField (= 1.0.1)
+  - SCLAlertView
   - SwiftKeychainWrapper
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - DeviceKit
+    - MaterialTextField
+    - SCLAlertView
+    - SwiftKeychainWrapper
+
 SPEC CHECKSUMS:
-  DeviceKit: fa74d97499660e88081718b16688e19217595dba
-  MaterialTextField: f876a39d571eeece872af6a4da421e3bd065fe0b
+  DeviceKit: 6a5bdeb103c03757bb94aef1ccb01e08bc8ef4ee
+  MaterialTextField: f1a0786588e4d3610cb9bb62d2adbe9777cebbf9
+  SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
 
-PODFILE CHECKSUM: 33c6765d467d73e1dd57183344acd016dfdd962d
+PODFILE CHECKSUM: d0d3a5085ec5b1ed07e965b565dc7599f2db752c
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3

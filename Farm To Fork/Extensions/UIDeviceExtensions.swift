@@ -10,7 +10,7 @@ import UIKit
 
 extension UIDevice {
     /// For alert controllers that display as an Action Sheet on iPhone, this property will make sure the alert controller displays as an Alert on iPad.
-    static var alertStyle: UIAlertControllerStyle {
+    static var alertStyle: UIAlertController.Style {
         return UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone ? .actionSheet : .alert
     }
 }

@@ -12,6 +12,7 @@ struct Constants {
     static let passwordSaved = "PasswordSaved"
     static let password = "password"
     static let username = "username"
+    static let token = "token"
     static let loginPreference = "LoginPreference"
     static let preferredLocationId = "PreferredLocationID" //MAYBE TODO: Remove preferredLocationId and preferredLocationName and store the entire Location object in UserDefaults
     static let preferredLocationName = "PreferredLocationName" //MAYBE TODO: Remove preferredLocationId and preferredLocationName and store the entire Location object in UserDefaults
