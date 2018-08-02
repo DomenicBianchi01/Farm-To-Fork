@@ -105,7 +105,7 @@ final class TabBarController: UITabBarController {
                 activity.userInfo = ["color" : "red"]
                 activity.isEligibleForSearch = true
                 activity.isEligibleForPrediction = true
-                activity.persistentIdentifier = NSUserActivityPersistentIdentifier(rawValue: "com.domenic.bianchi.FarmToFork.siriShortcut")
+                activity.persistentIdentifier = NSUserActivityPersistentIdentifier("com.domenic.bianchi.FarmToFork.siriShortcut")
                 view.userActivity = activity
                 activity.becomeCurrent()
             }

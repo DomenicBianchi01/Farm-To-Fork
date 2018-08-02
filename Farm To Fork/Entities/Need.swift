@@ -10,14 +10,13 @@ import Foundation
 
 struct Need {
     // MARK: - Properties
+    let id: Int
     let name: String
     let description: String
     let type: String
     let category: String
     let targetQuantity: Int
     let currentQuantity: Int
-    
-    //TODO: Needs to have an ID property
     
     // MARK: - Lifecycle Functions
     init?(dictionary: [String : String]) {
@@ -38,5 +37,8 @@ struct Need {
         self.category = category
         self.targetQuantity = targetQuantityInt
         self.currentQuantity = currentQuantityInt
+        
+        //TODO: GET ID BACK FROM API RESPONSE
+        self.id = 0
     }
 }

@@ -32,7 +32,7 @@ class Location {
     /**
      Coordinates for the location. On iOS applications, if coordinates are not included within the `dictionary` in the intializer, an attempt to generate coordinates will be made (based on `fullAddress`).
      
-    WatchOS Note: If the `dictionary` provided in the initializer does not contain coordinates, coordinates will not be generated.
+     WatchOS Note: If the `dictionary` provided in the initializer does not contain coordinates, coordinates will not be generated.
      */
     private(set) var coordinates: CLLocationCoordinate2D? = nil
     

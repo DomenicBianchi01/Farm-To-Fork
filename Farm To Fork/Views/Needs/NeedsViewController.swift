@@ -162,7 +162,7 @@ extension NeedsViewController: PledgeDelegate {
             guard let textField = alert.textFields?.first, let pledgedAmount = Int(textField.text ?? "") else {
                 return
             }
-            PledgeService().makePledge(needID: 0 /*TODO*/, quantity: pledgedAmount) { _ in
+            PledgeService().pledge(needID: need.id, quantity: pledgedAmount) { _ in
                 //TODO
             }
         }

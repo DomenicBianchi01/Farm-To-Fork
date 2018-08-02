@@ -9,8 +9,16 @@
 import Foundation
 
 final class PledgeService: JSONService {
-    /// NOTE: Calling this function does nothing since the Pledge API does not yet exist. Function parameters will be added once the API is created.
-    func makePledge(needID: Int, quantity: Int, with completion: @escaping ((Result<Void>) -> Void)) {
-        completion(.error(NSError(domain: "The Pledge API does not yet exist", code: 0, userInfo: nil)))
+    func pledge(needID: Int, quantity: Int, with completion: @escaping ((Result<Void>) -> Void)) {
+        let body = ["needID" : needID, "quantity" : quantity]
+
+        request(from: "https://farmtofork.marshallasch.ca/api.php/2.0/pledge", requestType: .post, body: body, expecting: [String : String].self) { result in
+            switch result {
+            case .success(let result):
+                completion(.success(()))
+            case .error(let error):
+                completion(.error(error))
+            }
+        }
     }
 }

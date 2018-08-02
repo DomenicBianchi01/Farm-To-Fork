@@ -55,10 +55,9 @@ extension UIViewController {
                 SCLAlertView().showError(title, subTitle: message, closeButtonTitle: closeButtonTitle)
             case .notice:
                 SCLAlertView().showNotice(title, subTitle: message, closeButtonTitle: closeButtonTitle)
-            case .info:
-                SCLAlertView().showInfo(title, subTitle: message, closeButtonTitle: closeButtonTitle)
             default:
-                break //TODO
+                // Default to info type
+                SCLAlertView().showInfo(title, subTitle: message, closeButtonTitle: closeButtonTitle)
             }
         }
     }

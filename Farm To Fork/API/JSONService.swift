@@ -48,9 +48,8 @@ class JSONService {
     func request<T: Decodable>(from urlString: String,
                                requestType: RequestType = .get,
                                body: [String : Any]? = nil,
-                               //cookies: [HTTPCookie]? = nil,
-        expecting type: T.Type,
-        completion: @escaping (Result<T>) -> Void) {
+                               expecting type: T.Type,
+                               completion: @escaping (Result<T>) -> Void) {
         
         guard let url = URL(string: urlString) else {
             completion(.error(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
@@ -77,12 +76,12 @@ class JSONService {
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
         }
         #endif
-        
+
+        //This class only supports running one network request at a time so if there is a request currently in progress, cancel it.
         urlDataTask?.cancel()
+
         let newSession = URLSession.self
-        //        if let cookies = cookies {
-        //            newSession.shared.configuration.httpCookieStorage?.setCookies(cookies, for: url, mainDocumentURL: nil)
-        //        }
+
         urlDataTask = newSession.shared.dataTask(with: request) { (data, response, error) in
             #if os(iOS)
             DispatchQueue.main.async {
@@ -113,10 +112,8 @@ class JSONService {
                     }
                 } else if let success = (jsonDict["success"] as? String)?.asBool, success {
                     jsonDict.removeValue(forKey: "success")
-                    //self.saveCookies(response: response)
                     completion(.success(jsonDict as? T ?? json))
                 } else {
-                    //self.saveCookies(response: response)
                     completion(.success(json))
                 }
             } catch {
@@ -124,27 +121,5 @@ class JSONService {
             }
         }
         urlDataTask?.resume()
-    }
-    
-    private func saveCookies(response: URLResponse?) {
-        guard let response = response as? HTTPURLResponse, let fields = response.allHeaderFields as? [String : String], let url = response.url else {
-            return
-        }
-        let cookies = HTTPCookie.cookies(withResponseHeaderFields: fields, for: url)
-        HTTPCookieStorage.shared.setCookies(cookies, for: url, mainDocumentURL: nil)
-        /*for cookie in cookies {
-         var cookieProperties = [HTTPCookiePropertyKey: Any]()
-         cookieProperties[HTTPCookiePropertyKey.name] = cookie.name
-         cookieProperties[HTTPCookiePropertyKey.value] = cookie.value
-         cookieProperties[HTTPCookiePropertyKey.domain] = cookie.domain
-         cookieProperties[HTTPCookiePropertyKey.path] = cookie.path
-         cookieProperties[HTTPCookiePropertyKey.version] = NSNumber(value: cookie.version)
-         cookieProperties[HTTPCookiePropertyKey.expires] = NSDate().addingTimeInterval(31536000)
-         
-         let newCookie = HTTPCookie(properties: cookieProperties)
-         HTTPCookieStorage.shared.setCookie(newCookie!)
-         
-         print("name: \(cookie.name) value: \(cookie.value)")
-         }*/
     }
 }
