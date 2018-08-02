@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SwiftKeychainWrapper
+import Valet
 import MessageUI
 
 final class ProfileViewModel {
@@ -20,7 +20,7 @@ final class ProfileViewModel {
     }
 
     func logout() {
-        _ = KeychainWrapper.standard.removeAllKeys()
+        Valet.F2FValet.removeAllObjects()
         UserDefaults.resetAppGroup()
         isLoggedIn = false
         //TODO: Call Logout API

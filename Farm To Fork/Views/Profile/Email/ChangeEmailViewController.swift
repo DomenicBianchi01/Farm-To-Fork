@@ -8,7 +8,7 @@
 
 import UIKit
 import MaterialTextField
-import SwiftKeychainWrapper
+import Valet
 
 final class ChangeEmailViewController: UIViewController {
     // MARK: - IBOutlets
@@ -22,7 +22,7 @@ final class ChangeEmailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        currentAddressLabel.text = KeychainWrapper.standard.string(forKey: Constants.username) ?? "Unknown"
+        currentAddressLabel.text = Valet.F2FValet.string(forKey: Constants.username) ?? "Unknown"
     }
 
     override func didReceiveMemoryWarning() {

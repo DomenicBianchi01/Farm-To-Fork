@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Valet
 
 /**
  A class meant to be inherited by `Service` classes. This class helps encode JSON requests and decodes JSON responses. This class should never be used directly from a view model.
@@ -18,8 +19,8 @@ class JSONService {
     ///IMPORTANT NOTE: For the scope of this project, the `JSONService` can only handle one network call at a time
     private var urlDataTask: URLSessionDataTask? = nil
     
-    private var accessToken: String {
-        return "TODO: Fetch for keychain"
+    private var accessToken: String? {
+        return Valet.F2FValet.string(forKey: Constants.token)
     }
     
     // MARK: - Enums

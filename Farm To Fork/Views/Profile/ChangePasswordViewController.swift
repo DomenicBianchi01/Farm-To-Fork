@@ -8,7 +8,7 @@
 
 import UIKit
 import MaterialTextField
-import SwiftKeychainWrapper
+import Valet
 
 final class ChangePasswordViewController: UIViewController {
 	@IBOutlet var oldPass: MFTextField!
@@ -40,7 +40,7 @@ final class ChangePasswordViewController: UIViewController {
 		
 		let oldPassword = oldPass.text ?? ""
 		
-		guard let username = KeychainWrapper.standard.string(forKey: Constants.username), let password = KeychainWrapper.standard.string(forKey: Constants.password) else {
+		guard let username = Valet.F2FValet.string(forKey: Constants.username), let password = Valet.F2FValet.string(forKey: Constants.password) else {
 			self.performSegue(withIdentifier: Constants.Segues.loginStart, sender: self)
 			return
 		}
@@ -63,7 +63,7 @@ final class ChangePasswordViewController: UIViewController {
 					case .success:
 						
 						// update the stored password
-						KeychainWrapper.standard.set(newPass, forKey: Constants.password)
+                        Valet.F2FValet.set(string: newPass, forKey: Constants.password)
 						
 						// go back to the profile page
 						self.performSegue(withIdentifier: "unwindToProfile", sender: self)

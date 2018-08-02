@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SwiftKeychainWrapper
+import Valet
 
 class UserProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // MARK: - IBOutlets
@@ -77,10 +77,9 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
 	{
 		
 		
-		guard let username = KeychainWrapper.standard.string(forKey: Constants.username), let password = KeychainWrapper.standard.string(forKey: Constants.password) else {
-			return
-		}
-		
+        guard let username = Valet.F2FValet.string(forKey: Constants.username), let password = Valet.F2FValet.string(forKey: Constants.password) else {
+            return
+        }
 
 		UpdateUserService().fetchUserData(email: username, pass: password){ result in
 			DispatchQueue.main.async {

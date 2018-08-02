@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		070FB37A3CC51BFFDF1DEE18 /* Pods_Farm_To_Fork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1551C5C983ADC0EFB6C50AF2 /* Pods_Farm_To_Fork.framework */; };
+		A9E6F4DD9398BB9A7E617144 /* Pods_Farm_To_Fork_For_Apple_Watch_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC708DE4A300E226147777A /* Pods_Farm_To_Fork_For_Apple_Watch_Extension.framework */; };
 		AB9B39FF20617FE60088BFC4 /* UpdateUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9B39FE20617FE60088BFC4 /* UpdateUserService.swift */; };
 		ABC95046205AB82C00DC8890 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC95045205AB82C00DC8890 /* UserProfileViewController.swift */; };
 		ABC9504A205AB8C300DC8890 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC95049205AB8C300DC8890 /* ChangePasswordViewController.swift */; };
@@ -61,6 +62,8 @@
 		B077904520535BC60099AD1F /* StartupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B077904420535BC60099AD1F /* StartupViewModel.swift */; };
 		B077904720535D2A0099AD1F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B077904620535D2A0099AD1F /* Constants.swift */; };
 		B077904920535EF80099AD1F /* LoginPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = B077904820535EF80099AD1F /* LoginPreferences.swift */; };
+		B07D2E54210EB6220066E19B /* ValetExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D2E53210EB6220066E19B /* ValetExtensions.swift */; };
+		B07D2E55210EB9A60066E19B /* ValetExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D2E53210EB6220066E19B /* ValetExtensions.swift */; };
 		B097574B2082DD2E003AAF22 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B097574A2082DD2E003AAF22 /* ProfileViewModel.swift */; };
 		B097574E2082DEAF003AAF22 /* ProfileOptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B097574D2082DEAF003AAF22 /* ProfileOptionTableViewCell.swift */; };
 		B0A8BFC9205EFB0D00077DF7 /* LogoutSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8BFC8205EFB0D00077DF7 /* LogoutSegue.swift */; };
@@ -80,7 +83,6 @@
 		B0BD371C210C1299005149FF /* PaginatedResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BD371B210C1299005149FF /* PaginatedResults.swift */; };
 		B0C6EC9E205972150064F2B5 /* NeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C6EC9D205972150064F2B5 /* NeedsViewController.swift */; };
 		B0C898422082D14A00E7514F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C898412082D14A00E7514F /* ProfileViewController.swift */; };
-		B0C97BD62109705400AD8FA1 /* SCLAlertViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C97BD52109705400AD8FA1 /* SCLAlertViewExtensions.swift */; };
 		B0CD0EA620506F1B00FBE902 /* RegisterAccountSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD0EA520506F1B00FBE902 /* RegisterAccountSegue.swift */; };
 		B0CD0EA82050716F00FBE902 /* WallpaperWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD0EA72050716F00FBE902 /* WallpaperWindow.swift */; };
 		B0CD0EAB205078AA00FBE902 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD0EAA205078AA00FBE902 /* RegisterViewController.swift */; };
@@ -164,6 +166,8 @@
 
 /* Begin PBXFileReference section */
 		1551C5C983ADC0EFB6C50AF2 /* Pods_Farm_To_Fork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Farm_To_Fork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BA17E634D638ABBCC2ADDD5 /* Pods-Farm To Fork For Apple Watch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Farm To Fork For Apple Watch Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Farm To Fork For Apple Watch Extension/Pods-Farm To Fork For Apple Watch Extension.debug.xcconfig"; sourceTree = "<group>"; };
+		A4B6F519D0B235A2AA6A9568 /* Pods-Farm To Fork For Apple Watch Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Farm To Fork For Apple Watch Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-Farm To Fork For Apple Watch Extension/Pods-Farm To Fork For Apple Watch Extension.release.xcconfig"; sourceTree = "<group>"; };
 		AB9B39FE20617FE60088BFC4 /* UpdateUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserService.swift; sourceTree = "<group>"; };
 		ABC95045205AB82C00DC8890 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		ABC95049205AB8C300DC8890 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
@@ -219,6 +223,8 @@
 		B077904420535BC60099AD1F /* StartupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupViewModel.swift; sourceTree = "<group>"; };
 		B077904620535D2A0099AD1F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B077904820535EF80099AD1F /* LoginPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPreferences.swift; sourceTree = "<group>"; };
+		B07D2E4D210EB4CA0066E19B /* Valet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Valet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B07D2E53210EB6220066E19B /* ValetExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValetExtensions.swift; sourceTree = "<group>"; };
 		B097574A2082DD2E003AAF22 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		B097574D2082DEAF003AAF22 /* ProfileOptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileOptionTableViewCell.swift; sourceTree = "<group>"; };
 		B0A8BFC8205EFB0D00077DF7 /* LogoutSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutSegue.swift; sourceTree = "<group>"; };
@@ -238,7 +244,6 @@
 		B0BD371B210C1299005149FF /* PaginatedResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginatedResults.swift; sourceTree = "<group>"; };
 		B0C6EC9D205972150064F2B5 /* NeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsViewController.swift; sourceTree = "<group>"; };
 		B0C898412082D14A00E7514F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		B0C97BD52109705400AD8FA1 /* SCLAlertViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCLAlertViewExtensions.swift; sourceTree = "<group>"; };
 		B0CD0EA520506F1B00FBE902 /* RegisterAccountSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAccountSegue.swift; sourceTree = "<group>"; };
 		B0CD0EA72050716F00FBE902 /* WallpaperWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperWindow.swift; sourceTree = "<group>"; };
 		B0CD0EAA205078AA00FBE902 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -262,6 +267,7 @@
 		B0FEBC8A204E3F0B00982EAE /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		B0FEBC8C204E3FF200982EAE /* JSONService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONService.swift; sourceTree = "<group>"; };
 		B639635381868D60B36A6F4C /* Pods-Farm To Fork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Farm To Fork.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Farm To Fork/Pods-Farm To Fork.debug.xcconfig"; sourceTree = "<group>"; };
+		DBC708DE4A300E226147777A /* Pods_Farm_To_Fork_For_Apple_Watch_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Farm_To_Fork_For_Apple_Watch_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F705216B0905249711BECA92 /* Pods-Farm To Fork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Farm To Fork.release.xcconfig"; path = "Pods/Target Support Files/Pods-Farm To Fork/Pods-Farm To Fork.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -277,6 +283,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9E6F4DD9398BB9A7E617144 /* Pods_Farm_To_Fork_For_Apple_Watch_Extension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +306,8 @@
 			children = (
 				B639635381868D60B36A6F4C /* Pods-Farm To Fork.debug.xcconfig */,
 				F705216B0905249711BECA92 /* Pods-Farm To Fork.release.xcconfig */,
+				9BA17E634D638ABBCC2ADDD5 /* Pods-Farm To Fork For Apple Watch Extension.debug.xcconfig */,
+				A4B6F519D0B235A2AA6A9568 /* Pods-Farm To Fork For Apple Watch Extension.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -306,11 +315,13 @@
 		4D91C78F0126573F42E8DEBF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B07D2E4D210EB4CA0066E19B /* Valet.framework */,
 				B0033CAE20FEC8C1009B7932 /* Intents.framework */,
 				B0EED74E20574AC6008CF4D5 /* LocalAuthentication.framework */,
 				B01E3D8820533D1F00106CA4 /* MapKit.framework */,
 				B01FA1EA2054463600863E05 /* IntentsUI.framework */,
 				1551C5C983ADC0EFB6C50AF2 /* Pods_Farm_To_Fork.framework */,
+				DBC708DE4A300E226147777A /* Pods_Farm_To_Fork_For_Apple_Watch_Extension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -584,7 +595,7 @@
 				B0ADAA1420520A2B00A0CD30 /* UIViewControllerExtensions.swift */,
 				B0479C3B206A80CA009083CB /* UIDeviceExtensions.swift */,
 				B044121C20841B3C0088F07F /* MFTextFieldExtensions.swift */,
-				B0C97BD52109705400AD8FA1 /* SCLAlertViewExtensions.swift */,
+				B07D2E53210EB6220066E19B /* ValetExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -697,9 +708,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B0001682206349BD00101744 /* Build configuration list for PBXNativeTarget "Farm To Fork For Apple Watch Extension" */;
 			buildPhases = (
+				918EEDD3123AACE3B44A8473 /* [CP] Check Pods Manifest.lock */,
 				B0001668206349BD00101744 /* Sources */,
 				B0001669206349BD00101744 /* Frameworks */,
 				B000166A206349BD00101744 /* Resources */,
+				3C787E1335D25901A635F686 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -846,18 +859,54 @@
 				"${BUILT_PRODUCTS_DIR}/DeviceKit/DeviceKit.framework",
 				"${BUILT_PRODUCTS_DIR}/MaterialTextField/MaterialTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
+				"${BUILT_PRODUCTS_DIR}/Valet-iOS/Valet.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DeviceKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Valet.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Farm To Fork/Pods-Farm To Fork-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3C787E1335D25901A635F686 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Farm To Fork For Apple Watch Extension/Pods-Farm To Fork For Apple Watch Extension-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Valet-watchOS/Valet.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Valet.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Farm To Fork For Apple Watch Extension/Pods-Farm To Fork For Apple Watch Extension-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		918EEDD3123AACE3B44A8473 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Farm To Fork For Apple Watch Extension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BD126C4B6F65DD740789393A /* [CP] Check Pods Manifest.lock */ = {
@@ -889,6 +938,7 @@
 				B000169120634F1C00101744 /* StringExtensions.swift in Sources */,
 				B0001676206349BD00101744 /* NotificationController.swift in Sources */,
 				B04B2DDC2063C1E1007F07EE /* NeedRowController.swift in Sources */,
+				B07D2E55210EB9A60066E19B /* ValetExtensions.swift in Sources */,
 				B000168B20634E2C00101744 /* Need.swift in Sources */,
 				B0FC118C2063F74E008A28B8 /* UserDefaults.swift in Sources */,
 				B0FC118D2063FDF0008A28B8 /* ErrorExtensions.swift in Sources */,
@@ -916,6 +966,7 @@
 				B0F133FA2051B2B2000187BA /* RegisterLocationViewModel.swift in Sources */,
 				B02613A0205B462A0067B378 /* NeedsViewModel.swift in Sources */,
 				B0BD371C210C1299005149FF /* PaginatedResults.swift in Sources */,
+				B07D2E54210EB6220066E19B /* ValetExtensions.swift in Sources */,
 				ABC95046205AB82C00DC8890 /* UserProfileViewController.swift in Sources */,
 				B0FEBC8B204E3F0B00982EAE /* Result.swift in Sources */,
 				B0DC7C77206920F600E544D2 /* DoubleExtensions.swift in Sources */,
@@ -943,7 +994,6 @@
 				B0CD0EA620506F1B00FBE902 /* RegisterAccountSegue.swift in Sources */,
 				B0B3BFF92054BE450074DF0D /* MapViewModel.swift in Sources */,
 				B077904920535EF80099AD1F /* LoginPreferences.swift in Sources */,
-				B0C97BD62109705400AD8FA1 /* SCLAlertViewExtensions.swift in Sources */,
 				B0272DEC2068920100F8F2E2 /* LocationInfoViewModel.swift in Sources */,
 				B06E3EEC2069C196003ED34C /* MatchedLocationTableViewCell.swift in Sources */,
 				B00F9C16204F8D8100C5BC03 /* User.swift in Sources */,
@@ -1071,6 +1121,7 @@
 		};
 		B0001680206349BD00101744 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BA17E634D638ABBCC2ADDD5 /* Pods-Farm To Fork For Apple Watch Extension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
@@ -1089,6 +1140,7 @@
 		};
 		B0001681206349BD00101744 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4B6F519D0B235A2AA6A9568 /* Pods-Farm To Fork For Apple Watch Extension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;

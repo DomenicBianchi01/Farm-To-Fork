@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import SwiftKeychainWrapper
+import Valet
 
 final class LoginViewModel {
     // MARK: - Properties
@@ -30,7 +30,7 @@ final class LoginViewModel {
     
     func savePasswordToKeychain() {
         if newManualSignIn {
-            if KeychainWrapper.standard.set(user.password, forKey: Constants.password) && KeychainWrapper.standard.set(user.email, forKey: Constants.username) {
+            if Valet.F2FValet.set(string: user.password, forKey: Constants.password) && Valet.F2FValet.set(string: user.email, forKey: Constants.username) {
                 UserDefaults.appGroup?.set(true, forKey: Constants.passwordSaved)
             }
         }
@@ -38,7 +38,8 @@ final class LoginViewModel {
     
     // MARK: - Functions
     func removePasswordFromKeychain() {
-        if KeychainWrapper.standard.removeAllKeys() {
+        //TODO: Shouldn't I just be removing username/password?
+        if Valet.F2FValet.removeAllObjects() {
             UserDefaults.appGroup?.removeObject(forKey: Constants.passwordSaved)
         }
     }

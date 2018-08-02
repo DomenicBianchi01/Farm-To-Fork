@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import SwiftKeychainWrapper
+import Valet
 
 final class LoginService: JSONService {
     func login(user: User, with completion: @escaping (Result<Void>) -> Void) {
@@ -34,6 +34,6 @@ final class LoginService: JSONService {
     
     // MARK: - Private Helper Functions
     private func saveToken(_ token: String) -> Bool {
-        return KeychainWrapper.standard.set(token, forKey: Constants.token)
+        return Valet.F2FValet.set(string: token, forKey: Constants.token)
     }
 }

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SwiftKeychainWrapper
+import Valet
 import LocalAuthentication
 
 final class StartupViewController: UIViewController {
@@ -21,7 +21,7 @@ final class StartupViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        guard let username = KeychainWrapper.standard.string(forKey: Constants.username), let password = KeychainWrapper.standard.string(forKey: Constants.password) else {
+        guard let username = Valet.F2FValet.string(forKey: Constants.username), let password = Valet.F2FValet.string(forKey: Constants.password) else {
             self.performSegue(withIdentifier: Constants.Segues.loginStart, sender: self)
             return
         }

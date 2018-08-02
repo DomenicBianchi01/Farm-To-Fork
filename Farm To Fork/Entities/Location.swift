@@ -29,7 +29,8 @@ class Location {
     /// Provides the `streetNumber`, `streetName`, and `unitNumber` (if applicable) on one line; then `cityName`, and `postalCode` on a second line
     let fullAddressWithNewlines: String
     
-    /** Coordinates for the location. On iOS applications, if coordinates are not included within the `dictionary` in the intializer, an attempt to generate coordinates will be made (based on `fullAddress`).
+    /**
+     Coordinates for the location. On iOS applications, if coordinates are not included within the `dictionary` in the intializer, an attempt to generate coordinates will be made (based on `fullAddress`).
      
     WatchOS Note: If the `dictionary` provided in the initializer does not contain coordinates, coordinates will not be generated.
      */
