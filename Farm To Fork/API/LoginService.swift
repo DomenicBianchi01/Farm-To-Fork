@@ -17,6 +17,8 @@ final class LoginService: JSONService {
         request(from: "https://farmtofork.marshallasch.ca/api.php/2.0/user/login", requestType: .post, body: body, expecting: [String : String].self) { result in
             switch result {
             case .success(let result):
+                completion(.success(()))
+                return //Token auth not yet implemented on backend
                 guard let token = result["token"] else {
                     completion(.error(NSError(domain: "No access token returned in response", code: 0, userInfo: nil)))
                     return

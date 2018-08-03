@@ -24,10 +24,10 @@ final class MapViewModel {
                 self.locations = locations
                 NotificationCenter.default.post(name: .locationsFetched, object: nil, userInfo: [NotificationKeys.locations : locations])
                 for location in locations {
-                    guard let coordinates = location.coordinates else {
-                        continue
-                    }
-                    self.locationMarkers.append(EFPMarker(title: location.name, coordinate: coordinates, id: location.id))
+//                    guard let coordinates = location.coordinates else {
+//                        continue
+//                    }
+                    self.locationMarkers.append(EFPMarker(title: location.name, coordinate: location.coordinates, id: location.id))
                 }
                 completion(.success(()))
             case .error(let error):

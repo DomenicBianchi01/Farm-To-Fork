@@ -9,7 +9,7 @@
 import Foundation
 import CoreLocation
 
-class Location {
+class Location: Decodable {
     // MARK: - Properties
     let id: String
     let name: String
@@ -18,6 +18,7 @@ class Location {
     let streetNumber: String
     let postalCode: String
     let cityName: String
+    let coordinates: CLLocationCoordinate2D
     let email: String?
     let fax: String?
     let website: String?
@@ -28,13 +29,6 @@ class Location {
     let fullAddress: String
     /// Provides the `streetNumber`, `streetName`, and `unitNumber` (if applicable) on one line; then `cityName`, and `postalCode` on a second line
     let fullAddressWithNewlines: String
-    
-    /**
-     Coordinates for the location. On iOS applications, if coordinates are not included within the `dictionary` in the intializer, an attempt to generate coordinates will be made (based on `fullAddress`).
-     
-     WatchOS Note: If the `dictionary` provided in the initializer does not contain coordinates, coordinates will not be generated.
-     */
-    private(set) var coordinates: CLLocationCoordinate2D? = nil
     
     /// The distance (in meters) between this location at the current position of the user
     var distance: Double? = nil
@@ -57,9 +51,49 @@ class Location {
     }
     
     // MARK: - Lifecycle Functions
-    init?(id: String,
-          dictionary: [String : Any]) {
-        guard let name = dictionary["EFPName"] as? String,
+    init(id: String,
+         name: String,
+         hours: Hours,
+         streetName: String,
+         streetNumber: String,
+         postalCode: String,
+         cityName: String,
+         email: String?,
+         fax: String?,
+         website: String?,
+         phoneNumber: String?,
+         contactName: String?,
+         unitNumber: String?,
+         coordinates: CLLocationCoordinate2D,
+         fullAddress: String,
+         fullAddressWithNewlines: String) {
+        self.id = id
+        self.name = name
+        self.hours = hours
+        self.streetName = streetName
+        self.streetNumber = streetNumber
+        self.postalCode = postalCode
+        self.cityName = cityName
+        self.email = email
+        self.fax = fax
+        self.website = website
+        self.phoneNumber = phoneNumber
+        self.contactName = contactName
+        self.unitNumber = unitNumber
+        self.coordinates = coordinates
+        self.fullAddress = fullAddress
+        self.fullAddressWithNewlines = fullAddressWithNewlines
+    }
+
+    /**
+     Create a `Location` object using a dictionary.
+     
+     - parameter dictionary: Mandatory fields are: `EFPID`, `EFPName`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`, `StreetName`, `StreetNumber`, `PostalCode`, `CityName`, `Latitude` and `Longitude`
+    */
+    convenience init?(dictionary: [String : Any]) {
+        // Mandatory fields
+        guard let id = dictionary["EFPID"] as? String,
+            let name = dictionary["EFPName"] as? String,
             let monday = dictionary["Monday"] as? String,
             let tuesday = dictionary["Tuesday"] as? String,
             let wednesday = dictionary["Wednesday"] as? String,
@@ -70,73 +104,117 @@ class Location {
             let streetName = dictionary["StreetName"] as? String,
             let streetNumber = dictionary["StreetNumber"] as? String,
             let postalCode = dictionary["PostalCode"] as? String,
-            let cityName = dictionary["CityName"] as? String else {
+            let cityName = dictionary["CityName"] as? String,
+            let latitude = dictionary["Latitude"] as? Double,
+            let longitude = dictionary["Longitude"] as? Double else {
                 return nil
         }
         
-        self.id = id
-        self.name = name
-        self.hours = Hours(monday: monday, tuesday: tuesday, wednesday: wednesday, thursday: thursday, friday: friday, saturday: saturday, sunday: sunday)
-        self.streetName = streetName
-        self.streetNumber = streetNumber
-        self.postalCode = postalCode
-        self.cityName = cityName
-        
-        self.email = dictionary["Email"] as? String
-        self.website = dictionary["Website"] as? String
-        self.fax = dictionary["Fax"] as? String
-        self.phoneNumber = dictionary["PhoneNumber"] as? String
-        self.contactName = dictionary["ContactName"] as? String
-        self.unitNumber = dictionary["UnitNumber"] as? String
+        let unitNumber = dictionary["UnitNumber"] as? String
+        let fullAddress: String
+        let fullAddressWithNewlines: String
         
         if let unitNumber = unitNumber {
-            self.fullAddress = "\(streetNumber) \(streetName) Unit \(unitNumber) \(cityName) \(postalCode)"
-            self.fullAddressWithNewlines = "\(streetNumber) \(streetName) Unit \(unitNumber)\n\(cityName) \(postalCode)"
+            fullAddress = "\(streetNumber) \(streetName) Unit \(unitNumber) \(cityName) \(postalCode)"
+            fullAddressWithNewlines = "\(streetNumber) \(streetName) Unit \(unitNumber)\n\(cityName) \(postalCode)"
         } else {
-            self.fullAddress = "\(streetNumber) \(streetName) \(cityName) \(postalCode)"
-            self.fullAddressWithNewlines = "\(streetNumber) \(streetName)\n\(cityName) \(postalCode)"
+            fullAddress = "\(streetNumber) \(streetName) \(cityName) \(postalCode)"
+            fullAddressWithNewlines = "\(streetNumber) \(streetName)\n\(cityName) \(postalCode)"
         }
         
-        if let latitude = dictionary["latitude"] as? Double, let longitude = dictionary["longitude"] as? Double {
-            self.coordinates = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        } else {
-            #if os(iOS)
-            let dispatchGroup = DispatchGroup()
-            dispatchGroup.enter()
-            convertAddressToCoordinates(self.fullAddress) { result in
-                switch result {
-                case .success(let coordinates):
-                    self.coordinates = coordinates
-                    dispatchGroup.leave()
-                case .error:
-                    dispatchGroup.leave()
-                }
-            }
-            dispatchGroup.wait()
-            #endif
-        }
-        
-        if coordinates == nil {
-            return nil
-        }
+        self.init(id: id,
+                  name: name,
+                  hours: Hours(monday: monday, tuesday: tuesday, wednesday: wednesday, thursday: thursday, friday: friday, saturday: saturday, sunday: sunday),
+                  streetName: streetName,
+                  streetNumber: streetNumber,
+                  postalCode: postalCode,
+                  cityName: cityName,
+                  email: dictionary["Email"] as? String,
+                  fax: dictionary["Fax"] as? String,
+                  website: dictionary["Website"] as? String,
+                  phoneNumber: dictionary["PhoneNumber"] as? String,
+                  contactName: dictionary["ContactName"] as? String,
+                  unitNumber: unitNumber,
+                  coordinates: CLLocationCoordinate2D(latitude: latitude, longitude: longitude),
+                  fullAddress: fullAddress,
+                  fullAddressWithNewlines: fullAddressWithNewlines)
     }
     
-    /**
-     Given a address (street number, name, postal code, etc), attempt to generate coordinates.
-     
-     This function is only available on iOS applications. Calling this function from a watchOS application would cause the `CLGeocoder` to either hang (resulting in the completion block never being called) or return an error.
-     
-     - parameter address: The address of the location trying to convert into coordinates. The more details included, the higher chance of generating accurate coordinates.
-     */
-    @available(watchOS, unavailable)
-    private func convertAddressToCoordinates(_ address: String, with completion: @escaping ((Result<CLLocationCoordinate2D>) -> Void)) {
-        let geoCoder = CLGeocoder()
-        geoCoder.geocodeAddressString(address) { (placemarks, error) in
-            guard let placemarks = placemarks, let location = placemarks.first?.location?.coordinate else {
-                completion(.error(error ?? NSError(domain: "Could not generate coordinates", code: 0, userInfo: nil)))
-                return
-            }
-            completion(.success(location))
+    // MARK: - Decodable
+    private enum LocationKeys: String, CodingKey {
+        case id = "EFPID"
+        case name = "EFPName"
+        case monday = "Monday"
+        case tuesday = "Tuesday"
+        case wednesday = "Wednesday"
+        case thursday = "Thursday"
+        case friday = "Friday"
+        case saturday = "Saturday"
+        case sunday = "Sunday"
+        case streetName = "StreetName"
+        case streetNumber = "StreetNumber"
+        case postalCode = "PostalCode"
+        case cityName = "CityName"
+        case email = "Email"
+        case fax = "Fax"
+        case website = "Website"
+        case phoneNumber = "PhoneNumber"
+        case contactName = "ContactName"
+        case unitNumber = "UnitNumber"
+        case longitude = "Longitude"
+        case latitude = "Latitude"
+    }
+
+    required convenience init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: LocationKeys.self)
+        let id = try container.decode(String.self, forKey: .id)
+        let name = try container.decode(String.self, forKey: .name)
+        let monday = try container.decode(String.self, forKey: .monday)
+        let tuesday = try container.decode(String.self, forKey: .tuesday)
+        let wednesday = try container.decode(String.self, forKey: .wednesday)
+        let thursday = try container.decode(String.self, forKey: .thursday)
+        let friday = try container.decode(String.self, forKey: .friday)
+        let saturday = try container.decode(String.self, forKey: .saturday)
+        let sunday = try container.decode(String.self, forKey: .sunday)
+        let streetName = try container.decode(String.self, forKey: .streetName)
+        let streetNumber = try container.decode(String.self, forKey: .streetNumber)
+        let postalCode = try container.decode(String.self, forKey: .postalCode)
+        let cityName = try container.decode(String.self, forKey: .cityName)
+        let longitude = try container.decode(Double.self, forKey: .longitude)
+        let latitude = try container.decode(Double.self, forKey: .latitude)
+        let email = try container.decodeIfPresent(String.self, forKey: .email)
+        let fax = try container.decodeIfPresent(String.self, forKey: .fax)
+        let website = try container.decodeIfPresent(String.self, forKey: .website)
+        let phoneNumber = try container.decodeIfPresent(String.self, forKey: .phoneNumber)
+        let contactName = try container.decodeIfPresent(String.self, forKey: .contactName)
+        let unitNumber = try container.decodeIfPresent(String.self, forKey: .unitNumber)
+
+        let fullAddress: String
+        let fullAddressWithNewlines: String
+        
+        if let unitNumber = unitNumber {
+            fullAddress = "\(streetNumber) \(streetName) Unit \(unitNumber) \(cityName) \(postalCode)"
+            fullAddressWithNewlines = "\(streetNumber) \(streetName) Unit \(unitNumber)\n\(cityName) \(postalCode)"
+        } else {
+            fullAddress = "\(streetNumber) \(streetName) \(cityName) \(postalCode)"
+            fullAddressWithNewlines = "\(streetNumber) \(streetName)\n\(cityName) \(postalCode)"
         }
+
+        self.init(id: id,
+                  name: name,
+                  hours: Hours(monday: monday, tuesday: tuesday, wednesday: wednesday, thursday: thursday, friday: friday, saturday: saturday, sunday: sunday),
+                  streetName: streetName,
+                  streetNumber: streetNumber,
+                  postalCode: postalCode,
+                  cityName: cityName,
+                  email: email,
+                  fax: fax,
+                  website: website,
+                  phoneNumber: phoneNumber,
+                  contactName: contactName,
+                  unitNumber: unitNumber,
+                  coordinates: CLLocationCoordinate2D(latitude: latitude, longitude: longitude),
+                  fullAddress: fullAddress,
+                  fullAddressWithNewlines: fullAddressWithNewlines)
     }
 }

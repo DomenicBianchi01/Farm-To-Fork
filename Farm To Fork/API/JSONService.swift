@@ -18,11 +18,11 @@ class JSONService {
     // MARK: - Properties
     ///IMPORTANT NOTE: For the scope of this project, the `JSONService` can only handle one network call at a time
     private var urlDataTask: URLSessionDataTask? = nil
-    
+
     private var accessToken: String? {
         return Valet.F2FValet.string(forKey: Constants.token)
     }
-    
+
     // MARK: - Enums
     /// Used to specify the type of request that should be made
     enum RequestType: String {
@@ -32,7 +32,7 @@ class JSONService {
         case delete = "DELETE"
         case patch = "PATCH"
     }
-    
+
     // MARK: - Functions
     /**
      Fetch JSON data and parse it according to the `type` parameter in the function. In other words, the `url` must return JSON that maps to `type`.
@@ -55,7 +55,7 @@ class JSONService {
             completion(.error(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
             return
         }
-        
+
         var request = URLRequest(url: url)
         request.httpMethod = requestType.rawValue
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
@@ -70,7 +70,7 @@ class JSONService {
                 return
             }
         }
-        
+
         #if os(iOS)
         DispatchQueue.main.async {
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
@@ -88,36 +88,33 @@ class JSONService {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }
             #endif
-            
+
             guard let data = data else {
                 completion(.error(NSError(domain: "No data returned", code: 0, userInfo: nil)))
                 return
             }
             do {
+                if let response = response as? HTTPURLResponse, response.statusCodeIsError {
+                    let json = try JSONDecoder().decode(Errorable.self, from: data)
+                    completion(.error(NSError(domain: json.error ?? "An error occurred", code: response.statusCode, userInfo: nil)))
+                    return
+                }
+
                 let json = try JSONDecoder().decode(type, from: data)
+
                 guard var jsonDict = json as? [String : Any] else {
                     completion(.success(json))
                     return
                 }
-                if let error = jsonDict["error"] {
-                    var responseStatusCode = 0
-                    if let response = response as? HTTPURLResponse {
-                        responseStatusCode = response.statusCode
-                    }
-                    
-                    if let errorString = error as? String {
-                        completion(.error(NSError(domain: errorString, code: responseStatusCode, userInfo: nil)))
-                    } else {
-                        completion(.error(NSError(domain: "Could not retrieve data", code: responseStatusCode, userInfo: nil)))
-                    }
-                } else if let success = (jsonDict["success"] as? String)?.asBool, success {
+
+                if let success = (jsonDict["success"] as? String)?.asBool, success {
                     jsonDict.removeValue(forKey: "success")
                     completion(.success(jsonDict as? T ?? json))
                 } else {
                     completion(.success(json))
                 }
             } catch {
-                completion(.error(NSError(domain: "Invalid JSON", code: 0, userInfo: nil)))
+                completion(.error(NSError(domain: "Could not decode JSON", code: 0, userInfo: nil)))
             }
         }
         urlDataTask?.resume()

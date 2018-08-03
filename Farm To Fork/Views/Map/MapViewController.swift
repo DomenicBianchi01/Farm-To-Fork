@@ -243,7 +243,7 @@ extension MapViewController: LocationDelegate {
 // MARK: - LocationInfoDelegate
 extension MapViewController: LocationInfoDelegate {
     func directionsRequested(to location: Location) {
-        guard let userCoordinates = mapView.userLocation.location?.coordinate, let locationCoordinates = location.coordinates else {
+        guard let userCoordinates = mapView.userLocation.location?.coordinate else {
             if CLLocationManager.locationServicesEnabled() {
                 if CLLocationManager.authorizationStatus() == .authorizedWhenInUse || CLLocationManager.authorizationStatus() == .authorizedAlways {
                     displaySCLAlert("Location Error", message: "Could not determine user location", style: .error)
@@ -259,11 +259,11 @@ extension MapViewController: LocationInfoDelegate {
         let alertController = UIAlertController(title: "Directions", message: "Select the type of directions you would like", preferredStyle: UIDevice.alertStyle)
         
         let walkingDirections = UIAlertAction(title: "Walking", style: .default) { (UIAlertAction) in
-            self.calculateDirections(from: userCoordinates, to: locationCoordinates, by: .walking)
+            self.calculateDirections(from: userCoordinates, to: location.coordinates, by: .walking)
         }
         
         let automobileDirections = UIAlertAction(title: "Automobile", style: .default) { (UIAlertAction) in
-            self.calculateDirections(from: userCoordinates, to: locationCoordinates, by: .automobile)
+            self.calculateDirections(from: userCoordinates, to: location.coordinates, by: .automobile)
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
