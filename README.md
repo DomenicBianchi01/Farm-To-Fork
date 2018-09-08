@@ -1,4 +1,4 @@
-# Farm-To-Fork
+# Farm To Fork
 
 This project is still in development and there may be bugs or incomplete features in the app. The backend is also still in development but not yet public.
 
