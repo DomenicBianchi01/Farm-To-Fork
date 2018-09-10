@@ -23,6 +23,8 @@ final class NeedsViewController: UIViewController {
         
         if hideCloseButton {
             navigationItem.leftBarButtonItem = nil
+        } else {
+            navigationItem.rightBarButtonItem = nil
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(preferredLocationSet), name:
@@ -159,7 +161,7 @@ extension NeedsViewController: PledgeDelegate {
     func pledgeRequested(for need: Need) {
         let alert = UIAlertController(title: "Pledge", message: "How many \(need.name)'s would you like to pledge?", preferredStyle: .alert)
         let submitAction = UIAlertAction(title: "Submit", style: .default) { _ in
-            guard let textField = alert.textFields?.first, let pledgedAmount = Int(textField.text ?? "") else {
+            guard let textField = alert.textFields?.first, let text = textField.text, let pledgedAmount = Int(text) else {
                 return
             }
             PledgeService().pledge(needID: need.id, quantity: pledgedAmount) { _ in

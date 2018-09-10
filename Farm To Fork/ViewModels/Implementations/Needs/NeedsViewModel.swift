@@ -54,22 +54,23 @@ extension NeedsViewModel: TableViewModelable {
     
     func cellForRow(in tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier: String
+        let need: Need
         
         if let expandedIndexPath = expandedIndexPath, indexPath == expandedIndexPath {
             cellIdentifier = "ExpandedNeedItemReuseIdentifier"
+            need = needs[indexPath.row-1]
         } else {
             guard indexPath.row < needs.count else {
                 return UITableViewCell()
             }
             cellIdentifier = "NeedItemReuseIdentifier"
+            need = needs[indexPath.row-1]
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
 
-        if let cell = cell as? NeedItemTableViewCell {
-            cell.configure(for: needs[indexPath.row])
-        } else if let cell = cell as? ExpandedNeedItemTableViewCell {
-            cell.configure(for: needs[indexPath.row-1])
+        if let cell = cell as? Configurable {
+            cell.configure(using: need)
         }
         
         return cell

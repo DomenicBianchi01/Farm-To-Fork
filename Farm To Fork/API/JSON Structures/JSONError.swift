@@ -8,8 +8,7 @@
 
 import Foundation
 
-//Can't use Error so Errorable it is!
 /// A class that can be used to decode a JSON response containing only an error
-class Errorable: Decodable {
-    var error: String? = nil
+class JSONError: Decodable {
+    var error: String
 }

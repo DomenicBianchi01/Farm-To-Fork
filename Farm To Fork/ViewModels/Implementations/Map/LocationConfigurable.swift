@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol LocationConfigurable: class {
+protocol LocationConfigurable {
     func configure(for location: Location)
     func configure(using string: String, and image: UIImage?)
 }

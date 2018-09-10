@@ -95,8 +95,8 @@ class JSONService {
             }
             do {
                 if let response = response as? HTTPURLResponse, response.statusCodeIsError {
-                    let json = try JSONDecoder().decode(Errorable.self, from: data)
-                    completion(.error(NSError(domain: json.error ?? "An error occurred", code: response.statusCode, userInfo: nil)))
+                    let json = try JSONDecoder().decode(JSONError.self, from: data)
+                    completion(.error(NSError(domain: json.error, code: response.statusCode, userInfo: nil)))
                     return
                 }
 

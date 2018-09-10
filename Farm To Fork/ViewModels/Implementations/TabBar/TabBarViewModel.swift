@@ -16,6 +16,10 @@ final class TabBarViewModel {
         return UserDefaults.appGroup?.string(forKey: Constants.preferredLocationId) != nil ? true : false
     }
     
+    var preferredLocationName: String? {
+        return UserDefaults.appGroup?.string(forKey: Constants.preferredLocationName)
+    }
+    
     // MARK: - Helper Functions
     func setPreferredLocation(_ location: Location) {
         UserDefaults.appGroup?.set(location.id, forKey: Constants.preferredLocationId)

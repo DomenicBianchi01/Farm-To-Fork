@@ -12,7 +12,7 @@ extension HTTPURLResponse {
     /// Returns true if the status code is between 400 and 599 (inclusive)
     var statusCodeIsError: Bool {
         switch self.statusCode {
-        case 400..<599:
+        case 400..<600:
             return true
         default:
             return false

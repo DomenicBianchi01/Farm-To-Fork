@@ -31,9 +31,15 @@ final class NeedItemTableViewCell: UITableViewCell {
         }
         delegate?.pledgeRequested(for: need)
     }
-    
-    // MARK: - Helper Functions
-    func configure(for need: Need) {
+}
+
+// MARK: - Configurable
+extension NeedItemTableViewCell: Configurable {
+    func configure(using data: Any) {
+        guard let need = data as? Need else {
+            return
+        }
+        
         titleLabel.text = need.name
         subtitleLabel.text = need.description
         personalPledgeCountLabel.text = "You have pledged 2 of this item" //TODO: This data should come from the Pledge API when it is created

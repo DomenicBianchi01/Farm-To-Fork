@@ -25,9 +25,15 @@ final class ExpandedNeedItemTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
-    // MARK: - Helper Functions
-    func configure(for need: Need) {
+}
+
+// MARK: - Configurable
+extension ExpandedNeedItemTableViewCell: Configurable {
+    func configure(using data: Any) {
+        guard let need = data as? Need else {
+            return
+        }
+        
         categoryLabel.text = "\(need.category) - \(need.type)"
         pledgeLabel.text = "\(need.currentQuantity) items pleged"
         

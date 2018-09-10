@@ -180,14 +180,18 @@ class Location: Decodable {
         let streetNumber = try container.decode(String.self, forKey: .streetNumber)
         let postalCode = try container.decode(String.self, forKey: .postalCode)
         let cityName = try container.decode(String.self, forKey: .cityName)
-        let longitude = try container.decode(Double.self, forKey: .longitude)
-        let latitude = try container.decode(Double.self, forKey: .latitude)
+        let longitude = try container.decode(String.self, forKey: .longitude)
+        let latitude = try container.decode(String.self, forKey: .latitude)
         let email = try container.decodeIfPresent(String.self, forKey: .email)
         let fax = try container.decodeIfPresent(String.self, forKey: .fax)
         let website = try container.decodeIfPresent(String.self, forKey: .website)
         let phoneNumber = try container.decodeIfPresent(String.self, forKey: .phoneNumber)
         let contactName = try container.decodeIfPresent(String.self, forKey: .contactName)
         let unitNumber = try container.decodeIfPresent(String.self, forKey: .unitNumber)
+        
+        guard let latitudeDouble = Double(latitude), let longitudeDouble = Double(longitude) else {
+            throw DecodingError.typeMismatch(Double.self, DecodingError.Context(codingPath: container.codingPath, debugDescription: "Cannot decode latitude and/or longitude"))
+        }
 
         let fullAddress: String
         let fullAddressWithNewlines: String
@@ -213,7 +217,7 @@ class Location: Decodable {
                   phoneNumber: phoneNumber,
                   contactName: contactName,
                   unitNumber: unitNumber,
-                  coordinates: CLLocationCoordinate2D(latitude: latitude, longitude: longitude),
+                  coordinates: CLLocationCoordinate2D(latitude: latitudeDouble, longitude: longitudeDouble),
                   fullAddress: fullAddress,
                   fullAddressWithNewlines: fullAddressWithNewlines)
     }

@@ -93,22 +93,21 @@ final class TabBarController: UITabBarController {
         guard let items = tabBar.items, items[1] == item else {
             return
         }
-        if !viewModel.isPreferredLocationSet {
-            promptForPreferredLocation()
-        } else {
-            let locationName = UserDefaults.appGroup?.string(forKey: Constants.preferredLocationName)
-            item.title = locationName
 
+        if let locationName = viewModel.preferredLocationName {
+            item.title = locationName
             if #available(iOS 12.0, *) {
                 let activity = NSUserActivity(activityType: "com.domenic.bianchi.FarmToFork.siriShortcut")
                 activity.title = "View preferred location needs"
-                activity.userInfo = ["color" : "red"]
+                activity.userInfo = ["EFPName" : locationName]
                 activity.isEligibleForSearch = true
                 activity.isEligibleForPrediction = true
                 activity.persistentIdentifier = NSUserActivityPersistentIdentifier("com.domenic.bianchi.FarmToFork.siriShortcut")
                 view.userActivity = activity
                 activity.becomeCurrent()
             }
+        } else {
+            promptForPreferredLocation()
         }
     }
 }
