@@ -11,4 +11,5 @@ import Foundation
 protocol PickerViewModelable {
     var numberOfComponents: Int { get }
     func numberOfRows(in component: Int) -> Int
+    func titleForRow(in component: Int, row: Int) -> String
 }

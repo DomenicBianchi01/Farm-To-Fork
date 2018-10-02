@@ -11,8 +11,10 @@ import Foundation
 final class PledgeService: JSONService {
     func pledge(needID: Int, quantity: Int, with completion: @escaping ((Result<Void>) -> Void)) {
         let body = ["needID" : needID, "quantity" : quantity]
+        
+        let encodedBody = encode(object: body)
 
-        request(from: "https://farmtofork.marshallasch.ca/api.php/2.0/pledge", requestType: .post, body: body, expecting: [String : String].self) { result in
+        request(from: "https://farmtofork.marshallasch.ca/api.php/2.0/pledge", requestType: .post, body: encodedBody, expecting: [String : String].self) { result in
             switch result {
             case .success(let result):
                 completion(.success(()))

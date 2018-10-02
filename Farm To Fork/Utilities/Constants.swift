@@ -28,5 +28,6 @@ struct Constants {
         static let emailAddress = "emailAddressSegue"
         static let personalInfo = "personalInfoSegue"
         static let registerNextStep = "registerNextStep"
+        static let modifyNeed = "modifyNeedSegue"
     }
 }

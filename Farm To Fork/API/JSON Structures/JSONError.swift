@@ -1,5 +1,5 @@
 //
-//  Errorable.swift
+//  JSONError.swift
 //  Farm To Fork
 //
 //  Created by Domenic Bianchi on 2018-08-03.

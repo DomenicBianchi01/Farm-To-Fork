@@ -16,14 +16,19 @@ final class RegisterService: JSONService {
     // MARK: - Functions
     
     /// Register the `User` with the Farm To Fork program.
-    func register(user: User, with completion: @escaping (Result<Void>) -> Void) {
+    func register(user: RegisterUserDetails, with completion: @escaping (Result<Void>) -> Void) {
         let body: [String : Any] = ["Email" : user.email,
                                     "pass" : user.password,
                                     "FirstName" : user.firstName,
                                     "LastName" : user.lastName,
-                                    "Address" : ["CityID" : user.city.key]]
+                                    "Address" : ["CityID" : user.cityId]]
         
-        request(from: registerUrlString, requestType: .post, body: body, expecting: [String : String].self) { result in
+        guard let encodedBody = try? JSONSerialization.data(withJSONObject: body, options: .prettyPrinted) else {
+            completion(.error(NSError(domain: "Could not encode data", code: 0, userInfo: nil)))
+            return
+        }
+        
+        request(from: registerUrlString, requestType: .post, body: encodedBody, expecting: [String : String].self) { result in
             switch result {
             case .success:
                 completion(.success(()))

@@ -60,14 +60,3 @@ final class MapViewModel {
         }
     }
 }
-
-// MARK: - PickerViewModelable
-extension MapViewModel: PickerViewModelable {
-    func numberOfRows(in component: Int) -> Int {
-        return locations.count
-    }
-    
-    var numberOfComponents: Int {
-        return 1
-    }
-}

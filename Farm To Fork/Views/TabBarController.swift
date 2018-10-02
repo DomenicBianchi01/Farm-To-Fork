@@ -61,7 +61,7 @@ final class TabBarController: UITabBarController {
                 NotificationCenter.default.post(name: .preferredLocationSet, object: nil, userInfo: nil)
             }
             /*let noLocationAction = UIAlertAction(title: "Can't find a location?", style: .default) { _ in
-             //TODO: Display list from other cities
+             //TODO: Display list from other cities?
              }*/
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
                 if UserDefaults.appGroup?.string(forKey: Constants.preferredLocationId) == nil {
@@ -73,7 +73,7 @@ final class TabBarController: UITabBarController {
             //alert.addAction(noLocationAction)
             alert.addAction(cancelAction)
             
-            alert.addTextField() { addedTextField in
+            alert.addTextField { addedTextField in
                 locationPickerView.delegate = self
                 addedTextField.inputView = locationPickerView
                 addedTextField.placeholder = "Preferred Location"
@@ -96,6 +96,8 @@ final class TabBarController: UITabBarController {
 
         if let locationName = viewModel.preferredLocationName {
             item.title = locationName
+
+            //Sir Shortcuts
             if #available(iOS 12.0, *) {
                 let activity = NSUserActivity(activityType: "com.domenic.bianchi.FarmToFork.siriShortcut")
                 activity.title = "View preferred location needs"
@@ -140,6 +142,6 @@ extension TabBarController: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return viewModel.locations[row].name
+        return viewModel.titleForRow(in: component, row: row)
     }
 }

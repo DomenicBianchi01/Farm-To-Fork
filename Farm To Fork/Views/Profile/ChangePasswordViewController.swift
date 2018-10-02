@@ -38,55 +38,55 @@ final class ChangePasswordViewController: UIViewController {
 	
 	@IBAction func save(_ sender: UIButton) {
 		
-		let oldPassword = oldPass.text ?? ""
-		
-		guard let username = Valet.F2FValet.string(forKey: Constants.username), let password = Valet.F2FValet.string(forKey: Constants.password) else {
-			self.performSegue(withIdentifier: Constants.Segues.loginStart, sender: self)
-			return
-		}
-		
-		if viewModel.passwordIsValid && password == oldPassword {
-			
-			NSLog("Okay to change password")
-			
-			var user = User()
-			
-			user.email = username
-			user.password = password
-			
-			let newPass = viewModel.user.password
-
-			
-			UpdateUserService().changePassword(user: user, newPass: newPass) { result in
-				DispatchQueue.main.async {
-					switch result {
-					case .success:
-						
-						// update the stored password
-                        Valet.F2FValet.set(string: newPass, forKey: Constants.password)
-						
-						// go back to the profile page
-						self.performSegue(withIdentifier: "unwindToProfile", sender: self)
-						
-					case .error(let error):
-						NSLog("Failed to change the password: \(error.description)")
-						
-						self.oldPass.shake()
-						self.newPass1.shake()
-						self.newPass2.shake()
-					}
-				}
-			}
-		}
-		else {
-			NSLog("Invalid Password Try again")
-			
-			self.oldPass.shake()
-			self.newPass1.shake()
-			self.newPass2.shake()
-		}
-		
-		
+//        let oldPassword = oldPass.text ?? ""
+//        
+//        guard let username = Valet.F2FValet.string(forKey: Constants.username), let password = Valet.F2FValet.string(forKey: Constants.password) else {
+//            self.performSegue(withIdentifier: Constants.Segues.loginStart, sender: self)
+//            return
+//        }
+//        
+//        if viewModel.passwordIsValid && password == oldPassword {
+//            
+//            NSLog("Okay to change password")
+//            
+//            var user = User()
+//            
+//            user.email = username
+//            user.password = password
+//            
+//            let newPass = viewModel.user.password
+//
+//            
+//            UpdateUserService().changePassword(user: user, newPass: newPass) { result in
+//                DispatchQueue.main.async {
+//                    switch result {
+//                    case .success:
+//                        
+//                        // update the stored password
+//                        Valet.F2FValet.set(string: newPass, forKey: Constants.password)
+//                        
+//                        // go back to the profile page
+//                        self.performSegue(withIdentifier: "unwindToProfile", sender: self)
+//                        
+//                    case .error(let error):
+//                        NSLog("Failed to change the password: \(error.description)")
+//                        
+//                        self.oldPass.shake()
+//                        self.newPass1.shake()
+//                        self.newPass2.shake()
+//                    }
+//                }
+//            }
+//        }
+//        else {
+//            NSLog("Invalid Password Try again")
+//            
+//            self.oldPass.shake()
+//            self.newPass1.shake()
+//            self.newPass2.shake()
+//        }
+//        
+//        
 	}
 	@IBAction func textChanged(_ sender: UITextField) {
 		

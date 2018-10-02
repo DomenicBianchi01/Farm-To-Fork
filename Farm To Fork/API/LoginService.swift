@@ -10,21 +10,23 @@ import Foundation
 import Valet
 
 final class LoginService: JSONService {
-    func login(user: User, with completion: @escaping (Result<Void>) -> Void) {
+    func login(user: BasicUserDetails, with completion: @escaping (Result<User>) -> Void) {
         let body = ["Email" : user.email,
                     "pass" : user.password]
         
-        request(from: "https://farmtofork.marshallasch.ca/api.php/2.0/user/login", requestType: .post, body: body, expecting: [String : String].self) { result in
+        let encodedBody = encode(object: body)
+        
+        request(from: "https://farmtofork.marshallasch.ca/api.php/2.0/user/login", requestType: .post, body: encodedBody, expecting: [String : JSONAny].self) { result in
             switch result {
             case .success(let result):
-                completion(.success(()))
-                return //Token auth not yet implemented on backend
-                guard let token = result["token"] else {
-                    completion(.error(NSError(domain: "No access token returned in response", code: 0, userInfo: nil)))
-                    return
+                guard let userDictionary = result["user"]?.value as? [String : Any],
+                    let user = User(dictionary: userDictionary),
+                    let token = result["accessToken"]?.value as? String else {
+                        completion(.error(NSError(domain: "Invalid response", code: 0, userInfo: nil)))
+                        return
                 }
                 if self.saveToken(token) {
-                    completion(.success(()))
+                    completion(.success(user))
                 } else {
                     completion(.error(NSError(domain: "Could not save token", code: 0, userInfo: nil)))
                 }

@@ -15,7 +15,7 @@ final class RegisterLocationViewModel {
     private(set) var provinces: [(key: String, value: String)] = [(key: "", value: "None")]
     private(set) var cities: [(key: String, value: String)] = [(key: "", value: "None")]
     
-    var user = User()
+    var user = RegisterUserDetails()
     
     // MARK: - Enums
     enum PickerType: Int {
@@ -96,20 +96,22 @@ final class RegisterLocationViewModel {
     
     // MARK: - User Helper Functions
     func updateUserCountry(to countryRow: Int) {
-        user.country = countries[countryRow]
+        //user.country = countries[countryRow]
     }
     
     func updateUserProvince(to provinceRow: Int) {
-        user.province = provinces[provinceRow]
+       // user.province = provinces[provinceRow]
     }
     
     func updateUserCity(to cityRow: Int) {
-        user.city = cities[cityRow]
+        user.cityId = cities[cityRow].value
     }
 }
 
 // MARK: - PickerViewModelable
 extension RegisterLocationViewModel: PickerViewModelable {
+    func titleForRow(in component: Int, row: Int) -> String { /* Not used */ return ""}
+    
     func numberOfRows(in component: Int) -> Int { /* Not used */ return 0 }
     
     var numberOfComponents: Int {

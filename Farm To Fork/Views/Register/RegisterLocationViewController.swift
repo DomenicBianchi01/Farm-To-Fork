@@ -49,7 +49,7 @@ final class RegisterLocationViewController: UIViewController {
         backButton.layer.borderColor = UIColor.white.cgColor
         registerButton.layer.borderColor = UIColor.white.cgColor
         
-        viewModel.fetchCountries() { _ in
+        viewModel.fetchCountries { _ in
             DispatchQueue.main.async {
                 countryPickerView.reloadAllComponents()
             }

@@ -11,7 +11,7 @@ import UIKit
 
 final class RegisterViewModel {
     // MARK: - Properties
-    private(set) var user = User()
+    private(set) var user = RegisterUserDetails()
     private var passwordElements: PasswordComponents = []
     
     // MARK: - Structs

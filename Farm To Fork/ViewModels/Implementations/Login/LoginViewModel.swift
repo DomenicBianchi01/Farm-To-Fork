@@ -11,10 +11,10 @@ import Valet
 
 final class LoginViewModel {
     // MARK: - Properties
-    private var user = User()
+    private var user = BasicUserDetails()
     
     // MARK: - Helper Functions
-    func attemptLogin(with completion: @escaping (Result<Void>) -> Void) {
+    func attemptLogin(with completion: @escaping (Result<User>) -> Void) {
         LoginService().login(user: user) { result in
             completion(result)
         }

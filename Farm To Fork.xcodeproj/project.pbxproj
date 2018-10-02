@@ -25,7 +25,6 @@
 		B000168B20634E2C00101744 /* Need.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8BFCD205F171200077DF7 /* Need.swift */; };
 		B000168C20634EBF00101744 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FEBC8A204E3F0B00982EAE /* Result.swift */; };
 		B000168D20634EFD00101744 /* JSONService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FEBC8C204E3FF200982EAE /* JSONService.swift */; };
-		B000168E20634F0000101744 /* NeedsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B3BFF22054BCD60074DF0D /* NeedsService.swift */; };
 		B000168F20634F0A00101744 /* JSONAny.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0232DDC2058463E00E22B40 /* JSONAny.swift */; };
 		B000169120634F1C00101744 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F133F220517C12000187BA /* StringExtensions.swift */; };
 		B0033CAF20FEC8C1009B7932 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0033CAE20FEC8C1009B7932 /* Intents.framework */; };
@@ -43,6 +42,12 @@
 		B0272DEC2068920100F8F2E2 /* LocationInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0272DEB2068920100F8F2E2 /* LocationInfoViewModel.swift */; };
 		B02A024420501BC100ABB4F9 /* ErrorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A024320501BC100ABB4F9 /* ErrorExtensions.swift */; };
 		B02A024620501DB900ABB4F9 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A024520501DB900ABB4F9 /* UIViewExtensions.swift */; };
+		B0319B9B21580B490092A897 /* CellConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0319B9A21580B490092A897 /* CellConfigurable.swift */; };
+		B0319B9D21580C670092A897 /* AddNeedDescriptionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0319B9C21580C670092A897 /* AddNeedDescriptionCellViewModel.swift */; };
+		B0319B9F21580CB90092A897 /* AddNeedQuantityCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0319B9E21580CB90092A897 /* AddNeedQuantityCellViewModel.swift */; };
+		B0319BA121580D0C0092A897 /* AddNeedCategoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0319BA021580D0C0092A897 /* AddNeedCategoryCellViewModel.swift */; };
+		B0319BA321580D360092A897 /* AddNeedUnitsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0319BA221580D360092A897 /* AddNeedUnitsCellViewModel.swift */; };
+		B0319BA921582DFB0092A897 /* AddNeedPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0319BA821582DFB0092A897 /* AddNeedPickerTableViewCell.swift */; };
 		B03C07C82033BDE2001A54C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03C07C72033BDE2001A54C6 /* AppDelegate.swift */; };
 		B03C07CA2033BDE2001A54C6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03C07C92033BDE2001A54C6 /* LoginViewController.swift */; };
 		B03C07CD2033BDE2001A54C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B03C07CB2033BDE2001A54C6 /* Main.storyboard */; };
@@ -82,8 +87,20 @@
 		B0B7DA6A2088117700C36D40 /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B7DA692088117700C36D40 /* TabBarViewModel.swift */; };
 		B0B7DA6C208813E600C36D40 /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B7DA6B208813E600C36D40 /* NotificationExtensions.swift */; };
 		B0BD371C210C1299005149FF /* PaginatedResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BD371B210C1299005149FF /* PaginatedResults.swift */; };
+		B0BDBA762162978D001A26D2 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BDBA752162978D001A26D2 /* Category.swift */; };
+		B0BDBA772162986E001A26D2 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BDBA752162978D001A26D2 /* Category.swift */; };
+		B0BDBA802162C4E4001A26D2 /* NeedsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B3BFF22054BCD60074DF0D /* NeedsService.swift */; };
+		B0C1A0CB21573AD8006D3998 /* BasicUserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C1A0CA21573AD8006D3998 /* BasicUserDetails.swift */; };
 		B0C6EC9E205972150064F2B5 /* NeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C6EC9D205972150064F2B5 /* NeedsViewController.swift */; };
+		B0C7D7502163F6E600CDBAE1 /* StepperViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C7D74F2163F6E600CDBAE1 /* StepperViewModelable.swift */; };
 		B0C898422082D14A00E7514F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C898412082D14A00E7514F /* ProfileViewController.swift */; };
+		B0CCDA462157C6F800A6AEA1 /* AddNeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CCDA452157C6F800A6AEA1 /* AddNeedViewController.swift */; };
+		B0CCDA482157C82600A6AEA1 /* AddNeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CCDA472157C82600A6AEA1 /* AddNeedViewModel.swift */; };
+		B0CCDA4B2157DC1100A6AEA1 /* AddNeedTextfieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CCDA4A2157DC1100A6AEA1 /* AddNeedTextfieldTableViewCell.swift */; };
+		B0CCDA4D2157DC1B00A6AEA1 /* AddNeedStepperTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CCDA4C2157DC1B00A6AEA1 /* AddNeedStepperTableViewCell.swift */; };
+		B0CCDA4F2157DD6500A6AEA1 /* NewNeedDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CCDA4E2157DD6500A6AEA1 /* NewNeedDelegate.swift */; };
+		B0CCDA512157E07B00A6AEA1 /* CellViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CCDA502157E07B00A6AEA1 /* CellViewModelable.swift */; };
+		B0CCDA542157E0DA00A6AEA1 /* AddNeedNameCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CCDA532157E0DA00A6AEA1 /* AddNeedNameCellViewModel.swift */; };
 		B0CD0EA620506F1B00FBE902 /* RegisterAccountSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD0EA520506F1B00FBE902 /* RegisterAccountSegue.swift */; };
 		B0CD0EA82050716F00FBE902 /* WallpaperWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD0EA72050716F00FBE902 /* WallpaperWindow.swift */; };
 		B0CD0EAB205078AA00FBE902 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD0EAA205078AA00FBE902 /* RegisterViewController.swift */; };
@@ -108,6 +125,7 @@
 		B0FC118D2063FDF0008A28B8 /* ErrorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A024320501BC100ABB4F9 /* ErrorExtensions.swift */; };
 		B0FC11902063FF14008A28B8 /* NeedInfoRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FC118F2063FF14008A28B8 /* NeedInfoRowController.swift */; };
 		B0FC119420640B81008A28B8 /* NeedInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FC119320640B81008A28B8 /* NeedInfoController.swift */; };
+		B0FE2CBE215686D100FD5B74 /* RegisterUserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FE2CBD215686D100FD5B74 /* RegisterUserDetails.swift */; };
 		B0FEBC86204E3E3600982EAE /* TableViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FEBC85204E3E3600982EAE /* TableViewModelable.swift */; };
 		B0FEBC8B204E3F0B00982EAE /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FEBC8A204E3F0B00982EAE /* Result.swift */; };
 		B0FEBC8D204E3FF200982EAE /* JSONService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FEBC8C204E3FF200982EAE /* JSONService.swift */; };
@@ -206,6 +224,12 @@
 		B0272DEB2068920100F8F2E2 /* LocationInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInfoViewModel.swift; sourceTree = "<group>"; };
 		B02A024320501BC100ABB4F9 /* ErrorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorExtensions.swift; sourceTree = "<group>"; };
 		B02A024520501DB900ABB4F9 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		B0319B9A21580B490092A897 /* CellConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellConfigurable.swift; sourceTree = "<group>"; };
+		B0319B9C21580C670092A897 /* AddNeedDescriptionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNeedDescriptionCellViewModel.swift; sourceTree = "<group>"; };
+		B0319B9E21580CB90092A897 /* AddNeedQuantityCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNeedQuantityCellViewModel.swift; sourceTree = "<group>"; };
+		B0319BA021580D0C0092A897 /* AddNeedCategoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNeedCategoryCellViewModel.swift; sourceTree = "<group>"; };
+		B0319BA221580D360092A897 /* AddNeedUnitsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNeedUnitsCellViewModel.swift; sourceTree = "<group>"; };
+		B0319BA821582DFB0092A897 /* AddNeedPickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNeedPickerTableViewCell.swift; sourceTree = "<group>"; };
 		B03C07C42033BDE2001A54C6 /* Farm To Fork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Farm To Fork.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B03C07C72033BDE2001A54C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B03C07C92033BDE2001A54C6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -248,8 +272,18 @@
 		B0B7DA692088117700C36D40 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
 		B0B7DA6B208813E600C36D40 /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
 		B0BD371B210C1299005149FF /* PaginatedResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginatedResults.swift; sourceTree = "<group>"; };
+		B0BDBA752162978D001A26D2 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		B0C1A0CA21573AD8006D3998 /* BasicUserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicUserDetails.swift; sourceTree = "<group>"; };
 		B0C6EC9D205972150064F2B5 /* NeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsViewController.swift; sourceTree = "<group>"; };
+		B0C7D74F2163F6E600CDBAE1 /* StepperViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperViewModelable.swift; sourceTree = "<group>"; };
 		B0C898412082D14A00E7514F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		B0CCDA452157C6F800A6AEA1 /* AddNeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNeedViewController.swift; sourceTree = "<group>"; };
+		B0CCDA472157C82600A6AEA1 /* AddNeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNeedViewModel.swift; sourceTree = "<group>"; };
+		B0CCDA4A2157DC1100A6AEA1 /* AddNeedTextfieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNeedTextfieldTableViewCell.swift; sourceTree = "<group>"; };
+		B0CCDA4C2157DC1B00A6AEA1 /* AddNeedStepperTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNeedStepperTableViewCell.swift; sourceTree = "<group>"; };
+		B0CCDA4E2157DD6500A6AEA1 /* NewNeedDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewNeedDelegate.swift; sourceTree = "<group>"; };
+		B0CCDA502157E07B00A6AEA1 /* CellViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellViewModelable.swift; sourceTree = "<group>"; };
+		B0CCDA532157E0DA00A6AEA1 /* AddNeedNameCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNeedNameCellViewModel.swift; sourceTree = "<group>"; };
 		B0CD0EA520506F1B00FBE902 /* RegisterAccountSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAccountSegue.swift; sourceTree = "<group>"; };
 		B0CD0EA72050716F00FBE902 /* WallpaperWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperWindow.swift; sourceTree = "<group>"; };
 		B0CD0EAA205078AA00FBE902 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -269,6 +303,7 @@
 		B0FC11882063E35F008A28B8 /* WatchSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSessionManager.swift; sourceTree = "<group>"; };
 		B0FC118F2063FF14008A28B8 /* NeedInfoRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedInfoRowController.swift; sourceTree = "<group>"; };
 		B0FC119320640B81008A28B8 /* NeedInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedInfoController.swift; sourceTree = "<group>"; };
+		B0FE2CBD215686D100FD5B74 /* RegisterUserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserDetails.swift; sourceTree = "<group>"; };
 		B0FEBC85204E3E3600982EAE /* TableViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModelable.swift; sourceTree = "<group>"; };
 		B0FEBC8A204E3F0B00982EAE /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		B0FEBC8C204E3FF200982EAE /* JSONService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONService.swift; sourceTree = "<group>"; };
@@ -400,6 +435,7 @@
 		B026139E205B461C0067B378 /* Needs */ = {
 			isa = PBXGroup;
 			children = (
+				B0CCDA522157E0B100A6AEA1 /* AddNeed */,
 				B026139F205B462A0067B378 /* NeedsViewModel.swift */,
 				B0A8BFD1205F3AC300077DF7 /* PledgeDelegate.swift */,
 			);
@@ -514,7 +550,10 @@
 			children = (
 				B0232DDA205842BB00E22B40 /* Location.swift */,
 				B0A8BFCD205F171200077DF7 /* Need.swift */,
+				B0BDBA752162978D001A26D2 /* Category.swift */,
 				B00F9C15204F8D8100C5BC03 /* User.swift */,
+				B0C1A0CA21573AD8006D3998 /* BasicUserDetails.swift */,
+				B0FE2CBD215686D100FD5B74 /* RegisterUserDetails.swift */,
 				B0BD371B210C1299005149FF /* PaginatedResults.swift */,
 			);
 			path = Entities;
@@ -557,11 +596,37 @@
 		B0C6EC9C205971FA0064F2B5 /* Needs */ = {
 			isa = PBXGroup;
 			children = (
+				B0CCDA492157DBF700A6AEA1 /* AddNeed */,
 				B0C6EC9D205972150064F2B5 /* NeedsViewController.swift */,
 				B02613A1205B4E1E0067B378 /* NeedItemTableViewCell.swift */,
 				B0A8BFCF205F339000077DF7 /* ExpandedNeedItemTableViewCell.swift */,
 			);
 			path = Needs;
+			sourceTree = "<group>";
+		};
+		B0CCDA492157DBF700A6AEA1 /* AddNeed */ = {
+			isa = PBXGroup;
+			children = (
+				B0CCDA452157C6F800A6AEA1 /* AddNeedViewController.swift */,
+				B0CCDA4A2157DC1100A6AEA1 /* AddNeedTextfieldTableViewCell.swift */,
+				B0319BA821582DFB0092A897 /* AddNeedPickerTableViewCell.swift */,
+				B0CCDA4C2157DC1B00A6AEA1 /* AddNeedStepperTableViewCell.swift */,
+			);
+			path = AddNeed;
+			sourceTree = "<group>";
+		};
+		B0CCDA522157E0B100A6AEA1 /* AddNeed */ = {
+			isa = PBXGroup;
+			children = (
+				B0CCDA472157C82600A6AEA1 /* AddNeedViewModel.swift */,
+				B0CCDA532157E0DA00A6AEA1 /* AddNeedNameCellViewModel.swift */,
+				B0319B9C21580C670092A897 /* AddNeedDescriptionCellViewModel.swift */,
+				B0319B9E21580CB90092A897 /* AddNeedQuantityCellViewModel.swift */,
+				B0319BA021580D0C0092A897 /* AddNeedCategoryCellViewModel.swift */,
+				B0319BA221580D360092A897 /* AddNeedUnitsCellViewModel.swift */,
+				B0CCDA4E2157DD6500A6AEA1 /* NewNeedDelegate.swift */,
+			);
+			path = AddNeed;
 			sourceTree = "<group>";
 		};
 		B0CD0EA420506ED700FBE902 /* Custom Segues */ = {
@@ -626,6 +691,9 @@
 			children = (
 				B0FEBC85204E3E3600982EAE /* TableViewModelable.swift */,
 				B061D3652058BF1E004E7888 /* PickerViewModelable.swift */,
+				B0CCDA502157E07B00A6AEA1 /* CellViewModelable.swift */,
+				B0C7D74F2163F6E600CDBAE1 /* StepperViewModelable.swift */,
+				B0319B9A21580B490092A897 /* CellConfigurable.swift */,
 				B0FEBC82204E3DE900982EAE /* Implementations */,
 			);
 			path = ViewModels;
@@ -948,6 +1016,7 @@
 				B0FC119420640B81008A28B8 /* NeedInfoController.swift in Sources */,
 				B000169120634F1C00101744 /* StringExtensions.swift in Sources */,
 				E2DEE6042114CEEE004873B5 /* HTTPURLResponseExtensions.swift in Sources */,
+				B0BDBA802162C4E4001A26D2 /* NeedsService.swift in Sources */,
 				B0001676206349BD00101744 /* NotificationController.swift in Sources */,
 				B04B2DDC2063C1E1007F07EE /* NeedRowController.swift in Sources */,
 				B07D2E55210EB9A60066E19B /* ValetExtensions.swift in Sources */,
@@ -956,12 +1025,12 @@
 				B0FC118D2063FDF0008A28B8 /* ErrorExtensions.swift in Sources */,
 				B0001674206349BD00101744 /* ExtensionDelegate.swift in Sources */,
 				B0FC11902063FF14008A28B8 /* NeedInfoRowController.swift in Sources */,
-				B000168E20634F0000101744 /* NeedsService.swift in Sources */,
 				B0D0423E2065E187007DE107 /* LocationsService.swift in Sources */,
 				B000168A20634D7900101744 /* WatchTableViewModelable.swift in Sources */,
 				B000168C20634EBF00101744 /* Result.swift in Sources */,
 				B0D0423F2065E192007DE107 /* Location.swift in Sources */,
 				B000168820634D4300101744 /* WatchNeedsViewModel.swift in Sources */,
+				B0BDBA772162986E001A26D2 /* Category.swift in Sources */,
 				B0FC118B2063F731008A28B8 /* WatchSessionManager.swift in Sources */,
 				B0001672206349BD00101744 /* InterfaceController.swift in Sources */,
 				B04B2DD92063C011007F07EE /* Constants.swift in Sources */,
@@ -980,6 +1049,7 @@
 				B02613A0205B462A0067B378 /* NeedsViewModel.swift in Sources */,
 				B0BD371C210C1299005149FF /* PaginatedResults.swift in Sources */,
 				B07D2E54210EB6220066E19B /* ValetExtensions.swift in Sources */,
+				B0CCDA4B2157DC1100A6AEA1 /* AddNeedTextfieldTableViewCell.swift in Sources */,
 				ABC95046205AB82C00DC8890 /* UserProfileViewController.swift in Sources */,
 				B05274922145FBEE000DA7DB /* Configurable.swift in Sources */,
 				B0FEBC8B204E3F0B00982EAE /* Result.swift in Sources */,
@@ -987,6 +1057,7 @@
 				B0232DDB205842BB00E22B40 /* Location.swift in Sources */,
 				B0FEBC8D204E3FF200982EAE /* JSONService.swift in Sources */,
 				B03C07CA2033BDE2001A54C6 /* LoginViewController.swift in Sources */,
+				B0319B9D21580C670092A897 /* AddNeedDescriptionCellViewModel.swift in Sources */,
 				B02A024420501BC100ABB4F9 /* ErrorExtensions.swift in Sources */,
 				B0DF8B5620500FF100AD2539 /* LoginService.swift in Sources */,
 				B0272DEA2068919000F8F2E2 /* LocationInfoViewController.swift in Sources */,
@@ -994,19 +1065,23 @@
 				B097574B2082DD2E003AAF22 /* ProfileViewModel.swift in Sources */,
 				B077904720535D2A0099AD1F /* Constants.swift in Sources */,
 				B0F133F520517D12000187BA /* RegisterService.swift in Sources */,
+				B0CCDA542157E0DA00A6AEA1 /* AddNeedNameCellViewModel.swift in Sources */,
 				ABC9504A205AB8C300DC8890 /* ChangePasswordViewController.swift in Sources */,
 				B097574E2082DEAF003AAF22 /* ProfileOptionTableViewCell.swift in Sources */,
 				B0CD0EAD20507D2500FBE902 /* UnwindRegisterAccountSegue.swift in Sources */,
 				B0A8BFDD205F4E7A00077DF7 /* UserDefaults.swift in Sources */,
 				B0232DDD2058463E00E22B40 /* JSONAny.swift in Sources */,
+				B0C7D7502163F6E600CDBAE1 /* StepperViewModelable.swift in Sources */,
 				B0CD0EAB205078AA00FBE902 /* RegisterViewController.swift in Sources */,
 				B0232DD620583B1700E22B40 /* LocationsService.swift in Sources */,
+				B0FE2CBE215686D100FD5B74 /* RegisterUserDetails.swift in Sources */,
 				B0DC7C75206919CD00E544D2 /* LocationInfoHoursTableViewCell.swift in Sources */,
 				B0C898422082D14A00E7514F /* ProfileViewController.swift in Sources */,
 				B0DC7C732069142700E544D2 /* LocationInfoBasicTableViewCell.swift in Sources */,
 				B0A8BFCE205F171200077DF7 /* Need.swift in Sources */,
 				B0CD0EA620506F1B00FBE902 /* RegisterAccountSegue.swift in Sources */,
 				B0B3BFF92054BE450074DF0D /* MapViewModel.swift in Sources */,
+				B0CCDA512157E07B00A6AEA1 /* CellViewModelable.swift in Sources */,
 				B077904920535EF80099AD1F /* LoginPreferences.swift in Sources */,
 				E2DEE6062114D0A3004873B5 /* JSONError.swift in Sources */,
 				B0272DEC2068920100F8F2E2 /* LocationInfoViewModel.swift in Sources */,
@@ -1016,6 +1091,7 @@
 				B0DC7C6D20690A2F00E544D2 /* LocationInfoHeaderTableViewCell.swift in Sources */,
 				B0C6EC9E205972150064F2B5 /* NeedsViewController.swift in Sources */,
 				B0B3BFF32054BCD60074DF0D /* NeedsService.swift in Sources */,
+				B0CCDA482157C82600A6AEA1 /* AddNeedViewModel.swift in Sources */,
 				B0F133F7205182C8000187BA /* RegisterLocationViewController.swift in Sources */,
 				B0ADAA1520520A2B00A0CD30 /* UIViewControllerExtensions.swift in Sources */,
 				B00F9C14204F8B2500C5BC03 /* LoginViewModel.swift in Sources */,
@@ -1025,15 +1101,23 @@
 				B0ADAA17205223D900A0CD30 /* RegisterViewModel.swift in Sources */,
 				B01E3D8C2053405B00106CA4 /* StartupViewController.swift in Sources */,
 				B077904520535BC60099AD1F /* StartupViewModel.swift in Sources */,
+				B0CCDA462157C6F800A6AEA1 /* AddNeedViewController.swift in Sources */,
 				B0A8BFD2205F3AC300077DF7 /* PledgeDelegate.swift in Sources */,
+				B0319BA921582DFB0092A897 /* AddNeedPickerTableViewCell.swift in Sources */,
 				B03C07C82033BDE2001A54C6 /* AppDelegate.swift in Sources */,
 				B0B7DA6C208813E600C36D40 /* NotificationExtensions.swift in Sources */,
+				B0319BA321580D360092A897 /* AddNeedUnitsCellViewModel.swift in Sources */,
 				B0B3BFF62054BD330074DF0D /* MapViewController.swift in Sources */,
 				B06E3EE92069BDAD003ED34C /* LocationSearchViewController.swift in Sources */,
+				B0C1A0CB21573AD8006D3998 /* BasicUserDetails.swift in Sources */,
+				B0CCDA4F2157DD6500A6AEA1 /* NewNeedDelegate.swift in Sources */,
 				B0A8BFD4205F3F3F00077DF7 /* PledgeService.swift in Sources */,
 				B02A024620501DB900ABB4F9 /* UIViewExtensions.swift in Sources */,
 				B0272DE82068885F00F8F2E2 /* EFPMarker.swift in Sources */,
+				B0319BA121580D0C0092A897 /* AddNeedCategoryCellViewModel.swift in Sources */,
+				B0319B9B21580B490092A897 /* CellConfigurable.swift in Sources */,
 				B0479C3C206A80CA009083CB /* UIDeviceExtensions.swift in Sources */,
+				B0319B9F21580CB90092A897 /* AddNeedQuantityCellViewModel.swift in Sources */,
 				B0B7DA6A2088117700C36D40 /* TabBarViewModel.swift in Sources */,
 				E2DEE6032114CE42004873B5 /* HTTPURLResponseExtensions.swift in Sources */,
 				B044121D20841B3C0088F07F /* MFTextFieldExtensions.swift in Sources */,
@@ -1041,11 +1125,13 @@
 				B0FEBC86204E3E3600982EAE /* TableViewModelable.swift in Sources */,
 				B0FC11892063E35F008A28B8 /* WatchSessionManager.swift in Sources */,
 				B071A6AB205800A300367102 /* ProgressButton.swift in Sources */,
+				B0CCDA4D2157DC1B00A6AEA1 /* AddNeedStepperTableViewCell.swift in Sources */,
 				B0CD0EA82050716F00FBE902 /* WallpaperWindow.swift in Sources */,
 				B0F133F320517C12000187BA /* StringExtensions.swift in Sources */,
 				B0DC7C712069138900E544D2 /* LocationConfigurable.swift in Sources */,
 				B0DC7C6F20690C9200E544D2 /* LocationDelegate.swift in Sources */,
 				B0A8BFC9205EFB0D00077DF7 /* LogoutSegue.swift in Sources */,
+				B0BDBA762162978D001A26D2 /* Category.swift in Sources */,
 				B0A8BFD0205F339000077DF7 /* ExpandedNeedItemTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

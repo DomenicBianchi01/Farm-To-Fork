@@ -19,7 +19,6 @@ final class MapViewController: UIViewController {
     // MARK: - Properties
     private let locationManager = CLLocationManager()
     private let viewModel = MapViewModel()
-    private let locationPickerView = UIPickerView()
     private var textField: UITextField? = nil
     private var locationInfoViewTopSpaceConstraint: NSLayoutConstraint? = nil
     private var isLocationInfoViewPreviewing: Bool = false
@@ -58,7 +57,6 @@ final class MapViewController: UIViewController {
             DispatchQueue.main.async {
                 switch result {
                 case .success():
-                    self.locationPickerView.reloadAllComponents()
                     self.mapView.showAnnotations(self.viewModel.locationMarkers, animated: true)
                     (self.resultSearchController.searchResultsUpdater as? LocationSearchViewController)?.locations = self.viewModel.locations
                     
@@ -220,7 +218,7 @@ final class MapViewController: UIViewController {
             setLocationInfoHeight()
         } else if segue.identifier == Constants.Segues.needsView, let viewController = segue.destination.children.first as? NeedsViewController, let location = locationViewController?.location {
             viewController.selectedLocation(location)
-            viewController.hideCloseButton = false
+            viewController.viewModel.hideCloseButton = false
         } else if segue.identifier == Constants.Segues.viewLocations, let viewController = segue.destination.children.first as? LocationSearchViewController {
             viewController.inSearchMode = false
             viewController.locations = viewModel.locations

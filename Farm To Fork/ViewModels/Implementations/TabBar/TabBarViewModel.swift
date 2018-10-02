@@ -36,4 +36,8 @@ extension TabBarViewModel: PickerViewModelable {
     var numberOfComponents: Int {
         return 1
     }
+    
+    func titleForRow(in component: Int, row: Int) -> String {
+        return locations[row].name
+    }
 }

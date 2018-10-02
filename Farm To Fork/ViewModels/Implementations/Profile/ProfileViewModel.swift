@@ -22,7 +22,7 @@ final class ProfileViewModel {
     func logout() {
         Valet.F2FValet.removeAllObjects()
         UserDefaults.resetAppGroup()
-        isLoggedIn = false
+        loggedInUser = nil
         //TODO: Call Logout API
     }
 }

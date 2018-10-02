@@ -9,7 +9,8 @@
 import UIKit
 import Intents
 
-var isLoggedIn: Bool = false
+/// If a user is logged in, this property will contain the users details. If no user is logged in, this propert will be nil
+var loggedInUser: User? = nil
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -53,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //TODO: If not logged in, attempt login to get token
         
-        if userActivity.persistentIdentifier?.rawValue == "com.domenic.bianchi.FarmToFork.siriShortcut", let window = self.window, let rootViewController = window.rootViewController/*, isLoggedIn*/ {
+        if userActivity.persistentIdentifier == "com.domenic.bianchi.FarmToFork.siriShortcut", let window = self.window, let rootViewController = window.rootViewController/*, isLoggedIn*/ {
             let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NeedsNavController")
             var currentController = rootViewController
             while let presentedController = currentController.presentedViewController {

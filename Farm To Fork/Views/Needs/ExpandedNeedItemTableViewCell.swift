@@ -34,7 +34,7 @@ extension ExpandedNeedItemTableViewCell: Configurable {
             return
         }
         
-        categoryLabel.text = "\(need.category) - \(need.type)"
+        categoryLabel.text = "\(need.category.name) - \(need.units.name)"
         pledgeLabel.text = "\(need.currentQuantity) items pleged"
         
         if need.targetQuantity - need.currentQuantity > 0 {

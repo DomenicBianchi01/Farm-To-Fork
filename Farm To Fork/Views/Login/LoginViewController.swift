@@ -43,7 +43,7 @@ final class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if isLoggedIn {
+        if loggedInUser != nil {
             view.alpha = 0
         } else {
             view.alpha = 1
@@ -59,7 +59,7 @@ final class LoginViewController: UIViewController {
         DispatchQueue.main.async {
             self.splashBackgroundImageView.isHidden = true
             
-            if isLoggedIn {
+            if loggedInUser != nil {
                 self.performSegue(withIdentifier: "goToMapFromLogin", sender: self)
             }
         }
@@ -103,14 +103,14 @@ final class LoginViewController: UIViewController {
     
     private func attemptLogin() {
         loginButton.showActivityIndicator()
-        viewModel.attemptLogin() { result in
+        viewModel.attemptLogin { result in
             DispatchQueue.main.async {
                 self.loginButton.hideActivityIndicator()
                 switch result {
-                case .success:
+                case .success (let user):
                     self.viewModel.removePasswordFromKeychain()
                     self.viewModel.savePasswordToKeychain()
-                    isLoggedIn = true
+                    loggedInUser = user
                     if self.viewModel.firstLogin {
                         self.promptForLoginPreferences()
                     } else {
@@ -157,7 +157,7 @@ final class LoginViewController: UIViewController {
     private func promptForSiriKit() {
         DispatchQueue.main.async {
             if INPreferences.siriAuthorizationStatus() == .notDetermined {
-                INPreferences.requestSiriAuthorization() { _ in
+                INPreferences.requestSiriAuthorization { _ in
                     self.performSegue(withIdentifier: "goToMapFromLogin", sender: self)
                 }
             } else {

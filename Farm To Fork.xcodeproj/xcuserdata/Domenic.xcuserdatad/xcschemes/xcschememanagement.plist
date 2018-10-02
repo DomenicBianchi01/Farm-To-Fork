@@ -6,11 +6,15 @@
 	<dict>
 		<key>Farm To Fork For Apple Watch (Notification).xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>9</integer>
 		</dict>
 		<key>Farm To Fork For Apple Watch.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>8</integer>
 		</dict>
@@ -27,6 +31,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>B000165F206349BD00101744</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>B01FA1DF2054463600863E05</key>
 		<dict>
 			<key>primary</key>

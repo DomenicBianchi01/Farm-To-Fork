@@ -10,9 +10,10 @@ import UIKit
 
 final class NeedsViewModel {
     // MARK: - Properties
-    private var needs: [Need] = []
+    private(set) var needs: [Need] = []
     var location: Location? = nil
     var expandedIndexPath: IndexPath? = nil
+    var hideCloseButton: Bool = true
     
     // MARK: - Helper Functions
     func fetchNeeds(with completion: @escaping ((Result<Void>) -> Void)) {
@@ -36,6 +37,29 @@ final class NeedsViewModel {
                 completion(.error(error))
             }
         }
+    }
+    
+    func deleteNeed(at index: Int, with completion: @escaping ((Result<Void>) -> Void)) {
+        guard let locationId = loggedInUser?.workerLocationId else {
+            completion(.error(NSError(domain: "Not authorized to perform this action", code: 0, userInfo: nil)))
+            return
+        }
+        NeedsService().delete(needId: needs[index].id, forLocation: String(locationId)) { result in
+            switch result {
+            case .success:
+                self.needs.remove(at: index)
+                completion(.success(()))
+            case .error(let error):
+                completion(.error(error))
+            }
+        }
+    }
+    
+    func isEditable(at indexPath: IndexPath) -> Bool {
+        if indexPath == expandedIndexPath {
+            return false
+        }
+        return loggedInUser?.isAdmin ?? false
     }
 }
 
@@ -64,7 +88,7 @@ extension NeedsViewModel: TableViewModelable {
                 return UITableViewCell()
             }
             cellIdentifier = "NeedItemReuseIdentifier"
-            need = needs[indexPath.row-1]
+            need = needs[indexPath.row]
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)

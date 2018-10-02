@@ -8,57 +8,70 @@
 
 import Foundation
 
-struct User {
+class User {
     // MARK: - Properties
-    var firstName: String
-    var lastName: String
-    var email: String
-    var password: String
-    var country: (key: String, value: String)
-    var province: (key: String, value: String)
-    var city: (key: String, value: String)
+    let cityId: Int
+    let streetName: String
+    let streetNumber: String //Might be possible to have a number like 26A
+    let unitNumber: String?
+    let postalCode: String
+    let email: String
+    let firstName: String
+    let lastName: String
+    let newsletterDay: Int? //TODO: Should this be int or string
+    /// If not nil, this property indicates that the user is a worker the specified EFP location id. If nil, the user is not a worker at any locations in the Farm To Fork system
+    let workerLocationId: Int?
+    /// Rather than checking if `workerLocationId` is nil, this boolean property can be used.
+    let isAdmin: Bool
     
-    // MARK: - Lifecycle Functions
-    init(firstName: String = "",
-         lastName: String = "",
-         email: String = "",
-         password: String = "",
-         country: (key: String, value: String) = (key: "", value: ""),
-         province: (key: String, value: String) = (key: "", value: ""),
-         city: (key: String, value: String) = (key: "", value: "")) {
+    // MARK: - Lifecycle Function
+    init(cityId: Int,
+         streetName: String,
+         streetNumber: String,
+         unitNumber: String? = nil,
+         postalCode: String,
+         email: String,
+         firstName: String,
+         lastName: String,
+         newsletterDay: Int? = nil,
+         workerLocationId: Int? = nil) {
+        
+        self.cityId = cityId
+        self.streetName = streetName
+        self.streetNumber = streetNumber
+        self.unitNumber = unitNumber
+        self.postalCode = postalCode
+        self.email = email
         self.firstName = firstName
         self.lastName = lastName
-        self.email = email
-        self.password = password
-        self.country = country
-        self.province = province
-        self.city = city
+        self.newsletterDay = newsletterDay
+        self.workerLocationId = workerLocationId
+        self.isAdmin = workerLocationId != nil
     }
-	
-	init?(dictionary: [String : JSONAny]) {
-		guard let firstName = dictionary["FirstName"]?.value as? String,
-			let lastName = dictionary["LastName"]?.value as? String,
-			let email = dictionary["Email"]?.value as? String,
-			let city = dictionary["CityID"]?.value as? String else {
+    
+    /**
+     Create a `User` object using a dictionary.
+     */
+    convenience init?(dictionary: [String : Any]) {
+        guard let cityId = Int(dictionary["CityID"] as? String ?? ""),
+            let streetName = dictionary["StreetName"] as? String,
+            let streetNumber = dictionary["StreetNumber"] as? String,
+            let postalCode = dictionary["PostalCode"] as? String,
+            let email = dictionary["Email"] as? String,
+            let firstName = dictionary["FirstName"] as? String,
+            let lastName = dictionary["LastName"] as? String else {
                 return nil
         }
         
-		self.firstName = firstName
-		self.lastName = lastName
-		self.email = email
-		self.password = "*********"
-		self.country = (key: "", value: "")
-		self.province = (key: "", value: "")
-		self.city = (key: city, value: "")
-	}
-	
-	init(_ user: User) {
-		self.firstName = user.firstName
-		self.lastName = user.lastName
-		self.email = user.email
-		self.password = user.password
-		self.country = user.country
-		self.province = user.province
-		self.city = user.city
-	}
+        self.init(cityId: cityId,
+                  streetName: streetName,
+                  streetNumber: streetNumber,
+                  unitNumber: dictionary["UnitNumber"] as? String,
+                  postalCode: postalCode,
+                  email: email,
+                  firstName: firstName,
+                  lastName: lastName,
+                  newsletterDay: dictionary["NewsletterDay"] as? Int,
+                  workerLocationId: Int(dictionary["EFPWorkerID"] as? String ?? ""))
+    }
 }

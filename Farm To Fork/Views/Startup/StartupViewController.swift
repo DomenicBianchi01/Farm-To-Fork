@@ -26,7 +26,7 @@ final class StartupViewController: UIViewController {
             return
         }
         
-        let user = User(email: username, password: password)
+        let user = BasicUserDetails(email: username, password: password)
         
         authenticateUser { result in
             DispatchQueue.main.async {
@@ -45,7 +45,7 @@ final class StartupViewController: UIViewController {
         self.progressView.progress += 1.0 / 15.0
     }
     
-    private func login(_ user: User) {
+    private func login(_ user: BasicUserDetails) {
         progressView.isHidden = false
         let timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateProgressView), userInfo: nil, repeats: true)
         LoginService().login(user: user) { result in
@@ -53,8 +53,8 @@ final class StartupViewController: UIViewController {
                 timer.invalidate()
                 self.progressView.progress = 1.0
                 switch result {
-                case .success:
-                    isLoggedIn = true
+                case .success (let user):
+                    loggedInUser = user
                     self.performSegue(withIdentifier: Constants.Segues.loginStart, sender: self)
                 case .error:
                     self.performSegue(withIdentifier: Constants.Segues.loginStart, sender: self)

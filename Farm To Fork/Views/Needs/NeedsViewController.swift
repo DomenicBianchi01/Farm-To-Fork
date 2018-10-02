@@ -11,19 +11,24 @@ import UIKit
 final class NeedsViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet private var tableView: UITableView!
+    @IBOutlet private var addNeedBarButtonItem: UIBarButtonItem!
+    @IBOutlet private var changeEFPBarButtonItem: UIBarButtonItem!
     
     // MARK: - Properties
-    private let viewModel = NeedsViewModel()
     private var locationName: String? = nil
-    var hideCloseButton = true
+    private var selectedRowToEdit: Int? = nil
+    let viewModel = NeedsViewModel()
     
     // MARK: - Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if hideCloseButton {
-            navigationItem.leftBarButtonItem = nil
-        } else {
+        // If this value is `true`, then allow the user to change their preferred location.
+        if viewModel.hideCloseButton {
+            navigationItem.leftBarButtonItem = changeEFPBarButtonItem
+        }
+        
+        if !(loggedInUser?.isAdmin ?? true) {
             navigationItem.rightBarButtonItem = nil
         }
         
@@ -49,6 +54,10 @@ final class NeedsViewController: UIViewController {
     // MARK: - IBActions
     @IBAction func dismissButtonTapped(_ sender: Any) {
         dismiss(animated: true)
+    }
+    
+    @IBAction func addNeedButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: Constants.Segues.modifyNeed, sender: self)
     }
     
     @IBAction func changeLocationButtonTapped(_ sender: Any) {
@@ -84,10 +93,17 @@ final class NeedsViewController: UIViewController {
                 case .success():
                     self.tableView.reloadData()
                 case .error(let error):
-                    self.displayAlert(title: "Error", message: error.customDescription)
+                    self.displaySCLAlert("Error", message: error.description, style: .error)
                     self.tableView.reloadData()
                 }
             }
+        }
+    }
+    
+    // MARK: - Segue Functions
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Constants.Segues.modifyNeed, let selectedRow = selectedRowToEdit, let viewController = segue.destination as? AddNeedViewController {
+            viewController.addNeedToViewModel(viewModel.needs[selectedRow])
         }
     }
 }
@@ -154,6 +170,42 @@ extension NeedsViewController: UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return viewModel.isEditable(at: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { action, indexpath in
+            self.viewModel.deleteNeed(at: indexPath.row) { result in
+                switch result {
+                case .success:
+                    var indexPaths = [indexPath]
+                    
+                    if let expandedIndexPath = self.viewModel.expandedIndexPath, expandedIndexPath.row == indexPath.row + 1 {
+                        indexPaths.append(expandedIndexPath)
+                    }
+                    
+                    self.viewModel.expandedIndexPath = nil
+                    
+                    DispatchQueue.main.async {
+                        tableView.performBatchUpdates({
+                            tableView.deleteRows(at: indexPaths, with: .top)
+                        }, completion: nil)
+                    }
+                case .error(let error):
+                    self.displaySCLAlert("Error", message: error.description, style: .error)
+                }
+            }
+        }
+        
+        let editAction = UITableViewRowAction(style: .normal, title: "Edit") { action, indexpath in
+            self.selectedRowToEdit = indexPath.row
+            self.performSegue(withIdentifier: "modifyNeedSegue", sender: self)
+        }
+        
+        return [deleteAction, editAction]
+    }
 }
 
 // MARK: - PledgeDelegate
@@ -173,7 +225,7 @@ extension NeedsViewController: PledgeDelegate {
         alert.addAction(submitAction)
         alert.addAction(cancelAction)
         
-        alert.addTextField() { addedTextField in
+        alert.addTextField { addedTextField in
             addedTextField.placeholder = "Number of \(need.name)'s"
             //TODO: Check that all input is numbers as user types
             addedTextField.keyboardType = .numberPad

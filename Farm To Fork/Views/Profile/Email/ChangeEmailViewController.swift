@@ -48,14 +48,16 @@ final class ChangeEmailViewController: UIViewController {
             return
         }
         
-        viewModel.updateInfo(for: User(email: newEmail)) { result in
-            switch result {
-            case .success:
-                //TODO
-                break
-            case .error(let error):
-                self.displayAlert(title: "Error", message: error.customDescription)
-            }
-        }
+        //TODO
+        
+//        viewModel.updateInfo(for: User(email: newEmail)) { result in
+//            switch result {
+//            case .success:
+//                //TODO
+//                break
+//            case .error(let error):
+//                self.displayAlert(title: "Error", message: error.customDescription)
+//            }
+//        }
     }
 }

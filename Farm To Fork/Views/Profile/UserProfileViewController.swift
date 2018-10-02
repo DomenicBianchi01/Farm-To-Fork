@@ -22,7 +22,7 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
 	private let locationPickerView = UIPickerView()
 
 	private var preferedLocation:Location? = nil
-	var user:User = User()
+	//var user:User = User()
 	
 	// MARK: - Properties
 	private class Setting {
@@ -86,16 +86,16 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
 				switch result {
 				case .success(var user):
 
-					user.password = password
+					//user.password = password
 					
-					self.user = user
+					//self.user = user
 					self.getEFPLocations()
 					
 					self.settings = [
 						Setting(label: "First Name", value: user.firstName, Setting.FieldType.TEXT),
 						Setting(label: "Last Name", value: user.lastName, Setting.FieldType.TEXT),
 						Setting(label: "Email", value: user.email, Setting.FieldType.EMAIL),
-						Setting(label: "Password", value: user.password, Setting.FieldType.PASSWORD),
+						//Setting(label: "Password", value: user.password ?? "", Setting.FieldType.PASSWORD),
 						Setting(label: "Prefered EFP", value: "location", Setting.FieldType.PREFERED)]
 					
 				case .error(let error):
@@ -216,7 +216,7 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
         let loginViewModel = LoginViewModel()
 		loginViewModel.removePasswordFromKeychain()
         loginViewModel.disableLoginPreference()
-		isLoggedIn = false
+		loggedInUser = nil
 	}
 	
 	
@@ -273,7 +273,7 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
 			//alert.addAction(noLocationAction)
 			alert.addAction(cancelAction)
 			
-			alert.addTextField() { addedTextField in
+			alert.addTextField { addedTextField in
 				self.locationPickerView.delegate = self as UIPickerViewDelegate
 				addedTextField.inputView = self.locationPickerView
 				addedTextField.placeholder = "Preferred Location"
