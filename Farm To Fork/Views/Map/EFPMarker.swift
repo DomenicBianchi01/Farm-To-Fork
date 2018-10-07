@@ -13,12 +13,12 @@ final class EFPMarker: NSObject, MKAnnotation {
     // MARK: - Properties
     let title: String?
     let coordinate: CLLocationCoordinate2D
-    private let id: String
+    private let id: Int
     
     // MARK: - Lifecycle Functions
     init(title: String? = nil,
          coordinate: CLLocationCoordinate2D,
-         id: String) {
+         id: Int) {
         self.title = title
         self.coordinate = coordinate
         self.id = id

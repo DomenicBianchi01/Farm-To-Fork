@@ -11,3 +11,7 @@ import Foundation
 protocol NewNeedDelegate: class {
     func needInformationUpdated(with info: [String : Any])
 }
+
+protocol NewNeedDelgatable {
+    var delegate: NewNeedDelegate? { get set }
+}

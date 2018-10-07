@@ -16,6 +16,14 @@ final class AddNeedViewModel {
     // False if creating a new need, true if modifying an existing need
     private var isEditingNeed: Bool = false
     
+    var name: String {
+        if isEditingNeed {
+            return "Edit Need"
+        } else {
+            return "Add Need"
+        }
+    }
+    
     // MARK: - Functions
     func needInformationUpdated(with newInfo: [String : Any]) {
         var newInfoMutable = newInfo

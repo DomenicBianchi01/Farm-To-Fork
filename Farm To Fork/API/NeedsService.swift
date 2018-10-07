@@ -13,7 +13,7 @@ import Foundation
 final class NeedsService: JSONService {
 
     // MARK: - Fetching Functions
-    func fetchNeeds(forLocation locationId: String, with completion: @escaping ((Result<[Need]>) -> Void)) {
+    func fetchNeeds(forLocation locationId: Int, with completion: @escaping ((Result<[Need]>) -> Void)) {
         request(from: "https://farmtofork.marshallasch.ca/api.php/2.0/needs/\(locationId)/all", expecting: [Need].self) { result in
             completion(result)
         }
@@ -37,7 +37,7 @@ final class NeedsService: JSONService {
     @available(watchOS, unavailable)
     func modify(need: Need, forLocation locationId: String, requestType: RequestType, with completion: @escaping ((Result<Void>) -> Void)) {
         
-        let body = encode(object: need)
+        let body = encode(need)
         
         request(from: "https://farmtofork.marshallasch.ca/api.php/2.0/needs/\(locationId)", requestType: requestType, body: body) { result in
             completion(result)
@@ -47,7 +47,7 @@ final class NeedsService: JSONService {
     @available(watchOS, unavailable)
     func delete(needId: Int, forLocation locationId: String, with completion: @escaping ((Result<Void>) -> Void)) {
         
-        let body = encode(object: ["NeedID" : needId])
+        let body = encode(["NeedID" : needId])
         
         request(from: "https://farmtofork.marshallasch.ca/api.php/2.0/needs/\(locationId)", requestType: .delete, body: body) { result in
             completion(result)

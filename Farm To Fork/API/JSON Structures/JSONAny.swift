@@ -8,7 +8,7 @@
 
 import Foundation
 
-///Credit: https://stackoverflow.com/a/46372589
+//Credit: https://stackoverflow.com/a/46372589
 final class JSONAny: Codable {
     public let value: Any
     

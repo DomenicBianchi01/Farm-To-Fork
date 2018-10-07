@@ -20,7 +20,7 @@ final class AddNeedQuantityCellViewModel {
 
 // MARK: - CellViewModelable
 extension AddNeedQuantityCellViewModel: CellViewModelable {
-    var title: String? {
+    var string1: String? {
         if quantity == 0 {
             return nil
         }
@@ -28,7 +28,7 @@ extension AddNeedQuantityCellViewModel: CellViewModelable {
     }
     
     // In the context of this view model, this property is used for the placeholder of the textfield
-    var subtitle: String? {
+    var string2: String? {
         return "Quantity"
     }
     

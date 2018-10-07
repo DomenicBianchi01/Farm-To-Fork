@@ -45,7 +45,7 @@ class JSONService {
      
      - returns: A `Data` representation of the `object`. If the encoding failed, `nil` is returned
     */
-    func encode<E: Encodable>(object: E) -> Data? {
+    func encode<E: Encodable>(_ object: E) -> Data? {
         return try? JSONEncoder().encode(object)
     }
 
@@ -190,12 +190,12 @@ class JSONService {
         return request
     }
     
-    @available(watchOS, unavailable)
+    //@available(watchOS, unavailable)
+    #if os(iOS)
     private func updateNetworkActivityIndicator(isHidden: Bool) {
-        #if os(iOS)
         DispatchQueue.main.async {
             UIApplication.shared.isNetworkActivityIndicatorVisible = !isHidden
         }
-        #endif
     }
+    #endif
 }

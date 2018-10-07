@@ -22,7 +22,7 @@ final class WatchNeedsViewModel {
                     completion(.error(NSError(domain: error, code: 0, userInfo: nil)))
                     return
                 }
-                guard let preferredLocationId = response[Constants.preferredLocationId] as? String else {
+                guard let preferredLocationId = response[Constants.preferredLocationId] as? Int else {
                     //TODO: Don't hardcode city id!
                     self.executeLocationsAPICall(forCity: "150", with: completion)
                     return
@@ -41,7 +41,7 @@ final class WatchNeedsViewModel {
         }
     }
     
-    private func executeNeedsAPICall(forLocation locationId: String, with completion: @escaping ((Result<Void>) -> Void)) {
+    private func executeNeedsAPICall(forLocation locationId: Int, with completion: @escaping ((Result<Void>) -> Void)) {
         NeedsService().fetchNeeds(forLocation: locationId) { result in
             switch result {
             case .success(let needs):

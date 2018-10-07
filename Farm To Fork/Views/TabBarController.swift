@@ -64,7 +64,7 @@ final class TabBarController: UITabBarController {
              //TODO: Display list from other cities?
              }*/
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
-                if UserDefaults.appGroup?.string(forKey: Constants.preferredLocationId) == nil {
+                if UserDefaults.appGroup?.integer(forKey: Constants.preferredLocationId) == nil {
                     self.selectedIndex = 0
                 }
             }

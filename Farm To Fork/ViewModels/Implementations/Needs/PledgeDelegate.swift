@@ -6,8 +6,12 @@
 //  Copyright © 2018 Domenic Bianchi & Marshall Asch. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol PledgeDelegate: class {
-    func pledgeRequested(for need: Need)
+    func pledgeRequested(for needId: Int)
+}
+
+protocol PledgeDelegatable {
+    var delegate: PledgeDelegate? { get set }
 }

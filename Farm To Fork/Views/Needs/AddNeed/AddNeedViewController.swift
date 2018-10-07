@@ -20,6 +20,8 @@ final class AddNeedViewController: UIViewController {
     // MARK: - Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = viewModel.name
 
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissFirstResponder))
         view.addGestureRecognizer(tapRecognizer)
@@ -44,6 +46,7 @@ final class AddNeedViewController: UIViewController {
     // MARK: - Segue Helper Functions
     func addNeedToViewModel(_ need: Need) {
         viewModel.addNeed(need)
+        title = viewModel.name
     }
 }
 
@@ -67,7 +70,7 @@ extension AddNeedViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = viewModel.cellForRow(in: tableView, at: indexPath)
 
-        if var cell = cell as? CellConfigurable {
+        if var cell = cell as? NewNeedDelgatable {
             cell.delegate = self
         }
         

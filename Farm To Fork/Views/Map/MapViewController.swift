@@ -61,7 +61,7 @@ final class MapViewController: UIViewController {
                     (self.resultSearchController.searchResultsUpdater as? LocationSearchViewController)?.locations = self.viewModel.locations
                     
                 case .error(let error):
-                    self.displayAlert(title: "Error", message: error.customDescription)
+                    self.displaySCLAlert("Error", message: error.description, style: .error)
                 }
             }
         }
@@ -158,7 +158,7 @@ final class MapViewController: UIViewController {
                 }
                 //TODO: Make this value smaller in production
                 if distance < 6000.0 {
-                    guard let preferredLocationId = UserDefaults.appGroup?.string(forKey: Constants.preferredLocationId) else {
+                    guard let preferredLocationId = UserDefaults.appGroup?.integer(forKey: Constants.preferredLocationId) else {
                         self.scheduleNotification(title: "Are you going grocery shopping?",
                                                   message: "Take a look at what food providers near you need so you can help out your community!")
                         break
@@ -200,8 +200,8 @@ final class MapViewController: UIViewController {
             self.mapView.removeOverlays(self.mapView.overlays)
             
             guard let route = response?.routes.first else {
-                    self.displayAlert(title: "Error", message: "Unable to generate directions.")
-                    return
+                self.displaySCLAlert("Error", message: "Unable to generate directions.", style: .error)
+                return
             }
             
             self.mapView.addOverlay(route.polyline)

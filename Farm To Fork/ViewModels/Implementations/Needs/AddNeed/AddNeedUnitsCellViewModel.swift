@@ -21,14 +21,14 @@ final class AddNeedUnitsCellViewModel {
 
 // MARK: - CellViewModelable
 extension AddNeedUnitsCellViewModel: CellViewModelable {
-    var title: String? {
+    var string1: String? {
         guard let unitId = unitId else {
             return nil
         }
         return units[unitId-1].name
     }
     
-    var subtitle: String? {
+    var string2: String? {
         return "Units"
     }
     

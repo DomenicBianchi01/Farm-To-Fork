@@ -11,7 +11,7 @@ import CoreLocation
 
 class Location: Decodable {
     // MARK: - Properties
-    let id: String
+    let id: Int
     let name: String
     let hours: Hours
     let streetName: String
@@ -76,7 +76,7 @@ class Location: Decodable {
     }
     
     // MARK: - Lifecycle Functions
-    init(id: String,
+    init(id: Int,
          name: String,
          hours: Hours,
          streetName: String,
@@ -117,7 +117,7 @@ class Location: Decodable {
     */
     convenience init?(dictionary: [String : Any]) {
         // Mandatory fields
-        guard let id = dictionary[LocationKeys.id.rawValue] as? String,
+        guard let id = Int(dictionary[LocationKeys.id.rawValue] as? String ?? ""),
             let name = dictionary[LocationKeys.name.rawValue] as? String,
             let monday = dictionary[LocationKeys.monday.rawValue] as? String,
             let tuesday = dictionary[LocationKeys.tuesday.rawValue] as? String,
@@ -190,7 +190,7 @@ class Location: Decodable {
         let contactName = try container.decodeIfPresent(String.self, forKey: .contactName)
         let unitNumber = try container.decodeIfPresent(String.self, forKey: .unitNumber)
         
-        guard let latitudeDouble = Double(latitude), let longitudeDouble = Double(longitude) else {
+        guard let idInt = Int(id), let latitudeDouble = Double(latitude), let longitudeDouble = Double(longitude) else {
             throw DecodingError.typeMismatch(Double.self, DecodingError.Context(codingPath: container.codingPath, debugDescription: "Cannot decode latitude and/or longitude"))
         }
 
@@ -205,7 +205,7 @@ class Location: Decodable {
             fullAddressWithNewlines = "\(streetNumber) \(streetName)\n\(cityName) \(postalCode)"
         }
 
-        self.init(id: id,
+        self.init(id: idInt,
                   name: name,
                   hours: Hours(monday: monday, tuesday: tuesday, wednesday: wednesday, thursday: thursday, friday: friday, saturday: saturday, sunday: sunday),
                   streetName: streetName,

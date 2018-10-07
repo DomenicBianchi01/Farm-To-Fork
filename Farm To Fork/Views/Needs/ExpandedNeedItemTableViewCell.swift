@@ -14,6 +14,13 @@ final class ExpandedNeedItemTableViewCell: UITableViewCell {
     @IBOutlet private var pledgeLabel: UILabel!
     @IBOutlet private var pledgesNeededLabel: UILabel!
     
+    // MARK: - Properties
+    var viewModel: ExpandedNeedCellViewModel? = nil {
+        didSet {
+            refreshCell()
+        }
+    }
+    
     // MARK - Lifecycle Functions
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,22 +32,11 @@ final class ExpandedNeedItemTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-}
-
-// MARK: - Configurable
-extension ExpandedNeedItemTableViewCell: Configurable {
-    func configure(using data: Any) {
-        guard let need = data as? Need else {
-            return
-        }
-        
-        categoryLabel.text = "\(need.category.name) - \(need.units.name)"
-        pledgeLabel.text = "\(need.currentQuantity) items pleged"
-        
-        if need.targetQuantity - need.currentQuantity > 0 {
-            pledgesNeededLabel.text = "We need \(need.targetQuantity - need.currentQuantity) more to reach our goal of \(need.targetQuantity) items!"
-        } else {
-            pledgesNeededLabel.text = "We have reached our pledge goal of \(need.targetQuantity) items! You can still pledge if you wish!"
-        }
+    
+    // MARK: - Helper Functions
+    private func refreshCell() {
+        categoryLabel.text = viewModel?.string1
+        pledgeLabel.text = viewModel?.string2
+        pledgesNeededLabel.text = viewModel?.string3
     }
 }

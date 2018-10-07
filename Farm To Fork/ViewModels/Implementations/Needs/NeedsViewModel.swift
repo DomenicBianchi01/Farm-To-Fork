@@ -13,14 +13,41 @@ final class NeedsViewModel {
     private(set) var needs: [Need] = []
     var location: Location? = nil
     var expandedIndexPath: IndexPath? = nil
+    var selectedRowToEdit: Int? = nil
     var hideCloseButton: Bool = true
+    
+    // MARK: - Computed Properties
+    var isAdminForLocation: Bool {
+        let locationId: Int
+        if let location = location {
+            locationId = location.id
+        } else if let locationIdentifier = UserDefaults.appGroup?.integer(forKey: Constants.preferredLocationId) {
+            locationId = locationIdentifier
+        } else {
+            return false
+        }
+        
+        if loggedInUser?.workerLocationId == locationId {
+            return true
+        }
+        return false
+    }
+    
+    var name: String {
+        if let locationName = location?.name {
+            return locationName + " Needs"
+        } else if let locationName = UserDefaults.appGroup?.string(forKey: Constants.preferredLocationName) {
+            return locationName + " Needs"
+        }
+        return "Needs"
+    }
     
     // MARK: - Helper Functions
     func fetchNeeds(with completion: @escaping ((Result<Void>) -> Void)) {
-        let locationId: String
+        let locationId: Int
         if let location = location {
             locationId = location.id
-        } else if let locationIdentifier = UserDefaults.appGroup?.string(forKey: Constants.preferredLocationId) {
+        } else if let locationIdentifier = UserDefaults.appGroup?.integer(forKey: Constants.preferredLocationId) {
             locationId = locationIdentifier
         } else {
             completion(.error(NSError(domain: "No location info found", code: 0, userInfo: nil)))
@@ -56,10 +83,10 @@ final class NeedsViewModel {
     }
     
     func isEditable(at indexPath: IndexPath) -> Bool {
-        if indexPath == expandedIndexPath {
-            return false
+        guard indexPath != expandedIndexPath else {
+                return false
         }
-        return loggedInUser?.isAdmin ?? false
+        return isAdminForLocation
     }
 }
 
@@ -78,23 +105,19 @@ extension NeedsViewModel: TableViewModelable {
     
     func cellForRow(in tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier: String
-        let need: Need
         
         if let expandedIndexPath = expandedIndexPath, indexPath == expandedIndexPath {
             cellIdentifier = "ExpandedNeedItemReuseIdentifier"
-            need = needs[indexPath.row-1]
         } else {
-            guard indexPath.row < needs.count else {
-                return UITableViewCell()
-            }
             cellIdentifier = "NeedItemReuseIdentifier"
-            need = needs[indexPath.row]
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
 
-        if let cell = cell as? Configurable {
-            cell.configure(using: need)
+        if let cell = cell as? ExpandedNeedItemTableViewCell {
+            cell.viewModel = ExpandedNeedCellViewModel(need: needs[indexPath.row-1])
+        } else if let cell = cell as? NeedItemTableViewCell {
+            cell.viewModel = NeedCellViewModel(need: needs[indexPath.row])
         }
         
         return cell

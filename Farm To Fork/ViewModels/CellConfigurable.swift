@@ -10,5 +10,4 @@ import Foundation
 
 protocol CellConfigurable {
     var viewModel: CellViewModelable? { get set }
-    var delegate: NewNeedDelegate? { get set } //TODO: Get this out of here!!!!!
 }

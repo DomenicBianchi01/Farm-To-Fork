@@ -13,10 +13,9 @@ final class NeedsViewController: UIViewController {
     @IBOutlet private var tableView: UITableView!
     @IBOutlet private var addNeedBarButtonItem: UIBarButtonItem!
     @IBOutlet private var changeEFPBarButtonItem: UIBarButtonItem!
+    @IBOutlet private var noNeedsLabel: UILabel!
     
     // MARK: - Properties
-    private var locationName: String? = nil
-    private var selectedRowToEdit: Int? = nil
     let viewModel = NeedsViewModel()
     
     // MARK: - Lifecycle Functions
@@ -28,7 +27,7 @@ final class NeedsViewController: UIViewController {
             navigationItem.leftBarButtonItem = changeEFPBarButtonItem
         }
         
-        if !(loggedInUser?.isAdmin ?? true) {
+        if !viewModel.isAdminForLocation {
             navigationItem.rightBarButtonItem = nil
         }
         
@@ -43,6 +42,7 @@ final class NeedsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        viewModel.selectedRowToEdit = nil
         refreshTitle()
         fetchNeeds()
     }
@@ -64,21 +64,17 @@ final class NeedsViewController: UIViewController {
         guard let tabBar = tabBarController as? TabBarController else {
             return
         }
-        //TODO: I really don't like this (using the tab bar controller to prompt for the preferred location) but I don't want to duplicate the code in the function.
+
         tabBar.promptForPreferredLocation()
     }
     
     // MARK: - Helper Functions
     func selectedLocation(_ location: Location) {
         viewModel.location = location
-        locationName = location.name
     }
     
     private func refreshTitle() {
-        locationName = UserDefaults.appGroup?.string(forKey: Constants.preferredLocationName)
-        if let locationName = locationName {
-            navigationItem.title = locationName + " Needs"
-        }
+        title = viewModel.name
     }
     
     @objc private func preferredLocationSet() {
@@ -92,6 +88,7 @@ final class NeedsViewController: UIViewController {
                 switch result {
                 case .success():
                     self.tableView.reloadData()
+                    self.refreshNoNeedsStatus()
                 case .error(let error):
                     self.displaySCLAlert("Error", message: error.description, style: .error)
                     self.tableView.reloadData()
@@ -100,9 +97,20 @@ final class NeedsViewController: UIViewController {
         }
     }
     
+    /// If there are no needs, the table view is hidden and a label saying "No Needs" is displayed. Opposite occurs if there is at least one need.
+    private func refreshNoNeedsStatus() {
+        if viewModel.needs.count == 0 {
+            tableView.separatorStyle = .none
+            noNeedsLabel.isHidden = false
+        } else {
+            tableView.separatorStyle = .singleLine
+            noNeedsLabel.isHidden = true
+        }
+    }
+    
     // MARK: - Segue Functions
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Constants.Segues.modifyNeed, let selectedRow = selectedRowToEdit, let viewController = segue.destination as? AddNeedViewController {
+        if segue.identifier == Constants.Segues.modifyNeed, let selectedRow = viewModel.selectedRowToEdit, let viewController = segue.destination as? AddNeedViewController {
             viewController.addNeedToViewModel(viewModel.needs[selectedRow])
         }
     }
@@ -162,9 +170,8 @@ extension NeedsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = viewModel.cellForRow(in: tableView, at: indexPath)
-        
-        // TODO: Avoid casting to a concrete type in the view controller
-        if let cell = cell as? NeedItemTableViewCell {
+
+        if var cell = cell as? PledgeDelegatable {
             cell.delegate = self
         }
         
@@ -192,6 +199,7 @@ extension NeedsViewController: UITableViewDataSource {
                         tableView.performBatchUpdates({
                             tableView.deleteRows(at: indexPaths, with: .top)
                         }, completion: nil)
+                        self.refreshNoNeedsStatus()
                     }
                 case .error(let error):
                     self.displaySCLAlert("Error", message: error.description, style: .error)
@@ -200,7 +208,7 @@ extension NeedsViewController: UITableViewDataSource {
         }
         
         let editAction = UITableViewRowAction(style: .normal, title: "Edit") { action, indexpath in
-            self.selectedRowToEdit = indexPath.row
+            self.viewModel.selectedRowToEdit = indexPath.row
             self.performSegue(withIdentifier: "modifyNeedSegue", sender: self)
         }
         
@@ -210,13 +218,19 @@ extension NeedsViewController: UITableViewDataSource {
 
 // MARK: - PledgeDelegate
 extension NeedsViewController: PledgeDelegate {
-    func pledgeRequested(for need: Need) {
+    func pledgeRequested(for needId: Int) {
+        guard let need = viewModel.needs.first(where: { $0.id == needId}) else {
+            return
+        }
         let alert = UIAlertController(title: "Pledge", message: "How many \(need.name)'s would you like to pledge?", preferredStyle: .alert)
         let submitAction = UIAlertAction(title: "Submit", style: .default) { _ in
-            guard let textField = alert.textFields?.first, let text = textField.text, let pledgedAmount = Int(text) else {
+            guard let locationId = self.viewModel.location?.id,
+                let textField = alert.textFields?.first,
+                let text = textField.text,
+                let pledgedAmount = Int(text) else {
                 return
             }
-            PledgeService().pledge(needID: need.id, quantity: pledgedAmount) { _ in
+            PledgeService().pledge(locationId: locationId, needID: need.id, quantity: pledgedAmount) { _ in
                 //TODO
             }
         }
@@ -226,8 +240,7 @@ extension NeedsViewController: PledgeDelegate {
         alert.addAction(cancelAction)
         
         alert.addTextField { addedTextField in
-            addedTextField.placeholder = "Number of \(need.name)'s"
-            //TODO: Check that all input is numbers as user types
+            addedTextField.placeholder = "Number of \(need.name)"
             addedTextField.keyboardType = .numberPad
             addedTextField.delegate = self
         }

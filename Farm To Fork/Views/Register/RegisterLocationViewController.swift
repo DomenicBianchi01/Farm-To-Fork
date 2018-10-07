@@ -70,7 +70,7 @@ final class RegisterLocationViewController: UIViewController {
                     self.performSegue(withIdentifier: "unwindBackToLogin", sender: self)
                 }
             case .error(let error):
-                self.displaySCLAlert("Registration Error", message: error.customDescription, style: .error)
+                self.displaySCLAlert("Registration Error", message: error.description, style: .error)
             }
         }
     }

@@ -232,7 +232,7 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
 			case .success(let locations):
 				self.locations = locations
 				
-				let locationID = UserDefaults.appGroup?.string(forKey: Constants.preferredLocationId)
+				let locationID = UserDefaults.appGroup?.integer(forKey: Constants.preferredLocationId)
 				let locationName = UserDefaults.appGroup?.string(forKey: Constants.preferredLocationName)
 				
 				
@@ -249,7 +249,7 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
 				
 				NSLog("Success get locatiosn")
 			case .error(let error):
-				NSLog("fail get locatiosn \(error.customDescription)")
+				NSLog("fail get locatiosn \(error.descriptionWithCode)")
 			}
 		}
 		}

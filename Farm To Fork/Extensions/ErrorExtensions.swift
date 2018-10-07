@@ -9,8 +9,11 @@
 import Foundation
 
 extension Error {
-    /// Displays the `domain` and `code` of the error
-    var customDescription: String {
+    /** Returns a string containing the `domain` and `code` of the error.
+     
+    Should not be used to display the error to the user (error codes should not be displayed on the UI). Use `description` instead.
+    */
+    var descriptionWithCode: String {
         let error = self as NSError
         return "\(error.domain)\nError Code: \(error.code)"
     }

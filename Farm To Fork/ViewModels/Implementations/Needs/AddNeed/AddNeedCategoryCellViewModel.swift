@@ -21,17 +21,17 @@ final class AddNeedCategoryCellViewModel {
 
 // MARK: - CellViewModelable
 extension AddNeedCategoryCellViewModel: CellViewModelable {
-    var title: String? {
+    var string1: String? {
         guard let categoryId = categoryId else {
             return nil
         }
         return categories[categoryId-1].name
     }
     
-    var subtitle: String? {
+    var string2: String? {
         return "Category"
     }
-    
+
     var identifier: String {
         return Need.Keys.category.rawValue
     }

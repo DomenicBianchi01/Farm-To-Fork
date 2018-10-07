@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class AddNeedTextfieldTableViewCell: UITableViewCell, CellConfigurable {
+final class AddNeedTextfieldTableViewCell: UITableViewCell, CellConfigurable, NewNeedDelgatable {
     // MARK: - IBOutlets
     @IBOutlet private var inputTextField: UITextField!
     
@@ -26,6 +26,11 @@ final class AddNeedTextfieldTableViewCell: UITableViewCell, CellConfigurable {
         super.awakeFromNib()
         
         inputTextField.addTarget(self, action: #selector(AddNeedTextfieldTableViewCell.textFieldDidChange(_:)), for: .editingChanged)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        inputTextField.text = nil
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -47,7 +52,7 @@ final class AddNeedTextfieldTableViewCell: UITableViewCell, CellConfigurable {
         guard let viewModel = viewModel else {
             return
         }
-        inputTextField.placeholder = viewModel.subtitle
-        inputTextField.text = viewModel.title
+        inputTextField.placeholder = viewModel.string2
+        inputTextField.text = viewModel.string1
     }
 }

@@ -14,7 +14,7 @@ final class LoginService: JSONService {
         let body = ["Email" : user.email,
                     "pass" : user.password]
         
-        let encodedBody = encode(object: body)
+        let encodedBody = encode(body)
         
         request(from: "https://farmtofork.marshallasch.ca/api.php/2.0/user/login", requestType: .post, body: encodedBody, expecting: [String : JSONAny].self) { result in
             switch result {

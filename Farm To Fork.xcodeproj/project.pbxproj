@@ -59,7 +59,6 @@
 		B048D5E720851388009BA814 /* ChangeEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B048D5E620851388009BA814 /* ChangeEmailViewModel.swift */; };
 		B04B2DD92063C011007F07EE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B077904620535D2A0099AD1F /* Constants.swift */; };
 		B04B2DDC2063C1E1007F07EE /* NeedRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04B2DDB2063C1E1007F07EE /* NeedRowController.swift */; };
-		B05274922145FBEE000DA7DB /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05274912145FBEE000DA7DB /* Configurable.swift */; };
 		B0554DAB2069624D00A49E74 /* LocationInfoDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0554DAA2069624D00A49E74 /* LocationInfoDelegate.swift */; };
 		B061D3662058BF1E004E7888 /* PickerViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B061D3652058BF1E004E7888 /* PickerViewModelable.swift */; };
 		B06E3EE92069BDAD003ED34C /* LocationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E3EE82069BDAD003ED34C /* LocationSearchViewController.swift */; };
@@ -86,7 +85,6 @@
 		B0B7DA6720880CF300C36D40 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B7DA6620880CF300C36D40 /* TabBarController.swift */; };
 		B0B7DA6A2088117700C36D40 /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B7DA692088117700C36D40 /* TabBarViewModel.swift */; };
 		B0B7DA6C208813E600C36D40 /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B7DA6B208813E600C36D40 /* NotificationExtensions.swift */; };
-		B0BD371C210C1299005149FF /* PaginatedResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BD371B210C1299005149FF /* PaginatedResults.swift */; };
 		B0BDBA762162978D001A26D2 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BDBA752162978D001A26D2 /* Category.swift */; };
 		B0BDBA772162986E001A26D2 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BDBA752162978D001A26D2 /* Category.swift */; };
 		B0BDBA802162C4E4001A26D2 /* NeedsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B3BFF22054BCD60074DF0D /* NeedsService.swift */; };
@@ -114,6 +112,8 @@
 		B0DC7C75206919CD00E544D2 /* LocationInfoHoursTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC7C74206919CD00E544D2 /* LocationInfoHoursTableViewCell.swift */; };
 		B0DC7C77206920F600E544D2 /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC7C76206920F600E544D2 /* DoubleExtensions.swift */; };
 		B0DF8B5620500FF100AD2539 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DF8B5520500FF100AD2539 /* LoginService.swift */; };
+		B0E2790721669CBC00C74916 /* NeedCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E2790621669CBC00C74916 /* NeedCellViewModel.swift */; };
+		B0E2790921669D8D00C74916 /* ExpandedNeedCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E2790821669D8D00C74916 /* ExpandedNeedCellViewModel.swift */; };
 		B0EED74F20574AC6008CF4D5 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0EED74E20574AC6008CF4D5 /* LocalAuthentication.framework */; };
 		B0F133F320517C12000187BA /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F133F220517C12000187BA /* StringExtensions.swift */; };
 		B0F133F520517D12000187BA /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F133F420517D12000187BA /* RegisterService.swift */; };
@@ -244,7 +244,6 @@
 		B04B2DDA2063C01F007F07EE /* Farm To Fork For Apple Watch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Farm To Fork For Apple Watch Extension.entitlements"; sourceTree = "<group>"; };
 		B04B2DDB2063C1E1007F07EE /* NeedRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedRowController.swift; sourceTree = "<group>"; };
 		B04B2DDD2063C582007F07EE /* Farm To Fork For Apple Watch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Farm To Fork For Apple Watch.entitlements"; sourceTree = "<group>"; };
-		B05274912145FBEE000DA7DB /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 		B0554DAA2069624D00A49E74 /* LocationInfoDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInfoDelegate.swift; sourceTree = "<group>"; };
 		B061D3652058BF1E004E7888 /* PickerViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewModelable.swift; sourceTree = "<group>"; };
 		B06E3EE82069BDAD003ED34C /* LocationSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewController.swift; sourceTree = "<group>"; };
@@ -271,7 +270,6 @@
 		B0B7DA6620880CF300C36D40 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		B0B7DA692088117700C36D40 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
 		B0B7DA6B208813E600C36D40 /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
-		B0BD371B210C1299005149FF /* PaginatedResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginatedResults.swift; sourceTree = "<group>"; };
 		B0BDBA752162978D001A26D2 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		B0C1A0CA21573AD8006D3998 /* BasicUserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicUserDetails.swift; sourceTree = "<group>"; };
 		B0C6EC9D205972150064F2B5 /* NeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsViewController.swift; sourceTree = "<group>"; };
@@ -295,6 +293,8 @@
 		B0DC7C74206919CD00E544D2 /* LocationInfoHoursTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInfoHoursTableViewCell.swift; sourceTree = "<group>"; };
 		B0DC7C76206920F600E544D2 /* DoubleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtensions.swift; sourceTree = "<group>"; };
 		B0DF8B5520500FF100AD2539 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		B0E2790621669CBC00C74916 /* NeedCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedCellViewModel.swift; sourceTree = "<group>"; };
+		B0E2790821669D8D00C74916 /* ExpandedNeedCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedNeedCellViewModel.swift; sourceTree = "<group>"; };
 		B0EED74E20574AC6008CF4D5 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		B0F133F220517C12000187BA /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		B0F133F420517D12000187BA /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
@@ -438,6 +438,8 @@
 				B0CCDA522157E0B100A6AEA1 /* AddNeed */,
 				B026139F205B462A0067B378 /* NeedsViewModel.swift */,
 				B0A8BFD1205F3AC300077DF7 /* PledgeDelegate.swift */,
+				B0E2790621669CBC00C74916 /* NeedCellViewModel.swift */,
+				B0E2790821669D8D00C74916 /* ExpandedNeedCellViewModel.swift */,
 			);
 			path = Needs;
 			sourceTree = "<group>";
@@ -554,7 +556,6 @@
 				B00F9C15204F8D8100C5BC03 /* User.swift */,
 				B0C1A0CA21573AD8006D3998 /* BasicUserDetails.swift */,
 				B0FE2CBD215686D100FD5B74 /* RegisterUserDetails.swift */,
-				B0BD371B210C1299005149FF /* PaginatedResults.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -691,9 +692,9 @@
 			children = (
 				B0FEBC85204E3E3600982EAE /* TableViewModelable.swift */,
 				B061D3652058BF1E004E7888 /* PickerViewModelable.swift */,
-				B0CCDA502157E07B00A6AEA1 /* CellViewModelable.swift */,
 				B0C7D74F2163F6E600CDBAE1 /* StepperViewModelable.swift */,
 				B0319B9A21580B490092A897 /* CellConfigurable.swift */,
+				B0CCDA502157E07B00A6AEA1 /* CellViewModelable.swift */,
 				B0FEBC82204E3DE900982EAE /* Implementations */,
 			);
 			path = ViewModels;
@@ -731,7 +732,6 @@
 		B0FEBC83204E3DF000982EAE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B05274912145FBEE000DA7DB /* Configurable.swift */,
 				B0CD0EA72050716F00FBE902 /* WallpaperWindow.swift */,
 				B0B7DA6620880CF300C36D40 /* TabBarController.swift */,
 				AB280A66205B609F00662D5C /* Profile */,
@@ -1047,11 +1047,9 @@
 				B0B7DA6720880CF300C36D40 /* TabBarController.swift in Sources */,
 				B0F133FA2051B2B2000187BA /* RegisterLocationViewModel.swift in Sources */,
 				B02613A0205B462A0067B378 /* NeedsViewModel.swift in Sources */,
-				B0BD371C210C1299005149FF /* PaginatedResults.swift in Sources */,
 				B07D2E54210EB6220066E19B /* ValetExtensions.swift in Sources */,
 				B0CCDA4B2157DC1100A6AEA1 /* AddNeedTextfieldTableViewCell.swift in Sources */,
 				ABC95046205AB82C00DC8890 /* UserProfileViewController.swift in Sources */,
-				B05274922145FBEE000DA7DB /* Configurable.swift in Sources */,
 				B0FEBC8B204E3F0B00982EAE /* Result.swift in Sources */,
 				B0DC7C77206920F600E544D2 /* DoubleExtensions.swift in Sources */,
 				B0232DDB205842BB00E22B40 /* Location.swift in Sources */,
@@ -1067,6 +1065,7 @@
 				B0F133F520517D12000187BA /* RegisterService.swift in Sources */,
 				B0CCDA542157E0DA00A6AEA1 /* AddNeedNameCellViewModel.swift in Sources */,
 				ABC9504A205AB8C300DC8890 /* ChangePasswordViewController.swift in Sources */,
+				B0E2790921669D8D00C74916 /* ExpandedNeedCellViewModel.swift in Sources */,
 				B097574E2082DEAF003AAF22 /* ProfileOptionTableViewCell.swift in Sources */,
 				B0CD0EAD20507D2500FBE902 /* UnwindRegisterAccountSegue.swift in Sources */,
 				B0A8BFDD205F4E7A00077DF7 /* UserDefaults.swift in Sources */,
@@ -1128,6 +1127,7 @@
 				B0CCDA4D2157DC1B00A6AEA1 /* AddNeedStepperTableViewCell.swift in Sources */,
 				B0CD0EA82050716F00FBE902 /* WallpaperWindow.swift in Sources */,
 				B0F133F320517C12000187BA /* StringExtensions.swift in Sources */,
+				B0E2790721669CBC00C74916 /* NeedCellViewModel.swift in Sources */,
 				B0DC7C712069138900E544D2 /* LocationConfigurable.swift in Sources */,
 				B0DC7C6F20690C9200E544D2 /* LocationDelegate.swift in Sources */,
 				B0A8BFC9205EFB0D00077DF7 /* LogoutSegue.swift in Sources */,

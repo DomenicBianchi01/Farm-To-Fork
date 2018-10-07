@@ -8,15 +8,19 @@
 
 import UIKit
 
-final class NeedItemTableViewCell: UITableViewCell {
+final class NeedItemTableViewCell: UITableViewCell, PledgeDelegatable {
     // MARK: - IBOutlets
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var subtitleLabel: UILabel!
     @IBOutlet private var personalPledgeCountLabel: UILabel!
     
     // MARK: - Properties
-    private var need: Need? = nil
     weak var delegate: PledgeDelegate? = nil
+    var viewModel: NeedCellViewModel? = nil {
+        didSet {
+            refreshCell()
+        }
+    }
     
     // MARK: - Lifecycle Functions
     override func awakeFromNib() {
@@ -26,23 +30,16 @@ final class NeedItemTableViewCell: UITableViewCell {
     
     // MARK: - IBActions
     @IBAction func pledgeButtonTapped(_ sender: Any) {
-        guard let need = need else {
+        guard let viewModel = viewModel else {
             return
         }
-        delegate?.pledgeRequested(for: need)
+        delegate?.pledgeRequested(for: viewModel.need.id)
     }
-}
-
-// MARK: - Configurable
-extension NeedItemTableViewCell: Configurable {
-    func configure(using data: Any) {
-        guard let need = data as? Need else {
-            return
-        }
-        
-        titleLabel.text = need.name
-        subtitleLabel.text = need.description
-        personalPledgeCountLabel.text = "You have pledged 2 of this item" //TODO: This data should come from the Pledge API when it is created
-        self.need = need
+    
+    // MARK: - Helper Functions
+    private func refreshCell() {
+        titleLabel.text = viewModel?.string1
+        subtitleLabel.text = viewModel?.string2
+        personalPledgeCountLabel.text = viewModel?.string3
     }
 }

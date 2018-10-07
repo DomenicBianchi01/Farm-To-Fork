@@ -16,26 +16,6 @@ extension UIViewController {
     }
     
     /**
-     Display a basic alert on the screen. Only an "OK" alert action will be included.
-     
-     - parameter title: The title of the alert
-     - parameter message: The message to be displayed on the alert
-     */
-    func displayAlert(title: String, message: String) {
-        DispatchQueue.main.async {
-            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            let alertAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            
-            alert.addAction(alertAction)
-            
-            alert.popoverPresentationController?.sourceView = self.view
-            alert.popoverPresentationController?.sourceRect = self.view.bounds
-            
-            self.present(alert, animated: true, completion: nil)
-        }
-    }
-    
-    /**
      Display a basic `SCLAlert` (third-party alert view)
      
      - parameter title: The title of the alert
