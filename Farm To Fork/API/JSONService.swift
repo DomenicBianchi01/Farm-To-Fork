@@ -112,7 +112,7 @@ class JSONService {
     /**
      Send JSON data through a network request.
      
-     NOTE: Use this function if the response will be empty. This function WILL NOT parse any type of response.
+     NOTE: Use this function if you do not care what is returned in the response. This function WILL NOT parse any type of response (other than status code checking).
      
      All requests made through this function have 15 seconds to receive a response, otherwise the request will timeout.
      

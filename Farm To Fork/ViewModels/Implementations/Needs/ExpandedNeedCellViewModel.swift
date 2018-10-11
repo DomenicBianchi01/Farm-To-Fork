@@ -20,20 +20,23 @@ final class ExpandedNeedCellViewModel {
 
 // MARK: - CellViewModelable
 extension ExpandedNeedCellViewModel: CellViewModelable {
-    var string1: String? {
+    var title: String? {
         return "\(need.category.name) - \(need.units.name)"
     }
     
     // In the context of this view model, this property is used for the placeholder of the textfield
-    var string2: String? {
+    var description: String? {
         return "\(need.currentQuantity) items pleged"
     }
     
-    var string3: String? {
-        if need.targetQuantity - need.currentQuantity > 0 {
-           return "We need \(need.targetQuantity - need.currentQuantity) more to reach our goal of \(need.targetQuantity) items!"
+    var subDescription: String? {
+        if need.disabled {
+            return "This item is not active. \(need.currentQuantity) items were pledged."
+        } else if need.targetQuantity - need.currentQuantity > 0 {
+            return "We need \(need.targetQuantity - need.currentQuantity) more to reach our goal of \(need.targetQuantity) items!"
+        } else {
+            return "We have reached our pledge goal of \(need.targetQuantity) items! You can still pledge if you wish!"
         }
-       return "We have reached our pledge goal of \(need.targetQuantity) items! You can still pledge if you wish!"
     }
     
     var identifier: String {

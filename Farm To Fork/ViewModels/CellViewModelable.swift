@@ -11,9 +11,12 @@ import Foundation
 /// This protocol assumes the cell will have up to three fields that display text.
 protocol CellViewModelable {
     // MARK: - Properties
-    var string1: String? { get }
-    var string2: String? { get }
-    var string3: String? { get }
+    /// The text for the primary UI element in the cell
+    var title: String? { get }
+    /// The text for the secondary UI element in the cell
+    var description: String? { get }
+    /// The text for the tertiary UI element in the cell
+    var subDescription: String? { get }
     /// A unique string that can be used to identify which view model is being used
     var identifier: String { get }
     
@@ -23,9 +26,9 @@ protocol CellViewModelable {
 }
 
 extension CellViewModelable {
-    var string1: String? { return nil }
-    var string2: String? { return nil }
-    var string3: String? { return nil }
+    var title: String? { return nil }
+    var description: String? { return nil }
+    var subDescription: String? { return nil }
     
     func fetchData(with completion: @escaping ((Result<Void>) -> Void)) {
         completion(.error(NSError(domain: "Not implemented", code: 0, userInfo: nil)))

@@ -163,7 +163,7 @@ final class MapViewController: UIViewController {
                                                   message: "Take a look at what food providers near you need so you can help out your community!")
                         break
                     }
-                    NeedsService().fetchNeeds(forLocation: preferredLocationId, with: { result in
+                    NeedsService().fetchNeeds(forLocation: preferredLocationId, onlyAcitveNeeds: true, with: { result in
                         switch result {
                         case .success(let needs):
                             let names = needs.map { return $0.name }

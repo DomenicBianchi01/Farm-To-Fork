@@ -42,7 +42,7 @@ final class WatchNeedsViewModel {
     }
     
     private func executeNeedsAPICall(forLocation locationId: Int, with completion: @escaping ((Result<Void>) -> Void)) {
-        NeedsService().fetchNeeds(forLocation: locationId) { result in
+        NeedsService().fetchNeeds(forLocation: locationId, onlyAcitveNeeds: true) { result in
             switch result {
             case .success(let needs):
                 self.needs = needs

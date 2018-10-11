@@ -9,7 +9,6 @@
 import UIKit
 
 final class AddNeedViewController: UIViewController {
-
     // MARK: - IBOutlets
     @IBOutlet private var tableView: UITableView!
     @IBOutlet private var saveBarButtonItem: UIBarButtonItem!
@@ -65,6 +64,10 @@ extension AddNeedViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return viewModel.titleForHeader(in: section)
+    }
+    
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        return viewModel.titleForFooter(in: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

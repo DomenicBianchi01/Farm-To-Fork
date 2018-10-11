@@ -10,22 +10,22 @@ import Foundation
 
 final class AddNeedDescriptionCellViewModel {
     // MARK: - Properties
-    private var description: String? = nil
+    private var descriptionString: String? = nil
     
     // MARK: - Lifecycle Functions
     init(description: String? = nil) {
-        self.description = description
+        self.descriptionString = description
     }
 }
 
 // MARK: - CellViewModelable
 extension AddNeedDescriptionCellViewModel: CellViewModelable {
-    var string1: String? {
+    var title: String? {
         return description
     }
     
     // In the context of this view model, this property is used for the placeholder of the textfield
-    var string2: String? {
+    var description: String? {
         return "Description"
     }
     
@@ -34,6 +34,6 @@ extension AddNeedDescriptionCellViewModel: CellViewModelable {
     }
     
     func updateViewModel(with data: Any) {
-        description = data as? String
+        descriptionString = data as? String
     }
 }

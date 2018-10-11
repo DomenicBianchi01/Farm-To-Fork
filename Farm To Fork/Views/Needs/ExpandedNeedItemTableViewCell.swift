@@ -35,8 +35,8 @@ final class ExpandedNeedItemTableViewCell: UITableViewCell {
     
     // MARK: - Helper Functions
     private func refreshCell() {
-        categoryLabel.text = viewModel?.string1
-        pledgeLabel.text = viewModel?.string2
-        pledgesNeededLabel.text = viewModel?.string3
+        categoryLabel.text = viewModel?.title
+        pledgeLabel.text = viewModel?.description
+        pledgesNeededLabel.text = viewModel?.subDescription
     }
 }

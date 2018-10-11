@@ -42,6 +42,7 @@ final class NeedsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
         viewModel.selectedRowToEdit = nil
         refreshTitle()
         fetchNeeds()
@@ -57,6 +58,31 @@ final class NeedsViewController: UIViewController {
     }
     
     @IBAction func addNeedButtonTapped(_ sender: Any) {
+        let alert = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .actionSheet)
+        let addAction = UIAlertAction(title: "Add Need", style: .default, handler: nil)
+        let filterAction = UIAlertAction(title: "Display \(viewModel.disabledNeedsHidden ? "All" : "Only Acitve") Needs", style: .default) { (UIAlertAction) in
+            self.viewModel.updateNeedsFilter { result in
+                switch result {
+                case .success:
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                        self.refreshNoNeedsStatus()
+                    }
+                case .error(let error):
+                    self.displaySCLAlert("Error", message: error.description, style: .error)
+                }
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(addAction)
+        alert.addAction(filterAction)
+        alert.addAction(cancelAction)
+        
+        alert.popoverPresentationController?.sourceView = view
+        alert.popoverPresentationController?.sourceRect = view.bounds
+        
+        present(alert, animated: true, completion: nil)
         performSegue(withIdentifier: Constants.Segues.modifyNeed, sender: self)
     }
     
@@ -86,7 +112,7 @@ final class NeedsViewController: UIViewController {
         viewModel.fetchNeeds { result in
             DispatchQueue.main.async {
                 switch result {
-                case .success():
+                case .success:
                     self.tableView.reloadData()
                     self.refreshNoNeedsStatus()
                 case .error(let error):
@@ -99,7 +125,7 @@ final class NeedsViewController: UIViewController {
     
     /// If there are no needs, the table view is hidden and a label saying "No Needs" is displayed. Opposite occurs if there is at least one need.
     private func refreshNoNeedsStatus() {
-        if viewModel.needs.count == 0 {
+        if viewModel.noNeeds {
             tableView.separatorStyle = .none
             noNeedsLabel.isHidden = false
         } else {
@@ -183,36 +209,39 @@ extension NeedsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { action, indexpath in
-            self.viewModel.deleteNeed(at: indexPath.row) { result in
-                switch result {
-                case .success:
-                    var indexPaths = [indexPath]
-                    
-                    if let expandedIndexPath = self.viewModel.expandedIndexPath, expandedIndexPath.row == indexPath.row + 1 {
-                        indexPaths.append(expandedIndexPath)
-                    }
-                    
-                    self.viewModel.expandedIndexPath = nil
-                    
-                    DispatchQueue.main.async {
-                        tableView.performBatchUpdates({
-                            tableView.deleteRows(at: indexPaths, with: .top)
-                        }, completion: nil)
-                        self.refreshNoNeedsStatus()
-                    }
-                case .error(let error):
-                    self.displaySCLAlert("Error", message: error.description, style: .error)
-                }
-            }
-        }
+//        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { action, indexpath in
+//
+//            self.viewModel.deleteNeed(at: indexPath.row) { result in
+//                switch result {
+//                case .success:
+//                    var indexPaths = [indexPath]
+//
+//                    if let expandedIndexPath = self.viewModel.expandedIndexPath, expandedIndexPath.row == indexPath.row + 1 {
+//                        indexPaths.append(expandedIndexPath)
+//                    }
+//
+//                    self.viewModel.expandedIndexPath = nil
+//
+//                    DispatchQueue.main.async {
+//                        tableView.performBatchUpdates({
+//                            tableView.deleteRows(at: indexPaths, with: .top)
+//                        }, completion: nil)
+//                        self.refreshNoNeedsStatus()
+//                    }
+//                case .error(let error):
+//                    self.displaySCLAlert("Error", message: error.description, style: .error)
+//                }
+//            }
+//        }
         
         let editAction = UITableViewRowAction(style: .normal, title: "Edit") { action, indexpath in
             self.viewModel.selectedRowToEdit = indexPath.row
-            self.performSegue(withIdentifier: "modifyNeedSegue", sender: self)
+            self.performSegue(withIdentifier: Constants.Segues.modifyNeed, sender: self)
         }
         
-        return [deleteAction, editAction]
+        editAction.backgroundColor = .orange
+        
+        return [/*deleteAction,*/ editAction]
     }
 }
 
@@ -222,18 +251,31 @@ extension NeedsViewController: PledgeDelegate {
         guard let need = viewModel.needs.first(where: { $0.id == needId}) else {
             return
         }
+
         let alert = UIAlertController(title: "Pledge", message: "How many \(need.name)'s would you like to pledge?", preferredStyle: .alert)
         let submitAction = UIAlertAction(title: "Submit", style: .default) { _ in
             guard let locationId = self.viewModel.location?.id,
                 let textField = alert.textFields?.first,
                 let text = textField.text,
-                let pledgedAmount = Int(text) else {
+                let pledgedAmount = Int(text),
+                let userId = loggedInUser?.id else {
                 return
             }
-            PledgeService().pledge(locationId: locationId, needID: need.id, quantity: pledgedAmount) { _ in
-                //TODO
+            
+            let pledge = Pledge(id: 0, needId: need.id, userId: userId, locationId: locationId, pledged: pledgedAmount)
+            
+            self.viewModel.pledge(pledge) { result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success:
+                        self.displaySCLAlert("Pledge Submitted", message: "Your pledge has been submitted. Thank-you!", style: .success)
+                    case .error(let error):
+                        self.displaySCLAlert("Error", message: error.description, style: .error)
+                    }
+                }
             }
         }
+
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
         alert.addAction(submitAction)

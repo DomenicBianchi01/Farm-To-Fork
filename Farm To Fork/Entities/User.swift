@@ -10,6 +10,7 @@ import Foundation
 
 class User {
     // MARK: - Properties
+    let id: Int
     let cityId: Int
     let streetName: String
     let streetNumber: String //Might be possible to have a number like 26A
@@ -25,7 +26,8 @@ class User {
     let isAdmin: Bool
     
     // MARK: - Lifecycle Function
-    init(cityId: Int,
+    init(id: Int,
+         cityId: Int,
          streetName: String,
          streetNumber: String,
          unitNumber: String? = nil,
@@ -36,6 +38,7 @@ class User {
          newsletterDay: Int? = nil,
          workerLocationId: Int? = nil) {
         
+        self.id = id
         self.cityId = cityId
         self.streetName = streetName
         self.streetNumber = streetNumber
@@ -53,7 +56,8 @@ class User {
      Create a `User` object using a dictionary.
      */
     convenience init?(dictionary: [String : Any]) {
-        guard let cityId = Int(dictionary["CityID"] as? String ?? ""),
+        guard let id = Int(dictionary["UserID"] as? String ?? ""),
+            let cityId = Int(dictionary["CityID"] as? String ?? ""),
             let streetName = dictionary["StreetName"] as? String,
             let streetNumber = dictionary["StreetNumber"] as? String,
             let postalCode = dictionary["PostalCode"] as? String,
@@ -63,7 +67,8 @@ class User {
                 return nil
         }
         
-        self.init(cityId: cityId,
+        self.init(id: id,
+                  cityId: cityId,
                   streetName: streetName,
                   streetNumber: streetNumber,
                   unitNumber: dictionary["UnitNumber"] as? String,

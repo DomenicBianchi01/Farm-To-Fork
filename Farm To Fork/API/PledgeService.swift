@@ -9,12 +9,20 @@
 import Foundation
 
 final class PledgeService: JSONService {
-    func pledge(locationId: Int, needID: Int, quantity: Int, with completion: @escaping ((Result<Void>) -> Void)) {
-        let body = ["needID" : needID, "quantity" : quantity]
+    func pledge(_ pledge: Pledge, with completion: @escaping ((Result<Void>) -> Void)) {
         
-        let encodedBody = encode(body)
+        let encodedBody = encode(pledge)
+        
+        //TODO: Use JWT or other auth so other uses cant pledge for other users
 
-        request(from: "https://farmtofork.marshallasch.ca/api.php/2.0/pledge/\(locationId)", requestType: .post, body: encodedBody) { result in
+        request(from: "https://farmtofork.marshallasch.ca/api.php/2.0/pledges", requestType: .post, body: encodedBody) { result in
+            completion(result)
+        }
+    }
+    
+    func pledges(by userId: Int, at locationId: Int, with completion: @escaping ((Result<[Pledge]>) -> Void)) {
+        //TODO: Use JWT?
+        request(from: "https://farmtofork.marshallasch.ca/api.php/2.0/pledges/\(locationId)?userId=\(userId)", requestType: .get, expecting: [Pledge].self) { result in
             completion(result)
         }
     }

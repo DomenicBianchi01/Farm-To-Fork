@@ -14,7 +14,6 @@ final class RegisterService: JSONService {
     private let registerUrlString = "https://farmtofork.marshallasch.ca/api.php/2.0/user/register"
     
     // MARK: - Functions
-    
     /// Register the `User` with the Farm To Fork program.
     func register(user: RegisterUserDetails, with completion: @escaping (Result<Void>) -> Void) {
         let body: [String : Any] = ["Email" : user.email,

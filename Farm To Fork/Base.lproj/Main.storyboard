@@ -216,7 +216,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G2l-lo-5Ot" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1439.2" y="1308.3958020989505"/>
+            <point key="canvasLocation" x="1294" y="1308"/>
         </scene>
         <!--Needs-->
         <scene sceneID="VFl-i6-tjA">
@@ -294,6 +294,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="personalPledgeCountLabel" destination="mtN-lb-eCP" id="jRy-jZ-X97"/>
+                                            <outlet property="pledgeButton" destination="f0x-RI-DIl" id="qPN-ZB-rEG"/>
                                             <outlet property="subtitleLabel" destination="uL3-Me-dO5" id="X5w-ow-pbI"/>
                                             <outlet property="titleLabel" destination="V5P-1B-mef" id="nsE-8x-9e4"/>
                                         </connections>
@@ -406,7 +407,7 @@
                                 <action selector="dismissButtonTapped:" destination="Ocx-Fk-R2w" id="PhW-Vn-Ye1"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="sBh-EM-XS4">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="sBh-EM-XS4">
                             <color key="tintColor" red="0.59503139319999998" green="0.66696369359999996" blue="0.3482086901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="addNeedButtonTapped:" destination="Ocx-Fk-R2w" id="6tV-PM-Qm6"/>
@@ -1014,7 +1015,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jte-ov-TMf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="osc-Yz-ijF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1221.5999999999999" y="2807.9460269865071"/>
+            <point key="canvasLocation" x="1294" y="2809"/>
         </scene>
         <!--Personal Info-->
         <scene sceneID="Hof-UA-60Z">
@@ -1083,7 +1084,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1wb-ID-LeN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1924" y="3529.385307346327"/>
+            <point key="canvasLocation" x="1294" y="3528"/>
         </scene>
         <!--Needs-->
         <scene sceneID="asx-Mp-urF">
@@ -1198,7 +1199,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hqe-DN-QNJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1924" y="2807"/>
+            <point key="canvasLocation" x="2057" y="2809"/>
         </scene>
         <!--Locations-->
         <scene sceneID="bkn-dk-xA5">
@@ -1269,7 +1270,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bjj-GJ-P9I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2908" y="870.31484257871068"/>
+            <point key="canvasLocation" x="2814" y="785"/>
         </scene>
         <!--Location Info View Controller-->
         <scene sceneID="83U-ES-UpD">
@@ -1502,7 +1503,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mVH-k4-4n8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2199.1999999999998" y="1425.3373313343329"/>
+            <point key="canvasLocation" x="2057" y="1431"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lea-vH-VNB">
@@ -1520,7 +1521,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6hy-1v-n69" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2199.1999999999998" y="870.31484257871068"/>
+            <point key="canvasLocation" x="2057" y="785"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="m9V-Rc-EUy">
@@ -1608,7 +1609,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nek-Xj-H9o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2583" y="3529"/>
+            <point key="canvasLocation" x="2057" y="3528"/>
         </scene>
         <!--Add Need-->
         <scene sceneID="m6W-yB-Zon">
@@ -1619,7 +1620,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="1Iz-Mf-fM4">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="basicTextFieldReuseIdentifier" id="uv9-zm-pwL" customClass="AddNeedTextfieldTableViewCell" customModule="Farm_To_Fork" customModuleProvider="target">
@@ -1716,6 +1717,44 @@
                                             <outlet property="stepper" destination="g60-sE-OXV" id="hcp-rM-lze"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="switchReuseIdentifier" id="yRm-1K-AAM" customClass="AddNeedSwitchTableViewCell" customModule="Farm_To_Fork" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="187.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yRm-1K-AAM" id="AV1-NA-yll">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="m2O-8Z-xoZ">
+                                                    <rect key="frame" x="311" y="7" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="switcherValueChanged:" destination="yRm-1K-AAM" eventType="valueChanged" id="4ye-AV-LHF"/>
+                                                    </connections>
+                                                </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLy-wW-dgS">
+                                                    <rect key="frame" x="15" y="0.0" width="288" height="44.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="Y1s-bY-gwN"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="m2O-8Z-xoZ" firstAttribute="leading" secondItem="JLy-wW-dgS" secondAttribute="trailing" constant="8" symbolic="YES" id="0kl-QK-6Z0"/>
+                                                <constraint firstItem="m2O-8Z-xoZ" firstAttribute="centerY" secondItem="AV1-NA-yll" secondAttribute="centerY" id="22R-Xq-EFn"/>
+                                                <constraint firstItem="m2O-8Z-xoZ" firstAttribute="centerY" secondItem="JLy-wW-dgS" secondAttribute="centerY" id="MVm-KL-Nzs"/>
+                                                <constraint firstItem="JLy-wW-dgS" firstAttribute="top" secondItem="AV1-NA-yll" secondAttribute="top" id="Oc8-mq-WHr"/>
+                                                <constraint firstItem="JLy-wW-dgS" firstAttribute="leading" secondItem="AV1-NA-yll" secondAttribute="leading" constant="15" id="Pzz-92-Srb"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="m2O-8Z-xoZ" secondAttribute="trailing" id="ULT-Nr-nPH"/>
+                                                <constraint firstAttribute="bottom" secondItem="JLy-wW-dgS" secondAttribute="bottom" id="dvU-Dr-AkR"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cellLabel" destination="JLy-wW-dgS" id="22w-N3-zDL"/>
+                                            <outlet property="switcher" destination="m2O-8Z-xoZ" id="Rj9-4H-fYz"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="Oea-IF-GsT" id="o6W-x6-adP"/>
@@ -1747,7 +1786,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eCf-jj-Mho" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2057" y="2069"/>
+            <point key="canvasLocation" x="2056.8000000000002" y="2067.6161919040483"/>
         </scene>
     </scenes>
     <resources>
@@ -1758,7 +1797,7 @@
         <image name="profile" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YMQ-lD-wnS"/>
+        <segue reference="dgc-LM-S96"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.73333333329999995" green="0.85098039219999999" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>

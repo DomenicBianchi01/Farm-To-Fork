@@ -19,9 +19,8 @@ final class AddNeedViewModel {
     var name: String {
         if isEditingNeed {
             return "Edit Need"
-        } else {
-            return "Add Need"
         }
+        return "Add Need"
     }
     
     // MARK: - Functions
@@ -66,12 +65,13 @@ final class AddNeedViewModel {
         needInfo[Need.Keys.units.rawValue] = need.units
         needInfo[Need.Keys.category.rawValue] = need.category
         needInfo[Need.Keys.targetQuantity.rawValue] = need.targetQuantity
+        needInfo[Need.Keys.disabled.rawValue] = need.disabled
     }
 }
 
 extension AddNeedViewModel: TableViewModelable {
     var numberOfSections: Int {
-        return 3
+        return 4
     }
     
     func numberOfRows(in section: Int) -> Int {
@@ -86,6 +86,13 @@ extension AddNeedViewModel: TableViewModelable {
             return "Target Quantity"
         } else if section == 2 {
             return "Attributes"
+        }
+        return nil
+    }
+    
+    func titleForFooter(in section: Int) -> String? {
+        if section == 3 {
+            return "Disabling a need will remove it from the list of needs that the public can see. Needs cannot be deleted however disabling is the equivalent. A disabled need can be re-enabled at any time."
         }
         return nil
     }
@@ -106,9 +113,12 @@ extension AddNeedViewModel: TableViewModelable {
         } else if indexPath.section == 2 && indexPath.row == 0 {
             cellIdentifier = "pickerReuseIdentifier"
             viewModel = AddNeedCategoryCellViewModel(categoryId: (needInfo[Need.Keys.category.rawValue] as? Category)?.id)
-        } else {
+        } else if indexPath.section == 2 {
             cellIdentifier = "pickerReuseIdentifier"
             viewModel = AddNeedUnitsCellViewModel(unitId: (needInfo[Need.Keys.units.rawValue] as? Units)?.id)
+        } else {
+            cellIdentifier = "switchReuseIdentifier"
+            viewModel = AddNeedDisableCellViewModel(disabled: needInfo[Need.Keys.disabled.rawValue] as? Bool ?? false)
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)

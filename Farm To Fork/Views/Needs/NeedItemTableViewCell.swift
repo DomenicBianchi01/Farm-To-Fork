@@ -13,6 +13,7 @@ final class NeedItemTableViewCell: UITableViewCell, PledgeDelegatable {
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var subtitleLabel: UILabel!
     @IBOutlet private var personalPledgeCountLabel: UILabel!
+    @IBOutlet private var pledgeButton: UIButton!
     
     // MARK: - Properties
     weak var delegate: PledgeDelegate? = nil
@@ -38,8 +39,9 @@ final class NeedItemTableViewCell: UITableViewCell, PledgeDelegatable {
     
     // MARK: - Helper Functions
     private func refreshCell() {
-        titleLabel.text = viewModel?.string1
-        subtitleLabel.text = viewModel?.string2
-        personalPledgeCountLabel.text = viewModel?.string3
+        pledgeButton.isHidden = viewModel?.needIsDisabled ?? false
+        titleLabel.text = viewModel?.title
+        subtitleLabel.text = viewModel?.description
+        personalPledgeCountLabel.text = viewModel?.subDescription
     }
 }

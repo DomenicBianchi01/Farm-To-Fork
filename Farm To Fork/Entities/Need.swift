@@ -17,6 +17,7 @@ class Need: Codable {
     let category: Category
     let targetQuantity: Int
     let currentQuantity: Int
+    let disabled: Bool
     
     // MARK: - Enums
     enum Keys: String, CodingKey {
@@ -27,6 +28,7 @@ class Need: Codable {
         case category = "Category"
         case targetQuantity = "TargetQty"
         case currentQuantity = "CurrentQty"
+        case disabled = "Disabled"
     }
     
     private enum EncodableKeys: String, CodingKey {
@@ -36,6 +38,7 @@ class Need: Codable {
         case units = "UnitID"
         case category = "CategoryID"
         case targetQuantity = "Quantity"
+        case disabled = "Disabled"
     }
 
     // MARK: - Lifecycle Functions
@@ -45,7 +48,8 @@ class Need: Codable {
          units: Units,
          category: Category,
          targetQuantity: Int,
-         currentQuantity: Int) {
+         currentQuantity: Int,
+         disabled: Bool) {
 
         self.id = id
         self.name = name
@@ -54,6 +58,7 @@ class Need: Codable {
         self.category = category
         self.targetQuantity = targetQuantity
         self.currentQuantity = currentQuantity
+        self.disabled = disabled
 
     }
 
@@ -69,7 +74,8 @@ class Need: Codable {
             let units = dictionary[Keys.units.rawValue] as? Units,
             let category = dictionary[Keys.category.rawValue] as? Category,
             let targetQuantity = dictionary[Keys.targetQuantity.rawValue] as? Int,
-            let currentQuantity = dictionary[Keys.currentQuantity.rawValue] as? Int else {
+            let currentQuantity = dictionary[Keys.currentQuantity.rawValue] as? Int,
+            let disabled = dictionary[Keys.disabled.rawValue] as? Bool else {
                 return nil
         }
         
@@ -79,7 +85,8 @@ class Need: Codable {
                   units: units,
                   category: category,
                   targetQuantity: targetQuantity,
-                  currentQuantity: currentQuantity)
+                  currentQuantity: currentQuantity,
+                  disabled: disabled)
     }
 
     // MARK: - Decodable
@@ -92,8 +99,11 @@ class Need: Codable {
         let category = try container.decode(Category.self, forKey: .category)
         let targetQuantity = try container.decode(String.self, forKey: .targetQuantity)
         let currentQuantity = try container.decode(String.self, forKey: .currentQuantity)
+        let disabled = try container.decode(String.self, forKey: .disabled)
         
-        guard let idInt = Int(id), let targetQuantityInt = Int(targetQuantity), let currentQuantityInt = Int(currentQuantity) else {
+        guard let idInt = Int(id),
+            let targetQuantityInt = Int(targetQuantity),
+            let currentQuantityInt = Int(currentQuantity) else {
             throw DecodingError.typeMismatch(Int.self, DecodingError.Context(codingPath: container.codingPath, debugDescription: "Cannot decode id and/or quantities"))
         }
         
@@ -103,7 +113,8 @@ class Need: Codable {
                   units: units,
                   category: category,
                   targetQuantity: targetQuantityInt,
-                  currentQuantity: currentQuantityInt)
+                  currentQuantity: currentQuantityInt,
+                  disabled: disabled.asBool)
     }
     
     // MARK: - Encodable
@@ -120,5 +131,6 @@ class Need: Codable {
         try container.encode(units.id, forKey: .units)
         try container.encode(category.id, forKey: .category)
         try container.encode(targetQuantity, forKey: .targetQuantity)
+        try container.encode(disabled.asString, forKey: .disabled)
     }
 }

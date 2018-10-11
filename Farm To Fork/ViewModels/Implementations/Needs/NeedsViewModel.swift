@@ -11,6 +11,9 @@ import UIKit
 final class NeedsViewModel {
     // MARK: - Properties
     private(set) var needs: [Need] = []
+    private var pledges: [Pledge] = []
+    private(set) var disabledNeedsHidden: Bool = true
+    private var fetchedDisabledNeeds: Bool = false
     var location: Location? = nil
     var expandedIndexPath: IndexPath? = nil
     var selectedRowToEdit: Int? = nil
@@ -42,7 +45,12 @@ final class NeedsViewModel {
         return "Needs"
     }
     
+    var noNeeds: Bool {
+        return needs.count == 0 || (disabledNeedsHidden && needs.filter({ !$0.disabled }).count == 0)
+    }
+    
     // MARK: - Helper Functions
+    /// Calling this function will make two API requests. One to fetch the needs, and one to fetch the pledges for each need (for the logged in user)
     func fetchNeeds(with completion: @escaping ((Result<Void>) -> Void)) {
         let locationId: Int
         if let location = location {
@@ -54,16 +62,50 @@ final class NeedsViewModel {
             return
         }
         
-        NeedsService().fetchNeeds(forLocation: locationId) { result in
+        let dispatchGroup = DispatchGroup()
+        var apiError: Error? = nil
+        dispatchGroup.enter()
+        
+        NeedsService().fetchNeeds(forLocation: locationId, onlyAcitveNeeds: disabledNeedsHidden && !isAdminForLocation) { result in
             switch result {
             case .success(let needs):
                 self.needs = needs
-                completion(.success(()))
             case .error(let error):
                 self.needs = []
-                completion(.error(error))
+                apiError = error
+            }
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.wait()
+        
+        if let apiError = apiError {
+            completion(.error(apiError))
+            return
+        }
+        
+        if let userId = loggedInUser?.id {
+            dispatchGroup.enter()
+            PledgeService().pledges(by: userId, at: locationId) { result in
+                switch result {
+                case .success(let pledges):
+                    self.pledges = pledges
+                case .error(let error):
+                    self.pledges = []
+                    apiError = error
+                }
+                dispatchGroup.leave()
             }
         }
+        
+        dispatchGroup.wait()
+        
+        if let apiError = apiError {
+            completion(.error(apiError))
+            return
+        }
+
+        completion(.success(()))
     }
     
     func deleteNeed(at index: Int, with completion: @escaping ((Result<Void>) -> Void)) {
@@ -82,11 +124,37 @@ final class NeedsViewModel {
         }
     }
     
+    func pledge(_ pledge: Pledge, with completion: @escaping ((Result<Void>) -> Void)) {
+        PledgeService().pledge(pledge) { result in
+            completion(result)
+        }
+    }
+    
     func isEditable(at indexPath: IndexPath) -> Bool {
         guard indexPath != expandedIndexPath else {
                 return false
         }
         return isAdminForLocation
+    }
+    
+    func updateNeedsFilter(with completion: @escaping ((Result<Void>) -> Void)) {
+        disabledNeedsHidden = !disabledNeedsHidden
+        expandedIndexPath = nil
+        
+        if fetchedDisabledNeeds {
+            completion(.success(()))
+            return
+        }
+        
+        fetchNeeds { result in
+            switch result {
+            case .success:
+                self.fetchedDisabledNeeds = true
+                completion(.success(()))
+            case .error(let error):
+                completion(.error(error))
+            }
+        }
     }
 }
 
@@ -97,10 +165,19 @@ extension NeedsViewModel: TableViewModelable {
     }
     
     func numberOfRows(in section: Int) -> Int {
-        if expandedIndexPath != nil {
-            return needs.count + 1
+        let needsCount: Int
+        
+        if disabledNeedsHidden {
+            needsCount = needs.filter({ !$0.disabled }).count
+        } else {
+            needsCount = needs.count
         }
-        return needs.count
+        
+        if expandedIndexPath != nil {
+            return needsCount + 1
+        }
+
+        return needsCount
     }
     
     func cellForRow(in tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
@@ -117,7 +194,9 @@ extension NeedsViewModel: TableViewModelable {
         if let cell = cell as? ExpandedNeedItemTableViewCell {
             cell.viewModel = ExpandedNeedCellViewModel(need: needs[indexPath.row-1])
         } else if let cell = cell as? NeedItemTableViewCell {
-            cell.viewModel = NeedCellViewModel(need: needs[indexPath.row])
+            let need = needs[indexPath.row]
+            let pledge = pledges.first(where: { $0.needId == need.id }) ?? nil
+            cell.viewModel = NeedCellViewModel(need: need, pledge: pledge)
         }
         
         return cell

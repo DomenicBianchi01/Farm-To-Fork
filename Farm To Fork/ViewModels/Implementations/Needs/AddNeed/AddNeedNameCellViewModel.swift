@@ -20,12 +20,12 @@ final class AddNeedNameCellViewModel {
 
 // MARK: - CellViewModelable
 extension AddNeedNameCellViewModel: CellViewModelable {
-    var string1: String? {
+    var title: String? {
         return name
     }
     
     // In the context of this view model, this property is used for the placeholder of the textfield
-    var string2: String? {
+    var description: String? {
         return "Name"
     }
 

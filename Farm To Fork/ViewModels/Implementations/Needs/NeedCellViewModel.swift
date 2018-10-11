@@ -11,31 +11,39 @@ import Foundation
 final class NeedCellViewModel {
     // MARK: - Properties
     let need: Need
+    let pledge: Pledge?
+    
+    var needIsDisabled: Bool {
+        return need.disabled
+    }
     
     // MARK: - Lifecycle Functions
-    init(need: Need) {
+    init(need: Need, pledge: Pledge?) {
         self.need = need
+        self.pledge = pledge
     }
 }
 
 // MARK: - CellViewModelable
 extension NeedCellViewModel: CellViewModelable {
-    var string1: String? {
+    var title: String? {
         return need.name
     }
     
     // In the context of this view model, this property is used for the placeholder of the textfield
-    var string2: String? {
+    var description: String? {
         return need.description
     }
     
-    var string3: String? {
-        return "You have pledged 2 of this item" //TODO: This data should come from the Pledge API when it is created
+    var subDescription: String? {
+        if need.disabled {
+            return "This need is not active"
+        } else if let pledge = pledge {
+            return "You have pledged \(pledge.pledged) of this item"
+        }
+        return nil
     }
     
-    var identifier: String {
-        return "" /* Not used */
-    }
-    
+    var identifier: String { return "" /* Not used */ }
     func updateViewModel(with data: Any) { /* Not used */ }
 }

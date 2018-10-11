@@ -9,7 +9,7 @@
 import UIKit
 import Intents
 
-/// If a user is logged in, this property will contain the users details. If no user is logged in, this propert will be nil
+/// If a user is logged in, this property will contain the users details. If no user is logged in, this property will be `nil`
 var loggedInUser: User? = nil
 
 @UIApplicationMain

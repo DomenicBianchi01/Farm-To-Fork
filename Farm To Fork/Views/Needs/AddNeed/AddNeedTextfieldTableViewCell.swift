@@ -52,7 +52,7 @@ final class AddNeedTextfieldTableViewCell: UITableViewCell, CellConfigurable, Ne
         guard let viewModel = viewModel else {
             return
         }
-        inputTextField.placeholder = viewModel.string2
-        inputTextField.text = viewModel.string1
+        inputTextField.placeholder = viewModel.description
+        inputTextField.text = viewModel.title
     }
 }
