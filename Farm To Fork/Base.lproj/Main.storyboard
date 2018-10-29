@@ -1010,6 +1010,7 @@
                         <outlet property="tableView" destination="9lF-Yp-Txd" id="TM6-sp-oEC"/>
                         <segue destination="o7Z-9c-J2m" kind="show" identifier="emailAddressSegue" id="0QV-45-iPp"/>
                         <segue destination="zqX-xk-r4g" kind="show" identifier="personalInfoSegue" id="Lqq-HE-yCI"/>
+                        <segue destination="cNa-zk-K5Y" kind="show" identifier="pledgeHistorySegue" id="pI4-Qn-77t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jte-ov-TMf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1085,6 +1086,107 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1wb-ID-LeN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1294" y="3528"/>
+        </scene>
+        <!--Pledge History-->
+        <scene sceneID="gKN-t7-aBb">
+            <objects>
+                <viewController id="cNa-zk-K5Y" customClass="PledgeHistoryViewController" customModule="Farm_To_Fork" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jYl-Ps-99D">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2EO-Rx-87o">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="pledgeReuseIdentifier" rowHeight="85" id="Xii-8G-Zxl" customClass="PledgeHistoryItemTableViewCell" customModule="Farm_To_Fork" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="85"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Xii-8G-Zxl" id="CUy-LW-z19">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="84.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RMj-C8-9R3">
+                                                    <rect key="frame" x="15" y="11" width="263" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFA-Bi-hxR">
+                                                    <rect key="frame" x="15" y="35.5" width="263" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pledged on:  YYY/MM/DD @ EFPJustin" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7E-LG-o2g">
+                                                    <rect key="frame" x="13" y="59" width="265" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 Pledged" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aC9-0j-zIT">
+                                                    <rect key="frame" x="286" y="18" width="74" height="51"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="74" id="B67-a0-4xc"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="BFA-Bi-hxR" firstAttribute="leading" secondItem="CUy-LW-z19" secondAttribute="leadingMargin" id="0xO-Ul-v6s"/>
+                                                <constraint firstItem="v7E-LG-o2g" firstAttribute="leading" secondItem="CUy-LW-z19" secondAttribute="leading" constant="13" id="1BZ-c8-m8E"/>
+                                                <constraint firstItem="v7E-LG-o2g" firstAttribute="top" secondItem="BFA-Bi-hxR" secondAttribute="bottom" constant="9" id="CY8-W2-uG7"/>
+                                                <constraint firstItem="aC9-0j-zIT" firstAttribute="leading" secondItem="v7E-LG-o2g" secondAttribute="trailing" constant="8" id="Ia5-CX-S9s"/>
+                                                <constraint firstItem="aC9-0j-zIT" firstAttribute="leading" secondItem="RMj-C8-9R3" secondAttribute="trailing" constant="8" id="J3B-WM-1dq"/>
+                                                <constraint firstAttribute="bottom" secondItem="v7E-LG-o2g" secondAttribute="bottom" constant="11" id="JWt-Pw-s9X"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="aC9-0j-zIT" secondAttribute="bottom" constant="5" id="KR3-1x-4za"/>
+                                                <constraint firstItem="BFA-Bi-hxR" firstAttribute="top" secondItem="RMj-C8-9R3" secondAttribute="bottom" constant="4" id="N3k-Gf-eW2"/>
+                                                <constraint firstItem="aC9-0j-zIT" firstAttribute="top" secondItem="CUy-LW-z19" secondAttribute="topMargin" constant="7" id="UJg-rt-Ugp"/>
+                                                <constraint firstItem="aC9-0j-zIT" firstAttribute="trailing" secondItem="CUy-LW-z19" secondAttribute="trailingMargin" id="VjK-ga-yyy"/>
+                                                <constraint firstItem="RMj-C8-9R3" firstAttribute="leading" secondItem="CUy-LW-z19" secondAttribute="leadingMargin" id="Xmn-My-1Z9"/>
+                                                <constraint firstItem="aC9-0j-zIT" firstAttribute="leading" secondItem="BFA-Bi-hxR" secondAttribute="trailing" constant="8" id="Z2x-BW-h4s"/>
+                                                <constraint firstItem="RMj-C8-9R3" firstAttribute="top" secondItem="CUy-LW-z19" secondAttribute="topMargin" id="oTi-Kf-e5U"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="BFA-Bi-hxR" id="Y5p-Sb-kpk"/>
+                                            <outlet property="infoLabel" destination="v7E-LG-o2g" id="JHd-y8-pSG"/>
+                                            <outlet property="pledgeCountLabel" destination="aC9-0j-zIT" id="yLe-3p-Ydr"/>
+                                            <outlet property="titleLabel" destination="RMj-C8-9R3" id="epV-Ea-IL0"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="cNa-zk-K5Y" id="WKh-hF-EBv"/>
+                                    <outlet property="delegate" destination="cNa-zk-K5Y" id="mZi-wr-TsT"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2EO-Rx-87o" firstAttribute="leading" secondItem="skJ-K8-jYe" secondAttribute="leading" id="Ibw-Yh-AdE"/>
+                            <constraint firstItem="2EO-Rx-87o" firstAttribute="bottom" secondItem="skJ-K8-jYe" secondAttribute="bottom" id="Mp4-CY-5ky"/>
+                            <constraint firstItem="2EO-Rx-87o" firstAttribute="trailing" secondItem="skJ-K8-jYe" secondAttribute="trailing" id="Vji-Mc-pzr"/>
+                            <constraint firstItem="2EO-Rx-87o" firstAttribute="top" secondItem="skJ-K8-jYe" secondAttribute="top" id="dkS-Hf-jgL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="skJ-K8-jYe"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Pledge History" id="flr-8Y-2vv">
+                        <barButtonItem key="rightBarButtonItem" title="Filter" id="nFb-7v-cOb">
+                            <connections>
+                                <action selector="filterButtonTapped:" destination="cNa-zk-K5Y" id="f6I-S6-2fx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="2EO-Rx-87o" id="dvR-Y9-B8O"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mEn-eF-QP5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2056.8000000000002" y="3527.5862068965521"/>
         </scene>
         <!--Needs-->
         <scene sceneID="asx-Mp-urF">
@@ -1609,7 +1711,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nek-Xj-H9o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2057" y="3528"/>
+            <point key="canvasLocation" x="534" y="3604"/>
         </scene>
         <!--Add Need-->
         <scene sceneID="m6W-yB-Zon">

@@ -17,6 +17,7 @@ final class NeedsViewController: UIViewController {
     
     // MARK: - Properties
     let viewModel = NeedsViewModel()
+    private let refreshControl = UIRefreshControl()
     
     // MARK: - Lifecycle Functions
     override func viewDidLoad() {
@@ -33,6 +34,10 @@ final class NeedsViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(preferredLocationSet), name:
             .preferredLocationSet, object: nil)
+        
+        tableView.addSubview(refreshControl)
+        
+        refreshControl.addTarget(self, action: #selector(fetchNeeds), for: .valueChanged)
         
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 44
@@ -59,8 +64,12 @@ final class NeedsViewController: UIViewController {
     
     @IBAction func addNeedButtonTapped(_ sender: Any) {
         let alert = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .actionSheet)
-        let addAction = UIAlertAction(title: "Add Need", style: .default, handler: nil)
-        let filterAction = UIAlertAction(title: "Display \(viewModel.disabledNeedsHidden ? "All" : "Only Acitve") Needs", style: .default) { (UIAlertAction) in
+
+        let addAction = UIAlertAction(title: "Add Need", style: .default) { (UIAlertAction) in
+            self.performSegue(withIdentifier: Constants.Segues.modifyNeed, sender: self)
+        }
+        
+        let filterAction = UIAlertAction(title: "Display \(viewModel.disabledNeedsHidden ? "Disabled" : "Acitve") Needs", style: .default) { (UIAlertAction) in
             self.viewModel.updateNeedsFilter { result in
                 switch result {
                 case .success:
@@ -83,7 +92,6 @@ final class NeedsViewController: UIViewController {
         alert.popoverPresentationController?.sourceRect = view.bounds
         
         present(alert, animated: true, completion: nil)
-        performSegue(withIdentifier: Constants.Segues.modifyNeed, sender: self)
     }
     
     @IBAction func changeLocationButtonTapped(_ sender: Any) {
@@ -108,9 +116,10 @@ final class NeedsViewController: UIViewController {
         fetchNeeds()
     }
     
-    private func fetchNeeds() {
+    @objc private func fetchNeeds() {
         viewModel.fetchNeeds { result in
             DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
                 switch result {
                 case .success:
                     self.tableView.reloadData()
@@ -254,11 +263,12 @@ extension NeedsViewController: PledgeDelegate {
 
         let alert = UIAlertController(title: "Pledge", message: "How many \(need.name)'s would you like to pledge?", preferredStyle: .alert)
         let submitAction = UIAlertAction(title: "Submit", style: .default) { _ in
-            guard let locationId = self.viewModel.location?.id,
+            guard let locationId = self.viewModel.locationId,
                 let textField = alert.textFields?.first,
                 let text = textField.text,
                 let pledgedAmount = Int(text),
                 let userId = loggedInUser?.id else {
+                self.displaySCLAlert("Error", message: "Could not submit pledge", style: .error)
                 return
             }
             

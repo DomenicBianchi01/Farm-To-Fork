@@ -13,7 +13,6 @@ final class NeedsViewModel {
     private(set) var needs: [Need] = []
     private var pledges: [Pledge] = []
     private(set) var disabledNeedsHidden: Bool = true
-    private var fetchedDisabledNeeds: Bool = false
     var location: Location? = nil
     var expandedIndexPath: IndexPath? = nil
     var selectedRowToEdit: Int? = nil
@@ -34,6 +33,15 @@ final class NeedsViewModel {
             return true
         }
         return false
+    }
+    
+    var locationId: Int? {
+        if let location = location {
+            return location.id
+        } else if let locationIdentifier = UserDefaults.appGroup?.integer(forKey: Constants.preferredLocationId) {
+            return locationIdentifier
+        }
+        return nil
     }
     
     var name: String {
@@ -62,11 +70,13 @@ final class NeedsViewModel {
             return
         }
         
+        expandedIndexPath = nil
+        
         let dispatchGroup = DispatchGroup()
         var apiError: Error? = nil
         dispatchGroup.enter()
         
-        NeedsService().fetchNeeds(forLocation: locationId, onlyAcitveNeeds: disabledNeedsHidden && !isAdminForLocation) { result in
+        NeedsService().fetchNeeds(forLocation: locationId, disabledNeeds: !disabledNeedsHidden) { result in
             switch result {
             case .success(let needs):
                 self.needs = needs
@@ -139,17 +149,10 @@ final class NeedsViewModel {
     
     func updateNeedsFilter(with completion: @escaping ((Result<Void>) -> Void)) {
         disabledNeedsHidden = !disabledNeedsHidden
-        expandedIndexPath = nil
-        
-        if fetchedDisabledNeeds {
-            completion(.success(()))
-            return
-        }
         
         fetchNeeds { result in
             switch result {
             case .success:
-                self.fetchedDisabledNeeds = true
                 completion(.success(()))
             case .error(let error):
                 completion(.error(error))

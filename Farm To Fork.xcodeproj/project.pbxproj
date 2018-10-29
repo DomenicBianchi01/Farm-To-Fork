@@ -84,6 +84,8 @@
 		B0A8BFDD205F4E7A00077DF7 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8BFDC205F4E7A00077DF7 /* UserDefaults.swift */; };
 		B0ADAA1520520A2B00A0CD30 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ADAA1420520A2B00A0CD30 /* UIViewControllerExtensions.swift */; };
 		B0ADAA17205223D900A0CD30 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ADAA16205223D900A0CD30 /* RegisterViewModel.swift */; };
+		B0AEBFB82187678F007DBD96 /* PledgeHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AEBFB72187678F007DBD96 /* PledgeHistoryViewController.swift */; };
+		B0AEBFBA2187687D007DBD96 /* PledgeHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AEBFB92187687D007DBD96 /* PledgeHistoryViewModel.swift */; };
 		B0B3BFF32054BCD60074DF0D /* NeedsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B3BFF22054BCD60074DF0D /* NeedsService.swift */; };
 		B0B3BFF62054BD330074DF0D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B3BFF52054BD330074DF0D /* MapViewController.swift */; };
 		B0B3BFF92054BE450074DF0D /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B3BFF82054BE450074DF0D /* MapViewModel.swift */; };
@@ -110,6 +112,9 @@
 		B0CD0EAD20507D2500FBE902 /* UnwindRegisterAccountSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD0EAC20507D2500FBE902 /* UnwindRegisterAccountSegue.swift */; };
 		B0D0423E2065E187007DE107 /* LocationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0232DD520583B1700E22B40 /* LocationsService.swift */; };
 		B0D0423F2065E192007DE107 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0232DDA205842BB00E22B40 /* Location.swift */; };
+		B0DBB3532187A3ED0030BBCA /* PledgeHistoryItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DBB3522187A3ED0030BBCA /* PledgeHistoryItemTableViewCell.swift */; };
+		B0DBB3552187A57D0030BBCA /* PledgeHistoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DBB3542187A57D0030BBCA /* PledgeHistoryCellViewModel.swift */; };
+		B0DBB3572187A8140030BBCA /* PledgeHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DBB3562187A8140030BBCA /* PledgeHistory.swift */; };
 		B0DC7C6D20690A2F00E544D2 /* LocationInfoHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC7C6C20690A2F00E544D2 /* LocationInfoHeaderTableViewCell.swift */; };
 		B0DC7C6F20690C9200E544D2 /* LocationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC7C6E20690C9200E544D2 /* LocationDelegate.swift */; };
 		B0DC7C712069138900E544D2 /* LocationConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC7C702069138900E544D2 /* LocationConfigurable.swift */; };
@@ -273,6 +278,8 @@
 		B0A8BFDC205F4E7A00077DF7 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		B0ADAA1420520A2B00A0CD30 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		B0ADAA16205223D900A0CD30 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		B0AEBFB72187678F007DBD96 /* PledgeHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PledgeHistoryViewController.swift; sourceTree = "<group>"; };
+		B0AEBFB92187687D007DBD96 /* PledgeHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PledgeHistoryViewModel.swift; sourceTree = "<group>"; };
 		B0B3BFF22054BCD60074DF0D /* NeedsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsService.swift; sourceTree = "<group>"; };
 		B0B3BFF52054BD330074DF0D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		B0B3BFF82054BE450074DF0D /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
@@ -295,6 +302,9 @@
 		B0CD0EA72050716F00FBE902 /* WallpaperWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperWindow.swift; sourceTree = "<group>"; };
 		B0CD0EAA205078AA00FBE902 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B0CD0EAC20507D2500FBE902 /* UnwindRegisterAccountSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnwindRegisterAccountSegue.swift; sourceTree = "<group>"; };
+		B0DBB3522187A3ED0030BBCA /* PledgeHistoryItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PledgeHistoryItemTableViewCell.swift; sourceTree = "<group>"; };
+		B0DBB3542187A57D0030BBCA /* PledgeHistoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PledgeHistoryCellViewModel.swift; sourceTree = "<group>"; };
+		B0DBB3562187A8140030BBCA /* PledgeHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PledgeHistory.swift; sourceTree = "<group>"; };
 		B0DC7C6C20690A2F00E544D2 /* LocationInfoHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInfoHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		B0DC7C6E20690C9200E544D2 /* LocationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDelegate.swift; sourceTree = "<group>"; };
 		B0DC7C702069138900E544D2 /* LocationConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationConfigurable.swift; sourceTree = "<group>"; };
@@ -381,6 +391,7 @@
 		AB280A66205B609F00662D5C /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				B0AEBFB521876760007DBD96 /* PledgeHistory */,
 				B044121820841A2A0088F07F /* Menu */,
 				B044121920841A380088F07F /* Email */,
 				ABC95049205AB8C300DC8890 /* ChangePasswordViewController.swift */,
@@ -550,6 +561,7 @@
 		B09757492082DD20003AAF22 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				B0AEBFB621876771007DBD96 /* PledgeHistory */,
 				B097574A2082DD2E003AAF22 /* ProfileViewModel.swift */,
 				B048D5E620851388009BA814 /* ChangeEmailViewModel.swift */,
 			);
@@ -566,8 +578,27 @@
 				B0C1A0CA21573AD8006D3998 /* BasicUserDetails.swift */,
 				B0FE2CBD215686D100FD5B74 /* RegisterUserDetails.swift */,
 				B018CCCF216E45E200190FDF /* Pledge.swift */,
+				B0DBB3562187A8140030BBCA /* PledgeHistory.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		B0AEBFB521876760007DBD96 /* PledgeHistory */ = {
+			isa = PBXGroup;
+			children = (
+				B0AEBFB72187678F007DBD96 /* PledgeHistoryViewController.swift */,
+				B0DBB3522187A3ED0030BBCA /* PledgeHistoryItemTableViewCell.swift */,
+			);
+			path = PledgeHistory;
+			sourceTree = "<group>";
+		};
+		B0AEBFB621876771007DBD96 /* PledgeHistory */ = {
+			isa = PBXGroup;
+			children = (
+				B0AEBFB92187687D007DBD96 /* PledgeHistoryViewModel.swift */,
+				B0DBB3542187A57D0030BBCA /* PledgeHistoryCellViewModel.swift */,
+			);
+			path = PledgeHistory;
 			sourceTree = "<group>";
 		};
 		B0B3BFF42054BD220074DF0D /* Map */ = {
@@ -1065,12 +1096,14 @@
 				B0CCDA4B2157DC1100A6AEA1 /* AddNeedTextfieldTableViewCell.swift in Sources */,
 				ABC95046205AB82C00DC8890 /* UserProfileViewController.swift in Sources */,
 				B0FEBC8B204E3F0B00982EAE /* Result.swift in Sources */,
+				B0DBB3572187A8140030BBCA /* PledgeHistory.swift in Sources */,
 				B0DC7C77206920F600E544D2 /* DoubleExtensions.swift in Sources */,
 				B0232DDB205842BB00E22B40 /* Location.swift in Sources */,
 				B0FEBC8D204E3FF200982EAE /* JSONService.swift in Sources */,
 				B03C07CA2033BDE2001A54C6 /* LoginViewController.swift in Sources */,
 				B0319B9D21580C670092A897 /* AddNeedDescriptionCellViewModel.swift in Sources */,
 				B02A024420501BC100ABB4F9 /* ErrorExtensions.swift in Sources */,
+				B0DBB3552187A57D0030BBCA /* PledgeHistoryCellViewModel.swift in Sources */,
 				B0DF8B5620500FF100AD2539 /* LoginService.swift in Sources */,
 				B0272DEA2068919000F8F2E2 /* LocationInfoViewController.swift in Sources */,
 				B02613A2205B4E1E0067B378 /* NeedItemTableViewCell.swift in Sources */,
@@ -1095,6 +1128,7 @@
 				B0A8BFCE205F171200077DF7 /* Need.swift in Sources */,
 				B0CD0EA620506F1B00FBE902 /* RegisterAccountSegue.swift in Sources */,
 				B0B3BFF92054BE450074DF0D /* MapViewModel.swift in Sources */,
+				B0AEBFBA2187687D007DBD96 /* PledgeHistoryViewModel.swift in Sources */,
 				B0CCDA512157E07B00A6AEA1 /* CellViewModelable.swift in Sources */,
 				B03F7863216AF4240068C927 /* BooleanExtensions.swift in Sources */,
 				B077904920535EF80099AD1F /* LoginPreferences.swift in Sources */,
@@ -1102,6 +1136,7 @@
 				B0272DEC2068920100F8F2E2 /* LocationInfoViewModel.swift in Sources */,
 				B06E3EEC2069C196003ED34C /* MatchedLocationTableViewCell.swift in Sources */,
 				B00F9C16204F8D8100C5BC03 /* User.swift in Sources */,
+				B0AEBFB82187678F007DBD96 /* PledgeHistoryViewController.swift in Sources */,
 				B061D3662058BF1E004E7888 /* PickerViewModelable.swift in Sources */,
 				B0DC7C6D20690A2F00E544D2 /* LocationInfoHeaderTableViewCell.swift in Sources */,
 				B0C6EC9E205972150064F2B5 /* NeedsViewController.swift in Sources */,
@@ -1140,6 +1175,7 @@
 				B044121D20841B3C0088F07F /* MFTextFieldExtensions.swift in Sources */,
 				AB9B39FF20617FE60088BFC4 /* UpdateUserService.swift in Sources */,
 				B0FEBC86204E3E3600982EAE /* TableViewModelable.swift in Sources */,
+				B0DBB3532187A3ED0030BBCA /* PledgeHistoryItemTableViewCell.swift in Sources */,
 				B0FC11892063E35F008A28B8 /* WatchSessionManager.swift in Sources */,
 				B071A6AB205800A300367102 /* ProgressButton.swift in Sources */,
 				B0CCDA4D2157DC1B00A6AEA1 /* AddNeedStepperTableViewCell.swift in Sources */,

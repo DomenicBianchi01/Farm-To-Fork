@@ -30,13 +30,15 @@ final class ProfileViewModel {
 extension ProfileViewModel: TableViewModelable {
     var numberOfSections: Int {
         if canSendMail {
-            return 4
+            return 5
         }
-        return 3
+        return 4
     }
     
     func numberOfRows(in section: Int) -> Int {
         if section == 0 {
+            return 1
+        } else if section == 1 {
             return 3
         }
         return 1
@@ -44,6 +46,8 @@ extension ProfileViewModel: TableViewModelable {
     
     func titleForHeader(in section: Int) -> String? {
         if section == 0 {
+            return "Pledges"
+        } else if section == 1 {
             return "Account"
         }
         return nil
@@ -52,9 +56,9 @@ extension ProfileViewModel: TableViewModelable {
     func cellForRow(in tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
         let reuseIdentifier: String
         
-        if indexPath.section == 0 || indexPath.section == 1 {
+        if indexPath.section == 0 || indexPath.section == 1 || indexPath.section == 2 {
             reuseIdentifier = "basicCellReuseIdentifier"
-        } else if indexPath.section == 2 && canSendMail {
+        } else if indexPath.section == 3 && canSendMail {
             reuseIdentifier = "feedbackReuseIdentifier"
         } else {
             reuseIdentifier = "logoutReuseIdentifier"
@@ -64,6 +68,8 @@ extension ProfileViewModel: TableViewModelable {
         
         if let cell = cell as? ProfileOptionTableViewCell {
             if indexPath.section == 0 {
+                cell.configure(with: "Pledge History")
+            } else if indexPath.section == 1 {
                 if indexPath.row == 0 {
                     cell.configure(with: "Edit personal information")
                 } else if indexPath.row == 1 {

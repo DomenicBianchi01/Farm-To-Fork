@@ -29,5 +29,6 @@ struct Constants {
         static let personalInfo = "personalInfoSegue"
         static let registerNextStep = "registerNextStep"
         static let modifyNeed = "modifyNeedSegue"
+        static let pledgeHistory = "pledgeHistorySegue"
     }
 }

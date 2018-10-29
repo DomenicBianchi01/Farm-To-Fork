@@ -13,8 +13,8 @@ import Foundation
 final class NeedsService: JSONService {
 
     // MARK: - Fetching Functions
-    func fetchNeeds(forLocation locationId: Int, onlyAcitveNeeds: Bool, with completion: @escaping ((Result<[Need]>) -> Void)) {
-        request(from: "https://farmtofork.marshallasch.ca/api.php/2.0/needs/\(locationId)/all?disabled=\(!onlyAcitveNeeds)", expecting: [Need].self) { result in
+    func fetchNeeds(forLocation locationId: Int, disabledNeeds: Bool = false, with completion: @escaping ((Result<[Need]>) -> Void)) {
+        request(from: "https://farmtofork.marshallasch.ca/api.php/2.0/needs/\(locationId)/all?disabled=\(disabledNeeds)", expecting: [Need].self) { result in
             completion(result)
         }
     }

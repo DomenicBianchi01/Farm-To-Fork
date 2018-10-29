@@ -11,7 +11,7 @@ import UIKit
 final class AddNeedViewModel {
     // MARK: - Properties
     // Used when creating a new need. Also, init with properties we do not care about when creating a new need (we still need these values in the dictionary for the Need class init.
-    private var needInfo: [String : Any] = [Need.Keys.id.rawValue : 0, Need.Keys.currentQuantity.rawValue : 0]
+    private var needInfo: [String : Any] = [Need.Keys.id.rawValue : 0, Need.Keys.currentQuantity.rawValue : 0, Need.Keys.disabled.rawValue : false]
 
     // False if creating a new need, true if modifying an existing need
     private var isEditingNeed: Bool = false

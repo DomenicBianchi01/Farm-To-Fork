@@ -21,7 +21,7 @@ final class AddNeedDescriptionCellViewModel {
 // MARK: - CellViewModelable
 extension AddNeedDescriptionCellViewModel: CellViewModelable {
     var title: String? {
-        return description
+        return descriptionString
     }
     
     // In the context of this view model, this property is used for the placeholder of the textfield
