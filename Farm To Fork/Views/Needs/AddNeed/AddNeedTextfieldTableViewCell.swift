@@ -8,12 +8,12 @@
 
 import UIKit
 
-final class AddNeedTextfieldTableViewCell: UITableViewCell, CellConfigurable, NewNeedDelgatable {
+final class AddNeedTextfieldTableViewCell: UITableViewCell, CellConfigurable, InformationDelgatable {
     // MARK: - IBOutlets
     @IBOutlet private var inputTextField: UITextField!
     
     // MARK: - Properties
-    weak var delegate: NewNeedDelegate? = nil
+    weak var delegate: InformationDelegate? = nil
     var viewModel: CellViewModelable? = nil {
         didSet {
             // If the view model is ever changed, refresh the cell based on the new view model
@@ -45,14 +45,11 @@ final class AddNeedTextfieldTableViewCell: UITableViewCell, CellConfigurable, Ne
             return
         }
         viewModel.updateViewModel(with: text)
-        delegate?.needInformationUpdated(with: [viewModel.identifier : text])
+        delegate?.informationUpdated(with: [viewModel.identifier : text])
     }
     
     private func refreshCell() {
-        guard let viewModel = viewModel else {
-            return
-        }
-        inputTextField.placeholder = viewModel.description
-        inputTextField.text = viewModel.title
+        inputTextField.placeholder = viewModel?.description
+        inputTextField.text = viewModel?.title
     }
 }

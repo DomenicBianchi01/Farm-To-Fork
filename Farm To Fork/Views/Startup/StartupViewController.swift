@@ -48,7 +48,7 @@ final class StartupViewController: UIViewController {
     private func login(_ user: BasicUserDetails) {
         progressView.isHidden = false
         let timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateProgressView), userInfo: nil, repeats: true)
-        LoginService().login(user: user) { result in
+        AuthenticationService().login(user: user) { result in
             DispatchQueue.main.async {
                 timer.invalidate()
                 self.progressView.progress = 1.0

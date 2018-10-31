@@ -33,7 +33,7 @@ extension PledgeHistoryCellViewModel: CellViewModelable {
     }
     
     var subDescription: String? {
-        return "Pledged for \(pledge.locationName) on \(pledge.pledgeDate)"
+        return "Pledged for \(pledge.locationName) on \(pledge.pledgeDateString)"
     }
     
     var identifier: String { return "" /* Not used */ }

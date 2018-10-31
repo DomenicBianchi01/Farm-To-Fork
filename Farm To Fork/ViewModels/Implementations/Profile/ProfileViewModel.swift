@@ -20,10 +20,16 @@ final class ProfileViewModel {
     }
 
     func logout() {
-        Valet.F2FValet.removeAllObjects()
-        UserDefaults.resetAppGroup()
-        loggedInUser = nil
-        //TODO: Call Logout API
+        AuthenticationService().logout { result in
+            switch result {
+            case .success:
+                Valet.F2FValet.removeAllObjects()
+                UserDefaults.resetAppGroup()
+                loggedInUser = nil
+            case .error:
+                break //TODO
+            }
+        }
     }
 }
 
@@ -39,7 +45,7 @@ extension ProfileViewModel: TableViewModelable {
         if section == 0 {
             return 1
         } else if section == 1 {
-            return 3
+            return 2
         }
         return 1
     }
@@ -71,9 +77,7 @@ extension ProfileViewModel: TableViewModelable {
                 cell.configure(with: "Pledge History")
             } else if indexPath.section == 1 {
                 if indexPath.row == 0 {
-                    cell.configure(with: "Edit personal information")
-                } else if indexPath.row == 1 {
-                    cell.configure(with: "Update account email address")
+                    cell.configure(with: "Edit account information")
                 } else {
                     cell.configure(with: "Change password")
                 }

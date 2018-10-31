@@ -8,14 +8,14 @@
 
 import UIKit
 
-final class AddNeedStepperTableViewCell: UITableViewCell, CellConfigurable, NewNeedDelgatable {
+final class AddNeedStepperTableViewCell: UITableViewCell, CellConfigurable, InformationDelgatable {
     
     // MARK: - IBOutlets
     @IBOutlet private var inputTextField: UITextField!
     @IBOutlet private var stepper: UIStepper!
     
     // MARK: - Properties
-    weak var delegate: NewNeedDelegate? = nil
+    weak var delegate: InformationDelegate? = nil
     var viewModel: CellViewModelable? = nil {
         didSet {
             // If the view model is ever changed, refresh the cell based on the new view model
@@ -50,7 +50,7 @@ final class AddNeedStepperTableViewCell: UITableViewCell, CellConfigurable, NewN
             return
         }
         viewModel.updateViewModel(with: sender.value)
-        delegate?.needInformationUpdated(with: [viewModel.identifier : Int(sender.value)])
+        delegate?.informationUpdated(with: [viewModel.identifier : Int(sender.value)])
         refreshCell()
     }
     
@@ -63,7 +63,7 @@ final class AddNeedStepperTableViewCell: UITableViewCell, CellConfigurable, NewN
         }
         stepper.value = Double(newValue)
         viewModel.updateViewModel(with: newValue)
-        delegate?.needInformationUpdated(with: [viewModel.identifier : newValue])
+        delegate?.informationUpdated(with: [viewModel.identifier : newValue])
     }
     
     private func refreshCell() {

@@ -1,67 +1,56 @@
 //
-//  AddNeedPickerTableViewCell.swift
+//  AccountPickerTableViewCell.swift
 //  Farm To Fork
 //
-//  Created by Domenic Bianchi on 2018-09-23.
+//  Created by Domenic Bianchi on 2018-10-31.
 //  Copyright © 2018 Domenic Bianchi. All rights reserved.
 //
 
 import UIKit
 
-final class AddNeedPickerTableViewCell: UITableViewCell, CellConfigurable, InformationDelgatable {
+final class AccountPickerTableViewCell: UITableViewCell, CellConfigurable, InformationDelgatable {
     // MARK: - IBOutlets
-    @IBOutlet private var inputTextField: UITextField!
+    @IBOutlet var textField: UITextField!
     
     // MARK: - Properties
     private let pickerView = UIPickerView()
     weak var delegate: InformationDelegate? = nil
     var viewModel: CellViewModelable? = nil {
         didSet {
-            // If the view model is ever changed, refresh the cell based on the new view model
-            viewModel?.fetchData { result in
-                DispatchQueue.main.async {
-                    switch result {
-                    case .success:
-                        self.pickerView.reloadAllComponents()
-                    case .error:
-                        break //TODO
-                    }
-                    self.refreshCell()
-                }
-            }
+            refreshCell()
         }
     }
     
-    // MARK: - Lifetcylce Functions
+    // MARK: - Lifecycle Functions
     override func awakeFromNib() {
         super.awakeFromNib()
         
         let pickerView = UIPickerView()
         pickerView.delegate = self
-        inputTextField.inputView = pickerView
-        inputTextField.delegate = self
+        textField.inputView = pickerView
+        textField.delegate = self
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        inputTextField.text = nil
+        textField.text = nil
     }
-    
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
+
         // Configure the view for the selected state
     }
-    
+
     // MARK: - Helper Functions
     private func refreshCell() {
-        inputTextField.placeholder = viewModel?.description
-        inputTextField.text = viewModel?.title
+        textField.placeholder = viewModel?.description
+        textField.text = viewModel?.title
     }
 }
 
 // MARK: - UITextFieldDelegate
-extension AddNeedPickerTableViewCell: UITextFieldDelegate {
+extension AccountPickerTableViewCell: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         //Block all attempts to manually insert text into the text field. The only valid strings are ones that come from the picker view
         return false
@@ -69,7 +58,7 @@ extension AddNeedPickerTableViewCell: UITextFieldDelegate {
 }
 
 // MARK: - UIPickerViewDelegate
-extension AddNeedPickerTableViewCell: UIPickerViewDelegate {
+extension AccountPickerTableViewCell: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         viewModel?.updateViewModel(with: row)
         refreshCell()
@@ -77,13 +66,13 @@ extension AddNeedPickerTableViewCell: UIPickerViewDelegate {
         guard let viewModel = viewModel else {
             return
         }
-
-        delegate?.informationUpdated(with: [viewModel.identifier : String(row + 1)])
+        
+        delegate?.informationUpdated(with: [viewModel.identifier : row])
     }
 }
 
 // MARK: - UIPickerViewDataSource
-extension AddNeedPickerTableViewCell: UIPickerViewDataSource {
+extension AccountPickerTableViewCell: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return (viewModel as? PickerViewModelable)?.numberOfComponents ?? 0
     }

@@ -15,7 +15,7 @@ final class LoginViewModel {
     
     // MARK: - Helper Functions
     func attemptLogin(with completion: @escaping (Result<User>) -> Void) {
-        LoginService().login(user: user) { result in
+        AuthenticationService().login(user: user) { result in
             completion(result)
         }
     }

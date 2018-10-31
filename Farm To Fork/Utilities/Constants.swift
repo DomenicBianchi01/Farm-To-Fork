@@ -12,7 +12,6 @@ struct Constants {
     static let passwordSaved = "PasswordSaved"
     static let password = "password"
     static let username = "username"
-    static let token = "token"
     static let loginPreference = "LoginPreference"
     static let preferredLocationId = "PreferredLocationID" //MAYBE TODO: Remove preferredLocationId and preferredLocationName and store the entire Location object in UserDefaults
     static let preferredLocationName = "PreferredLocationName" //MAYBE TODO: Remove preferredLocationId and preferredLocationName and store the entire Location object in UserDefaults
@@ -26,7 +25,7 @@ struct Constants {
         static let needsView = "NeedsView"
         static let viewLocations = "viewLocationsSegue"
         static let emailAddress = "emailAddressSegue"
-        static let personalInfo = "personalInfoSegue"
+        static let accountInfo = "accountInfoSegue"
         static let registerNextStep = "registerNextStep"
         static let modifyNeed = "modifyNeedSegue"
         static let pledgeHistory = "pledgeHistorySegue"

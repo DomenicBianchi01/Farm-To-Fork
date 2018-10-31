@@ -83,9 +83,9 @@ extension ProfileViewController: UITableViewDelegate {
             performSegue(withIdentifier: Constants.Segues.pledgeHistory, sender: self)
         } else if indexPath.section == 1 {
             if indexPath.row == 0 {
-                performSegue(withIdentifier: Constants.Segues.personalInfo, sender: self)
-            } else if indexPath.row == 1 {
-                performSegue(withIdentifier: Constants.Segues.emailAddress, sender: self)
+                performSegue(withIdentifier: Constants.Segues.accountInfo, sender: self)
+            } else {
+                //TODO: Change password
             }
         } else if indexPath.section == 2 {
             let alertController = UIAlertController(title: "Login Preference", message: "Select one of the options below to change your login preference", preferredStyle: UIDevice.alertStyle)

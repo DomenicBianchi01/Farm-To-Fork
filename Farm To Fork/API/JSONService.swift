@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Valet
 
 /**
  A class meant to be inherited by `Service` classes. This class helps encode JSON requests and decodes JSON responses.
@@ -18,11 +17,6 @@ class JSONService {
     // MARK: - Properties
     ///IMPORTANT NOTE: For the scope of this project, the `JSONService` can only handle one network call at a time
     private var urlDataTask: URLSessionDataTask? = nil
-
-    /// Get token stored in the keychain
-    private var accessToken: String? {
-        return Valet.F2FValet.string(forKey: Constants.token)
-    }
 
     // MARK: - Enums
     /// Used to specify the type of request that should be made
@@ -57,20 +51,18 @@ class JSONService {
      All requests made through this function have 15 seconds to receive a response, otherwise the request will timeout.
      
      - parameter urlString: A string representation of the URL that will return JSON data. This function will check if the string does indeed represent a valid URL. If not, an error is returned.
-     - parameter useToken: Boolean value to specify whether or not to include the user's access token (JWT) with the request. Defaults to `false`
      - parameter requestType: Specifies the type of request using the `RequestType` enum. Defaults to `GET`
      - parameter body: If this parameter is included, the data is sent in the http body. Use the `encode` function (part of this class) to help encode a dictionary into `Data`. Defaults to `nil`
      - parameter type: The structure that the fetched JSON data should be parsed according to. If you are not expecting anything in the response, use `JSONEmpty`. NOTE: The structure must conform to `Decodable`.
      - parameter completion: If the function successfully fetched and parsed the JSON data, the completion block includes the parsed data as a structure that matches the type passed in the `type` parameter of this function. If the function could not parse the data, the completion block includes an error object instead.
      */
     func request<D: Decodable>(from urlString: String,
-                               useToken: Bool = false,
                                requestType: RequestType = .get,
                                body: Data? = nil,
                                expecting type: D.Type,
                                completion: @escaping (Result<D>) -> Void) {
         
-        guard let request = createURLRequest(from: urlString, useToken: useToken, requestType: requestType, body: body) else {
+        guard let request = createURLRequest(from: urlString, requestType: requestType, body: body) else {
             completion(.error(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
             return
         }
@@ -117,17 +109,15 @@ class JSONService {
      All requests made through this function have 15 seconds to receive a response, otherwise the request will timeout.
      
      - parameter urlString: A string representation of the URL that will return JSON data. This function will check if the string does indeed represent a valid URL. If not, an error is returned.
-     - parameter useToken: Boolean value to specify whether or not to include the user's access token (JWT) with the request. Defaults to `false`
      - parameter requestType: Specifies the type of request using the `RequestType` enum. Defaults to `GET`
      - parameter body: If this parameter is included, the data is sent in the http body. Use the `encode` function (part of this class) to help encode a dictionary into `Data`. Defaults to `nil`
      */
     func request(from urlString: String,
-                 useToken: Bool = false,
                  requestType: RequestType = .get,
                  body: Data? = nil,
                  completion: @escaping (Result<Void>) -> Void) {
         
-        guard let request = createURLRequest(from: urlString, useToken: useToken, requestType: requestType, body: body) else {
+        guard let request = createURLRequest(from: urlString, requestType: requestType, body: body) else {
             completion(.error(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
             return
         }
@@ -166,7 +156,6 @@ class JSONService {
     
     // MARK: - Private Helper Functions
     private func createURLRequest(from urlString: String,
-                                  useToken: Bool = false,
                                   requestType: RequestType = .get,
                                   body: Data? = nil) -> URLRequest? {
         guard let url = URL(string: urlString) else {
@@ -177,10 +166,6 @@ class JSONService {
         request.httpMethod = requestType.rawValue
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         
-        if useToken {
-            request.setValue(accessToken, forHTTPHeaderField: "Authorization")
-        }
-        
         request.timeoutInterval = 15
         
         if let body = body {
@@ -190,7 +175,6 @@ class JSONService {
         return request
     }
     
-    //@available(watchOS, unavailable)
     #if os(iOS)
     private func updateNetworkActivityIndicator(isHidden: Bool) {
         DispatchQueue.main.async {

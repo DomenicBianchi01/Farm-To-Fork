@@ -8,13 +8,13 @@
 
 import UIKit
 
-final class AddNeedSwitchTableViewCell: UITableViewCell, CellConfigurable, NewNeedDelgatable {
+final class AddNeedSwitchTableViewCell: UITableViewCell, CellConfigurable, InformationDelgatable {
     // MARK: - IBOutlets
     @IBOutlet private var switcher: UISwitch!
     @IBOutlet private var cellLabel: UILabel!
     
     // MARK: - Properties
-    weak var delegate: NewNeedDelegate? = nil
+    weak var delegate: InformationDelegate? = nil
     var viewModel: CellViewModelable? {
         didSet {
             refreshCell()
@@ -39,7 +39,7 @@ final class AddNeedSwitchTableViewCell: UITableViewCell, CellConfigurable, NewNe
         }
 
         viewModel.updateViewModel(with: switcher.isOn)
-        delegate?.needInformationUpdated(with: [viewModel.identifier : switcher.isOn])
+        delegate?.informationUpdated(with: [viewModel.identifier : switcher.isOn])
     }
     
     // MARK: - Helper Functions

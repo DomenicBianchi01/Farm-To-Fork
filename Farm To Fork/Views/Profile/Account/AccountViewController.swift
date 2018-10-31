@@ -1,37 +1,31 @@
 //
-//  AddNeedViewController.swift
+//  AccountViewController.swift
 //  Farm To Fork
 //
-//  Created by Domenic Bianchi on 2018-09-23.
+//  Created by Domenic Bianchi on 2018-10-30.
 //  Copyright © 2018 Domenic Bianchi. All rights reserved.
 //
 
 import UIKit
 
-final class AddNeedViewController: UIViewController {
+final class AccountViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet private var tableView: UITableView!
-    @IBOutlet private var saveBarButtonItem: UIBarButtonItem!
     
     // MARK: - Properties
-    private let viewModel = AddNeedViewModel()
-    
+    private let viewModel = AccountViewModel()
+
     // MARK: - Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        title = viewModel.name
 
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissFirstResponder))
-        view.addGestureRecognizer(tapRecognizer)
+        // Do any additional setup after loading the view.
     }
     
     // MARK: - IBActions
     @IBAction func saveButtonTapped(_ sender: Any) {
-        saveBarButtonItem.isEnabled = false
-        viewModel.modifyNeed { result in
+        viewModel.updateUser { result in
             DispatchQueue.main.async {
-                self.saveBarButtonItem.isEnabled = true
                 switch result {
                 case .success:
                     self.navigationController?.popViewController(animated: true)
@@ -41,19 +35,14 @@ final class AddNeedViewController: UIViewController {
             }
         }
     }
-    
-    // MARK: - Segue Helper Functions
-    func addNeedToViewModel(_ need: Need) {
-        viewModel.addNeed(need)
-        title = viewModel.name
-    }
 }
 
 // MARK: - UITableViewDelegate
-extension AddNeedViewController: UITableViewDelegate { /* Not used */ }
+extension AccountViewController: UITableViewDelegate { /* Not used */ }
 
 // MARK: - UITableViewDataSource
-extension AddNeedViewController: UITableViewDataSource {
+extension AccountViewController: UITableViewDataSource {
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSections
     }
@@ -72,7 +61,7 @@ extension AddNeedViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = viewModel.cellForRow(in: tableView, at: indexPath)
-
+        
         if var cell = cell as? InformationDelgatable {
             cell.delegate = self
         }
@@ -82,8 +71,8 @@ extension AddNeedViewController: UITableViewDataSource {
 }
 
 // MARK: - InformationDelegate
-extension AddNeedViewController: InformationDelegate {
+extension AccountViewController: InformationDelegate {
     func informationUpdated(with info: [String : Any]) {
-        viewModel.needInformationUpdated(with: info)
+        viewModel.userInformationUpdated(with: info)
     }
 }
