@@ -11,10 +11,9 @@ import Foundation
 final class UserService: JSONService {
 	// MARK: - Properties
 	private let locationUrlString = "https://farmtofork.marshallasch.ca/api.php/2.0/location/"
-	private let userUrlString = "https://farmtofork.marshallasch.ca/api.php/2.0/user"
 	private let loginUrlString = "https://farmtofork.marshallasch.ca/api.php/2.0/user/login"
 	
-	// MARK: - Functions
+    // MARK: - Functions
     func updateUserDetails(_ user: User, with completion: @escaping ((Result<User>) -> Void)) {
         
         let encodedBody = encode(user)
@@ -23,4 +22,10 @@ final class UserService: JSONService {
             completion(result)
         }
 	}
+    
+    func updateUserPassword(for userId: Int, newPassword: String, with completion: @escaping ((Result<Void>) -> Void)) {
+        request(from: "https://farmtofork.marshallasch.ca/api.php/2.0/user/update/password", requestType: .post) { result in
+            completion(result)
+        }
+    }
 }

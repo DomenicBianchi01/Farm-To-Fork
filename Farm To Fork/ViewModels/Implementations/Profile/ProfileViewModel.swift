@@ -31,6 +31,10 @@ final class ProfileViewModel {
             }
         }
     }
+    
+    func changePassword(_ newPassword: String) {
+        
+    }
 }
 
 extension ProfileViewModel: TableViewModelable {

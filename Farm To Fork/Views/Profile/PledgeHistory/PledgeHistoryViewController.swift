@@ -27,7 +27,7 @@ final class PledgeHistoryViewController: UIViewController {
     
     // MARK: - IBActions
     @IBAction func filterButtonTapped(_ sender: Any) {
-        let alert = UIAlertController(title: nil, message: "How far back to you want to see your pledge history?", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: nil, message: "How far back do you want to see your pledge history?", preferredStyle: .actionSheet)
         
         let oneWeekAction = UIAlertAction(title: "1 week", style: .default) { (UIAlertAction) in
             self.updateFilter(dayRange: 7)
@@ -45,13 +45,11 @@ final class PledgeHistoryViewController: UIViewController {
             self.updateFilter(dayRange: nil)
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        
         alert.addAction(oneWeekAction)
         alert.addAction(twoWeeksAction)
         alert.addAction(oneMonthAction)
         alert.addAction(allAction)
-        alert.addAction(cancelAction)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         alert.popoverPresentationController?.sourceView = view
         alert.popoverPresentationController?.sourceRect = view.bounds

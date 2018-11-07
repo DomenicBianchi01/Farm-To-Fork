@@ -17,14 +17,16 @@ final class ProfileViewController: UIViewController {
     
     // MARK: - Properties
     private let viewModel = ProfileViewModel()
+    private var currentPasswordField: UITextField? = nil
+    private var newPasswordField: UITextField? = nil
+    private var newPasswordField2: UITextField? = nil
+    private var submitAction = UIAlertAction()
     
     // MARK: - Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if #available(iOS 11.0, *) {
-            navigationController?.navigationBar.prefersLargeTitles = true
-        }
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,6 +65,14 @@ final class ProfileViewController: UIViewController {
             present(mail, animated: true)
         }
     }
+    
+    @objc private func textFieldDidChange(_ textField: UITextField) {
+        if currentPasswordField?.text?.isEmpty ?? true || newPasswordField?.text?.isEmpty ?? true || newPasswordField2?.text?.isEmpty ?? true {
+            submitAction.isEnabled = false
+        } else {
+            submitAction.isEnabled = true
+        }
+    }
 }
 
 // MARK: - MFMailComposeViewControllerDelegate
@@ -85,7 +95,45 @@ extension ProfileViewController: UITableViewDelegate {
             if indexPath.row == 0 {
                 performSegue(withIdentifier: Constants.Segues.accountInfo, sender: self)
             } else {
-                //TODO: Change password
+                let alert = UIAlertController(title: "Change Password", message: "Enter your current and new password below. The new password must meet the following requirements:\nAt least 8 characters, 1 number, 1 uppercase letter, and 1 lowercase letter", preferredStyle: .alert)
+                
+                let submitAction = UIAlertAction(title: "Submit", style: .default) { _ in
+                    guard let newPassword = self.newPasswordField?.text else {
+                        return
+                    }
+                    self.viewModel.changePassword(newPassword)
+                }
+                
+                alert.addAction(submitAction)
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                
+                submitAction.isEnabled = false
+                self.submitAction = submitAction
+                
+                alert.addTextField { addedTextField in
+                    addedTextField.placeholder = "Current Password"
+                    addedTextField.isSecureTextEntry = true
+                    self.currentPasswordField = addedTextField
+                }
+                alert.addTextField { addedTextField in
+                    addedTextField.placeholder = "New Password"
+                    addedTextField.isSecureTextEntry = true
+                    self.newPasswordField = addedTextField
+                }
+                alert.addTextField { addedTextField in
+                    addedTextField.placeholder = "Re-enter New Password"
+                    addedTextField.isSecureTextEntry = true
+                    self.newPasswordField2 = addedTextField
+                }
+                
+                currentPasswordField?.addTarget(self, action: #selector(ProfileViewController.textFieldDidChange(_:)), for: .editingChanged)
+                newPasswordField?.addTarget(self, action: #selector(ProfileViewController.textFieldDidChange(_:)), for: .editingChanged)
+                newPasswordField2?.addTarget(self, action: #selector(ProfileViewController.textFieldDidChange(_:)), for: .editingChanged)
+                
+                alert.popoverPresentationController?.sourceView = self.view
+                alert.popoverPresentationController?.sourceRect = self.view.bounds
+                
+                self.present(alert, animated: true, completion: nil)
             }
         } else if indexPath.section == 2 {
             let alertController = UIAlertController(title: "Login Preference", message: "Select one of the options below to change your login preference", preferredStyle: UIDevice.alertStyle)
@@ -98,8 +146,6 @@ extension ProfileViewController: UITableViewDelegate {
                 self.viewModel.updateLoginPreference(.password)
             }
             
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-            
             if LAContext().canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil) {
                 let biometricAction = UIAlertAction(title: "Use Face ID or Touch ID", style: .default) { _ in
                     self.viewModel.updateLoginPreference(.biometric)
@@ -110,7 +156,7 @@ extension ProfileViewController: UITableViewDelegate {
             
             alertController.addAction(autoAction)
             alertController.addAction(manualAction)
-            alertController.addAction(cancelAction)
+            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             
             alertController.popoverPresentationController?.sourceView = view
             alertController.popoverPresentationController?.sourceRect = view.frame

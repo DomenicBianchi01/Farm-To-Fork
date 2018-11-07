@@ -82,11 +82,10 @@ final class NeedsViewController: UIViewController {
                 }
             }
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
         alert.addAction(addAction)
         alert.addAction(filterAction)
-        alert.addAction(cancelAction)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         alert.popoverPresentationController?.sourceView = view
         alert.popoverPresentationController?.sourceRect = view.bounds
@@ -218,31 +217,6 @@ extension NeedsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-//        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { action, indexpath in
-//
-//            self.viewModel.deleteNeed(at: indexPath.row) { result in
-//                switch result {
-//                case .success:
-//                    var indexPaths = [indexPath]
-//
-//                    if let expandedIndexPath = self.viewModel.expandedIndexPath, expandedIndexPath.row == indexPath.row + 1 {
-//                        indexPaths.append(expandedIndexPath)
-//                    }
-//
-//                    self.viewModel.expandedIndexPath = nil
-//
-//                    DispatchQueue.main.async {
-//                        tableView.performBatchUpdates({
-//                            tableView.deleteRows(at: indexPaths, with: .top)
-//                        }, completion: nil)
-//                        self.refreshNoNeedsStatus()
-//                    }
-//                case .error(let error):
-//                    self.displaySCLAlert("Error", message: error.description, style: .error)
-//                }
-//            }
-//        }
-        
         let editAction = UITableViewRowAction(style: .normal, title: "Edit") { action, indexpath in
             self.viewModel.selectedRowToEdit = indexPath.row
             self.performSegue(withIdentifier: Constants.Segues.modifyNeed, sender: self)
@@ -285,11 +259,9 @@ extension NeedsViewController: PledgeDelegate {
                 }
             }
         }
-
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
         alert.addAction(submitAction)
-        alert.addAction(cancelAction)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         alert.addTextField { addedTextField in
             addedTextField.placeholder = "Number of \(need.name)"

@@ -265,11 +265,9 @@ extension MapViewController: LocationInfoDelegate {
             self.calculateDirections(from: userCoordinates, to: location.coordinates, by: .automobile)
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        
         alertController.addAction(walkingDirections)
         alertController.addAction(automobileDirections)
-        alertController.addAction(cancelAction)
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         alertController.popoverPresentationController?.sourceView = view
         alertController.popoverPresentationController?.sourceRect = view.bounds

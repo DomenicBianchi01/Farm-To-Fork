@@ -19,7 +19,7 @@ class User: Codable {
     let email: String
     let firstName: String
     let lastName: String
-    let newsletterDay: Int? //TODO: Should this be int or string
+    let newsletterDay: Int?
     /// If not nil, this property indicates that the user is a worker the specified EFP location id. If nil, the user is not a worker at any locations in the Farm To Fork system
     let workerLocationId: Int?
     
