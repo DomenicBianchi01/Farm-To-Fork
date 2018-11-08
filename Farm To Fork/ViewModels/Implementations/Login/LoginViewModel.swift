@@ -11,26 +11,19 @@ import Valet
 
 final class LoginViewModel {
     // MARK: - Properties
-    private var user = BasicUserDetails()
+    var email: String = ""
+    var password: String = ""
     
     // MARK: - Helper Functions
     func attemptLogin(with completion: @escaping (Result<User>) -> Void) {
-        AuthenticationService().login(user: user) { result in
+        AuthenticationService().login(email: email, password: password) { result in
             completion(result)
         }
     }
     
-    func updateEmail(email: String) {
-        user.email = email
-    }
-    
-    func updatePassword(password: String) {
-        user.password = password
-    }
-    
     func savePasswordToKeychain() {
         if newManualSignIn {
-            if Valet.F2FValet.set(string: user.password, forKey: Constants.password) && Valet.F2FValet.set(string: user.email, forKey: Constants.username) {
+            if Valet.F2FValet.set(string: password, forKey: Constants.password) && Valet.F2FValet.set(string: email, forKey: Constants.username) {
                 UserDefaults.appGroup?.set(true, forKey: Constants.passwordSaved)
             }
         }

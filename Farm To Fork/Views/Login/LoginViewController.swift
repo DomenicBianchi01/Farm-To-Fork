@@ -168,9 +168,9 @@ final class LoginViewController: UIViewController {
 
     private func textFieldDidChange(textField: UITextField) {
         if textField == usernameTextField, let email = usernameTextField.text {
-            viewModel.updateEmail(email: email)
+            viewModel.email = email
         } else if textField == passwordTextField, let password = passwordTextField.text {
-            viewModel.updatePassword(password: password)
+            viewModel.password = password
         }
     }
 }

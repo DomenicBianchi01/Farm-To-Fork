@@ -116,16 +116,18 @@ final class NeedsViewController: UIViewController {
     }
     
     @objc private func fetchNeeds() {
-        viewModel.fetchNeeds { result in
-            DispatchQueue.main.async {
-                self.refreshControl.endRefreshing()
-                switch result {
-                case .success:
-                    self.tableView.reloadData()
-                    self.refreshNoNeedsStatus()
-                case .error(let error):
-                    self.displaySCLAlert("Error", message: error.description, style: .error)
-                    self.tableView.reloadData()
+        if viewModel.locationId != nil {
+            viewModel.fetchNeeds { result in
+                DispatchQueue.main.async {
+                    self.refreshControl.endRefreshing()
+                    switch result {
+                    case .success:
+                        self.tableView.reloadData()
+                        self.refreshNoNeedsStatus()
+                    case .error(let error):
+                        self.displaySCLAlert("Error", message: error.description, style: .error)
+                        self.tableView.reloadData()
+                    }
                 }
             }
         }

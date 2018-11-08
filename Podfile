@@ -4,11 +4,11 @@ target 'Farm To Fork' do
   pod 'MaterialTextField'
   pod 'DeviceKit'
   pod 'SCLAlertView'
-  pod 'Valet', :git => 'https://github.com/square/Valet.git', :branch => 'dfed/watchOS'
+  pod 'Valet'
 end
 
 target 'Farm To Fork For Apple Watch Extension' do
     use_frameworks!
     platform :watchos, '4.0'
-    pod 'Valet', :git => 'https://github.com/square/Valet.git', :branch => 'dfed/watchOS'
+    pod 'Valet'
 end

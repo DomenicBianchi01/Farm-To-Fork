@@ -97,14 +97,14 @@ final class TabBarController: UITabBarController {
         if let locationName = viewModel.preferredLocationName {
             item.title = locationName
 
-            //Sir Shortcuts
+            //Siri Shortcuts
             if #available(iOS 12.0, *) {
-                let activity = NSUserActivity(activityType: "com.domenic.bianchi.FarmToFork.siriShortcut")
-                activity.title = "View preferred location needs"
+                let activity = NSUserActivity(activityType: Constants.siriShortcutsIdentifier)
+                activity.title = "View needs from preferred location"
                 activity.userInfo = ["EFPName" : locationName]
                 activity.isEligibleForSearch = true
                 activity.isEligibleForPrediction = true
-                activity.persistentIdentifier = NSUserActivityPersistentIdentifier("com.domenic.bianchi.FarmToFork.siriShortcut")
+                activity.persistentIdentifier = Constants.siriShortcutsIdentifier
                 view.userActivity = activity
                 activity.becomeCurrent()
             }

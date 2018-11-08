@@ -1,37 +1,28 @@
 PODS:
-  - DeviceKit (1.7.0)
+  - DeviceKit (1.10.0)
   - MaterialTextField (1.0.1)
   - SCLAlertView (0.8)
-  - Valet (3.2.0)
+  - Valet (3.2.2)
 
 DEPENDENCIES:
   - DeviceKit
   - MaterialTextField
   - SCLAlertView
-  - Valet (from `https://github.com/square/Valet.git`, branch `dfed/watchOS`)
+  - Valet
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - DeviceKit
     - MaterialTextField
     - SCLAlertView
-
-EXTERNAL SOURCES:
-  Valet:
-    :branch: dfed/watchOS
-    :git: https://github.com/square/Valet.git
-
-CHECKOUT OPTIONS:
-  Valet:
-    :commit: bb899cb00a4f7c225c4b02196b4a03fcfd6e7184
-    :git: https://github.com/square/Valet.git
+    - Valet
 
 SPEC CHECKSUMS:
-  DeviceKit: 6a5bdeb103c03757bb94aef1ccb01e08bc8ef4ee
+  DeviceKit: 2a6cf0d1ec05e2ac7f9b24cdfdb3cb358900a247
   MaterialTextField: f1a0786588e4d3610cb9bb62d2adbe9777cebbf9
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
-  Valet: 0a35de193b18c9f04568d230847c8a26b2daf7fc
+  Valet: 0babf5737029004185a7a009c1135f0c073011d1
 
-PODFILE CHECKSUM: 1fea781d8c700142b21d31af433c365267823271
+PODFILE CHECKSUM: be1f98d578f70eb20ae6ed47c94aeef36b474f02
 
 COCOAPODS: 1.5.3

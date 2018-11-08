@@ -13,7 +13,7 @@ final class TabBarViewModel {
     var locations: [Location] = []
     
     var isPreferredLocationSet: Bool {
-        return UserDefaults.appGroup?.integer(forKey: Constants.preferredLocationId) != nil ? true : false
+        return UserDefaults.appGroup?.object(forKey: Constants.preferredLocationId) as? Int != nil ? true : false
     }
     
     var preferredLocationName: String? {

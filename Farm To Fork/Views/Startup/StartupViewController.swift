@@ -21,18 +21,16 @@ final class StartupViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        guard let username = Valet.F2FValet.string(forKey: Constants.username), let password = Valet.F2FValet.string(forKey: Constants.password) else {
+        guard loggedInUser == nil, let username = Valet.F2FValet.string(forKey: Constants.username), let password = Valet.F2FValet.string(forKey: Constants.password) else {
             self.performSegue(withIdentifier: Constants.Segues.loginStart, sender: self)
             return
         }
-        
-        let user = BasicUserDetails(email: username, password: password)
         
         authenticateUser { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success:
-                    self.login(user)
+                    self.login(email: username, password: password)
                 case .error:
                     self.performSegue(withIdentifier: Constants.Segues.loginStart, sender: self)
                 }
@@ -45,10 +43,10 @@ final class StartupViewController: UIViewController {
         self.progressView.progress += 1.0 / 15.0
     }
     
-    private func login(_ user: BasicUserDetails) {
+    private func login(email: String, password: String) {
         progressView.isHidden = false
         let timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateProgressView), userInfo: nil, repeats: true)
-        AuthenticationService().login(user: user) { result in
+        AuthenticationService().login(email: email, password: password) { result in
             DispatchQueue.main.async {
                 timer.invalidate()
                 self.progressView.progress = 1.0

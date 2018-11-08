@@ -8,6 +8,7 @@
 
 import UIKit
 import Intents
+import Valet
 
 /// If a user is logged in, this property will contain the users details. If no user is logged in, this property will be `nil`
 var loggedInUser: User? = nil
@@ -17,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow? = WallpaperWindow()
 
+    // MARK: - Application Functions
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         //Spin up the Watch session manager (calling shared will initialize an instance of the class)
         _ = WatchSessionManager.shared
@@ -49,23 +51,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AuthenticationService().logout { _ in }
     }
     
+    // This function is used for Siri Shortcuts Handling
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         // Siri Shortcuts only available on iOS 12+
-        guard #available(iOS 12.0, *) else {
+        guard #available(iOS 12.0, *), userActivity.userInfo?.contains(where: { $0.key.description == "EFPName" }) ?? false else {
             return false
         }
         
-        //TODO: If not logged in, attempt login to get token
-        
-        if userActivity.persistentIdentifier == "com.domenic.bianchi.FarmToFork.siriShortcut", let window = self.window, let rootViewController = window.rootViewController/*, isLoggedIn*/ {
-            let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NeedsNavController")
-            var currentController = rootViewController
-            while let presentedController = currentController.presentedViewController {
-                currentController = presentedController
+        if loggedInUser == nil, let username = Valet.F2FValet.string(forKey: Constants.username), let password = Valet.F2FValet.string(forKey: Constants.password) {
+            AuthenticationService().login(email: username, password: password) { result in
+                switch result {
+                case .success(let user):
+                    loggedInUser = user
+                    self.displayNeeds()
+                case .error:
+                    break
+                }
             }
-            currentController.present(controller, animated: true, completion: nil)
-            return true
+        } else if loggedInUser != nil {
+            displayNeeds()
         }
-        return false
+
+        return true
+    }
+    
+    // MARK: - Private Helper Functions
+    private func displayNeeds() {
+        guard let currentController = UIApplication.topViewController() else {
+            return
+        }
+
+        let needsNavController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "needsNavController")
+        
+        if let needsController = needsNavController.children.first as? NeedsViewController {
+            needsController.viewModel.hideCloseButton = false
+        }
+
+        currentController.present(needsNavController, animated: true, completion: nil)
     }
 }

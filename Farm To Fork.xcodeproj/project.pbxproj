@@ -56,6 +56,7 @@
 		B0479C3C206A80CA009083CB /* UIDeviceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0479C3B206A80CA009083CB /* UIDeviceExtensions.swift */; };
 		B04B2DD92063C011007F07EE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B077904620535D2A0099AD1F /* Constants.swift */; };
 		B04B2DDC2063C1E1007F07EE /* NeedRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04B2DDB2063C1E1007F07EE /* NeedRowController.swift */; };
+		B053D84B21932BF9002C76DA /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B053D84A21932BF9002C76DA /* UIApplicationExtensions.swift */; };
 		B0554DAB2069624D00A49E74 /* LocationInfoDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0554DAA2069624D00A49E74 /* LocationInfoDelegate.swift */; };
 		B060DCCA2188B9500055142B /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B060DCC92188B9500055142B /* AccountViewController.swift */; };
 		B060DCCD2188C8EB0055142B /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B060DCCC2188C8EB0055142B /* AccountViewModel.swift */; };
@@ -95,7 +96,6 @@
 		B0BDBA762162978D001A26D2 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BDBA752162978D001A26D2 /* Category.swift */; };
 		B0BDBA772162986E001A26D2 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BDBA752162978D001A26D2 /* Category.swift */; };
 		B0BDBA802162C4E4001A26D2 /* NeedsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B3BFF22054BCD60074DF0D /* NeedsService.swift */; };
-		B0C1A0CB21573AD8006D3998 /* BasicUserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C1A0CA21573AD8006D3998 /* BasicUserDetails.swift */; };
 		B0C6EC9E205972150064F2B5 /* NeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C6EC9D205972150064F2B5 /* NeedsViewController.swift */; };
 		B0C7D7502163F6E600CDBAE1 /* StepperViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C7D74F2163F6E600CDBAE1 /* StepperViewModelable.swift */; };
 		B0C898422082D14A00E7514F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C898412082D14A00E7514F /* ProfileViewController.swift */; };
@@ -253,6 +253,7 @@
 		B04B2DDA2063C01F007F07EE /* Farm To Fork For Apple Watch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Farm To Fork For Apple Watch Extension.entitlements"; sourceTree = "<group>"; };
 		B04B2DDB2063C1E1007F07EE /* NeedRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedRowController.swift; sourceTree = "<group>"; };
 		B04B2DDD2063C582007F07EE /* Farm To Fork For Apple Watch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Farm To Fork For Apple Watch.entitlements"; sourceTree = "<group>"; };
+		B053D84A21932BF9002C76DA /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
 		B0554DAA2069624D00A49E74 /* LocationInfoDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInfoDelegate.swift; sourceTree = "<group>"; };
 		B060DCC92188B9500055142B /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		B060DCCC2188C8EB0055142B /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
@@ -290,7 +291,6 @@
 		B0B7DA692088117700C36D40 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
 		B0B7DA6B208813E600C36D40 /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
 		B0BDBA752162978D001A26D2 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
-		B0C1A0CA21573AD8006D3998 /* BasicUserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicUserDetails.swift; sourceTree = "<group>"; };
 		B0C6EC9D205972150064F2B5 /* NeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsViewController.swift; sourceTree = "<group>"; };
 		B0C7D74F2163F6E600CDBAE1 /* StepperViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperViewModelable.swift; sourceTree = "<group>"; };
 		B0C898412082D14A00E7514F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -591,7 +591,6 @@
 				B0A8BFCD205F171200077DF7 /* Need.swift */,
 				B0BDBA752162978D001A26D2 /* Category.swift */,
 				B00F9C15204F8D8100C5BC03 /* User.swift */,
-				B0C1A0CA21573AD8006D3998 /* BasicUserDetails.swift */,
 				B0FE2CBD215686D100FD5B74 /* RegisterUserDetails.swift */,
 				B018CCCF216E45E200190FDF /* Pledge.swift */,
 				B0DBB3562187A8140030BBCA /* PledgeHistory.swift */,
@@ -731,6 +730,7 @@
 				B044121C20841B3C0088F07F /* MFTextFieldExtensions.swift */,
 				B07D2E53210EB6220066E19B /* ValetExtensions.swift */,
 				E2DEE6022114CE42004873B5 /* HTTPURLResponseExtensions.swift */,
+				B053D84A21932BF9002C76DA /* UIApplicationExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1140,6 +1140,7 @@
 				B0DC7C75206919CD00E544D2 /* LocationInfoHoursTableViewCell.swift in Sources */,
 				B0C898422082D14A00E7514F /* ProfileViewController.swift in Sources */,
 				B0DC7C732069142700E544D2 /* LocationInfoBasicTableViewCell.swift in Sources */,
+				B053D84B21932BF9002C76DA /* UIApplicationExtensions.swift in Sources */,
 				B0A8BFCE205F171200077DF7 /* Need.swift in Sources */,
 				B0CD0EA620506F1B00FBE902 /* RegisterAccountSegue.swift in Sources */,
 				B060DCD52188DB490055142B /* AccountLastNameViewModel.swift in Sources */,
@@ -1174,7 +1175,6 @@
 				B0319BA321580D360092A897 /* AddNeedUnitsCellViewModel.swift in Sources */,
 				B0B3BFF62054BD330074DF0D /* MapViewController.swift in Sources */,
 				B06E3EE92069BDAD003ED34C /* LocationSearchViewController.swift in Sources */,
-				B0C1A0CB21573AD8006D3998 /* BasicUserDetails.swift in Sources */,
 				B0C8C2232189D6C3006BFD85 /* AccountNewsletterDayViewModel.swift in Sources */,
 				B0CCDA4F2157DD6500A6AEA1 /* InformationDelegate.swift in Sources */,
 				B0A8BFD4205F3F3F00077DF7 /* PledgeService.swift in Sources */,

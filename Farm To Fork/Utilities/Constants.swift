@@ -18,6 +18,7 @@ struct Constants {
     static let setPreferredLocationId = "setPreferredLocationID"
     static let setPreferredLocationName = "setPreferredLocationName"
     static let error = "Error"
+    static let siriShortcutsIdentifier = "com.domenic.bianchi.FarmToFork.siriShortcut"
     
     struct Segues {
         static let loginStart = "LoginStart"

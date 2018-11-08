@@ -23,7 +23,7 @@ final class NeedsViewModel {
         let locationId: Int
         if let location = location {
             locationId = location.id
-        } else if let locationIdentifier = UserDefaults.appGroup?.integer(forKey: Constants.preferredLocationId) {
+        } else if let locationIdentifier = UserDefaults.appGroup?.object(forKey: Constants.preferredLocationId) as? Int {
             locationId = locationIdentifier
         } else {
             return false
@@ -38,7 +38,7 @@ final class NeedsViewModel {
     var locationId: Int? {
         if let location = location {
             return location.id
-        } else if let locationIdentifier = UserDefaults.appGroup?.integer(forKey: Constants.preferredLocationId) {
+        } else if let locationIdentifier = UserDefaults.appGroup?.object(forKey: Constants.preferredLocationId) as? Int {
             return locationIdentifier
         }
         return nil
@@ -63,7 +63,7 @@ final class NeedsViewModel {
         let locationId: Int
         if let location = location {
             locationId = location.id
-        } else if let locationIdentifier = UserDefaults.appGroup?.integer(forKey: Constants.preferredLocationId) {
+        } else if let locationIdentifier = UserDefaults.appGroup?.object(forKey: Constants.preferredLocationId) as? Int {
             locationId = locationIdentifier
         } else {
             completion(.error(NSError(domain: "No location info found", code: 0, userInfo: nil)))

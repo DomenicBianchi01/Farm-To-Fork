@@ -53,7 +53,7 @@ extension WatchSessionManager: WCSessionDelegate {
             return
         }
         
-        if message[Constants.preferredLocationId] != nil, let preferredLocation = UserDefaults.appGroup?.integer(forKey: Constants.preferredLocationId) {
+        if message[Constants.preferredLocationId] != nil, let preferredLocation = UserDefaults.appGroup?.object(forKey: Constants.preferredLocationId) as? Int {
             replyHandler([Constants.preferredLocationId : preferredLocation])
         } else if let preferredLocationId = message[Constants.setPreferredLocationId] as? Int, let preferredLocationName = message[Constants.setPreferredLocationName] as? String {
             UserDefaults.appGroup?.set(preferredLocationId, forKey: Constants.preferredLocationId)

@@ -10,9 +10,9 @@ import Foundation
 
 final class AuthenticationService: JSONService {
     /// Start a user session
-    func login(user: BasicUserDetails, with completion: @escaping (Result<User>) -> Void) {
-        let body = ["Email" : user.email,
-                    "pass" : user.password]
+    func login(email: String, password: String, with completion: @escaping (Result<User>) -> Void) {
+        let body = ["Email" : email,
+                    "pass" : password]
         
         let encodedBody = encode(body)
         

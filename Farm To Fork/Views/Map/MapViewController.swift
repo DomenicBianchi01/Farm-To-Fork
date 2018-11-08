@@ -158,7 +158,7 @@ final class MapViewController: UIViewController {
                 }
                 //TODO: Make this value smaller in production
                 if distance < 6000.0 {
-                    guard let preferredLocationId = UserDefaults.appGroup?.integer(forKey: Constants.preferredLocationId) else {
+                    guard let preferredLocationId = UserDefaults.appGroup?.object(forKey: Constants.preferredLocationId) as? Int else {
                         self.scheduleNotification(title: "Are you going grocery shopping?",
                                                   message: "Take a look at what food providers near you need so you can help out your community!")
                         break
