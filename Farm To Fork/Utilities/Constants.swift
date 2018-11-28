@@ -30,5 +30,6 @@ struct Constants {
         static let registerNextStep = "registerNextStep"
         static let modifyNeed = "modifyNeedSegue"
         static let pledgeHistory = "pledgeHistorySegue"
+        static let loginToMap = "goToMapFromLogin"
     }
 }

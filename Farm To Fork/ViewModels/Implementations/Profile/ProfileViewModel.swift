@@ -9,6 +9,7 @@
 import UIKit
 import Valet
 import MessageUI
+import UserNotifications
 
 final class ProfileViewModel {
     // MARK: - Properties
@@ -26,6 +27,7 @@ final class ProfileViewModel {
                 Valet.F2FValet.removeAllObjects()
                 UserDefaults.resetAppGroup()
                 loggedInUser = nil
+                self.descheduleNotification()
             case .error:
                 break //TODO
             }
@@ -35,14 +37,19 @@ final class ProfileViewModel {
     func changePassword(_ newPassword: String) {
         
     }
+    
+    private func descheduleNotification() {
+        let center = UNUserNotificationCenter.current()
+        center.removeAllPendingNotificationRequests()
+    }
 }
 
 extension ProfileViewModel: TableViewModelable {
     var numberOfSections: Int {
         if canSendMail {
-            return 5
+            return 4
         }
-        return 4
+        return 3
     }
     
     func numberOfRows(in section: Int) -> Int {
@@ -66,9 +73,9 @@ extension ProfileViewModel: TableViewModelable {
     func cellForRow(in tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
         let reuseIdentifier: String
         
-        if indexPath.section == 0 || indexPath.section == 1 || indexPath.section == 2 {
+        if indexPath.section == 0 || indexPath.section == 1 {
             reuseIdentifier = "basicCellReuseIdentifier"
-        } else if indexPath.section == 3 && canSendMail {
+        } else if indexPath.section == numberOfSections - 1 && canSendMail {
             reuseIdentifier = "feedbackReuseIdentifier"
         } else {
             reuseIdentifier = "logoutReuseIdentifier"
@@ -83,10 +90,8 @@ extension ProfileViewModel: TableViewModelable {
                 if indexPath.row == 0 {
                     cell.configure(with: "Edit account information")
                 } else {
-                    cell.configure(with: "Change password")
+                    cell.configure(with: "Login Preferences")
                 }
-            } else {
-                cell.configure(with: "Login Preferences")
             }
         }
         

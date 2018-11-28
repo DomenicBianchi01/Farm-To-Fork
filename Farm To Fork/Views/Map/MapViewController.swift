@@ -156,8 +156,8 @@ final class MapViewController: UIViewController {
                 guard let distance = self.distance(to: mapItem.placemark) else {
                     continue
                 }
-                //TODO: Make this value smaller in production
-                if distance < 6000.0 {
+                //100 meters
+                if distance < 100.0 {
                     guard let preferredLocationId = UserDefaults.appGroup?.object(forKey: Constants.preferredLocationId) as? Int else {
                         self.scheduleNotification(title: "Are you going grocery shopping?",
                                                   message: "Take a look at what food providers near you need so you can help out your community!")
@@ -187,9 +187,9 @@ final class MapViewController: UIViewController {
                 let content = UNMutableNotificationContent()
                 content.title = title
                 content.body = message
-                content.sound = UNNotificationSound.default
+                content.sound = .default
                 let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
-                let request = UNNotificationRequest(identifier: "FiveSecond", content: content, trigger: trigger)
+                let request = UNNotificationRequest(identifier: "F2FLocationNotification", content: content, trigger: trigger)
                 let center = UNUserNotificationCenter.current()
                 center.add(request) { _ in }
             }

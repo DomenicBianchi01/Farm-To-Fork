@@ -95,74 +95,73 @@ extension ProfileViewController: UITableViewDelegate {
             if indexPath.row == 0 {
                 performSegue(withIdentifier: Constants.Segues.accountInfo, sender: self)
             } else {
-                let alert = UIAlertController(title: "Change Password", message: "Enter your current and new password below. The new password must meet the following requirements:\nAt least 8 characters, 1 number, 1 uppercase letter, and 1 lowercase letter", preferredStyle: .alert)
+                let alertController = UIAlertController(title: "Login Preference", message: "Select one of the options below to change your login preference", preferredStyle: UIDevice.alertStyle)
                 
-                let submitAction = UIAlertAction(title: "Submit", style: .default) { _ in
-                    guard let newPassword = self.newPasswordField?.text else {
-                        return
+                let autoAction = UIAlertAction(title: "Automatically log in", style: .default) { _ in
+                    self.viewModel.updateLoginPreference(.autoLogin)
+                }
+                
+                let manualAction = UIAlertAction(title: "Manually enter password", style: .default) { _ in
+                    self.viewModel.updateLoginPreference(.password)
+                }
+                
+                if LAContext().canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil) {
+                    let biometricAction = UIAlertAction(title: "Use Face ID or Touch ID", style: .default) { _ in
+                        self.viewModel.updateLoginPreference(.biometric)
                     }
-                    self.viewModel.changePassword(newPassword)
+                    
+                    alertController.addAction(biometricAction)
                 }
                 
-                alert.addAction(submitAction)
-                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                alertController.addAction(autoAction)
+                alertController.addAction(manualAction)
+                alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
                 
-                submitAction.isEnabled = false
-                self.submitAction = submitAction
+                alertController.popoverPresentationController?.sourceView = view
+                alertController.popoverPresentationController?.sourceRect = view.frame
                 
-                alert.addTextField { addedTextField in
-                    addedTextField.placeholder = "Current Password"
-                    addedTextField.isSecureTextEntry = true
-                    self.currentPasswordField = addedTextField
-                }
-                alert.addTextField { addedTextField in
-                    addedTextField.placeholder = "New Password"
-                    addedTextField.isSecureTextEntry = true
-                    self.newPasswordField = addedTextField
-                }
-                alert.addTextField { addedTextField in
-                    addedTextField.placeholder = "Re-enter New Password"
-                    addedTextField.isSecureTextEntry = true
-                    self.newPasswordField2 = addedTextField
-                }
-                
-                currentPasswordField?.addTarget(self, action: #selector(ProfileViewController.textFieldDidChange(_:)), for: .editingChanged)
-                newPasswordField?.addTarget(self, action: #selector(ProfileViewController.textFieldDidChange(_:)), for: .editingChanged)
-                newPasswordField2?.addTarget(self, action: #selector(ProfileViewController.textFieldDidChange(_:)), for: .editingChanged)
-                
-                alert.popoverPresentationController?.sourceView = self.view
-                alert.popoverPresentationController?.sourceRect = self.view.bounds
-                
-                self.present(alert, animated: true, completion: nil)
+                present(alertController, animated: true, completion: nil)
+//                let alert = UIAlertController(title: "Change Password", message: "Enter your current and new password below. The new password must meet the following requirements:\nAt least 8 characters, 1 number, 1 uppercase letter, and 1 lowercase letter", preferredStyle: .alert)
+//
+//                let submitAction = UIAlertAction(title: "Submit", style: .default) { _ in
+//                    guard let newPassword = self.newPasswordField?.text else {
+//                        return
+//                    }
+//                    self.viewModel.changePassword(newPassword)
+//                }
+//
+//                alert.addAction(submitAction)
+//                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+//
+//                submitAction.isEnabled = false
+//                self.submitAction = submitAction
+//
+//                alert.addTextField { addedTextField in
+//                    addedTextField.placeholder = "Current Password"
+//                    addedTextField.isSecureTextEntry = true
+//                    self.currentPasswordField = addedTextField
+//                }
+//                alert.addTextField { addedTextField in
+//                    addedTextField.placeholder = "New Password"
+//                    addedTextField.isSecureTextEntry = true
+//                    self.newPasswordField = addedTextField
+//                }
+//                alert.addTextField { addedTextField in
+//                    addedTextField.placeholder = "Re-enter New Password"
+//                    addedTextField.isSecureTextEntry = true
+//                    self.newPasswordField2 = addedTextField
+//                }
+//
+//                currentPasswordField?.addTarget(self, action: #selector(ProfileViewController.textFieldDidChange(_:)), for: .editingChanged)
+//                newPasswordField?.addTarget(self, action: #selector(ProfileViewController.textFieldDidChange(_:)), for: .editingChanged)
+//                newPasswordField2?.addTarget(self, action: #selector(ProfileViewController.textFieldDidChange(_:)), for: .editingChanged)
+//
+//                alert.popoverPresentationController?.sourceView = self.view
+//                alert.popoverPresentationController?.sourceRect = self.view.bounds
+//
+//                self.present(alert, animated: true, completion: nil)
             }
         } else if indexPath.section == 2 {
-            let alertController = UIAlertController(title: "Login Preference", message: "Select one of the options below to change your login preference", preferredStyle: UIDevice.alertStyle)
-            
-            let autoAction = UIAlertAction(title: "Automatically log in", style: .default) { _ in
-                self.viewModel.updateLoginPreference(.autoLogin)
-            }
-            
-            let manualAction = UIAlertAction(title: "Manually enter password", style: .default) { _ in
-                self.viewModel.updateLoginPreference(.password)
-            }
-            
-            if LAContext().canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil) {
-                let biometricAction = UIAlertAction(title: "Use Face ID or Touch ID", style: .default) { _ in
-                    self.viewModel.updateLoginPreference(.biometric)
-                }
-                
-                alertController.addAction(biometricAction)
-            }
-            
-            alertController.addAction(autoAction)
-            alertController.addAction(manualAction)
-            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-            
-            alertController.popoverPresentationController?.sourceView = view
-            alertController.popoverPresentationController?.sourceRect = view.frame
-            
-            present(alertController, animated: true, completion: nil)
-        } else if indexPath.section == 3 {
             promptForFeedback()
         }
     }
