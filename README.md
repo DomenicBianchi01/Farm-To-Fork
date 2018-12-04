@@ -4,4 +4,4 @@ This is the project I starting working on in CIS 4500 (Special Topics - iOS Deve
 
 Please note, that the server that the app uses is not mine (it belongs to the student I worked with in CIS 4500) so the app may stop working at any time. If it does, please let me know!
 
-If you want to try out the app, you can create an account. When the app prompts you to select your country, only Canada is currently supported. Province and City currently have no effect since the app will always use the City of Guelph.
+Check out the Wiki page (on the GitHub repo) for instructions on how to use the app.
