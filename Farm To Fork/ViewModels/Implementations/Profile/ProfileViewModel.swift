@@ -20,7 +20,7 @@ final class ProfileViewModel {
         UserDefaults.appGroup?.set(preference.rawValue, forKey: Constants.loginPreference)
     }
 
-    func logout() {
+    func logout(with completion: @escaping (Result<Void>) -> Void) {
         AuthenticationService().logout { result in
             switch result {
             case .success:
@@ -28,8 +28,9 @@ final class ProfileViewModel {
                 UserDefaults.resetAppGroup()
                 loggedInUser = nil
                 self.descheduleNotification()
-            case .error:
-                break //TODO
+                completion(.success(()))
+            case .error(let error):
+                completion(.error(error))
             }
         }
     }

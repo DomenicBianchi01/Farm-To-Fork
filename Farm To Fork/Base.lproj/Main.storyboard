@@ -976,7 +976,6 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="logoutButtonTapped:" destination="6ae-LS-sri" eventType="touchUpInside" id="HVG-gx-yPO"/>
-                                                        <segue destination="osc-Yz-ijF" kind="unwind" unwindAction="unwindToViewControllerWithSegue:" id="g26-Sa-atb"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -1009,6 +1008,7 @@
                         <outlet property="tableView" destination="9lF-Yp-Txd" id="TM6-sp-oEC"/>
                         <segue destination="zqX-xk-r4g" kind="show" identifier="accountInfoSegue" id="Lqq-HE-yCI"/>
                         <segue destination="cNa-zk-K5Y" kind="show" identifier="pledgeHistorySegue" id="pI4-Qn-77t"/>
+                        <segue destination="osc-Yz-ijF" kind="unwind" identifier="unwindToLogin" unwindAction="unwindToViewControllerWithSegue:" id="IeT-An-wLh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jte-ov-TMf" userLabel="First Responder" sceneMemberID="firstResponder"/>

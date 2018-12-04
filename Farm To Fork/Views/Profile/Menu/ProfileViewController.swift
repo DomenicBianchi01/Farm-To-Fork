@@ -41,7 +41,16 @@ final class ProfileViewController: UIViewController {
     
     // MARK: - IBActions
     @IBAction func logoutButtonTapped(_ sender: Any) {
-        viewModel.logout()
+        viewModel.logout { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success:
+                    self.performSegue(withIdentifier: "unwindToLogin", sender: self)
+                case .error(let error):
+                    self.displaySCLAlert("Error", message: error.description, style: .error)
+                }
+            }
+        }
     }
     
     // MARK: - Helper Functions

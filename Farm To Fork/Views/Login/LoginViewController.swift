@@ -61,7 +61,6 @@ final class LoginViewController: UIViewController {
             self.splashBackgroundImageView.isHidden = true
             
             if loggedInUser != nil {
-                self.scheduleNotification()
                 self.performSegue(withIdentifier: Constants.Segues.loginToMap, sender: self)
             }
         }
@@ -90,44 +89,6 @@ final class LoginViewController: UIViewController {
     }
     
     // MARK: - Helper Functions
-    private func scheduleNotification() {
-        guard let newsletterDay = loggedInUser?.newsletterDay else {
-            return
-        }
-        
-        UNUserNotificationCenter.current().getNotificationSettings(completionHandler: { result in
-            if result.authorizationStatus == .authorized {
-                var notificationAlreadyPending = false
-                let center = UNUserNotificationCenter.current()
-                center.getPendingNotificationRequests(completionHandler: { (requests) in
-                    for request in requests {
-                        if request.identifier == "F2FLocationNotification" {
-                            notificationAlreadyPending = true
-                            break
-                        }
-                    }
-                })
-                
-                if !notificationAlreadyPending {
-                    let content = UNMutableNotificationContent()
-                    content.title = "Are you going grocery shopping today?"
-                    content.body = "Make sure to check out what some of your local EFP's need the most!"
-                    content.sound = .default
-                    
-                    var dateInfo = DateComponents()
-                    //8am on the user's newsletter day
-                    dateInfo.day = newsletterDay
-                    dateInfo.hour = 8
-                    dateInfo.minute = 0
-                    
-                    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: true)
-                    let request = UNNotificationRequest(identifier: "F2FLocationNotification", content: content, trigger: trigger)
-                    center.add(request) { _ in }
-                }
-            }
-        })
-    }
-    
     private func displayError(message: String) {
         DispatchQueue.main.async {
             self.loginErrorLabel.text = message
@@ -151,7 +112,6 @@ final class LoginViewController: UIViewController {
                     self.viewModel.removePasswordFromKeychain()
                     self.viewModel.savePasswordToKeychain()
                     loggedInUser = user
-                    self.scheduleNotification()
                     if self.viewModel.firstLogin {
                         self.promptForLoginPreferences()
                     } else {

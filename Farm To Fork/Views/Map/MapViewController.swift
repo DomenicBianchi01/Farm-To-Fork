@@ -157,7 +157,7 @@ final class MapViewController: UIViewController {
                     continue
                 }
                 //100 meters
-                if distance < 100.0 {
+                if distance < 6000.0 {
                     guard let preferredLocationId = UserDefaults.appGroup?.object(forKey: Constants.preferredLocationId) as? Int else {
                         self.scheduleNotification(title: "Are you going grocery shopping?",
                                                   message: "Take a look at what food providers near you need so you can help out your community!")
@@ -324,13 +324,13 @@ extension MapViewController: CLLocationManagerDelegate {
             locationManager.allowsBackgroundLocationUpdates = true
             locationManager.pausesLocationUpdatesAutomatically = false
             mapView.showsUserLocation = true
+            navigationItem.rightBarButtonItem = MKUserTrackingBarButtonItem(mapView: mapView)
         } else if status == .authorizedWhenInUse {
             mapView.showsUserLocation = true
+            navigationItem.rightBarButtonItem = MKUserTrackingBarButtonItem(mapView: mapView)
         } else {
             mapView.showsUserLocation = false
         }
-        
-        UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .alert, .sound]) { _,_  in }
     }
     
     // https://developer.apple.com/documentation/corelocation/getting_the_user_s_location/using_the_significant_change_location_service

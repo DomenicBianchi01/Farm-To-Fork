@@ -20,7 +20,7 @@ final class NeedInfoController: WKInterfaceController {
             return
         }
 
-        itemNameLabel.setText("\(need.name)\n\(need.category) - \(need.units)")
+        itemNameLabel.setText("\(need.name)\n\(need.category.name) - \(need.units.name)")
         
         needInfoTable.setNumberOfRows(2, withRowType: "StatsRow")
         for index in 0 ..< 2 {
