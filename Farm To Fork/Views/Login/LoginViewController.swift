@@ -12,7 +12,6 @@ import SCLAlertView
 import Intents
 import LocalAuthentication
 import AudioToolbox
-import UserNotifications
 
 final class LoginViewController: UIViewController {
     // MARK: - IBOutlets
